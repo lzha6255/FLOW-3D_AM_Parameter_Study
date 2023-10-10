@@ -1,0 +1,167 @@
+:tocdepth: 6
+
+.. index:: input variables, units, dimensions
+
+#######################################
+Input Variable Summary
+#######################################
+
+.. index:: input file specifications
+
+.. _InputFileSpecifications:
+
+=============================
+Input File Specifications
+=============================
+
+
+.. _editing_input_file:
+
+Editing the input file directly
+==============================================
+
+The simulation input file, :file:`prepin.*`, is an ASCII text file that can be
+edited in any normal text editor.  Alternatively, it can be opened in the
+built-in text editor by going to :menuselection:`File-->Edit Simulation` or
+pressing ``cntrl+e``.
+
+The built-in text editor behaves like any other text editor but includes a
+syntax checker that can be run by pressing the :guilabel:`Check Syntax`
+button.  This will highlight any :guilabel:`Syntax errors` (e.g. misplaced
+commas, unmatched parentheses, etc.) in red and any :guilabel:`Unexpected
+items` (i.e. unrecognized input variables in a namelist) in orange.  The
+dialog buttons with  the right and left arrows can be used to move to the
+next/previous item.
+
+
+.. index:: input file structure, namelist blocks
+
+.. _InputFileStructure:
+
+Input File Structure and Namelist Blocks
+==============================================
+
+The |prod| pre-processor reads the problem definition from the simulation input
+file, :file:`prepin.*`, e.g., :file:`prepin.inp` or :file:`prepin.joe`,
+which contains a problem title and a series of namelist blocks that define the
+problem setup and initial conditions.
+
+Many of the parameters listed in this document can be set directly in the
+:abbr:`GUI (Graphical User Interface)` by activating buttons and entering data
+in dialog boxes. The GUI then adds the appropriate variables to the simulation
+input file. Those parameters that cannot be set via the GUI can be entered
+directly into the simulation input file using a text editor.
+
+The namelist blocks are separated into logical divisions, i.e., boundary
+condition data is specified in namelist :envvar:`BCDATA`, fluid properties are defined
+in namelist :envvar:`PROPS`, etc. The namelist blocks are summarized below in the order
+that they must appear in the project file. Most of these namelist blocks are
+always required (even though some blocks may be empty). The following list
+indicates which namelist blocks are required and which are used only for
+special models. Uses the shared function fnc0.F90. This routine is also called by
+
+
+.. tabularcolumns:: |p{3.0cm}|p{8.5cm}|p{2.0cm}|
+
+.. list-table::
+   :widths: 10 70 15
+   :header-rows: 1
+   :class: longtable
+
+   * - NAMELIST
+     - DESCRIPTION
+     - REQUIRED
+
+   * - :envvar:`XPUT`
+     - Computational parameters
+     - Yes
+
+   * - :envvar:`LIMITS`
+     - Computational and print limits
+     - Yes
+
+   * - :envvar:`PROPS`
+     - Fluid properties
+     - Yes
+
+   * - :envvar:`SCALAR`
+     - Scalar species parameters
+     - No
+
+   * - :envvar:`CHM`
+     - Reaction Kinetics parameters
+     - No
+
+   * - :envvar:`RBDATA`
+     - Coupled rigid-body dynamics data
+
+       .. note:: Only read if :envvar:`IACCF` = 2 in :ref:`GravityAndNIRFOptions`.
+     - No
+
+   * - :envvar:`USRDAT`
+     - User-definable namelist data
+
+       .. note:: Only read if :envvar:`IUSRD` = 2 in :ref:`UserDefinedVariables`.
+     - No
+
+   * - :envvar:`BCDATA`
+     - Boundary condition parameters
+     - Yes
+
+   * - :envvar:`MESH`
+     - Mesh data for computational grid
+     - Yes
+
+   * - :envvar:`BCDATA`
+     - Repeated for each additional mesh block
+     - Yes
+
+   * - :envvar:`MESH`
+     - Repeated for each additional mesh block
+     - Yes
+
+   * - :envvar:`OBS`
+     - Geometry data
+     - Yes
+
+   * - :envvar:`FL`
+     - Fluid initial conditions
+     - Yes
+
+   * - :envvar:`BF`
+     - Baffle setup
+     - Yes
+
+   * - :envvar:`MOTN`
+     - Non-inertial reference frame motion description
+
+       .. note:: Only read if :envvar:`IACCF` > 0 in :ref:`GravityAndNIRFOptions`.
+     - No
+
+   * - :envvar:`GRAFIC`
+     - Graphics output requests
+     - Yes
+
+   * - :envvar:`PARTS`
+     - Marker and mass particle setup
+     - Yes
+
+   * - :envvar:`SPRAY`
+     - Spray cooling properties for thermal die cycling
+
+       .. note:: Only read if :envvar:`IFSPRAY` = 1 in :ref:`namelistXPUTPhysicalModelOptions`.
+     - No
+
+   * - :envvar:`USRDAT`
+     - User-definable namelist data
+
+       .. note:: Only read if :envvar:`IUSRD` = 1 in :ref:`UserDefinedVariables`.
+     - No
+
+   * - :envvar:`HEADER`
+     - GUI data
+     - No
+
+   * - :envvar:`RENDERSPACE`
+     - FAVORizer data
+     - No

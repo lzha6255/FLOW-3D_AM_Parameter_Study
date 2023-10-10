@@ -1,0 +1,268 @@
+NAME,SUBSCRIPT,DEFAULT_VALUE,DESCRIPTION,UNITS,SET_VALUE,REMARK
+XPUT,BLOCK,BLOCK,Computational parameters,BLOCK,BLOCK,BLOCK
+TWFIN,,...,Time to end calculation,s,0.003,'Simulation Finish Time'
+ITB,,0,Indicator for free surfaces or sharp interfaces,NONE,1,
+IFENRG,,...,Flag for internal energy evaluation,NONE,2,
+IFVISC,,0,Viscous flow flag,NONE,1,
+IFSFT,,0,Surface tension flag,NONE ,1,
+IMPHTC,,...,Heat transfer and conduction explicit/implicit flag,NONE,1,
+IFVOF,,...,Flag for F advection options,NONE,6,
+IFDYNCONV,,1,Pressure iteration convergence criterion flag,NONE,1,
+IPHCHG,,0,Phase change and bubble model flag,NONE,1,
+IFRHO,,...,Flag for density evaluation,NONE,1,
+IFTHEXP,,0,Thermal expansion flag for flow with density a function of temperature,NONE,1,
+GZ,,0.0,Gravity component in z-direction,cm/s^2,-981,
+IFSLD,,0,Solidification model flag,NONE,1,
+HFLV1,,0.0,Heat transfer coefficient for fluid #1 to type 1 void,g K^-1 s^-3,1.0e+05,'heat transfer to void type 1'
+TEDIT,1,...,Ending time of edit interval :envvar:`n`. Not used if unspecified. ,s,0,
+TAPLTD,1,TWFIN` /10,,Selected spatial data output interval from :envvar:`TEDIT(n-1)` to :envvar:`TEDIT(n)` ,[t],1.5e-05,
+LIMITS,BLOCK,BLOCK,Computational and print limits,BLOCK,BLOCK,BLOCK
+PROPS,BLOCK,BLOCK,Fluid properties,BLOCK,BLOCK,BLOCK
+UNITS,,...,Character string used to identify units (up to 10 characters),NONE,'cgs','base units'
+TUNITS,,...,Character string used to identify temperature units (up to 10 characters),NONE,'k','temperature units'
+MUNITS,,...,"Character string used to identify mass units when ""Custom"" option is chosen (up to 10 characters)",NONE,'g','mass units'
+LUNITS,,...,"Character string used to identify length units when ""Custom"" option is chosen (up to 10 characters)",NONE,'cm','length units'
+TIMUNITS,,...,"Character string used to identify time units when ""Custom"" option is chosen (up to 10 characters)",NONE,'s','time units'
+CUNITS,,...,"Character string used to identify charge units when ""Custom"" option is chosen (up to 10 characters)",NONE,'scoul','charge units'
+GAMMA,,1.4,"Exponent in void region equation of state, ``P*V^GAMMA = constant``. Zero or negative value indicates constant pressure. :envvar:`GAMMA` = ratio of specific heats of 'void' gas C\ :sub:`p`/C\ :sub:`v`, assumed constant.",NON-DIM,1.4,'gamma'
+PCAV,,...,"Cavitation pressure, used in Cavitation (:envvar:`ICAV` = 1) and Cavitation Potential (:envvar:`IPCAV` :math:`>` 0) models. Defaults to -1 atm. if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to zero otherwise.",g cm^-1 s^-2,0,
+MU1,,MUI,,Dynamic viscosity of fluid #1,[M L\ :sup:`-1` t\ :sup:`-1`],0.033,'viscosity'
+FLUID1,,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE,'Bronze_(Ship propeller)','material name'
+MUCTST,,1/(1000 • :envvar:`TWFIN`),Minimum fluid strain rate applied in strain rate-dependent viscosity model.,1/s,0.001,
+CV1,,0.0,Specific heat of fluid #1,cm^2 s^-2 K^-1,5.7e+6,'specific heat'
+TSTAR,,0.0 degrees C or F,Reference temperature for temperature-dependent fluid properties,K,273.15,'reference temperature'
+TL1,,0.0,Liquidus temperature of fluid #1,K,1359.15,'liquidus temperature'
+TS1,,0.0,Solidus temperature of fluid #1,K,1328.15,'solidus temperature'
+CLHT1,,0.0,Latent heat of fusion in fluid #1,cm^2 s^-2,2.2e+9,'latent heat fusion'
+CVS1,,CV1,,Specific heat of solidified fluid #1,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`],5e+6,'specific heat'
+THCS1,,THC1,,Thermal conductivity of solidified fluid #1,[M L t\ :sup:`-3` T\ :sup:`-1`],0,'thermal conductivity'
+RHOFS,,RHOF,,Density of solidified fluid #1,[M/L :sup:`3`],7.6,'density'
+TSDRG,,1.0,Coefficient of solidification drag,1/s,1,'coefficient of solidification drag'
+FSCR,,0.67,Critical solid fraction above which metal has no fluidity,NON-DIM,1,'critical solid fraction'
+FSCO,,0.15,Fraction of solid at coherency point. ,NON-DIM,0,'coherent solid fraction'
+PV1,,1.013 :math:`\times` 10\ :sup:`6`,Absolute pressure value on the saturation curve that corresponds to temperature :envvar:`TV1`. The saturation curve defines a relationship between saturation pressure and temperature.,g cm^-1 s^-2,1.013e+6,'saturation pressure'
+TV1,,...,Temperature value on the saturation curve that corresponds to pressure :envvar:`PV1`. The saturation curve defines a relationship between saturation pressure and temperature. ,K,2500,'saturation temperature'
+CLHV1,,...,Latent heat of vaporization/condensation constant (\ :envvar:`ICLHV1` = 0) *or* value at temperature :envvar:`THV1` (when :envvar:`ICLHV1` = 2),cm^2/s^2,2.256e10,'latent heat of vaporization'
+RSIZE,,0.0,Dimensionless accommodation coefficient for the liquid/vapor evaporative phase change rate.,NON-DIM,0.01,'accommodation coefficient'
+CVVAP,,...,Vapor specific heat at constant volume of vaporized fluid 1 (\ :envvar:`IPHCHG` = 4) or fluid 2 (\ :envvar:`IPHCHG` = 5).,cm^2 s^-2 K^-1,1.43e7,'vapor specific heat'
+TVEXP,,0.0,Exponent in the relationship between saturation pressure and temperature. For perfect gas :envvar:`TVEXP` is equal to (\ :envvar:`GAMMA` -1.0)*\ :envvar:`CVVAP`/\ :envvar:`CLHV1`. The saturation curve is defined by the Clapeyron equation:,NON-DIM,0.0002535461,'exponent for T-P curve'
+RHOF,,-1.0,"Density of fluid #1. For temperature-dependent density, fluid #1 density at T=\ :envvar:`TSTAR`.",g/cm :sup:3,6.6,'density'
+SIGMA,,0.0,Surface tension coefficient; same as used in :ref:`SurfaceTensionProperties`.,g/s^2,0,'surface tension coefficient'
+YIELDT1,,0.0,Fluid #1 yield stress temperature sensitivity,g cm^-1 s^-2 K^-1,0,
+MUS,,0.0,Additional viscosity coefficient for density- or solid-fraction-dependent viscosity model. Only used when :envvar:`MUS` :math:`>` 0.0.,g cm^-1 s^-1,50,
+THC1,,-1.0,Thermal conductivity of fluid #1,g cm s^-3 K^-1,7e+6,'thermal conductivity'
+YIELD1,,-1.0,"Yield stress limit for fluid #1. A negative value means that the yield stress is infinite, that is, no yielding occurs.",g cm^-1 s^-2,-10,'yield stress limit'
+IPGAUGE,,...,"Pressure type, absolute or gauge, for all pressure quantities used in the simulation.",NONE,0,'pressure type'
+BLKMOD_LIQ,,0.0,"Bulk modulus of liquid phase. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],6.7e+11,
+BLKMOD_FSCR,,0.0,"Bulk modulus of solidifing fluid at critical solid fraction :envvar:`FSCR`. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],1.3e+12,
+SCALAR,BLOCK,BLOCK,Scalar species parameters,BLOCK,BLOCK,BLOCK
+NSC,,0,Number of user-defined scalar species,NONE,16,
+SCLTIT,1,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Cooling rate R',
+ISCLR,1,...,Scalar advection options,NONE,0,
+SCLTIT,2,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Evaporation Pressure',
+ISCLR,2,...,Scalar advection options,NONE,0,
+SCLTIT,3,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'G/R',
+ISCLR,3,...,Scalar advection options,NONE,0,
+SCLTIT,4,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Heat flux by heat source',
+ISCLR,4,...,Scalar advection options,NONE,0,
+SCLTIT,5,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Heat flux multiple reflection',
+ISCLR,5,...,Scalar advection options,NONE,0,
+SCLTIT,6,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Melt region',
+ISCLR,6,...,Scalar advection options,NONE,3,
+SCLTIT,7,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Melt region length X',
+ISCLR,7,...,Scalar advection options,NONE,0,
+SCLTIT,8,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Melt region length Y',
+ISCLR,8,...,Scalar advection options,NONE,0,
+SCLTIT,9,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Melt region length Z',
+ISCLR,9,...,Scalar advection options,NONE,0,
+SCLTIT,10,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Temperature gradient G',
+ISCLR,10,...,Scalar advection options,NONE,0,
+SCLTIT,11,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Temperature gradient dT/dx',
+ISCLR,11,...,Scalar advection options,NONE,0,
+SCLTIT,12,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Temperature gradient dT/dy',
+ISCLR,12,...,Scalar advection options,NONE,0,
+SCLTIT,13,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Temperature gradient dT/dz',
+ISCLR,13,...,Scalar advection options,NONE,0,
+SCLTIT,14,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'X reflection',
+ISCLR,14,...,Scalar advection options,NONE,0,
+SCLTIT,15,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Y reflection',
+ISCLR,15,...,Scalar advection options,NONE,0,
+SCLTIT,16,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,'Z reflection',
+ISCLR,16,...,Scalar advection options,NONE,0,
+CHM,BLOCK,BLOCK,Reaction Kinetics parameters,BLOCK,BLOCK,BLOCK
+BCDATA,BLOCK,BLOCK,Boundary condition parameters,BLOCK,BLOCK,BLOCK
+IBCT,1,...,Boundary condition type at mesh block boundaries,NONE,2,
+HWALL1,1,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1,
+TBCT,"1, 1",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,1,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+IBCT,2,...,Boundary condition type at mesh block boundaries,NONE,2,
+HWALL1,2,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1,
+TBCT,"1, 2",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,2,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+IBCT,3,...,Boundary condition type at mesh block boundaries,NONE,2,
+HWALL1,3,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1,
+TBCT,"1, 3",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,3,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+IBCT,4,...,Boundary condition type at mesh block boundaries,NONE,2,
+HWALL1,4,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1,
+TBCT,"1, 4",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,4,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+IBCT,5,...,Boundary condition type at mesh block boundaries,NONE,2,
+HWALL1,5,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1,
+TBCT,"1, 5",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,5,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+IBCT,6,...,Boundary condition type at mesh block boundaries,NONE,5,
+PBCT,"1, 6",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.0e+06,
+FBCT,"1, 6",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,0,
+TBCT,"1, 6",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],293,
+IHTBCT,6,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,0,
+MESH,BLOCK,BLOCK,Mesh data for computational grid,BLOCK,BLOCK,BLOCK
+MESHNAME,,mesh block no. ##,Mesh block name (up to 256 characters),NONE,'Mesh block 1',
+SIZE,,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",cm,0.00025,'Size of Cells'
+PX,1,...,nth location in x-direction for a mesh plane,cm,0,'Location of the Mesh Plane in the X Direction'
+PX,2,...,nth location in x-direction for a mesh plane,cm,0.03,'Location of the Mesh Plane in the X Direction'
+PY,1,...,nth location in y-direction for a mesh plane,cm,0,'Location of the Mesh Plane in the Y Direction'
+PY,2,...,nth location in y-direction for a mesh plane,cm,0.03,'Location of the Mesh Plane in the Y Direction'
+PZ,1,...,nth location in z-direction for a mesh plane,cm,0,'Location of the Mesh Plane in the Z Direction'
+PZ,2,...,nth location in z-direction for a mesh plane,cm,0.023,'Location of the Mesh Plane in the Z Direction'
+IF_MESH_ENABLED,,1,Activation flag for mesh block,NONE ,1,
+OBS,BLOCK,BLOCK,Geometry data,BLOCK,BLOCK,BLOCK
+FL,BLOCK,BLOCK,Fluid initial conditions,BLOCK,BLOCK,BLOCK
+nfls,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,
+fluidRegionName,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'powder bed','Fluid Region Name'
+ifdis,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,'Geometry'
+treg,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,293,'Fluid Tempearture'
+ffstl,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Base_Layer_Settling_GE/particle0011.stl','STL Geometry Filename'
+if_flreg_enabled,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,
+fluidRegionName,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'bulk','Fluid Region Name'
+fzh,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.015,'Z High'
+treg,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,293,'Fluid Tempearture'
+if_flreg_enabled,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,
+pvoid,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e+06,'Default Void Initial Vapor Pressure'
+iflinittyp,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,'Fluid Initialization'
+BF,BLOCK,BLOCK,Baffle setup,BLOCK,BLOCK,BLOCK
+MOTN,BLOCK,BLOCK,Non-inertial reference frame motion description,BLOCK,BLOCK,BLOCK
+GRAFIC,BLOCK,BLOCK,Graphics output requests,BLOCK,BLOCK,BLOCK
+anmtyp,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr1',
+anmtyp,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr10',
+anmtyp,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr11',
+anmtyp,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr12',
+anmtyp,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr13',
+anmtyp,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr14',
+anmtyp,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr15',
+anmtyp,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr16',
+anmtyp,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr2',
+anmtyp,10,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr3',
+anmtyp,11,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr4',
+anmtyp,12,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr5',
+anmtyp,13,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr6',
+anmtyp,14,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr7',
+anmtyp,15,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr8',
+anmtyp,16,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr9',
+anmtyp,17,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sldfrc',
+anmtyp,18,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'tn',
+anmtyp,19,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'vel',
+RENDERSPACE,BLOCK,BLOCK,FAVORizer data,BLOCK,BLOCK,BLOCK
+HEADER,BLOCK,BLOCK,GUI data,BLOCK,BLOCK,BLOCK
+project,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Base Layer Melt GE',
+version,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'double',
+nprocs,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,
+PARTS,BLOCK,BLOCK,Marker and mass particle setup,BLOCK,BLOCK,BLOCK
+DETAILS,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
+f3d_product_name,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'FLOW-3D',
+f3d_version_number,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'12.0.2',
+created,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2023 Oct 02 22:17',
+modified,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2023 Oct 08 06:10',
+weld,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
+nlbeam,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3,
+ilbeam,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,'surface detection method'
+timlbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+timlbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.407e-3,
+timlbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.408e-3,
+timlbm,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.999e-3,
+timlbm,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1e-3,
+timlbm,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.407e-3,
+timlbm,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.408e-3,
+timlbm,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.999e-3,
+timlbm,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2e-3,
+timlbm,10,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2.407e-3,
+timlbm,11,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2.408e-3,
+timlbm,12,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3e-3,
+xb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-25e-4,'X position'
+yb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,75e-4,'Y position'
+zb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,'Z position'
+r0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01,'lens radius'
+rflbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25e-4,'spot radius'
+dlflbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.9825,'focal distance'
+rblbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0035355339,'Gauss dist. (rb)'
+rzlbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,'Z direction'
+powlbm,"1,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"2,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"3,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"12,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"1,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"2,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"3,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"12,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+xb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-25e-4,'X position'
+yb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,150e-4,'Y position'
+zb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,'Z position'
+r0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01,'lens radius'
+rflbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25e-4,'spot radius'
+dlflbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.9825,'focal distance'
+rblbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0035355339,'Gauss dist. (rb)'
+rzlbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,'Z direction'
+powlbm,"1,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"4,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"5,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"6,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"7,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"12,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"1,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"4,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"5,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"6,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"7,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"12,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+xb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-25e-4,'X position'
+yb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,225e-4,'Y position'
+zb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,'Z position'
+r0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01,'lens radius'
+rflbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25e-4,'spot radius'
+dlflbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.9825,'focal distance'
+rblbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0035355339,'Gauss dist. (rb)'
+rzlbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,'Z direction'
+powlbm,"1,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"8,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"9,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"10,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.95e9,
+powlbm,"11,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+powlbm,"12,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"1,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"8,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"9,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"10,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,86.0,
+utlbm,"11,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+utlbm,"12,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,
+avprslbm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,10000,'evaporation pressure pscoefficient A'
+bvprslbm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.5776223732,'evaporation pressure pscoefficient B'
+cbmengy,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.2,'temperature dependent fluid-absorption rate'
+irefopt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,'multiple reflection option'
+nrefmx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,5,'maximum number of reflections'
+ivpropt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,'evaporation direction option'
+icoolrat,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,'Cooling rate R'
+ibmpress,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,'Evaporation Pressure'
+igrdtr,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3,'G/R'
+ilbplt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,4,'Heat flux by heat source'
+irefflux,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,5,'Heat flux multiple reflection'
+imeltopt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6,'Melt region'
+imeltlenx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7,'Melt region length X'
+imeltleny,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,8,'Melt region length Y'
+imeltlenz,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,9,'Melt region length Z'
+igrdtmp,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,10,'Temperature gradient G'
+igrdtmpx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,11,'Temperature gradient dT/dx'
+igrdtmpy,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,12,'Temperature gradient dT/dy'
+igrdtmpz,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,13,'Temperature gradient dT/dz'
+irefxvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,14,'X reflection'
+irefyvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,15,'Y reflection'
+irefzvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,16,'Z reflection'

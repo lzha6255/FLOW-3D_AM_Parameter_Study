@@ -1,0 +1,406 @@
+  Title 
+  This is a sample input file
+
+ &xput
+    remark='!! Remarks beginning with "!! " are automatically added and removed by FLOW-3D.',
+    remark='!! Do not begin any user added remarks with with "!! ". They will be removed',
+    twfin=0.003, remark='Simulation Finish Time',
+    itb=1,
+    ifenrg=2,
+    ifvisc=1,
+    ifsft=1,
+    imphtc=1,
+    ifvof=6,
+    ifdynconv=1,
+    iphchg=1,
+    ifrho=1,
+    ifthexp=1,
+    gz=-981,
+    ifsld=1,
+    hflv1=1.0e+05, remark='heat transfer to void type 1',
+    tedit(1)=0,
+    tapltd(1)=1.5e-05,
+ /
+
+ &limits
+ /
+
+ &props
+    units='cgs', remark='base units',
+    tunits='k', remark='temperature units',
+    munits='g', remark='mass units',
+    lunits='cm', remark='length units',
+    timunits='s', remark='time units',
+    cunits='scoul', remark='charge units',
+    gamma=1.4, remark='gamma',
+    pcav=0,
+    mu1=0.033, remark='viscosity',
+    fluid1='Bronze_(Ship propeller)', remark='material name',
+    muctst=0.001,
+    cv1=5.7e+6, remark='specific heat',
+    tstar=273.15, remark='reference temperature',
+    tl1=1359.15, remark='liquidus temperature',
+    ts1=1328.15, remark='solidus temperature',
+    clht1=2.2e+9, remark='latent heat fusion',
+    cvs1=5e+6, remark='specific heat',
+    thcs1=0, remark='thermal conductivity',
+    rhofs=7.6, remark='density',
+    tsdrg=1, remark='coefficient of solidification drag',
+    fscr=1, remark='critical solid fraction',
+    fsco=0, remark='coherent solid fraction',
+    pv1=1.013e+6, remark='saturation pressure',
+    tv1=2500, remark='saturation temperature',
+    clhv1=2.256e10, remark='latent heat of vaporization',
+    rsize=0.01, remark='accommodation coefficient',
+    cvvap=1.43e7, remark='vapor specific heat',
+    tvexp=0.0002535461, remark='exponent for T-P curve',
+    rhof=6.6, remark='density',
+    sigma=0, remark='surface tension coefficient',
+    yieldt1=0,
+    mus=50,
+    thc1=7e+6, remark='thermal conductivity',
+    yield1=-10, remark='yield stress limit',
+    ipgauge=0, remark='pressure type',
+    blkmod_liq=6.7e+11,
+    blkmod_fscr=1.3e+12,
+ /
+
+ &scalar
+    nsc=16,
+
+    remark='!! Scalar 1',
+    scltit(1)='Cooling rate R',
+    isclr(1)=0,
+
+    remark='!! Scalar 2',
+    scltit(2)='Evaporation Pressure',
+    isclr(2)=0,
+
+    remark='!! Scalar 3',
+    scltit(3)='G/R',
+    isclr(3)=0,
+
+    remark='!! Scalar 4',
+    scltit(4)='Heat flux by heat source',
+    isclr(4)=0,
+
+    remark='!! Scalar 5',
+    scltit(5)='Heat flux multiple reflection',
+    isclr(5)=0,
+
+    remark='!! Scalar 6',
+    scltit(6)='Melt region',
+    isclr(6)=3,
+
+    remark='!! Scalar 7',
+    scltit(7)='Melt region length X',
+    isclr(7)=0,
+
+    remark='!! Scalar 8',
+    scltit(8)='Melt region length Y',
+    isclr(8)=0,
+
+    remark='!! Scalar 9',
+    scltit(9)='Melt region length Z',
+    isclr(9)=0,
+
+    remark='!! Scalar 10',
+    scltit(10)='Temperature gradient G',
+    isclr(10)=0,
+
+    remark='!! Scalar 11',
+    scltit(11)='Temperature gradient dT/dx',
+    isclr(11)=0,
+
+    remark='!! Scalar 12',
+    scltit(12)='Temperature gradient dT/dy',
+    isclr(12)=0,
+
+    remark='!! Scalar 13',
+    scltit(13)='Temperature gradient dT/dz',
+    isclr(13)=0,
+
+    remark='!! Scalar 14',
+    scltit(14)='X reflection',
+    isclr(14)=0,
+
+    remark='!! Scalar 15',
+    scltit(15)='Y reflection',
+    isclr(15)=0,
+
+    remark='!! Scalar 16',
+    scltit(16)='Z reflection',
+    isclr(16)=0,
+ /
+
+ &CHM
+ /
+
+ &bcdata
+    remark='!! Boundary condition X Min',
+    ibct(1)=2,
+    hwall1(1)=-1,
+    tbct(1, 1)=293,
+    ihtbct(1)=0,
+
+    remark='!! Boundary condition X Max',
+    ibct(2)=2,
+    hwall1(2)=-1,
+    tbct(1, 2)=293,
+    ihtbct(2)=0,
+
+    remark='!! Boundary condition Y Min',
+    ibct(3)=2,
+    hwall1(3)=-1,
+    tbct(1, 3)=293,
+    ihtbct(3)=0,
+
+    remark='!! Boundary condition Y Max',
+    ibct(4)=2,
+    hwall1(4)=-1,
+    tbct(1, 4)=293,
+    ihtbct(4)=0,
+
+    remark='!! Boundary condition Z Min',
+    ibct(5)=2,
+    hwall1(5)=-1,
+    tbct(1, 5)=293,
+    ihtbct(5)=0,
+
+    remark='!! Boundary condition Z Max',
+    ibct(6)=5,
+    pbct(1, 6)=1.0e+06,
+    fbct(1, 6)=0,
+    tbct(1, 6)=293,
+    ihtbct(6)=0,
+
+ /
+
+ &mesh
+    MeshName='Mesh block 1',
+    size=0.00025, remark='Size of Cells',
+
+    px(1)=0, remark='Location of the Mesh Plane in the X Direction',
+    px(2)=0.03, remark='Location of the Mesh Plane in the X Direction',
+
+    py(1)=0, remark='Location of the Mesh Plane in the Y Direction',
+    py(2)=0.03, remark='Location of the Mesh Plane in the Y Direction',
+
+    pz(1)=0, remark='Location of the Mesh Plane in the Z Direction',
+    pz(2)=0.023, remark='Location of the Mesh Plane in the Z Direction',
+    if_mesh_enabled=1,
+
+ /
+
+ &obs
+
+ /
+
+ &fl
+    nfls=2,
+
+    remark='!! FluidRegion 1',
+    fluidRegionName(1)='powder bed', remark='Fluid Region Name',
+    ifdis(1)=-1, remark='Geometry',
+    treg(1)=293, remark='Fluid Tempearture',
+    ffstl(1)='../Base_Layer_Settling_GE/particle0011.stl', remark='STL Geometry Filename',
+
+    remark='Material 1',
+    if_flreg_enabled(1)=1,
+
+    remark='!! FluidRegion 2',
+    fluidRegionName(2)='bulk', remark='Fluid Region Name',
+    fzh(2)=0.015, remark='Z High',
+    treg(2)=293, remark='Fluid Tempearture',
+
+    remark= 'Void Pointer Common Parameters',
+
+    remark='Material 2',
+    if_flreg_enabled(2)=1,
+
+    remark='!! Region Pointer common parameters',
+    pvoid=1.0e+06, remark='Default Void Initial Vapor Pressure',
+    iflinittyp=0, remark='Fluid Initialization',
+ /
+
+ &bf
+
+
+ /
+
+ &motn
+ /
+
+ &grafic
+    anmtyp(1)='sclr1',
+    anmtyp(2)='sclr10',
+    anmtyp(3)='sclr11',
+    anmtyp(4)='sclr12',
+    anmtyp(5)='sclr13',
+    anmtyp(6)='sclr14',
+    anmtyp(7)='sclr15',
+    anmtyp(8)='sclr16',
+    anmtyp(9)='sclr2',
+    anmtyp(10)='sclr3',
+    anmtyp(11)='sclr4',
+    anmtyp(12)='sclr5',
+    anmtyp(13)='sclr6',
+    anmtyp(14)='sclr7',
+    anmtyp(15)='sclr8',
+    anmtyp(16)='sclr9',
+    anmtyp(17)='sldfrc',
+    anmtyp(18)='tn',
+    anmtyp(19)='vel',
+ /
+
+ &RENDERSPACE
+ /
+
+ &header
+    project='Base Layer Melt GE',
+    version='double',
+    nprocs=0,
+ /
+
+ &parts
+
+
+
+
+
+ /
+
+ &DETAILS
+    f3d_product_name='FLOW-3D',
+    f3d_version_number='12.0.2',
+    created='2023 Oct 02 22:17',
+    modified='2023 Oct 08 06:10',
+ / 
+
+ &weld
+    nlbeam=3,
+    ilbeam=2, remark='surface detection method',
+
+    remark='time index',
+    timlbm(1)=0.0,
+    timlbm(2)=0.407e-3,
+    timlbm(3)=0.408e-3,
+    timlbm(4)=0.999e-3,
+    timlbm(5)=1e-3,
+    timlbm(6)=1.407e-3,
+    timlbm(7)=1.408e-3,
+    timlbm(8)=1.999e-3,
+    timlbm(9)=2e-3,
+    timlbm(10)=2.407e-3,
+    timlbm(11)=2.408e-3,
+    timlbm(12)=3e-3,
+
+    remark= 'Laser 1',
+
+    xb0lbm(1)=-25e-4, remark='X position',
+    yb0lbm(1)=75e-4, remark='Y position',
+    zb0lbm(1)=1, remark='Z position',
+
+    r0lbm(1)=0.01, remark='lens radius',
+    rflbm(1)=25e-4, remark='spot radius',
+    dlflbm(1)=0.9825, remark='focal distance',
+    rblbm(1)=0.0035355339, remark='Gauss dist. (rb)',
+    rzlbm(1)=-1, remark='Z direction',
+
+    remark= 'power',
+    powlbm(1,1)=1.95e9,
+    powlbm(2,1)=1.95e9,
+    powlbm(3,1)=0.0,
+    powlbm(12,1)=0.0,
+
+    remark= 'U velocity',
+    utlbm(1,1)=86.0,
+    utlbm(2,1)=86.0,
+    utlbm(3,1)=0.0,
+    utlbm(12,1)=0.0,
+    remark= 'Laser 2',
+
+    xb0lbm(2)=-25e-4, remark='X position',
+    yb0lbm(2)=150e-4, remark='Y position',
+    zb0lbm(2)=1, remark='Z position',
+
+    r0lbm(2)=0.01, remark='lens radius',
+    rflbm(2)=25e-4, remark='spot radius',
+    dlflbm(2)=0.9825, remark='focal distance',
+    rblbm(2)=0.0035355339, remark='Gauss dist. (rb)',
+    rzlbm(2)=-1, remark='Z direction',
+
+    remark= 'power',
+    powlbm(1,2)=0.0,
+    powlbm(4,2)=0.0,
+    powlbm(5,2)=1.95e9,
+    powlbm(6,2)=1.95e9,
+    powlbm(7,2)=0.0,
+    powlbm(12,2)=0.0,
+
+    remark= 'U velocity',
+    utlbm(1,2)=0.0,
+    utlbm(4,2)=0.0,
+    utlbm(5,2)=86.0,
+    utlbm(6,2)=86.0,
+    utlbm(7,2)=0.0,
+    utlbm(12,2)=0.0,
+    remark= 'Laser 3',
+
+    xb0lbm(3)=-25e-4, remark='X position',
+    yb0lbm(3)=225e-4, remark='Y position',
+    zb0lbm(3)=1, remark='Z position',
+
+    r0lbm(3)=0.01, remark='lens radius',
+    rflbm(3)=25e-4, remark='spot radius',
+    dlflbm(3)=0.9825, remark='focal distance',
+    rblbm(3)=0.0035355339, remark='Gauss dist. (rb)',
+    rzlbm(3)=-1, remark='Z direction',
+
+    remark= 'power',
+    powlbm(1,3)=0.0,
+    powlbm(8,3)=0.0,
+    powlbm(9,3)=1.95e9,
+    powlbm(10,3)=1.95e9,
+    powlbm(11,3)=0.0,
+    powlbm(12,3)=0.0,
+
+    remark= 'U velocity',
+    utlbm(1,3)=0.0,
+    utlbm(8,3)=0.0,
+    utlbm(9,3)=86.0,
+    utlbm(10,3)=86.0,
+    utlbm(11,3)=0.0,
+    utlbm(12,3)=0.0,
+
+    avprslbm=10000, remark='evaporation pressure pscoefficient A',
+    bvprslbm=1.5776223732, remark='evaporation pressure pscoefficient B',
+    cbmengy=0.2, remark='temperature dependent fluid-absorption rate',
+    irefopt=2, remark='multiple reflection option',
+    nrefmx=5, remark='maximum number of reflections',
+    ivpropt=1, remark='evaporation direction option',
+
+
+    icoolrat=1, remark='Cooling rate R',
+    ibmpress=2, remark='Evaporation Pressure',
+    igrdtr=3, remark='G/R',
+    ilbplt=4, remark='Heat flux by heat source',
+    irefflux=5, remark='Heat flux multiple reflection',
+    imeltopt=6, remark='Melt region',
+    imeltlenx=7, remark='Melt region length X',
+    imeltleny=8, remark='Melt region length Y',
+    imeltlenz=9, remark='Melt region length Z',
+    igrdtmp=10, remark='Temperature gradient G',
+    igrdtmpx=11, remark='Temperature gradient dT/dx',
+    igrdtmpy=12, remark='Temperature gradient dT/dy',
+    igrdtmpz=13, remark='Temperature gradient dT/dz',
+    irefxvec=14, remark='X reflection',
+    irefyvec=15, remark='Y reflection',
+    irefzvec=16, remark='Z reflection',
+
+
+
+ /
+
+#start tables:
+#end start tables

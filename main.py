@@ -1,0 +1,27 @@
+import dictionary
+import prepin_to_csv
+
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    cgs_kelvin = {"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}
+
+    block_name_file = "block_names.txt"
+    variable_name_file = "input-variable-summary-units.rst.txt"
+    block_name_csv = "block_names.csv"
+    variable_name_csv = "variable_names.csv"
+
+    dictionary.write_dictionary(block_name_file, block_name_csv, 3)
+    dictionary.write_dictionary(variable_name_file, variable_name_csv, 4)
+
+    prepin_file_name = "prepin_files\prepin.ship_propeller_1.txt"
+    prepin_csv_name = "prepin_csv_files\prepin.ship_propeller_1.csv"
+
+    prepin_to_csv.prepin_to_csv(prepin_file_name, block_name_csv, variable_name_csv, prepin_csv_name, cgs_kelvin)
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/

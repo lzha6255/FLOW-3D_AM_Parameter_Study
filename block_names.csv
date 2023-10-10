@@ -1,0 +1,22 @@
+NAMELIST,DESCRIPTION,REQUIRED
+XPUT,,Computational parameters,Yes
+LIMITS,,Computational and print limits,Yes
+PROPS,,Fluid properties,Yes
+SCALAR,,Scalar species parameters,No
+CHM,,Reaction Kinetics parameters,No
+RBDATA,,Coupled rigid-body dynamics data,No
+USRDAT,,User-definable namelist data,No
+BCDATA,,Boundary condition parameters,Yes
+MESH,,Mesh data for computational grid,Yes
+BCDATA,,Repeated for each additional mesh block,Yes
+MESH,,Repeated for each additional mesh block,Yes
+OBS,,Geometry data,Yes
+FL,,Fluid initial conditions,Yes
+BF,,Baffle setup,Yes
+MOTN,,Non-inertial reference frame motion description,No
+GRAFIC,,Graphics output requests,Yes
+PARTS,,Marker and mass particle setup,Yes
+SPRAY,,Spray cooling properties for thermal die cycling,No
+USRDAT,,User-definable namelist data,No
+HEADER,,GUI data,No
+RENDERSPACE,,FAVORizer data,No

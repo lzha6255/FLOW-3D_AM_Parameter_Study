@@ -1,0 +1,1711 @@
+NAME,DEFAULT_VALUE,DESCRIPTION,UNITS,SET_VALUE
+XPUT,BLOCK,Computational parameters,BLOCK,BLOCK
+APPLICATION,0,Flag for type of application being modeled,NONE,1
+PROCESS,0,Flag for type of process being modeled,NONE,11
+SUBPROCESS,0,Flag for type of subprocess being modeled,NONE          ,3
+TWFIN,...,Time to end calculation,s,360
+ITB,0,Indicator for free surfaces or sharp interfaces,NONE,1
+IHELP,1,Flag for mentor help feature,NONE,0
+IFIN,1,Selects the basis for termination of the calculation,NONE,3
+FRCFIN,1.0,Fill fraction (:envvar:`IFIN` = 2) or solid fraction (:envvar:`IFIN` = 3) for termination of the calculation,NON-DIM,1.0
+ITWFIN,...,Number of times steps (cycles) to end calculation.,NONE,2000000000
+DLTSTDY,1.0,Variation threshold below which the flow is considered steady state (in percent),PERCENTAGE,1.0
+DTIMPX,1.0\ :math:`\times`\ 10\ :sup:`10`,"Maximum Courant number used to limit the time step size in the implicit advection model, :envvar:`IMPADV` = 1. Used in addition to any other limiting factors.",NON-DIM,1.0E10
+IFENRG,...,Flag for internal energy evaluation,NONE,2
+IHTC,0,Fluid/component/void heat transfer flag ,NONE,1
+IFVISC,0,Viscous flow flag,NONE,0
+IFVIS,0,Viscosity and turbulence options flag,NONE,0
+IFSFT,0,Surface tension flag,NONE ,0
+EPSHTC,1.0,Multiplier for temperature iteration convergence criterion,NON-DIM,1.0
+OMEGHT,2.0,Relaxation factor for implicit heat transfer and conduction,NON-DIM,2.0
+IMPHTC,...,Heat transfer and conduction explicit/implicit flag,NONE,1
+CFPK,1.0,Multiplies F-packing term (for :envvar:`IFPK` :math:`>` 0),NON-DIM,1.0
+FCLEAN,0.0,"Fluid fraction cleanup coefficient for fluid #1. Throws away fluid #1 ""mist"" regions where local (isolated) fluid fraction within a cell is less than :envvar:`FCLEAN`.",NON-DIM,0.05
+FCLEAN2,0.0,"Complement of fluid fraction cleanup coefficient for fluid #2. Throws away fluid #2 ""mist"" regions where local (isolated) fluid fraction complement, :math:`1-F`, within a cell is less than :envvar:`FCLEAN2`.",NON-DIM     ,0.0
+EPSADJ,1.0,Multiplier for the calculated pressure iteration convergence criterion ,NON-DIM,1.0
+ALPHAMB,0.25 ,Controls weighting of Neumann- and Dirichlet-type boundary conditions for pressure at inter-block boundaries: ,NON-DIM,0.25
+IAUTOSET,0,Flag to use algorithm to automatically adjust subspace size used for GMRES pressure solver.,NONE,1
+EPSELS,1.0,Convergence adjustment for implicit elastic stress model,NON-DIM,1.0
+EPSVIS,1.0,Convergence adjustment for implicit viscous model,NON-DIM,1.0
+IFVELP,0,Fluid flow solver options,NONE,2
+TLEN,...,Turbulent mixing length,cm],1e-3
+ACCIMP,1.0,Coriolis acceleration explicit/implicit weighting parameter,NON-DIM,1.0
+IFREST,0,Restart activation flag,NONE,1
+RESFILE,""" ""","Name of the restart source file, e.g. :envvar:`resfile` = :file:`'flsgrf.dat'`",NONE,'../Filling/flsgrf.Filling'
+TREST,...,Restart calculation time,s,8
+DELTR,...,Initial time-step size for restart calculation,s,0.001
+IRESF1,0,Fluid condition restart flag,NONE,1
+IRSAT,0,Flag to control input parameters for non-condensable gas model,NONE,1
+EPSADJCG,1.0,Multiplier for the convergence criterion for the implicit core gas pressure solver.,NON-DIM,1.0
+TAURLXCG,0.0,Time over which the metal pressure at core surface is averaged,s,0
+ISSDIMCG,4,Sub-scaling dimension of the binder array. Each computational cell within a core is subdivided into :envvar:`ISSDIMCG` equal sub-cells in each coordinate direction to store binder concentration.,sub-cells,4
+IFRHO,...,Flag for density evaluation,NONE,1
+IFTHEXP,0,Thermal expansion flag for flow with density a function of temperature,NONE,1
+GX,0.0,Gravity component in x-direction,cm/s^2,0
+GY,0.0,Gravity component in y-direction,cm/s^2,0
+GZ,0.0,Gravity component in z-direction,cm/s^2,-9.81
+IFDRYING,0,Moisture drying model flag,NONE,1
+STRNGMOB,1.0,Global coefficient of Stronge's restitution during collision between coupled-motion GMO components and other components and walls. Values should be between 0.0 and 1.0.,NON-DIM,1.0
+FRCMOB,0.0,Global coefficient of friction during collision between coupled-motion GMO components and other components and walls,NON-DIM,0.0
+epsi_rad_norm,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+itmax_rad_norm,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+epsi_rad_outer,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.1
+itmax_rad_outer,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,20
+omega_rad_inner,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.3
+epsi_rad_inner,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+itmax_rad_inner,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,100
+BTMSHR,0.0026,Drag coefficient for quadratic bottom shear stress. Used when :envvar:`ISWATLOC` = 1 and :envvar:`IFVISWAT` = 2.,NONE,0.0026
+wndshr,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.003
+RMVISZ,1.5,Vertical viscosity multiplier,NONE,1.5
+SSACC,0.0,"Damping rate coefficient for steady-state acceleration for free surface flows. Used when positive, and :envvar:`NMAT` = 1 and :envvar:`ITB` = 1.",NON-DIM  ,0.0
+CD_MAX,0.1,Maximum value of drag coefficient of bottom shear stress ,NONE,0.1
+IFSLD,0,Solidification model flag,NONE,1
+ISHRNK,0,Solidification shrinkage flag,NONE,2
+THCGAP,...,"Thermal conductivity of the gas in the gap, e.g., air.",g cm s^-3 K^-1\ ,0.06
+EFE1GAP,0.0,Emissivity of solidified fluid #1 in the gap,NON-DIM,1.0
+NCYC,0,Total number of thermal cycles,CYCLES,0
+ncycpt_selected,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+RMF,0.0,Fluid fraction diffusion coefficient multiplier,NON-DIM,0.0
+OFFSET,0.0,Distance in z-direction above the bottom of a reservoir at which velocity is computed and stored as part of the Hydraulic data output.,NONE,0.0
+IPDIS,0,Flag for initial hydrostatic pressure distribution,NONE,0
+IEVENT_RST,1,Active simulation control events restart flag,NONE,0
+PLTFRC,0.1,Interval for restart spatial plots based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.1
+PLTAFRC,0.01,Interval for selected spatial plots based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.01
+ESPRTDT,10.0,Short print wall clock interval (in minutes).,s,10.0
+PRTFRC,0.1,Interval for long prints based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.1
+IEDT,1,Selects the basis for long print and spatial plot intervals,NONE,3
+CONHT,0.45,Safety factor for explicit heat conduction/transfer time step size stability limit,NON-DIM,0.45
+CONFS,1.0,Safety factor for free surface stability,NON-DIM,1.0
+CONSHR,0.45,"Multiplier for sub-time stepping in rapid shrinkage model and microporosity models when used together with the implicit heat transfer solver, :envvar:`IMPHTC` :math:`>` 0.",NON-DIM,0.45
+FRCTTSE,0.0,"Friction coefficient between Thermal Stress Evolution (TSE) region and neighboring Fluid Structure Interaction (FSI) components. A negative value indicates that the coefficient is infinite (i.e., tangential traction is not limited), and a positive value indicates the friction coefficient. Its value represents the ratio between the limit of the magnitude of tangential traction to the normal traction between the TSE region and the component face. Physical values are typically less than 1.0.",NONE,0.0
+FSI_MEMORY,7.0,Amount of additional memory (in GB) that may be used to store data structures that can significantly speed up the FSI solver. ,GB (Giga Bytes),7
+IMPADV2,0,"Time step control flag for implicit advection option, :envvar:`IMPADV` = 1",NONE    ,1
+V_THRESH,1.0\ :math:`\times`\ 10\ :sup:`35`,Velocity threshold for implicit advection. Cells with velocity above :envvar:`V_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 1. ,cm/s,5
+DT_THRESH,0.0,Time step threshold for implicit advection. Cells with local advective stability limit below :envvar:`DT_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 2. ,s],0
+VOL_CORR_TIME,...,Characteristic time for fluid #1 volume correction. Defaults to 10.0 when :envvar:`IVOL_CORR_TIME` = 1. Must be positive when :envvar:`IVOL_CORR_TIME` = 2.,"NON-DIM if :envvar:`IVOL_CORR_TIME` = 1, [t] otherwise",10
+EPSFSI,1.0\ :math:`\times`\ 10\ :sup:`-3`,Fluid-structure interaction (FSI) and thermal stress evolution (TSE) convergence criterion.,NON-DIM,1e-3
+CGFOB,0.0,Coefficient of gravity effect on metal/foam heat transfer for the lost foam casting model (used in conjunction with foam component roughness).,NON-DIM,0.0
+IMUPOR,0,Microporosity model flag,NONE,1
+HFLV1,0.0,Heat transfer coefficient for fluid #1 to type 1 void,g K^-1 s^-3,40
+HFLV2,0.0,Heat transfer coefficient for fluid #1 to type 2 void,g K^-1 s^-3,0
+HFLV3,0.0,Heat transfer coefficient for fluid #1 to type 3 void,g K^-1 s^-3,0
+HFLEM1,0.0,Emissivity for fluid #1 to type 1 void,NON-DIM,0.0
+HFLEM2,0.0,Emissivity for fluid #1 to type 2 void,NON-DIM,0.0
+HFLEM3,0.0,Emissivity for fluid #1 to type 3 void,NON-DIM,0.0
+CMF,0.0,Fluid mass diffusion coefficient,g cm^-1 s^-1,0
+RHOAIR,...,"Air density for use in the calculation of wind shear stress on horizontal fluid surfaces, air drag for mooring lines, ",g/cm^3],1.225
+NGLOBALS,0,Number of global conditions,NONE,0
+LIMITS,BLOCK,Computational and print limits,BLOCK,BLOCK
+ITHTMX,100,Maximum number of temperature iterations per cycle ,NONE,100
+IDTHT,10,Maximum number of temperature iterations before the time step is reduced,NONE,10
+ITMAX,...,Maximum number of pressure iterations per cycle ,NONE,100
+ITFLMX,25,Maximum number of pressure iteration failures allowed ,NONE,25
+MRSTRT,15,Restart number for GMRES pressure solver. It is not allowed to be less than 15 or greater than 100.,NONE,25
+ITESMX,30,Maximum number of implicit elastic stress iterations,NONE,30
+IDTES,15,Maximum number of elastic iterations before the time step is reduced,NONE,15
+ITVSMX,...,Maximum number of implicit viscous stress iterations,NONE,0
+ITMAXCG,1000,Maximum number of core gas pressure solver iterations ,NONE,1000
+ITSHMX,100,Maximum number of volume iterations for the simple shrinkage model,NONE,100
+MRSTRTFSI,20,Restart number for GMRES Fluid structure interaction (FSI) and thermal stress evolution (TSE) solver. It is not allowed to be less than 6 or greater than 1000.,NONE,35
+itminfsi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ITMAXFSI,25,Maximum number of Fluid Structure Interaction (FSI) or Thermal Stress Evolution (TSE) solver iterations ,NONE,50
+IITMX,1,Inner iteration count maximum for non-linear equation-of-state ,NONE,1
+NSTSHR,10,Maximum number of sub-time steps for simple shrinkage and microporosity models,NONE,10
+EPS,0.01,Cutoff value for the evaluation of area and volume fractions,NON-DIM,0.01
+VFCLEAN,0.05,Volume fraction cleanup coefficient. Fully blocks cells where local (isolated) open volume fraction is less than :envvar:`VFCLEAN`.,NON-DIM,0.05
+NCFLMX,2,Maximum number of consecutive convection or pressure convergence failures allowed,NONE,10
+PROPS,BLOCK,Fluid properties,BLOCK,BLOCK
+RCSQL,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #1,cm s^2/g,1.0e-10
+RCSQV,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #2,cm s^2/g,0
+UNITS,...,Character string used to identify units (up to 10 characters),NONE,'si'
+TUNITS,...,Character string used to identify temperature units (up to 10 characters),NONE,'c'
+MUNITS,...,"Character string used to identify mass units when ""Custom"" option is chosen (up to 10 characters)",NONE,'kg'
+LUNITS,...,"Character string used to identify length units when ""Custom"" option is chosen (up to 10 characters)",NONE,'m'
+TIMUNITS,...,"Character string used to identify time units when ""Custom"" option is chosen (up to 10 characters)",NONE,'s'
+CUNITS,...,"Character string used to identify charge units when ""Custom"" option is chosen (up to 10 characters)",NONE,'coul'
+RFNC,0.0,Specific gas constant for the non-condensable gas component.,cm^2 s^-2 K^-1,287.058
+CVNC,0.0,Specific heat for the non-condensable gas component.,cm^2 s^-2 K^-1,718.81
+GAMMA,1.4,"Exponent in void region equation of state, ``P*V^GAMMA = constant``. Zero or negative value indicates constant pressure. :envvar:`GAMMA` = ratio of specific heats of 'void' gas C\ :sub:`p`/C\ :sub:`v`, assumed constant.",NON-DIM,1.4
+DFCD,0.5,Drag coefficient for a particle of the dispersed phase moving in the continuous phase.,NON-DIM,0.5
+DFDIAM,0.0,Average particle diameter of the dispersed phase. Used when :envvar:`IDSIZE=` = 0.,cm,0
+DFDIAM_INI,0.0,Initial particle diameter of the dispersed phase. Used when :envvar:`IDSIZE=` = 1.,cm]    ,0
+RZMLT,1.0,Constant multiplier for dynamically-computed Richardson-Zaki coefficient,NON-DIM,1.0
+MU1,MUI,Dynamic viscosity of fluid #1,g cm^-1 s^-1,0.0019
+F1MX,1.0,Maximum volume fraction of phase #1.,NON-DIM,1.0
+PERMDER,0.0,Fluid electric permittivity derivative with respect to temperature,1/K,0
+CONDDER,0.0,Fluid electric conductivity derivative with respect to temperature,1/K,0
+FREQUEN,0.0,Angular frequency of external electric field,1/s,0
+RHOMST,...,Moisture fluid density,g/cm^3,1000
+CVMST,...,Moisture specific heat,cm^2 s^-2 K^-1,4187
+TVMST,...,Evaporation temperature,K,100
+CLHVMST,...,Latent heat of vaporization,cm^2/s^2,2.27e6
+CANGLE,+90°,Static contact angle (in degrees) for fluid #1 wall adhesion,DEGREES,90
+FRCOF,-1.0,Coefficient of friction between fluid and solid walls for the partial slip model. A zero value corresponds to free slip and an infinite value to no-slip. A negative value turns off the partial slip model. Also see :envvar:`OFRCOF` in namelist :envvar:`OBS`.,g cm^-2 s^-1,-1.0
+FGRNMX,0.63,Close packing volume fraction,NON-DIM,0.63
+FGRNLPK,0.873 :math:`\cdot` :envvar:`FGRNMX`,Loose random packing volume fraction,NON-DIM,0.0
+DIAGRN,0.0,Average grain diameter,cm,0
+RHOGRN,0.0,Grain density,g/cm^3,0
+GASDEN,0.0,"Density of the fluid surrounding granular material (gas for :envvar:`IFGRN` = 1, liquid for :envvar:`IFGRN` = 2)",g/cm^3,0
+GASVIS,0.0,"Dynamic viscosity of the fluid surrounding granular material (gas for :envvar:`IFGRN` = 1, liquid for :envvar:`IFGRN` = 2)",g cm^-1 s^-1,0
+DRGGRN,1.0,Multiplier in packing drag,NON-DIM,1.0
+CVELGRN,1.0,"The absolute value of :envvar:`CVELGRN` is used as multiplier for threshold packing velocity. A larger value results in earlier packing. When :envvar:`CVELGRN` is negative, then full jamming is not produced - the granular mixture continues to move even at packing density.",NON-DIM,1.0
+ANGREP,:math:`\text{34}^{\circ}`,Angle of repose,DEGREES,34
+GRNREST,0.7,Grain restitution coefficient,NON-DIM     ,0.7
+PGASMP,...,"Critical pressure below which pores can form during solidification. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2]    ,91170
+CIRON,0.0,"Initial carbon content, % weight",NON-DIM,0.0
+SIIRON,0.0,"Initial silicon content, % weight",NON-DIM,0.0
+RHOGAMMA,...,Density of the |gamma|-iron phase (austenite),g/cm^3,7170
+RHOCARBIDE,...,Density of the carbide formed during eutectic reaction,g/cm^3,7100
+RHOGRAPHITE,...,Density of the graphite formed during the eutectic reaction,g/cm^3,2200
+RHOENDIRON,...,Density of the solid phase formed after eutectic reaction,g/cm^3,6400
+FSEUTE,0.95,Solid fraction at the end of eutectic reaction,NON-DIM,0.95
+FLUID1,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE,'Aluminum Silicon Alloy A356 Auburn Univ data'
+MUC00,0.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,0.0
+MUC0,1.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,1.0
+MUC1,0.0,Coefficient in strain rate-dependent viscosity model,s,0
+MUC4,0.0,Coefficient in strain rate-dependent viscosity model,g cm^-1 s^-2,0
+MUC2,0.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,0.0
+MUC3,0.0,Coefficient in strain rate-dependent viscosity model,g cm^-1 s^-1,0
+MUTMP1,0.0,Coefficient in temperature-dependent viscosity model,NON-DIM,0.0
+MUTMP2,0.0,Coefficient in temperature-dependent viscosity model,K,0
+MUTMP3,1.0,Coefficient in temperature-dependent viscosity model,NON-DIM,1.0
+MUTHN0,0.0,First coefficient in the strain rate-dependent rate of viscosity decrease (flow thinning) in the thixotropic model,1/s,0
+MUTHN1,0.0,Second coefficient in the strain rate-dependent rate of viscosity decrease (flow thinning) in the thixotropic model,NON-DIM,0.0
+MUTHK,0.0,Rate of viscosity increase (flow thickening) in the thixotropic model,1/s,0
+MUI,0.0,Initial coefficient of dynamic viscosity for thixotropic flow model,g cm^-1 s^-1,0
+THEXF1,0.0,Volumetric thermal expansion coefficient for fluid #1,1/K,5.75005e-05
+THEXF2,0.0,Volumetric thermal expansion coefficient for fluid #2,1/K,0
+RF2,0.0,Specific gas constant of fluid #2 (:envvar:`RF2` = (:envvar:`GAMMA`-1)•:envvar:`CV2` for a gamma-law gas),cm^2 s^-2 K^-1,287.058
+CV1,0.0,Specific heat of fluid #1,cm^2 s^-2 K^-1,1074
+POFL1,0.0,Uniform power source per unit mass for fluid #1,cm^2/s^2,0
+POFL2,0.0,Uniform power source per unit mass for fluid #2,cm^2/s^2,0
+TSTAR,0.0 degrees C or F,Reference temperature for temperature-dependent fluid properties,K,617.96
+TL1,0.0,Liquidus temperature of fluid #1,K,608
+TS1,0.0,Solidus temperature of fluid #1,K,552.4
+CLHT1,0.0,Latent heat of fusion in fluid #1,cm^2 s^-2,432200
+CVS1,CV1,Specific heat of solidified fluid #1,cm^2 s^-2 K^-1,963
+THCS1,THC1,Thermal conductivity of solidified fluid #1,g cm s^-3 K^-1,178.23
+RHOFS,RHOF,Density of solidified fluid #1,g/cm :sup:3,2560
+THEXS1,0.0,Volumetric thermal expansion coefficient of solidified phase of fluid #1 (used in elastic stress model).,1/K,0
+TSDRG,1.0,Coefficient of solidification drag,1/s,750
+ADJSHR,1.0,Multiplication coefficient for volume change during solidification. Values must not be negative. ,NON-DIM,1.0
+FSCR,0.67,Critical solid fraction above which metal has no fluidity,NON-DIM,0.68
+FSCO,0.15,Fraction of solid at coherency point. ,NON-DIM,0.16
+TEUT,...,Eutectic temperature ,K,0
+PCOEF,...,Partition coefficient,NON-DIM,0
+CSTAR,0.0,Reference solute concentration for concentration-dependent density. :envvar:`CSTAR` also corresponds to :envvar:`TS1` and :envvar:`TL1` on the phase diagram.,g/cm^3,0
+PV1,1.013 :math:`\times` 10\ :sup:`6`,Absolute pressure value on the saturation curve that corresponds to temperature :envvar:`TV1`. The saturation curve defines a relationship between saturation pressure and temperature.,g cm^-1 s^-2,101300
+TV1,...,Temperature value on the saturation curve that corresponds to pressure :envvar:`PV1`. The saturation curve defines a relationship between saturation pressure and temperature. ,K,100
+CLHV1,...,Latent heat of vaporization/condensation constant (\ :envvar:`ICLHV1` = 0) *or* value at temperature :envvar:`THV1` (when :envvar:`ICLHV1` = 2),cm^2/s^2,2.256e+06
+RSIZE,0.0,Dimensionless accommodation coefficient for the liquid/vapor evaporative phase change rate.,NON-DIM,0.01
+CVVAP,...,Vapor specific heat at constant volume of vaporized fluid 1 (\ :envvar:`IPHCHG` = 4) or fluid 2 (\ :envvar:`IPHCHG` = 5).,cm^2 s^-2 K^-1,1430
+TVEXP,0.0,Exponent in the relationship between saturation pressure and temperature. For perfect gas :envvar:`TVEXP` is equal to (\ :envvar:`GAMMA` -1.0)*\ :envvar:`CVVAP`/\ :envvar:`CLHV1`. The saturation curve is defined by the Clapeyron equation:,NON-DIM,0.0
+TV0,0.0,Superheat temperature. Liquid in the bulk is allowed to heat to :envvar:`TV0` degrees before it starts evaporating (or boiling).,K,-273.15
+PV0,0.0,Partial pressure of vapor in void regions.,g cm^-1 s^-2,0
+TC0,0.0,Supercooling temperature. Gas in the bulk is allowed to cool to :envvar:`TC0` degrees before it starts condensing.,K,-273.15
+RHOF,-1.0,"Density of fluid #1. For temperature-dependent density, fluid #1 density at T=\ :envvar:`TSTAR`.",g/cm :sup:3,2437
+SIGMA,0.0,Surface tension coefficient; same as used in :ref:`SurfaceTensionProperties`.,g/s^2,0.823
+SIGMA_DF,...,Surface tension coefficient at the interface between two phases,g s^-2,0
+CSIGMA,0.0,Surface tension coefficient temperature sensitivity,g s^-2 K^-1,0
+ECOND1,0.0,Fluid #1 electric conductivity,scoul^2 s g^-1 cm^-3,0
+EMOB1,0.0,Fluid #1 electric charge mobility,scoul s g^-1,0
+ECOND2,0.0,Fluid #2 electric conductivity,scoul^2 s g^-1 cm^-3,0
+EMOB2,0.0,Fluid #2 electric charge mobility,scoul s g^-1,0
+EMODT1,0.0,Fluid #1 shear elastic modulus temperature sensitivity,g cm^-1 s^-2 K^-1,0
+EMODT2,0.0,Fluid #2 shear elastic modulus temperature sensitivity,g cm^-1 s^-2 K^-1,0
+MUS,0.0,Additional viscosity coefficient for density- or solid-fraction-dependent viscosity model. Only used when :envvar:`MUS` :math:`>` 0.0.,g cm^-1 s^-1,1.9
+THC1,-1.0,Thermal conductivity of fluid #1,g cm s^-3 K^-1,86.9
+THC2,-1.0,Thermal conductivity of fluid #2,g cm s^-3 K^-1,0
+EMOD1,0.0,Shear elastic modulus for fluid #1,g cm^-1 s^-2,0
+EMOD2,0.0,Shear elastic modulus for fluid #2,g cm^-1 s^-2,0
+ITHC1,0,Flag for the definition of thermal conductivity of fluid #1,NONE,1
+MOBLTY1,0.0 (no mobility),Mobility factor for fluid #1. Positive values only. Is needed to define a Giesekus fluid.,NON-DIM,0.0
+MOBLTY2,0.0 (no mobility),Mobility factor for fluid #2. Positive values only. Is needed to define a Giesekus fluid.,NON-DIM,0.0
+RELAX2,-1.0,"Relaxation time of fluid #2 for Oldroyd-B viscoelasticity model. Any value less than or equal to 0.0 means that the relaxation time is infinite, that is, no relaxation.",s,0
+RHOCAV,...,"Cavitation gas density, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",g cm^-3,1.225
+CAVPROD,0.02,"Empirical cavitation production coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM,0.02
+CAVDISS,0.01,"Empirical cavitation dissipation coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM,0.01
+IPGAUGE,...,"Pressure type, absolute or gauge, for all pressure quantities used in the simulation.",NONE,0
+P_REFERENCE,...,"Absolute reference pressure. Defaults to 1 atm. in SI, CGS, engineering or custom units appropriately, based on :envvar:`UNITS` specified.",g cm^-1 s^-2,101300
+T_REFERENCE,0.0 C,Reference temperature.,g cm^-1 s^-2]    ,25
+cbase,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Al'
+cwt_si,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7
+cwt_cu,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.15
+cwt_mg,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.35
+cwt_mn,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.25
+cwt_fe,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.15
+cwt_zn,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.25
+uts_n,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uts_k,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_elongation,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_yield,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_uts,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uts_n_ac,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uts_k_ac,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_elongation_ac,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_yield_ac,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ws_uts_ac,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+FSTSE,1.0,Solid fraction for Thermal Stress Evolution (TSE) elements activation. 0 :math:`<` FSTSE :math:`<=` 1.,NON-DIM,1.0
+BLKMOD_LIQ,0.0,"Bulk modulus of liquid phase. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],4.1e+10
+BLKMOD_FSCR,0.0,"Bulk modulus of solidifing fluid at critical solid fraction :envvar:`FSCR`. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],6.75e+10
+MUVOID,0.0,"Dynamic viscosity of the void region. Used in the permeable mold model, :envvar:`IOBSVENT(n)` = 1.",g cm^-1 s^-1,1.71e-5
+DFESP_COEFF,1.0,Escape rate coefficient for gas escape velocity at free surface,NON-DIM      ,1.0
+FLHTC,-1.0,Heat-transfer coefficient between fluid #1 and #2,g K^-1 s^-3]    ,-1.0
+SCALAR,BLOCK,Scalar species parameters,BLOCK,BLOCK
+NSSPC,0,Number of sediment species (\ :envvar:`NSSPC` :math:`\leq` 10),NONE,0
+NSC,0,Number of user-defined scalar species,NONE,0
+IDFAIR,0,Flag to activate air entrainment model. A non-zero value activates the model.,NONE,0
+DFAIR,0.5,Air entrainment rate coefficient,NON-DIM,0.05
+SCRFCR,0.64,Critical solid fraction. Represents the total solid fraction beyond which the sediment is completely packed.,NON-DIM,0.64
+CROUGH,2.5,"Roughness coefficient for surface of packed sediment bed (roughness :math:`k_s=c_{\rm{rough}} d_{50,\rm{packed}}`)",NON-DIM,2.5
+IDFCT,0,Free surface defect tracking model flag,NONE,0
+DFTSRF,1.0,Coefficient of proportionality for free-surface-generated defects (defects created per unit time per unit area).,s^-1 cm^-2,10
+DFTFOB,1.0,Coefficient of proportionality for foam residue (amount of foam residue per unit volume of decomposed solid foam).,NON-DIM,1.0
+DFCTW,Wicked foam residue concentration,DFCT,0.5
+DISSSAT,0.0,Solute concentration at saturation,g/cm^3,0
+DISSMTC,0.0,Mass transfer coefficient for solid solute components,cm/s,0
+DISSALPHA,1.0,Mixture density coefficient:,NON-DIM,1.0
+WEBCRIT,1.6,Critical Weber number above which particles break up,NON-DIM,1.6
+CAPCRIT,1.0,Critical capillary number above which particles break up,NON-DIM     ,1.0
+MAXECHRG,20,Maximum iterations for coupled electric field-electric charge solver,NONE     ,20
+MAXPHIT,1000,Maximum iterations for electric (external) potential solver,NONE,1000
+MAXPSIT,1000,Maximum iterations for zeta-potential solver,NONE     ,1000
+EPSELE,1.0E-06,Convergence criterion for electric (external) potential ,NON-DIM,0.000001
+EPSPSI,1.0E-06,Convergence criterion for Zeta potential,NON-DIM,0.000001
+CONCEN,0.0,Average ion concentration in bulk flow.,mol cm^-3,0
+MUSC_SLDG,0.0,Dynamic viscosity of sludge,g cm^-1 s^-1,-0.1
+CMSC_SLDG,0.0,Molecular diffusion coefficient of sludge,g cm^-1 s^-1,0
+RMSCS_SLDG,0.0,Turbulent diffusion coefficient multiplier for sludge,NONE,0.0
+CMDFT,0.0,Molecular diffusion coefficient of free surface defects,g cm^-1 s^-1,0
+CMDFT_LF,0.0,Molecular diffusion coefficient of foam residue defects,g cm^-1 s^-1,0
+RMDFT,0.0,Turbulent diffusion coefficient multiplier for free surface defects,NON-DIM,0.0
+RMDFT_LF,0.0,Turbulent diffusion coefficient multiplier for foam residue defects,NON-DIM,0.0
+CMSEG,0.0,Molecular diffusion coefficient of the solute mass concentration,g cm^-1 s^-1,0
+RMSEG,0.0,Turbulent diffusion coefficient multiplier for the solute mass concentration,NON-DIM,0.0
+RMSC,...,Turbulent diffusion coefficient multiplier,NON-DIM,0.0
+SSRZMLT,1.0,Richardson-Zaki coefficient multiplier.,NON-DIM,1.0
+CMSCR,0.0,Molecular diffusion coefficient of the suspended sediment,g cm^-1 s^-1,0
+RMSCR,0.0,Turbulent diffusion coefficient multiplier for the suspended sediment,NON-DIM,0.0
+IFILL1,0,Flag to activate the recording of the first and last time a cell fills with fluid #1,NONE,0
+IRESDT,0,Flag used to compute fluid residence time (the amount of time fluid is present in the flow domain),NONE,0
+ICONTACT,0,Flag used to activate fluid/wall contact time output,NONE     ,0
+IPATH,0,Flag used to compute distance traveled by fluid from its initial location or from the inlet (mesh boundary or mass source),NONE,0
+TV2M,...,Reference temperature for ideal gas equation of state.,K,683
+CHM,BLOCK,Reaction Kinetics parameters,BLOCK,BLOCK
+BCDATA,BLOCK,Boundary condition parameters,BLOCK,BLOCK
+ibct(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+timbct(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+MESH,BLOCK,Mesh data for computational grid,BLOCK,BLOCK
+MESHNAME,mesh block no. ##,Mesh block name (up to 256 characters),NONE,'Mesh block 1','Mesh block 2'
+SIZE,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",cm,0.004
+px(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.12
+px(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.12
+py(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.076
+py(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.076
+pz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.056
+pz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.18
+BCDATA,BLOCK,Boundary condition parameters,BLOCK,BLOCK
+ibct(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,5
+rwall(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"pbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.001e+05
+"pbct(2, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.1125e+05
+"pbct(3, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.1125e+05
+"fbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,760
+"tbct(4, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,760
+"tbct(5, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"tbct(6, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ibct(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+rwall(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hwall1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwall2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+hwobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1.0
+iwavebc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hnwave(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gam(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.3
+"fbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+"cncbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+"rsatbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+"flhtbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1e+08
+"tbct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+c0spngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c1spngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+uspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspngbc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+timbct(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+timbct(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,10
+timbct(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,12
+timbct(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,150
+timbct(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,151
+timbct(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,200
+MESH,BLOCK,Mesh data for computational grid,BLOCK,BLOCK
+MESHNAME,mesh block no. ##,Mesh block name (up to 256 characters),NONE,'Mesh block 1','Mesh block 2'
+SIZE,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",cm,0.002
+MESH_TYPE,0,Mesh block shape type,NONE,1
+OVERLAP,...,The extent of the overlap (in terms of length) of a conforming block into,cm,0.012
+px(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.12
+px(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.12
+py(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.076
+py(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.076
+pz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.056
+pz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.18
+OBS,BLOCK,Geometry data,BLOCK,BLOCK
+NOBS,0,Number of components,NONE,7,1
+velrad(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ifob(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+obsid(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Filter 1'
+material(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'20ppi_ceramic_foam'
+iob(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+subcmpid(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Filter'
+igen(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Filter.stl'
+roughsub(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ifsoft(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+ilthobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hobs1s(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,300
+rough(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcman(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+oechrg(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+perm(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7.45E-08
+perm2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.000700261
+opor(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.894
+"ospin(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+iodrg(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+noblds(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.8e+006
+kobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.09
+xkobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hobs1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,600
+uamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+"twobs(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"hobvt1(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+qsrncg(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+obsid(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Chill 1'
+iob(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+subcmpid(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Chill'
+igen(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Chill .stl'
+roughsub(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ilthobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hobs1s(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3000
+rough(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcman(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+oechrg(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+opor(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"ospin(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+noblds(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.7e+06
+kobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,50
+xkobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hobs1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6000
+uamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+"twobs(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,200
+"hobvt1(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,40
+qsrncg(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+obsid(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Standard Insert 1'
+iob(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+subcmpid(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Feed Tube'
+igen(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'C:/flow3d/v5.1_37/gui/stl_lib/LPSC/Feed Tube .stl'
+roughsub(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ilthobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hobs1s(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+rough(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcman(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+oechrg(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+opor(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"ospin(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+noblds(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2.01e+06
+kobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3.5
+xkobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hobs1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,600
+uamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+"twobs(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"hobvt1(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,20
+qsrncg(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+obsid(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Core 1'
+iob(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,4
+subcmpid(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand core'
+igen(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Sand core.stl'
+roughsub(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ifsoft(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+lthobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.009
+ilthobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+robs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+hobs1s(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+rough(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0001
+rcman(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+ocang(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,120
+oechrg(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+graindiam(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.00022
+opor(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"ospin(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+noblds(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.54e+06
+kobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.444
+xkobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+"twobs(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"hobvt1(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,20
+qsrncg(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+obsid(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Insulating Sleeve 1'
+iob(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,5
+subcmpid(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Insulating Feeder Sleeve'
+igen(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Insulating Feeder Sleeve.stl'
+roughsub(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ifsoft(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+ilthobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+robs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+hobs1s(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+rough(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0001
+rcman(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+oechrg(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+opor(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"ospin(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+noblds(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2.25e+05
+xkobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hobs1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,600
+uamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+ikobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+"twobs(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"hobvt1(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,40
+qsrncg(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+obsid(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Mold 1'
+iob(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6
+subcmpid(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Remaining Space 1'
+roughsub(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+magnx(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+cx2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+iob(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6
+subcmpid(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part 1'
+ioh(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+igen(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Casting Part 1.stl'
+roughsub(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 7)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 7)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 7)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 7)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+iob(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6
+subcmpid(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part 2'
+ioh(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+igen(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Casting Part 2.stl'
+roughsub(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 8)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 8)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 8)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 8)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+iob(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,6
+subcmpid(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Riser'
+ioh(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+igen(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Riser.stl'
+roughsub(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+cc(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 9)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 9)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 9)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 9)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ifsoft(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+lthobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+ilthobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+robs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+hobs1s(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+rough(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0001
+rcman(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+oechrg(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oepotzt(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oecond(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+odiel(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+opor(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"ospin(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+noblds(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+oblthk(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+alphwobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xnwobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmwobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+alphdobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xndobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xmdobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+xfrco(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yfrco(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zfrco(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+famp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+freq(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+fphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7.2e+05
+kobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.4
+xkobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+ykobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+zkobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+hobs1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,600
+uamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ufre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+uphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vfre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wfre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxfre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omxphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyfre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omyphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzamp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzfre(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+omzphs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burnigntemp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+burna(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e-05
+burnb(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.5
+"twobs(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+"hobvt1(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,20
+qsrncg(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rsatqsr(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+saobs_c(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"vtpres(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+"vttemp(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+vtf_min(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+sqp_time(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_force(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_solid(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+uspng(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vspng(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wspng(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+c0spng(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+c1spng(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opmass_restit(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opgas_restit(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquid_restit(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opliquidsd_restit(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+opvoid_restit(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+pq2_gate_area(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z1(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_x2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_y2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+sqp_z2(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotime(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotemp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15
+exoq(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+exotau(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_x(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_y(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyc_trans_z(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"itpobs_time(1, 6)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+shell_thobs(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rad_cluster_angle(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30
+hobem(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+gxtrfc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gytrfc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gztrfc(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gmagn(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+grotx(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+groty(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+grotz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnx(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrny(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+gtrnz(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xaxs0(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+yaxs0(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+zaxs0(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+delay_plunger(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ifob(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,8
+obsid(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sampling volume 1'
+iob(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7
+subcmpid(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Subvolume 1'
+igen(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+fstl(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Filling/Casting Part 1.stl'
+roughsub(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rcmansub(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+magn(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001
+magnx(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magny(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+magnz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+rotx(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+roty(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rotz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+trnx(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+trny(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+trnz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cc(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+cx2(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cx(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxy(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cxz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy2(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cy(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cyz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz2(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cz(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cdum(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+"cctime(1, 10)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"cctemp(1, 10)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,24.85
+"hcct(1, 10)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"icctime(1, 10)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+rtorin(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+rtorout(10),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+ilthobs(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ifvspng(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+tobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"htcob(6, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+"htcob(3, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+"htcob(4, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+"htcob(6, 3)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,400
+"htcob(6, 4)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+"htcob(6, 5)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+bc_em,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+rad_cluster_size_wall,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vel_plunger_min,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+AVRCK,3.1,Cell volume fractions are adjusted in so-called *sliver* cells so that the area/volume fraction ratios do not exceed this value. ,NON-DIM,3.1
+TOLERANCE_GAP,0.0,Gap size tolerance. Gaps that are smaller than the tolerance will be closed.,cm,0
+TOLERANCE_SKIN,0.0,Skin size tolerance. Skins that are smaller than the tolerance will be converted to the base component which they,cm,0
+nsprp,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+FL,BLOCK,Fluid initial conditions,BLOCK,BLOCK
+nfls,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ui,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vlin,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+segi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+pvoid,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.013e5
+presi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+rpsi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cnci,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.995
+rsati,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+chrgi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+valcgx,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.02
+tempi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,683
+tempi2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+tvoid,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+igivht,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+airi,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+udeep,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vdeep,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wdeep,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+BF,BLOCK,Baffle setup,BLOCK,BLOCK
+nbafs,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+fptitl(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Baffle 1'
+ifbaf(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+if_baffle_enabled(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+baffleRegionName(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Region 1'
+ibaf(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+bz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.01
+bxl(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.045
+bxh(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.01
+byl(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.02
+byh(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.02
+bxtrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bytrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bztrfc(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bmagn(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagnx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagny(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagnz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+brotx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+broty(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+brotz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnx(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrny(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnz(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+istlbf(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,4
+pbaf(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+kbaf1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+kbaf2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+hbaf1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbaf2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv1(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv2(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv3(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cmsc_tr(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rmsc_tr(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+fptitl(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Baffle 2'
+ifbaf(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+if_baffle_enabled(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+baffleRegionName(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Region 1'
+ibaf(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+bz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.01
+bxl(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+bxh(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.045
+byl(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.02
+byh(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.02
+bxtrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bytrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bztrfc(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+bmagn(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagnx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagny(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+bmagnz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+brotx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+broty(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+brotz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnx(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrny(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+btrnz(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+istlbf(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,4
+pbaf(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+kbaf1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+kbaf2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+hbaf1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbaf2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv1(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv2(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+hbfv3(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+cmsc_tr(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+rmsc_tr(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+MOTN,BLOCK,Non-inertial reference frame motion description,BLOCK,BLOCK
+GRAFIC,BLOCK,Graphics output requests,BLOCK,BLOCK
+anmtyp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'f'
+anmtyp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'mapor'
+anmtyp(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sldfrc'
+anmtyp(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'tn'
+anmtyp(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'tw'
+RENDERSPACE,BLOCK,FAVORizer data,BLOCK,BLOCK
+qval_favor,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.500
+HEADER,BLOCK,GUI data,BLOCK,BLOCK
+project,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Solidification'
+version,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'double'
+nprocs,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,16
+PARTS,BLOCK,Marker and mass particle setup,BLOCK,BLOCK
+nvnts,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+tms(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+np_void,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ipvoid_nmax,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,10000
+pvoid_cv,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,718.81
+pvoid_thc,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0261
+pvoid_htc,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,40
+pvoid_diff,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+pvoid_rm,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+pvoid_restit,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+pvoid_rf,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,287.058
+pvoid_drag,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0
+np_marker,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+pmarker_title,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Marker Particles'
+ipmarker_nmax,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,10000
+nsc_part,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+npxyz,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+ippkt,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+ParticleSourceName(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Source 1'
+if_psource_enabled(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xppl(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.045
+xppr(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.01
+yppf(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.02
+yppbk(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.02
+zppb(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.04
+zppt(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.03
+upp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vpp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wpp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"ratet(1, 1)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+isrc_set(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+isrc_class(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,11
+src_pressure(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+src_temperature(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+src_charge(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+ParticleSourceName(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Source 2'
+if_psource_enabled(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+xppl(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01
+xppr(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.045
+yppf(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.02
+yppbk(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.02
+zppb(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.04
+zppt(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-0.03
+upp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+vpp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+wpp(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+"ratet(1, 2)",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500
+isrc_set(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+isrc_class(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,11
+src_pressure(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+src_temperature(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+src_charge(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0
+CASTVAR,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK
+Priority(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+Interpretation(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Filter'
+InterpretationType(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,809
+mirrorSubcomponent(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Priority(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1
+Interpretation(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Chill'
+InterpretationType(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,822
+mirrorSubcomponent(2),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Priority(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+Interpretation(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Standard Insert'
+InterpretationType(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,808
+mirrorSubcomponent(3),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Priority(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2
+Interpretation(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Core'
+InterpretationType(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,806
+mirrorSubcomponent(4),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Priority(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3
+Interpretation(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Insulating Sleeve'
+InterpretationType(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,810
+mirrorSubcomponent(5),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Priority(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+Interpretation(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Mold'
+InterpretationType(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,801
+mirrorSubcomponent(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+PrimitiveType(6),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Remaining Space'
+mirrorSubcomponent(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+SubInterpretation(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part'
+SubinterpretationType(7),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800
+mirrorSubcomponent(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+SubInterpretation(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part'
+SubinterpretationType(8),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800
+mirrorSubcomponent(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1
+SubInterpretation(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part'
+SubinterpretationType(9),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800
+tpour,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,683
+tinitial,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+tambient,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25
+pambient,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300
+UNUSEDCASTVAR,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK
+Interpretation(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Unused'
+InterpretationType(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+SPRAY,BLOCK,Spray cooling properties for thermal die cycling,BLOCK,BLOCK
+nbanks,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+CASTVAR,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK
+DETAILS,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK
+f3d_product_name,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'FLOW-3D CAST'
+f3d_version_number,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'5.1.0'
+created,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2020 Jun 10 14:58'
+modified,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2020 Jun 10 15:00'
+OBSUNUSED,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK
+NOBS,0,Number of components,NONE,7,1
+obsid(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Component 1'
+ilthobs(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+nprobes_sqp(1),MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0
+,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,
