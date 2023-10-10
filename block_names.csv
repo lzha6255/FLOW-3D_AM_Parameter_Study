@@ -1,4 +1,4 @@
-NAMELIST,DESCRIPTION,REQUIRED
+NAMELIST,,DESCRIPTION,REQUIRED
 XPUT,,Computational parameters,Yes
 LIMITS,,Computational and print limits,Yes
 PROPS,,Fluid properties,Yes

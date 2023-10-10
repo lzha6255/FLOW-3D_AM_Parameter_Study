@@ -8,12 +8,13 @@ import csv
 #      - DESCRIPTION
 #      - REQUIRED
 
-def write_dictionary(file_name, csv_name, fields):
+
+def write_dictionary(file_name, csv_name, fields, header):
     fp = open(file_name, "r")
 
     line = fp.readline()
     column = -1             # Equivalent to field in a dictionary entry
-    rows = []
+    rows = [header]
     row = []
 
     while line:
@@ -41,7 +42,9 @@ def write_dictionary(file_name, csv_name, fields):
                     row.append("")
 
         if column == fields:
-            rows.append(row)
+            # Exclusions
+            if not(row[0] == "NAME" or row[0] == "NAMELIST"):
+                rows.append(row)
             row = []
             column = -1
 

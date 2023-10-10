@@ -1,5 +1,5 @@
+NAME,SUBSCRIPT,DEFAULT_VALUE,DESCRIPTION,DIMENSIONS
 STANDARD FORMAT,OPTIONAL FORMAT,::
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 APPLICATION,,0,Flag for type of application being modeled,NONE
 PROCESS,,0,Flag for type of process being modeled,NONE
 SUBPROCESS,,0,Flag for type of subprocess being modeled,NONE          
@@ -20,15 +20,12 @@ IBM,,0,Immersed boundary method flag,NONE
 IBM_PROBE_DIRECTION_METHOD,,0,Flag for probe directions of ghost nodes,NONE
 DT_THRESH,,0.0,Time step threshold for implicit advection. Cells with local advective stability limit below :envvar:`DT_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 2. ,[t] 
 V_THRESH,,1.0\ :math:`\times`\ 10\ :sup:`35`,Velocity threshold for implicit advection. Cells with velocity above :envvar:`V_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 1. ,[L/t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_VOL_CORR,,0,Flag for fluid #1 volume correction model. Only applied to one-fluid with free-surface and two-fluid problems to maintain fluid #1 volume conservation.,NONE
 IVOL_CORR_TIME,,1,Flag for the definition of the characteristic time for volume correction :envvar:`VOL_CORR_TIME`,NONE
 VOL_CORR_TIME,,...,Characteristic time for fluid #1 volume correction. Defaults to 10.0 when :envvar:`IVOL_CORR_TIME` = 1. Must be positive when :envvar:`IVOL_CORR_TIME` = 2.,"NON-DIM if :envvar:`IVOL_CORR_TIME` = 1, [t] otherwise"
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ICLID,,0,Flag for the collision model. Only applied to the coupled-motion GMO components,NONE
 FRCMOB,,0.0,Global coefficient of friction during collision between coupled-motion GMO components and other components and walls,NON-DIM
 STRNGMOB,,1.0,Global coefficient of Stronge's restitution during collision between coupled-motion GMO components and other components and walls. Values should be between 0.0 and 1.0.,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EPSADJ,,1.0,Multiplier for the calculated pressure iteration convergence criterion ,NON-DIM
 EPSI,,-1.0,Constant pressure iteration convergence criterion,[1/t]
 EPSFSI,,1.0\ :math:`\times`\ 10\ :sup:`-3`,Fluid-structure interaction (FSI) and thermal stress evolution (TSE) convergence criterion.,NON-DIM
@@ -39,19 +36,15 @@ IFDYNCONV,,1,Pressure iteration convergence criterion flag,NONE
 OMEGA,,...,Relaxation factor used in pressure iteration solvers.,NON-DIM
 OMEGHT,,2.0,Relaxation factor for implicit heat transfer and conduction,NON-DIM
 OMEGVS,,...,Relaxation factor used in velocity iteration for implicit viscous model,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFCOR,,0,Core gas model flag,NONE
 IPRTVNT,,0,Print venting flag,NONE
 ISSDIMCG,,4,Sub-scaling dimension of the binder array. Each computational cell within a core is subdivided into :envvar:`ISSDIMCG` equal sub-cells in each coordinate direction to store binder concentration.,[sub-cells]
 TAURLXCG,,0.0,Time over which the metal pressure at core surface is averaged,[t]
 EPSADJCG,,1.0,Multiplier for the convergence criterion for the implicit core gas pressure solver.,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFENRG,,...,Flag for internal energy evaluation,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CGFOB,,0.0,Coefficient of gravity effect on metal/foam heat transfer for the lost foam casting model (used in conjunction with foam component roughness).,NON-DIM
 IHTC,,0,Fluid/component/void heat transfer flag ,NONE
 IMPHTC,,...,Heat transfer and conduction explicit/implicit flag,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ACCIMP,,1.0,Coriolis acceleration explicit/implicit weighting parameter,NON-DIM
 IFFS,,0,Free surface pressure explicit/implicit flag,NONE
 IMP,,1,Pressure-velocity coupling Explicit/Implicit option,NONE
@@ -68,20 +61,17 @@ IMPVIS,,0,Viscous stress calculation explicit/implicit flag,NONE
 IMPELS,,0,Elastic stress calculation explicit/implicit flag,NONE
 IMPSFT,,0,Surface tension and capillary pressure explicit/implicit flag,NONE
 ITIMP3,,1,Flag to indicate if iteratively update velocity boundary condition,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FFEMF,,...,Finite element (FE) mesh file name for the solidified fluid region,NONE
 IFFEMF,,0,Flag to use finite element (FE) mesh file for the thermal stress evolution (TSE) solver in the solidified fluid region,NONE
 IFSIOUT,,0,Flag to export Tecplot\ |reg| compatible output file(s) for fluid-structure interaction (FSI) and thermal stress evolution (TSE) models,NONE
 IEXODUSOUT,,0,Flag to export :program:`EXODUS II`\ |reg| compatible output file(s) for fluid-structure interaction (FSI) and thermal stress evolution (TSE) models,NONE
 ITIMER,,0,Flag to activate built-in wall clock timers in the solver,NONE
 IBENCH,,0,Flag to output history plot data in text format. The history variables that are output are the same that are automatically plotted and stored in the :file:`flsplt` file at the end of each calculation.,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ICMPRS,,0,Compressible flow option (mass conservation equation),NONE
 IPOT,,0,Flag for potential flow calculation,NONE
 ITB,,0,Indicator for free surfaces or sharp interfaces,NONE
 NMAT,,...,Number of materials,NONE
 IFVELP,,0,Fluid flow solver options,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NGLOBALS,,0,Number of global conditions,NONE
 CONDITION_NAME_GLOBAL,n,,Name for global condition :envvar:`n` (up to 50 characters),NONE
 IF_ENABLED_GLOBAL,n,1,Activation flag for global condition :envvar:`n`,NONE
@@ -96,14 +86,11 @@ IFPRBVABS_ GLOBAL,"k,n",0,Specify if to use the absolute probe variable value fo
 PRBVROP_GLOBAL,"k,n",,Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_GLOBAL,"k,n",0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_GLOBAL,"k,n",0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IACCF,,0,Non-inertial reference frame flag,NONE
 GX,,0.0,Gravity component in x-direction,[L/t\ :sup:`2`]
 GY,,0.0,Gravity component in y-direction,[L/t\ :sup:`2`]
 GZ,,0.0,Gravity component in z-direction,[L/t\ :sup:`2`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IPDIS,,0,Flag for initial hydrostatic pressure distribution,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFREST,,0,Restart activation flag,NONE
 IEVENT_RST,,1,Active simulation control events restart flag,NONE
 DELTR,,...,Initial time-step size for restart calculation,[t]
@@ -121,7 +108,6 @@ TREST,,...,Restart calculation time,[t]
 IFIED,,1,Flag for writing the spatial data edit at the start of simulation,NONE
 IFCOMP_VF,,1,Flag for writing the volume fraction data for individual components. ,NONE     
 RESFILE,,""" ""","Name of the restart source file, e.g. :envvar:`resfile` = :file:`'flsgrf.dat'`",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ALPHA,,1.0,Controls weighting of upstream values in advection approximations when :envvar:`IORDER` = 1,NON-DIM
 ALPHA_SWAT,,1.0,Controls weighting of upstream values in advection approximations in the shallow water model when :envvar:`IORDER_SWAT` = 1,NON-DIM
 ALPHAMB,,0.25 ,Controls weighting of Neumann- and Dirichlet-type boundary conditions for pressure at inter-block boundaries: ,NON-DIM
@@ -142,7 +128,6 @@ IFSIPRCND,,1,Flag to use preconditioning algorithm that can improve convergence 
 SSACC,,0.0,"Damping rate coefficient for steady-state acceleration for free surface flows. Used when positive, and :envvar:`NMAT` = 1 and :envvar:`ITB` = 1.",NON-DIM  
 SSCOF,,0.0,Damping coefficient for capillary waves. Used when positive and :envvar:`IFSFT` = 1.,NON-DIM    
 IOPT_FSI_GMRES,,1,Flag specifying the FSI solver algorithm. ,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IACCF,,0,Non-inertial reference frame flag,NONE
 ICAV,,0,Cavitation option,NONE
 ICAVMODEL,,0,Cavitation model selection,NONE
@@ -200,7 +185,6 @@ NMAT,,...,Number of materials,NONE
 OFFSET,,0.0,Distance in z-direction above the bottom of a reservoir at which velocity is computed and stored as part of the Hydraulic data output.,NONE
 RHOAIR,,...,"Air density for use in the calculation of wind shear stress on horizontal fluid surfaces, air drag for mooring lines, ",[M/L\ :sup:`3`] 
 TAUBC,,0.0,Relaxation time for fluid elevation change at rating curve and natural inlet boundaries. Used to dampen out possible noise in highly transient ,[t]       
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IDBG,,0,Flag for additional debug data edits,NONE
 IEDT,,1,Selects the basis for long print and spatial plot intervals,NONE
 IOVOID,,0,Void ID tracking flag,NONE
@@ -214,7 +198,6 @@ TAPLTD,n,TWFIN` /10,,Selected spatial data output interval from :envvar:`TEDIT(n
 TEDIT,n,...,Ending time of edit interval :envvar:`n`. Not used if unspecified. ,[t]
 THPLTD,n,TWFIN` /100,,History plot interval from :envvar:`TEDIT(n-1)` to :envvar:`TEDIT(n)`,[t]
 TPLTD,n,TWFIN` /1,,Restart spatial plot interval from :envvar:`TEDIT(n-1)` to :envvar:`TEDIT(n)`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NEVENTS_RESTART,,0,Number of events for restart data interval,NONE
 EVENT_NAME_RESTART,m,' ',Event :envvar:`m` name (up to 50 characters),NONE
 IF_EVENT_ENABLED_RESTART,m,1,Event :envvar:`m` enable/disable flag,NONE
@@ -234,7 +217,6 @@ IFPRBVABS_RESTART,"k,m",0,Specify if to use the absolute probe variable value fo
 PRBVROP_RESTART,"k,m",' ',Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_RESTART,"k,m",0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_RESTART,"k,m",0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NEVENTS_SELECTED,,0,Number of events for selected data interval,NONE
 EVENT_NAME_SELECTED,m,' ',Event :envvar:`m` name (up to 50 characters),NONE
 IF_EVENT_ENABLED_SELECTED,m,1,Event :envvar:`m` enable/disable flag,NONE
@@ -254,7 +236,6 @@ IFPRBVABS_SELECTED,"k,m",0,Specify if to use the absolute probe variable value f
 PRBVROP_SELECTED,"k,m",' ',Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_SELECTED,"k,m",0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_SELECTED,"k,m",0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NEVENTS_HISTORY,,0,Number of events for history data interval,NONE
 EVENT_NAME_HISTORY,m,' ',Event :envvar:`m` name (up to 50 characters),NONE
 IF_EVENT_ENABLED_HISTORY,m,1,Event :envvar:`m` enable/disable flag,NONE
@@ -273,7 +254,6 @@ IFPRBVABS_HISTORY,"k,m",0,Specify if to use the absolute probe variable value fo
 PRBVROP_HISTORY,"k,m",' ',Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_HISTORY,"k,m",0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_HISTORY,"k,m",0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EPSADJ,,1.0,Multiplier for the calculated pressure iteration convergence criterion ,NON-DIM
 EPSI,,-1.0,Constant baseline pressure iteration convergence criterion,[1/t]
 ETA_REL,,0.05,Multiplier for the calculated relative convergence criterion for pressure iterations. ,NON-DIM
@@ -287,7 +267,6 @@ IPUN,,1,"Uniform pressure adjustment for compressible flows (if :envvar:`IPUN` =
 OMEGA,,...,Relaxation factor used in pressure iteration solvers.,NON-DIM
 IAUTOSET,,0,Flag to use algorithm to automatically adjust subspace size used for GMRES pressure solver.,NONE
 ITRNMAX,,7,Target number of iterations for GMRES pressure solver when :envvar:`IAUTOSET` = 1.,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IEDT,,1,Selects the basis for long print and spatial plot intervals,NONE
 LPR,,1,Debug level,NONE
 PRTFRC,,0.1,Interval for long prints based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM
@@ -295,7 +274,6 @@ TSPRTD,n,TWFIN` /10,,Short print interval from :envvar:`TEDIT(n-1)` to :envvar:`
 ESPRTDT,,10.0,Short print wall clock interval (in minutes).,[t]
 TEDIT,n,...,Ending time of edit interval :envvar:`n`. Not used if unspecified.,[t]
 TPRTD,n,TWFIN`/1,,Long print interval from :envvar:`TEDIT(n-1)` to :envvar:`TEDIT(n)`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ISWAT,,0,Shallow water model flag,NONE
 IFVISWAT,,2,Flag for viscous flow for shallow water model.,NONE
 IMP_SWAT,,1,Pressure-velocity coupling Explicit/Implicit option for the shallow water model,NONE    
@@ -304,7 +282,6 @@ ALPHA_SWAT,,1.0,Controls weighting of upstream values in advection approximation
 BTMSHR,,0.0026,Drag coefficient for quadratic bottom shear stress. Used when :envvar:`ISWATLOC` = 1 and :envvar:`IFVISWAT` = 2.,NONE
 CD_MAX,,0.1,Maximum value of drag coefficient of bottom shear stress ,NONE
 MANFILE,,...,File name for legend data file defining Manning's roughness coefficient ,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FRCFIN,,1.0,Fill fraction (:envvar:`IFIN` = 2) or solid fraction (:envvar:`IFIN` = 3) for termination of the calculation,NON-DIM
 IFIN,,1,Selects the basis for termination of the calculation,NONE
 ICHKSTDY,n,1,Steady-state watch list,NONE
@@ -312,7 +289,6 @@ ITWFIN,,...,Number of times steps (cycles) to end calculation.,NONE
 DLTSTDY,,1.0,Variation threshold below which the flow is considered steady state (in percent),PERCENTAGE
 TSTDY,,0.1\ :math:`\times`\ :envvar:`TWFIN`,Time window over which the steady-state check is performed (in time units),[t]
 TWFIN,,...,Time to end calculation,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFINPRB,,0,Active simulation control of termination flag,NONE
 EVENT_NAME_FIN,,' ',Active simulation control of termination event name (up to 50 characters),NONE
 IF_GLOBAL_FIN,,0,Flag for global condition,NONE
@@ -328,7 +304,6 @@ IFPRBVABS_FIN,k,0,Specify if to use the absolute probe variable value for probe 
 PRBVROP_FIN,k,' ',Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_FIN,k,0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_FIN,k,0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-NAME,DESCRIPTION,X,
 Y,,y or |theta| -coordinate,Z,
 U,,Fluid x or r-velocity,V,
 W,,Fluid z velocity,UMG,
@@ -388,7 +363,6 @@ CYCHT,n,...,Heat transfer coefficient between geometry components and ambient sp
 CYCT,n,...,Media (fluid or void) temperature for cycling segment :envvar:`n`,[T]
 CYCHTMA,,...,Heat transfer coefficient between metal and air,[M T\ :sup:`-1` t\ :sup:`-3`]
 NCYCPT,,1,"Output control for thermal die cycling model; restart spatial data is written for the last :envvar:`NCYCPT` die cycles, in addition to the other requested restart spatial data edits using :envvar:`TPLTD`.",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 AUTOT,,1.0,Automatic time-step control flag,NONE
 CON,,...,Safety factor for explicit convective time step size stability limit,NON-DIM
 CONES,,0.5,Safety factor for explicit elastic stress time step size stability limit,NON-DIM
@@ -402,14 +376,12 @@ DTIMPX,,1.0\ :math:`\times`\ 10\ :sup:`10`,"Maximum Courant number for the impli
 DTMIN,,0.00001\ :math:`\times`\ :envvar:`DELT`,Minimum permitted time-step size,[t]
 TDTMAX,n,1.0\ :math:`\times`\ 10\ :sup:`10`,The value of the maximum permitted time-step size between times :envvar:`TEDITDT(n-1)` and :envvar:`TEDITDT(n)`,[t]
 TEDITDT,n,...,Ending time of edit interval :envvar:`n` for :envvar:`TDTMAX(n)`. Not used if unspecified. ,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFVIS,,0,Viscosity and turbulence options flag,NONE
 IMPVIS,,0,Viscous stress calculation explicit/implicit flag,NONE
 IMUT,,0,Thixotropic viscosity flag,NONE
 IVISH,,0,Viscous heating flag,NONE
 IWSH,,1,Wall shear stress flag,NONE
 RMVISZ,,1.5,Vertical viscosity multiplier,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CDIS1,,...,Coefficient of production in turbulent dissipation transport equation,NON-DIM
 CDIS2,,...,Coefficient of decay in turbulent dissipation transport equation. :envvar:`CDIS2` is a function of the shear rate for RNG model.,NON-DIM
 CDIS3,,0.2,Coefficient of buoyancy in turbulent dissipation transport equation,NON-DIM
@@ -424,7 +396,6 @@ RMRHO,,...,Density diffusion coefficient multiplier (inverse Schmidt number),NON
 RMRHOE,,...,Energy diffusion coefficient multiplier (inverse Prandtl number),NON-DIM
 RMTKE,,...,Turbulent energy diffusion coefficient multiplier,NON-DIM
 TLEN,,...,Turbulent mixing length,[L] 
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DUMx,,0.0,Extra dummy variables DUM1...DUM25,USER DEFINED
 IDUMx,,0,Extra dummy integer variables IDUM1...IDUM25,NONE
 IFFOR,,0,Flag indicating user-defined fluid forces,NONE
@@ -432,19 +403,16 @@ IUSRD,,0,Flag indicating user-defined namelist,NONE
 INTDUM,n,0,Extra integer dummy array with a single index :envvar:`n`,NONE
 FPDUM,n,0.0,Extra floating point dummy array with a single index :envvar:`n`,USER DEFINED
 REMARK,,""" """,Dummy character string for adding comments to :envvar:`XPUT`,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 HFLEM1,,0.0,Emissivity for fluid #1 to type 1 void,NON-DIM
 HFLEM2,,0.0,Emissivity for fluid #1 to type 2 void,NON-DIM
 HFLEM3,,0.0,Emissivity for fluid #1 to type 3 void,NON-DIM
 HFLV1,,0.0,Heat transfer coefficient for fluid #1 to type 1 void,[M T\ :sup:`-1` t\ :sup:`-3`]
 HFLV2,,0.0,Heat transfer coefficient for fluid #1 to type 2 void,[M T\ :sup:`-1` t\ :sup:`-3`]
 HFLV3,,0.0,Heat transfer coefficient for fluid #1 to type 3 void,[M T\ :sup:`-1` t\ :sup:`-3`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_GAP,,0,Activation flag for wall gap formation model for solidified fluid #1.,NON-DIM
 EFE1GAP,,0.0,Emissivity of solidified fluid #1 in the gap,NON-DIM
 THCGAP,,...,"Thermal conductivity of the gas in the gap, e.g., air.",[M L t\ :sup:`-3` T\ :sup:`-1`\ ]
 RGHFILE,,' ',"File name for roughness legend data file. Needed for **all** simulations containing any :ref:`surfaceroughnesscomptype` component type, \ :envvar:`IFOB(n)` = 9.", 
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EPS,,0.01,Cutoff value for the evaluation of area and volume fractions,NON-DIM
 FSI_MEMORY,,7.0,Amount of additional memory (in GB) that may be used to store data structures that can significantly speed up the FSI solver. ,GB (Giga Bytes)
 IITMX,,1,Inner iteration count maximum for non-linear equation-of-state ,NONE
@@ -466,7 +434,6 @@ NCFLMX,,2,Maximum number of consecutive convection or pressure convergence failu
 NEGTMX,,250,Maximum number of times negative energy is reset during simulation,NONE
 NSTSHR,,10,Maximum number of sub-time steps for simple shrinkage and microporosity models,NONE
 VFCLEAN,,0.05,Volume fraction cleanup coefficient. Fully blocks cells where local (isolated) open volume fraction is less than :envvar:`VFCLEAN`.,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ILPR,,...,Print window minimum x cell index ,NONE
 IRPR,,...,Print window maximum x cell index,NONE
 JBKPR,,...,Print window maximum y cell index,NONE
@@ -480,14 +447,12 @@ YBKPR,,...,Print window minimum y-coordinate,[L]
 YFPR,,...,Print window minimum y-coordinate,[L]
 ZBPR,,...,Print window minimum z-coordinate,[L]
 ZTPR,,...,Print window minimum z-coordinate,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CAVRT,,5.0\ :math:`\times`\ |Delta|\ t,Characteristic time for nucleation of cavitation bubbles. Requires :envvar:`ICAV` = 1 and is used with the simplified ,[t]
 PCAV,,...,"Cavitation pressure, used in Cavitation (:envvar:`ICAV` = 1) and Cavitation Potential (:envvar:`IPCAV` :math:`>` 0) models. Defaults to -1 atm. if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to zero otherwise.",[M L\ :sup:`-1` t\ :sup:`-2`]
 RHOCAV,,...,"Cavitation gas density, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",[M L\ :sup:`-3`]
 SIGMA,,0.0,Surface tension coefficient; same as used in :ref:`SurfaceTensionProperties`.,[M/t\ :sup:`2`]
 CAVPROD,,0.02,"Empirical cavitation production coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM
 CAVDISS,,0.01,"Empirical cavitation dissipation coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 RHOF,,-1.0,"Density of fluid #1. For temperature-dependent density, fluid #1 density at T=\ :envvar:`TSTAR`.",[M/L :sup:`3`]
 RHOF2,,-1.0,"Density of fluid #2. For temperature-dependent density, fluid #2 density at T=\ :envvar:`TSTAR`.",[M/L :sup:`3`]
 RHOFS,,RHOF,,Density of solidified fluid #1,[M/L :sup:`3`]
@@ -496,7 +461,6 @@ THEXF2,,0.0,Volumetric thermal expansion coefficient for fluid #2,[1/T]
 THEXS1,,0.0,Volumetric thermal expansion coefficient of solidified phase of fluid #1 (used in elastic stress model).,[1/T]
 TSTAR,,0.0 degrees C or F,Reference temperature for temperature-dependent fluid properties,[T]
 ADJSHR,,1.0,Multiplication coefficient for volume change during solidification. Values must not be negative. ,NON-DIM
-NAME,DEFAULT
 DIELF1,,1.0,Dielectric constant (relative permittivity) for fluid #1,NON-DIM
 DIELF2,,1.0,Dielectric constant (relative permittivity) for fluid #2,NON-DIM
 PERMDER,,0.0,Fluid electric permittivity derivative with respect to temperature,[1/T]
@@ -512,7 +476,6 @@ IECOND2C,,0,The column number for fluid #2 electric conductivity in the external
 CONDDER,,0.0,Fluid electric conductivity derivative with respect to temperature,[1/T]
 EMOB1,,0.0,Fluid #1 electric charge mobility,[Q t M\ :sup:`-1`]
 EMOB2,,0.0,Fluid #2 electric charge mobility,[Q t M\ :sup:`-1`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DFCD,,0.5,Drag coefficient for a particle of the dispersed phase moving in the continuous phase.,NON-DIM
 DFESP_COEFF,,1.0,Escape rate coefficient for gas escape velocity at free surface,NON-DIM      
 DFDIAM,,0.0,Average particle diameter of the dispersed phase. Used when :envvar:`IDSIZE=` = 0.,[L]
@@ -526,7 +489,6 @@ MUD1,,MU1,,"Dynamic viscosity of the first phase in one-fluid problems, :envvar:
 MUD2,,MU1,,"Dynamic viscosity of the second phase in one-fluid problems, :envvar:`NMAT` = 1.",[M L\ :sup:`-1` t\ :sup:`-1`]
 RZMLT,,1.0,Constant multiplier for dynamically-computed Richardson-Zaki coefficient,NON-DIM
 SIGMA_DF,,...,Surface tension coefficient at the interface between two phases,[M t\ :sup:`-2`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EMOD1,,0.0,Shear elastic modulus for fluid #1,[M L\ :sup:`-1` t\ :sup:`-2`]
 EMOD2,,0.0,Shear elastic modulus for fluid #2,[M L\ :sup:`-1` t\ :sup:`-2`]
 EMODT1,,0.0,Fluid #1 shear elastic modulus temperature sensitivity,[M L\ :sup:`-1` t\ :sup:`-2` T\ :sup:`-1`]
@@ -550,7 +512,6 @@ YIELDT1,,0.0,Fluid #1 yield stress temperature sensitivity,[M L\ :sup:`-1` t\ :s
 YIELDT2,,0.0,Fluid #2 yield stress temperature sensitivity,[M L\ :sup:`-1` t\ :sup:`-2` T\ :sup:`-1`]
 YLDSTRTS,,0.0,Yield stress limit of solidified fluid 1,[M L\ :sup:`-1` t\ :sup:`-2`]
 FSTSE,,1.0,Solid fraction for Thermal Stress Evolution (TSE) elements activation. 0 :math:`<` FSTSE :math:`<=` 1.,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FLUID1,,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE
 FLUID2,,"""  """,Character string allowing user to identify fluid #2 (up to 50 characters),NONE
 UNITS,,...,Character string used to identify units (up to 10 characters),NONE
@@ -562,7 +523,6 @@ TUNITS,,...,Character string used to identify temperature units (up to 10 charac
 IPGAUGE,,...,"Pressure type, absolute or gauge, for all pressure quantities used in the simulation.",NONE
 P_REFERENCE,,...,"Absolute reference pressure. Defaults to 1 atm. in SI, CGS, engineering or custom units appropriately, based on :envvar:`UNITS` specified.",[M L\ :sup:`-1` t\ :sup:`-2`]
 T_REFERENCE,,0.0 C,Reference temperature.,[M L\ :sup:`-1` t\ :sup:`-2`]     
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ANGREP,,:math:`\text{34}^{\circ}`,Angle of repose,DEGREES
 ANGMOV,,ANGREP` + :math:`\text{2}^{\circ},,Friction angle,DEGREES
 CVELGRN,,1.0,"The absolute value of :envvar:`CVELGRN` is used as multiplier for threshold packing velocity. A larger value results in earlier packing. When :envvar:`CVELGRN` is negative, then full jamming is not produced - the granular mixture continues to move even at packing density.",NON-DIM
@@ -576,12 +536,10 @@ FGRNMX,,0.63,Close packing volume fraction,NON-DIM
 FGRNJAM,,0.96825 :math:`\cdot` :envvar:`FGRNMX`,Mechanical jamming volume fraction,NON-DIM
 FGRNLPK,,0.873 :math:`\cdot` :envvar:`FGRNMX`,Loose random packing volume fraction,NON-DIM
 RHOGRN,,0.0,Grain density,[M/L\ :sup:`3`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CLHVMST,,...,Latent heat of vaporization,[L\ :sup:`2`/t\ :sup:`2`]
 CVMST,,...,Moisture specific heat,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
 RHOMST,,...,Moisture fluid density,[M/L\ :sup:`3`]
 TVMST,,...,Evaporation temperature,[T]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CLHV1,,...,Latent heat of vaporization/condensation constant (\ :envvar:`ICLHV1` = 0) *or* value at temperature :envvar:`THV1` (when :envvar:`ICLHV1` = 2),[L\ :sup:`2`/t\ :sup:`2`]
 THV1,,...,Temperature on heat of vaporization -- temperature curve corresponding to :envvar:`CLHV1`,[T]
 CLHV2,,...,Latent heat of vaporization/condensation value at temperature :envvar:`THV2`,[L\ :sup:`2`/t\ :sup:`2`]
@@ -601,7 +559,6 @@ TV0,,0.0,Superheat temperature. Liquid in the bulk is allowed to heat to :envvar
 TC0,,0.0,Supercooling temperature. Gas in the bulk is allowed to cool to :envvar:`TC0` degrees before it starts condensing.,[T]
 CVNC,,0.0,Specific heat for the non-condensable gas component.,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
 RFNC,,0.0,Specific gas constant for the non-condensable gas component.,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CEUT,,...,Eutectic concentration,[M/L\ :sup:`3`]
 CEXF1,,0.0,Solute expansion coefficient,NON-DIM
 CSTAR,,0.0,Reference solute concentration for concentration-dependent density. :envvar:`CSTAR` also corresponds to :envvar:`TS1` and :envvar:`TL1` on the phase diagram.,[M/L\ :sup:`3`]
@@ -611,7 +568,6 @@ TEUT,,...,Eutectic temperature ,[T]
 TL1,,0.0,Liquidus temperature of fluid #1,[T]
 TMELT,,...,Melting temperature of pure solvent,[T]
 TS1,,0.0,Solidus temperature of fluid #1,[T]
-NAME,DEFAULT
 IF_CALC_TS1,,0,Flag for setting solidus temperature :envvar:`TS1` for the iron solidification model.,NONE
 CIRON,,0.0,"Initial carbon content, % weight",NON-DIM
 SIIRON,,0.0,"Initial silicon content, % weight",NON-DIM
@@ -621,7 +577,6 @@ RHOGAMMA,,...,Density of the |gamma|-iron phase (austenite),[M/L\ :sup:`3`]
 RHOGRAPHITE,,...,Density of the graphite formed during the eutectic reaction,[M/L\ :sup:`3`]
 RHOENDIRON,,...,Density of the solid phase formed after eutectic reaction,[M/L\ :sup:`3`]
 VEUTPHI,,1.0,Chilling susceptibility coefficient,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CLHT,n,0.0,Specific energy of fluid #1 between temperatures :envvar:`CLTP(n-1)` and :envvar:`CLTP(n)`,[L\ :sup:`2` t\ :sup:`-2`]
 CLTP,n,0.0,"Temperature point :envvar:`n` for latent heat release specification. These temperatures may be equal for isothermal phase changes. The first and last entries are interpreted as the solidus and liquidus temperatures, respectively, overwriting :envvar:`TS1` and :envvar:`TL1`.",[T]
 CLHT1,,0.0,Latent heat of fusion in fluid #1,[L\ :sup:`2` t\ :sup:`-2`]
@@ -639,17 +594,14 @@ TNIYAM,,...,"Temperature at which solidification variables are calculated (i.e.,
 TS1,,0.0,Solidus temperature of fluid #1,[T]
 TSDRG,,1.0,Coefficient of solidification drag,[1/t]
 TSTAR,,0.0 degrees C or R,Reference temperature for temperature dependent fluid properties,[T]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 RCSQL,,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #1,[L t\ :sup:`2`/M]
 RCSQV,,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #2,[L t\ :sup:`2`/M]
 RF2,,0.0,Specific gas constant of fluid #2 (:envvar:`RF2` = (:envvar:`GAMMA`-1)•:envvar:`CV2` for a gamma-law gas),[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
 CV2,,0.0,Specific heat to fluid #2,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CANGLE,,+90°,Static contact angle (in degrees) for fluid #1 wall adhesion,DEGREES
 CSIGMA,,0.0,Surface tension coefficient temperature sensitivity,[M t\ :sup:`-2` T\ :sup:`-1`]
 SIGMA,,0.0,Surface tension coefficient.,[M/t\ :sup:`2`]
 TSTAR,,0.0 degrees C or R,Reference temperature for temperature-dependent fluid properties,[T]
-NAME,DEFAULT
 CV1,,0.0,Specific heat of fluid #1,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
 CV2,,0.0,Specific heat to fluid #2,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
 CVS1,,CV1,,Specific heat of solidified fluid #1,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
@@ -659,7 +611,6 @@ POFL2,,0.0,Uniform power source per unit mass for fluid #2,[L\ :sup:`2`/t\ :sup:
 THC1,,-1.0,Thermal conductivity of fluid #1,[M L t\ :sup:`-3` T\ :sup:`-1`]
 THC2,,-1.0,Thermal conductivity of fluid #2,[M L t\ :sup:`-3` T\ :sup:`-1`]
 THCS1,,THC1,,Thermal conductivity of solidified fluid #1,[M L t\ :sup:`-3` T\ :sup:`-1`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 MU1,,MUI,,Dynamic viscosity of fluid #1,[M L\ :sup:`-1` t\ :sup:`-1`]
 MU2,,MUI,,Dynamic viscosity of fluid #2,[M L\ :sup:`-1` t\ :sup:`-1`]
 MUC00,,0.0,Coefficient in strain rate-dependent viscosity model,NON-DIM
@@ -681,9 +632,7 @@ MUTMP3,,1.0,Coefficient in temperature-dependent viscosity model,NON-DIM
 MUVOID,,0.0,"Dynamic viscosity of the void region. Used in the permeable mold model, :envvar:`IOBSVENT(n)` = 1.",[M L\ :sup:`-1` t\ :sup:`-1`]
 GRNREST,,0.7,Grain restitution coefficient,NON-DIM     
 TSTAR,,0.0 degrees C or R,Reference temperature for temperature-dependent fluid properties,[T]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FRCOF,,-1.0,Coefficient of friction between fluid and solid walls for the partial slip model. A zero value corresponds to free slip and an infinite value to no-slip. A negative value turns off the partial slip model. Also see :envvar:`OFRCOF` in namelist :envvar:`OBS`.,[M L\ :sup:`-2` t\ :sup:`-1`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IRHOF,,0,Flag for the definition of density of fluid #1,NONE
 FRHOF,,,The external filename for tabular density of fluid #1 as a function of temperature (used only if :envvar:`IRHOFC` :math:`\geq` 2),NONE
 IRHOFC,,0,The column number for density of fluid #1 in the external file,NONE
@@ -765,21 +714,18 @@ ICLHV1C,,0,The column number for latent heat of vaporization for the phase chang
 IPSAT,,0,Flag for the definition of coexistence curve (saturation pressure -- temperature curve) for the phase change model,NONE
 FPSAT,,,The external filename for tabular coexistence curve (saturation pressure -- temperature curve) for the phase change model as a function of temperature (used only if :envvar:`IPSAT` = 1 and :envvar:`IPSATC` :math:`\geq` 2),NONE
 IPSATC,,0,The column number for coexistence curve (saturation pressure -- temperature curve) for the phase change model in the external file,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CMSC,ns,0.0,Molecular diffusion coefficient of scalar *ns*,[M L\ :sup:`-1` t\ :sup:`-1`]
 ISCLR,ns,...,Scalar advection options,NONE
 NSC,,0,Number of user-defined scalar species,NONE
 RMSC,,...,Turbulent diffusion coefficient multiplier,NON-DIM
 RMSCS,ns,RMSC,,Turbulent diffusion coefficient multiplier for scalar *ns*,NON-DIM
 SCLTIT,ns,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IRHOSC,ns,0,Flag to include mass of scalar in fluid density. A value of 1 means the total fluid density includes the mass of the scalar:,NONE
 MUSC,ns,-1.0,A positive value represents the viscosity of the scalar. The mixture viscosity becomes a weighted average of fluid and scalar mass fractions. ,[M L\ :sup:`-1` t\ :sup:`-1`]
 EMODSC,ns,-1.0,A positive value represents shear elastic modulus of the scalar. The mixture elastic modulus is a weighted average of fluid and scalar mass fractions. ,[M L\ :sup:`-1` t\ :sup:`-2`]
 YIELDSC,ns,-1.0,A positive value represents yields stress limit of the scalar. A negative value does not make any impact. The mixture value is a weighted average of fluid and scalar mass fractions.,[M L\ :sup:`-1` t\ :sup:`-2`]
 RELAXSC,ns,-1.0,"A positive value represents relaxation time for Oldroyd-B viscoelasticity model. Any value less than or equal to 0.0 means that the relaxation time is infinite, that is, the material exhibits no relaxation.",[t]
 MOBLTYSC,ns,0.0,Represents the mobility factor of the scalar. Positive values only. Is required to define a Giesekus fluid.,NON-DIM
-NAME,DEFAULT
 EPSELE,,1.0E-06,Convergence criterion for electric (external) potential ,NON-DIM
 EPSPSI,,1.0E-06,Convergence criterion for Zeta potential,NON-DIM
 MAXPHIT,,1000,Maximum iterations for electric (external) potential solver,NONE
@@ -794,7 +740,6 @@ IECHRG,,0,Electric charge model,NONE
 IETHERMO,,0,Flag for electromechanical and electrothermal effects,NONE
 CMCHRG,,0.0,Molecular diffusion coefficient of electric charge density,[Q L\ :sup:`-1` t\ :sup:`-1`]
 RMCHRG,,0.0,Turbulent diffusion coefficient multiplier for electric charge density,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DFCTW,,0.5,Rate at which transportable foam residue (scalar specified by :envvar:`IDFCT_LF`) is converted to wicked residue at mold walls (scalar specified by :envvar:`IDFCTW`).,NON-DIM
 DFTFOB,,1.0,Coefficient of proportionality for foam residue (amount of foam residue per unit volume of decomposed solid foam).,NON-DIM
 DFTSRF,,1.0,Coefficient of proportionality for free-surface-generated defects (defects created per unit time per unit area).,[t\ :sup:`-1` L\ :sup:`-2`]
@@ -807,13 +752,11 @@ RMDFT,,0.0,Turbulent diffusion coefficient multiplier for free surface defects,N
 RMDFT_LF,,0.0,Turbulent diffusion coefficient multiplier for foam residue defects,NON-DIM
 IDFCTW,,0,"Flag to activate recording of foam residue that wicks into mold walls, and therefore, are not transported by metal flow.",NONE
 IFMDEN,,0,Flag to activate variable density in foam patterns,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IDFAIR,,0,Flag to activate air entrainment model. A non-zero value activates the model.,NONE
 CMAIR,,0.0,Molecular diffusion coefficient of the entrained air,[M L\ :sup:`-1` t\ :sup:`-1`]
 RMAIR,,0.0,Turbulent diffusion coefficient multiplier for the entrained air,NON-DIM
 DFAIR,,0.5,Air entrainment rate coefficient,NON-DIM
 TV2M,,...,Reference temperature for ideal gas equation of state.,[T]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IDISSOLVE,,0,Flag to activate dissolution model. A non-zero value activates the model.,NONE
 DISSALPHA,,1.0,Mixture density coefficient:,NON-DIM
 DISSDEN,,RHOF,,Density of the solid solute,[M/L\ :sup:`3`]
@@ -821,43 +764,27 @@ DISSMTC,,0.0,Mass transfer coefficient for solid solute components,[L/t]
 DISSSAT,,0.0,Solute concentration at saturation,[M/L\ :sup:`3`]
 CMDISS,,0.0,Molecular diffusion coefficient of the dissolved solute,[M L\ :sup:`-1` t\ :sup:`-1`]
 RMDISS,,0.0,Turbulent diffusion coefficient multiplier for the dissolved solute,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IDSIZE,,0,Flag to activate the dynamic droplet size calculation in the drift-flux model. A non-zero value activates the model.,NONE
 WEBCRIT,,1.6,Critical Weber number above which particles break up,NON-DIM
 CAPCRIT,,1.0,Critical capillary number above which particles break up,NON-DIM     
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IBURN,,0,Flag to activate combustible object model. A non-zero value activates the model.,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 PRESS,,0.0,Uniform intensification pressure. Used only if greater than zero.,[M L\ :sup:`-1` t\ :sup:`-2`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFILL1,,0,Flag to activate the recording of the first and last time a cell fills with fluid #1,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CMNCG,,0.0,Molecular diffusion coefficient of the non-condensable gas component in the gas phase. Only used when :envvar:`INCG` = 1.,[M L\ :sup:`-1` t\ :sup:`-1`]
 RMNCG,,0.0,Turbulent diffusion coefficient multiplier for the non-condensable gas component on the gas phase. Only used when :envvar:`INCG` = 1.,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IPCAV,,0,Cavitation potential model flag,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ISEG,,0,Macro-segregation model flag,NON-DIM
 CMSEG,,0.0,Molecular diffusion coefficient of the solute mass concentration,[M L\ :sup:`-1` t\ :sup:`-1`]
 RMSEG,,0.0,Turbulent diffusion coefficient multiplier for the solute mass concentration,NON-DIM
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IRESDT,,0,Flag used to compute fluid residence time (the amount of time fluid is present in the flow domain),NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IDSPRAY,,1,Spray area visualization,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ITRACER,,0,Flag used to activate tracers at flux surfaces,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ICONTACT,,0,Flag used to activate fluid/wall contact time output,NONE     
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_GAS_PRESS,,0,"Flag used to compute and output the last local gas pressure in a cell before the arrival of fluid. Used with one-fluid, free-surface flows, :envvar:`NMAT` = 1, :envvar:`ITB` = 1.",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_VENT_EFFCY,,0,"Flag used to compute and output the venting efficiency during filling. Used with one-fluid, free-surface flows, :envvar:`NMAT` = 1, :envvar:`ITB` = 1.",NONE     
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IPATH,,0,Flag used to compute distance traveled by fluid from its initial location or from the inlet (mesh boundary or mass source),NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IRESID,,0,Flag to activate the solid residue model. A non-zero value activates the model.,NONE
 RMXSC,ns,...,"Maximum concentration of scalar #ns in fluid #1, after which a solid residue starts forming.",[M/L\ :sup:`3`]
-NAME,DEFAULT
 CMSCR,,0.0,Molecular diffusion coefficient of the suspended sediment,[M L\ :sup:`-1` t\ :sup:`-1`]
 CROUGH,,2.5,"Roughness coefficient for surface of packed sediment bed (roughness :math:`k_s=c_{\rm{rough}} d_{50,\rm{packed}}`)",NON-DIM
 IBEDLOAD,,2,Flag for bed-load transport rate equation,NONE
@@ -877,7 +804,6 @@ SSDIA,k,-1.0,"Particle diameter of sediment species :envvar:`k`. If species repr
 SSENTRF,k,0.018,Sediment entrainment parameter for sediment species :envvar:`k`.,NON-DIM
 SSNAME,k,...,Descriptive name for sediment species :envvar:`k`. (Optional),NONE
 SSRZMLT,,1.0,Richardson-Zaki coefficient multiplier.,NON-DIM
-NAME,DEFAULT,DESCRIPTION
 ISLDG,,0,Flag for activation of the sludge settling model,NONE
 IVELSLDG,,0,"Flag for settling velocity input method, only used when :envvar:`ISLDG` = 1",NONE
 IVELSLDGC,,0,"Column number for settling velocity in tabulated data, only used when :envvar:`IVELSLDG` = 1",NONE
@@ -889,16 +815,13 @@ RMSCS_SLDG,,0.0,Turbulent diffusion coefficient multiplier for sludge,[NONE]
 RHOSLDG,,...,Mass density of sludge solid,[M L\ :sup:`-3`]
 VELSLDG0,,...,Vesilind maximum settling velocity,[M t\ :sup:`-1`]
 CVELSLDG,,...,Vesilind parameter. ,[M\ :sup:`-1` L\ :sup:`3`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ARATE,n,0.0,Rate coefficients for kinetic equations,[M\ :sup:`1-DD` t\ :sup:`-1` L\ :sup:`-3(1-DD)`]
 DD,"neq,ntrm,ns",0.0,Exponent for term number :envvar:`ntrm` of equation number :envvar:`neq` for scalar species number :envvar:`ns`.,NON-DIM
 ICOEFF,"neq,ntrm",0,"The index :envvar:`n` for the rate coefficient :envvar:`ARATE(n)` to be used for term :envvar:`ntrm` in equation :envvar:`neq`. Holds the sign appearing in the equation, e.g., if :envvar:`ICOEFF(neq,ntrm)` is negative, its absolute value corresponds to the index :envvar:`n` and the term :envvar:`ntrm` is entered with a minus sign.",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EPSIRB,,...,Convergence criterion for the coupled rigid body dynamics iterative algorithm.,[1/t]
 IRBACC,,0,Option for the evaluation of rigid body linear and angular acceleration,NONE
 NCRBMX,,100,Maximum permitted number of iterations for the coupled rigid body dynamics solution. ,NONE
 OMDIMP,,0.501,Averaging factor for mixing of explicit and implicit evaluation of rigid-body gyroscopic coupling terms in angular momentum equations.,NON-DIM
-NAME
 ACXP,,...,"Initial x' component of linear acceleration of the dry rigid body in the inertial (x',y',z') coordinate system. ",[L/t\ :sup:`2`]
 ACYP,,...,"Initial y' component of linear acceleration of the dry rigid body in the inertial (x',y',z') coordinate system. ",[L/t\ :sup:`2`]
 ACZP,,...,"Initial z' component of linear acceleration of the dry rigid body in the inertial (x',y',z') coordinate system. ",[L/t\ :sup:`2`]
@@ -928,7 +851,6 @@ UCXP,,0.0,"Initial x' velocity component of the dry rigid-body center of mass in
 UCYP,,0.0,"Initial y' velocity component of the dry rigid-body center of mass in the inertial (x',y',z') coordinate system",[L/t]
 UCZP,,0.0,"Initial z' velocity component of the dry rigid-body center of mass in the inertial (x',y',z') coordinate system",[L/t]
 XPLONG,,0.0,Initial longitude of the inertial x' axis in the gravitating body reference frame (radians). Optional input for the evaluation of relative longitude.,[radians]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 GBODY,,0.0,Gravitational constant for the gravitating central body ,[L\ :sup:`3`/t\ :sup:`2`]
 RBJXX,,1.0,"Diagonal (x,x) component of dry rigid-body moment of inertia tensor",[M L\ :sup:`2`]
 RBJYY,,1.0,"Diagonal (y,y) component of dry rigid-body moment of inertia tensor",[M L\ :sup:`2`]
@@ -937,37 +859,29 @@ RBJXY,,0.0,"Off-diagonal (x,y) component of dry rigid-body moment of inertia ten
 RBJXZ,,0.0,"Off-diagonal (x,z) component of dry rigid-body moment of inertia tensor",[M L\ :sup:`2`]
 RBJYZ,,0.0,"Off-diagonal (y,z) component of dry rigid-body moment of inertia tensor ",[M L\ :sup:`2`]
 RBMASS,,1.0,Mass of the dry rigid body,[M]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IBCT,n,...,Boundary condition type at mesh block boundaries,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
 IF_PART,,0,"Macro-boundary flag for fluid flow rate and thermal power boundary conditions in multi-block meshes. A specified flow rate (or thermal power for wall-type mesh boundaries) is distributed over all mesh boundaries that have the same non-zero value of :envvar:`IF_PART`. All mesh boundaries that make up a macro-boundary must be on the same side of their respective mesh blocks, have the same coordinate and have identical boundary condition specifications.",NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ELSTBCT,"t,n,k",0.0,Elastic stress component :envvar:`k` at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,[M L\ :sup:`-1` t\ :sup:`-2`]
 FELSTBCT,n,,The external filename for tabular Elastic stress component :envvar:`k` at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IELSTBCTC(n)` :math:`\geq` 2),NONE
 IELSTBCTC,n,0,The column number for Elastic stress component :envvar:`k` at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary condition,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CHRGBCT,"t,n",0.0,Electric charge density at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,[Q/L\ :sup:`3`]
 FCHRGBCT,n,,The external filename for tabular electric charge density at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ICHRGBCTC(n)` :math:`\geq` 2),NONE
 ICHRGBCTC,n,0,The column number for electric charge density at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 AIRBCT,"t,n",0.0,Volume fraction of entrained air at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM
 FAIRBCT,n,,The external filename for tabular volume fraction of entrained air at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IAIRBCTC(n)` :math:`\geq` 2),NONE
 IAIRBCTC,n,0,The column number for volume fraction of entrained air at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DISSBCT,"t,n",0.0,Concentration of dissolved solute at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. ,[M/L\ :sup:`3`]
 FDISSBCT,n,' ',The external filename for tabular concentration of dissolved solute at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IDISSBCTC(n)` :math:`\geq` 2),NONE
 IDISSBCTC,n,0,The column number for concentration of dissolved solute at mesh boundary :envvar:`n` in the external file :envvar:`FDISSBCT(n)`,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DSIZEBCT,"t,n",DFDIAM_INI,,Diameter of dispersed phase particles in drift-flux model at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,[L]
 FDSIZEBCT,n,' ',The external filename for tabular definition of the diameter of dispersed phase particles at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IDSIZEBCTC(n)` :math:`\geq` 2),NONE
 IDSIZEBCTC,n,0,The column number for diameter of dispersed phase particles at mesh boundary :envvar:`n` in the external file :envvar:`FDSIZEBCT(n)`,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 EOFBCT,"t,n",0.0,Zeta potential at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. ,[M L\ :sup:`2` Q\ :sup:`-1` t\ :sup:`-2`]
 FEOFBCT,n,,The external filename for tabular zeta potential at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IEOFBCTC(n)` :math:`\geq` 2),NONE
 IEOFBCTC,n,0,The column number for zeta potential at mesh boundary :envvar:`n` in the external file,NONE
@@ -976,18 +890,15 @@ FEPOTBCT,n,,The external filename for tabular electric potential at mesh boundar
 IEPOTBCTC,n,0,The column number for electric potential at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
 IPHIBC,n,0,Electric field boundary condition type at mesh boundary :envvar:`n`,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FBCT,"t,n",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM
 FFBCT,n,,The external filename for tabular fluid fraction at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IFBCTC(n)` :math:`\geq` 2),NONE
 IFBCTC,n,0,The column number for fluid fraction at mesh boundary :envvar:`n` in the external file,NONE
 IHPBCT,n,0,Flag for setting fluid fraction at mesh boundary :envvar:`n`.,NON-DIM     
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 RHOBCT,"t,n",RHOF,,Fluid density at mesh boundary :envvar:`n` at time TIMBCT(t).,[M/L\ :sup:`3`]
 FRHOBCT,n,,The external filename for tabular fluid density at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IRHOBCTC(n)` :math:`\geq` 2),NONE
 IRHOBCTC,n,0,The column number for fluid density at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CNCBCT,"t,n",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM
 FCNCBCT,n,,The external filename for tabular volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ICNCBCTC(n)` :math:`\geq` 2),NONE
 ICNCBCTC,n,0,The column number for volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` in the external file,NONE
@@ -995,33 +906,27 @@ RSATBCT,"t,n",0.0,Relative saturation of the vapor component in the gas phase at
 FRSATBCT,n,,The external filename for tabular relative saturation at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IRSATBCTC(n)` :math:`\geq` 2),NONE
 IRSATBCTC,n,0,The column number for relative saturation at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IPBCTP,n,1,Type of specified pressure boundary for boundary :envvar:`n`,NONE
 IPOUTBCT,n,0,Flag for outflow type of pressure boundary at boundary :envvar:`n`,NONE
 PBCT,"t,n",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",[M L\ :sup:`-1` t\ :sup:`-2`]
 FPBCT,n,,The external filename for tabular pressure at mesh boundary :envvar:`n` as a function of time. Used only if :envvar:`IPBCTC(n)` :math:`\geq` 2.,NONE
 IPBCTC,n,0,The column number for pressure at mesh boundary :envvar:`n` in the external file,NONE     
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 SCLBCT,"t,n,ns",0.0,Scalar magnitude of species :envvar:`ns` at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,Varies; typically [M/L\ :sup:`3`]
 FSCLBCT,"n,ns",,"The external filename for tabular scalar magnitude of species :envvar:`ns` at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ISCLBCTC(n,ns)` :math:`\geq` 2)",NONE
 ISCLBCTC,"n,ns",0,The column number for scalar magnitude of species :envvar:`ns` at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 SSBCT,"t,n,k",0.0,Suspended sediment mass concentration of sediment species :envvar:`k` at mesh boundary n at time TIMBCT(t).,[M/L\ :sup:`3`]
 FSSBCT,n,,The external filename for tabular suspended sediment mass concentration of sediment species :envvar:`k` at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ISSBCTC(n)` :math:`\geq` 2),NONE
 ISSBCTC,n,0,The column number for suspended sediment mass concentration of sediment species :envvar:`k` at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 SEGBCT,"t,n",0.0,Concentration of solute mass at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,[M/L\ :sup:`3`]
 FSEGBCT,n,,The external filename for tabular concentration of solute mass at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ISEGBCTC(n)` :math:`\geq` 2),NONE
 ISEGBCTC,n,0,The column number for concentration of solute mass at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 "CSLDGBCT(t,n)`",,0.0,Mass concentration of sludge at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)` ,[M/L\ :sup:`3`]
 FCSLDGBCT,,...,The external filename for sludge mass concentration at mesh boundary :envvar:`n` as a function of time ,NONE
 ICSLDGBCTC,,0,The column number of sludge mass concentration at mesh boundary :envvar:`n` in file :envvar:`FCSLDGBCT`,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 TBCD,,T_REFERENCE,,Default obstacle and mesh boundary surface temperature.,[T]
 TBCT,"t,n",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T]
 FTBCT,n,' ',The external filename for tabular temperature at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`ITBCTC(n)` :math:`\geq` 2),NONE
@@ -1031,20 +936,16 @@ FTBCT2,n,' ',The external filename for tabular temperature of fluid #2 at mesh b
 ITBCTC2,n,0,The column number for fluid #2 temperature at mesh boundary :envvar:`n` in the external file :envvar:`FTBCT2(n)`,NONE     
 IHTBCT,n,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 POBCT,"t,n",0.0,"Thermal power at mesh boundary :envvar:`n`, or at a macro-boundary (see :envvar:`IF_PART`), at time :envvar:`TIMBCT(t)`.",[M L\ :sup:`2` t\ :sup:`-3`]
 FPOBCT,n,' ',The external filename for tabular thermal power at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IPOBCTC(n)` :math:`\geq` 2),NONE
 IHTBCT,n,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE
 IPOBCTC,n,0,The column number for thermal power at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT
 RWALL,n,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM
 WBCL,n,...,Length scale for mesh boundary :envvar:`n` ,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 HWALL1,n,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,[M T\ :sup:`-1` t\ :sup:`-3`]
 HWALL2,n,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,[M T\ :sup:`-1` t\ :sup:`-3`]
 HWOBS,n,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,[M T\ :sup:`-1` t\ :sup:`-3`]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 DTKBCT,"t,n",...,Turbulent dissipation per unit mass at mesh boundary :envvar:`n` at time TIMBCT(t),[L\ :sup:`2`/t\ :sup:`3`]
 FDTKBCT,n,,The external filename for tabular turbulent dissipation per unit mass at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IDTKBCTC(n)` :math:`\geq` 2),NONE
 IDTKBCTC,n,0,The column number for turbulent dissipation per unit mass at mesh boundary :envvar:`n` in the external file,NONE
@@ -1052,7 +953,6 @@ TKEBCT,"t,n",TKEI,,Turbulent energy per unit mass at mesh boundary :envvar:`n` a
 FTKEBCT,n,,The external filename for tabular turbulent energy per unit mass at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IFBCTC(n)` :math:`\geq` 2),NONE
 ITKEBCTC,n,0,The column number for turbulent energy per unit mass at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 UBCT,"t,n",0.0,X-velocity at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`,[L/t]
 FUBCT,n,,The external filename for tabular X-velocity at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IUBCTC(n)` :math:`\geq` 2),NONE
 IUBCTC,n,0,The column number for X-velocity at mesh boundary :envvar:`n` in the external file,NONE
@@ -1063,9 +963,7 @@ WBCT,"t,n",0.0,Z-velocity at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t
 FWBCT,n,,The external filename for tabular Z-velocity at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IWBCTC(n)` :math:`\geq` 2),NONE
 IWBCTC,n,0,The column number for Z-velocity at mesh boundary :envvar:`n` in the external file,NONE
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IOBCTP,n,0,Reverse flow option at outflow mesh boundary #n (of type 8),NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FLHTBCT,"t,n",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,[L]
 FFLHTBCT,n,,The external filename for tabular free-surface elevation at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IFLHTBCTC(n)` :math:`\geq` 2),NONE
 IFLHTBCTC,n,0,The column number for free-surface elevation at mesh boundary :envvar:`n` in the external file,NONE
@@ -1079,7 +977,6 @@ WAVEPER,"n,m",...,Period of wave component :envvar:`m` at mesh boundary :envvar:
 WAVELEN,"n,m",...,Wave length of wave component :envvar:`m` at mesh boundary :envvar:`n`.,[L]
 WAVEPHS,"n,m",0.0,Phase shift in degrees of wave component :envvar:`m` at mesh boundary :envvar:`n`.,DEGREES
 WAVEH,n,...,Mean fluid depth for all wave components at mesh boundary :envvar:`n`.,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 INWAVE,n,3,Indicator of wave type at mesh boundary :envvar:`n`,NONE
 DISPEAK,n,...,Initial distance from the solitary wave crest to the wave boundary (the solitary wave is initially located outside the computational domain). ,[L]
 FLHTBCT,"t,n",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`,[L]
@@ -1092,14 +989,12 @@ WAVEH,n,...,Mean fluid depth for all wave components at mesh boundary :envvar:`n
 UBCT,"t,n",0.0,X-velocity of undisturbed constant uniform current at mesh boundary :envvar:`n`,[L/t]
 VBCT,"t,n",0.0,Y-velocity of undisturbed constant uniform current at mesh boundary :envvar:`n`,[L/t]
 WBCT,"t,n",0.0,Z-velocity of undisturbed constant uniform current at mesh boundary :envvar:`n`,[L/t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 INWAVE,n,3,Indicator of wave type at mesh boundary :envvar:`n`,NONE
 ISPECT,n,1,Type of wave energy spectrum. Used when :envvar:`INWAVE(n)` = 5.,NONE
 FEDS,n,...,Name of user-provided data file for wave energy spectrum. ,NONE
 FETCH,n,...,Fetch length in JONSWAP spectrum. ,[L]
 GAM,n,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM
 UW,n,...,Wind speed at 10m above water surface. Used when :envvar:`INWAVE(n)` = 5 and :envvar:`ISPECT(n)` = 1 or 2.,[L/t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IRATING,n,0,Flag for fluid elevation at boundary :envvar:`n`,NONE
 VOLBC,nvol,...,Volume flow rate in rating curve table. Used when :envvar:`IRATING(n)` = 1. ,[L\ :sup:`3`/t]
 FLHTBCV,"nvol,n",...,Fluid elevation corresponding to :envvar:`VOLBC(nvol)` in rating curve table. Used when IRATING(n)=1.,[L]
@@ -1107,7 +1002,6 @@ FFLHTBCV,n,,Name of the external file for rating curve table. Used when :envvar:
 IFLHTBCVC,n,0,The column index of fluid elevation in the external rating curve file :envvar:`FFLHTBCV(n)`. ,NONE
 FLELEVMIN,n,...,Lower limit for fluid elevation. Used when :envvar:`IRATING(n)` > 1. Default is the minimum z-coordinate of the computational domain. ,NONE
 FLELEVMAX,n,...,Upper limit for fluid elevation. Used when :envvar:`IRATING(n)` > 1. Default is the maximum z-coordinate of the computational domain. ,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 FLRBCT,"t,n",0.0,"Volume flow rate at mesh boundary :envvar:`n`, or at a macro-boundary (see :envvar:`IF_PART`), at time :envvar:`TIMBCT(t)`.",[L\ :sup:`3`/t]
 FFLRBCT,n,,The external filename for tabular volume flow rate at mesh boundary :envvar:`n` as a function of time (used only if :envvar:`IFLRBCTC(n)` :math:`\geq` 2),NONE
 IFLRBCTC,n,0,The column number for volume flow rate at mesh boundary :envvar:`n` in the external file,NONE
@@ -1115,7 +1009,6 @@ FNX,n,...,X-component of the flow direction vector at mesh boundary :envvar:`n`.
 FNY,n,...,Y-component of the flow direction vector at mesh boundary :envvar:`n`.,NON-DIM
 FNZ,n,...,Z-component of the flow direction vector at mesh boundary :envvar:`n`.,NON-DIM
 TIMBCT,t,0.0,Time table for mesh boundary conditions,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NEVENTS_BC,n,0,Number of events for mesh boundary :envvar:`n`,NONE
 EVENT_NAME_BC,"m,n",' ',Event :envvar:`m` name (up to 50 characters),NONE
 IF_EVENT_ENABLED_BC,"m,n",1,Event :envvar:`m` enable/disable flag,NONE
@@ -1155,7 +1048,6 @@ IFPRBVABS_BC,"j,m,n",0,Specify if to use the absolute probe variable value for p
 PRBVROP_BC,"j,m,n",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
 PRBVAL_CRITICAL_BC,"j,m,n",0.0,Critical value for probe condition :envvar:`j`,NONE
 PRBDT_BC,"j,m,n",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IFTSPNGBC,n,0,flag for time scale for calculation of background stream velocity,NONE  
 IFVSPNGBC,n,1,flag for background stream velocity,NONE
 ISPNGBC,n,0,flag for wave absorbing layer,NONE
@@ -1166,24 +1058,19 @@ VSPNGBC,n,0.0,y-component of background stream velocity,[L/t]
 WSPNGBC,n,0.0,z-component of background stream velocity,[L/t]
 THSPNGBC,n,...,wave absorbing layer length,[L]
 TSPNGBC,n,...,time scale for calculation of background stream velocity,[T]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 ICYL,,0,Mesh coordinate type indicator,NONE
 ISWATLOC,,...,Mesh block flow type indicator,NONE
 MESHNAME,,mesh block no. ##,Mesh block name (up to 256 characters),NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_SIZE,,1,Flag for the method of defining a uniform mesh,NONE
 NTOTAL,,0,"Approximate total number of real cells to be generated. Used when :envvar:`IF_SIZE` = 0. :envvar:`NTOTAL` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",NONE
 SIZE,,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NXCELT,,1,Total number of real cells in x-direction,NONE
 NYCELT,,1,Total number of real cells in y-direction,NONE
 NZCELT,,1,Total number of real cells in z-direction,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 PX,n,...,nth location in x-direction for a mesh plane,[L]
 PY,n,...,nth location in y-direction for a mesh plane,[L]
 PYA,n,...,nth location angle (in degrees) in y-direction for a cylindrical coordinate mesh.,[DEGREES]
 PZ,n,...,nth location in z-direction for a mesh plane,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 NXCELL,n,...,Number of cells between :envvar:`PX(n)` and :envvar:`PX(n+1)`,NONE
 NYCELL,n,...,Number of cells between :envvar:`PY(n)` and :envvar:`PY(n+1)`,NONE
 NZCELL,n,...,Number of cells between :envvar:`PZ(n)` and :envvar:`PZ(n+1)`,NONE
@@ -1191,15 +1078,12 @@ SIZEX,n,...,Size of mesh cells at :envvar:`PX(n)` in x-direction.,[L]
 SIZEY,n,...,Size of mesh cells at :envvar:`PY(n)` in y-direction.,[L]
 SIZEYA,n,...,Size of mesh cells in degrees at :envvar:`PY(n)` in y-direction for a cylindrical coordinate mesh.,[DEGREES]
 SIZEZ,n,...,Size of mesh cells at :envvar:`PZ(n)` in z-direction.,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 MESH_RANK,,0,Mesh rank for partially overlapping mesh blocks. When two mesh blocks,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IF_MESH_ENABLED,,1,Activation flag for mesh block,NONE 
 MESH_TYPE,,0,Mesh block shape type,NONE
 MESH_COMP,,0,Meshing component number that mesh block conforms to. Used when :envvar:`MESH_TYPE` = 3.     ,NONE
 OVERLAP,,...,The extent of the overlap (in terms of length) of a conforming block into,[L]
 ICMBOBS,n,1,Specifies whether the mesh should conform to component :envvar:`N`,NONE
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IAVRCK,,1,FAVOR |TM| volume adjustment for stability with larger time-step limit (see :envvar:`AVRCK`),NONE
 AVRCK,,3.1,Cell volume fractions are adjusted in so-called *sliver* cells so that the area/volume fraction ratios do not exceed this value. ,NON-DIM
 TOLERANCE_GAP,,0.0,Gap size tolerance. Gaps that are smaller than the tolerance will be closed.,[L]
@@ -1220,14 +1104,12 @@ SUBCMPID,n,""" """,Character string allowing user to identify subcomponent :envv
 XFRCO,m,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,[L]
 YFRCO,m,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,[L]
 ZFRCO,m,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IGEN,n,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE
 IFSUBCOMPENABLED,n,1,Activation flag for subcomponent :envvar:`n`,NONE
 IOB,n,0,Associates subcomponent :envvar:`n` with a particular component,NONE
 IOH,n,1,Subcomponent type,NONE
 FSTL,n,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE
 FTOPO,n,:file:`topofnn.inp`,"File name for raster file format data file, where ""nn ""= n.",NONE
-NAME,DEFAULT
 ANGLH,n,...,"Upper cylindrical angle limit for subcomponent :envvar:`n` (measured in the x-y plane from the x-axis, in degrees).",[DEGREES]
 ANGLL,n,...,"Lower cylindrical angle limit for subcomponent :envvar:`n` (measured in the x-y plane from the x-axis, in degrees).",[DEGREES]
 CONEH,n,...,Upper conical angle limit for subcomponent :envvar:`n` (measured from the z-axis in degrees).,[DEGREES]
@@ -1244,7 +1126,6 @@ YL,n,...,Lower y-coordinate limit for subcomponent :envvar:`n`,[L]
 ZH,n,...,Upper z-coordinate limit for subcomponent :envvar:`n`,[L]
 ZL,n,...,Lower z-coordinate limit for subcomponent :envvar:`n`,[L]
 NODATRPLC,n,...,Elevation to replace *NODAT* value from raster format data files for subcomponent :envvar:`n`.,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 CC,n,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM
 CX,n,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,[1/L]
 CY,n,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,[1/L]
@@ -1257,7 +1138,6 @@ CY2,n,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,[1/L\
 CZ2,n,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,[1/L\ :sup:`2`]
 CRXY,n,0.0,Function coefficient of :math:`\sqrt{x^2 + y^2}` for subcomponent :envvar:`n`,[1/L]
 CDUM,n,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES
-NAME
 MAGN,n,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM
 MAGNX,n,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM
 MAGNY,n,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM
@@ -1271,7 +1151,6 @@ TRNZ,n,0.0,Subcomponent :envvar:`n` translation in z-direction,[L]
 XTRFC,n,0.0,x-coordinate of transformation center for subcomponent :envvar:`n`,[L]
 YTRFC,n,0.0,y-coordinate of transformation center for subcomponent :envvar:`n`,[L]
 ZTRFC,n,0.0,z-coordinate of transformation center for subcomponent :envvar:`n`,[L]
-NAME,DEFAULT,DESCRIPTION,DIMENSIONS
 IVR,n,0,Cooling channel activation flag for subcomponent :envvar:`n`,NONE
 CCTIME,"t,n",0.0,Time table for the time dependent properties of the cooling channel,[t]
 CCTEMP,"t,n",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",[T]
@@ -1288,7 +1167,6 @@ ICCPRB,n,0,Probe number controlling the on/off status of the cooling channel,NON
 CCTC1,n,...,Turn-on temperature at probe :envvar:`ICCPRB(n)` for the cooling channel,[T]
 CCTC2,n,...,Turn-off temperature at probe :envvar:`ICCPRB(n)` for the cooling channel,[T]
 CCHEAT,n,...,Critical total heat to turn off the cooling channel,[M L\ :sup:`2` t\ :sup:`-2`]
-NAME
 IGTRFMVB,m,0,Flag to apply component transformations to the body-fixed coordinate system for GMO component :envvar:`m`. ,NONE
 GMAGN,m,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE
 GROTX,m,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",[Degrees]

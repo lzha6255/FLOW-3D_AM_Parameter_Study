@@ -15,9 +15,11 @@ if __name__ == '__main__':
     variable_name_file = "input-variable-summary-units.rst.txt"
     block_name_csv = "block_names.csv"
     variable_name_csv = "variable_names.csv"
+    block_name_header = ["NAMELIST", "", "DESCRIPTION", "REQUIRED"]
+    variable_name_header = ["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "DIMENSIONS"]
 
-    dictionary.write_dictionary(block_name_file, block_name_csv, 3)
-    dictionary.write_dictionary(variable_name_file, variable_name_csv, 4)
+    dictionary.write_dictionary(block_name_file, block_name_csv, 3, block_name_header)
+    dictionary.write_dictionary(variable_name_file, variable_name_csv, 4, variable_name_header)
 
     prepin_file_name = "prepin_files\prepin.ship_propeller_1.txt"
     prepin_csv_name = "prepin_csv_files\prepin.ship_propeller_1.csv"
