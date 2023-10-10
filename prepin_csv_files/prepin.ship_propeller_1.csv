@@ -25,7 +25,7 @@ LUNITS,,...,"Character string used to identify length units when ""Custom"" opti
 TIMUNITS,,...,"Character string used to identify time units when ""Custom"" option is chosen (up to 10 characters)",NONE,'s','time units'
 CUNITS,,...,"Character string used to identify charge units when ""Custom"" option is chosen (up to 10 characters)",NONE,'scoul','charge units'
 GAMMA,,1.4,"Exponent in void region equation of state, ``P*V^GAMMA = constant``. Zero or negative value indicates constant pressure. :envvar:`GAMMA` = ratio of specific heats of 'void' gas C\ :sub:`p`/C\ :sub:`v`, assumed constant.",NON-DIM,1.4,'gamma'
-PCAV,,...,"Cavitation pressure, used in Cavitation (:envvar:`ICAV` = 1) and Cavitation Potential (:envvar:`IPCAV` :math:`>` 0) models. Defaults to -1 atm. if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to zero otherwise.",g cm^-1 s^-2,0,
+PCAV,,Cavitation potential,0,
 MU1,,MUI,,Dynamic viscosity of fluid #1,[M L\ :sup:`-1` t\ :sup:`-1`],0.033,'viscosity'
 FLUID1,,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE,'Bronze_(Ship propeller)','material name'
 MUCTST,,1/(1000 • :envvar:`TWFIN`),Minimum fluid strain rate applied in strain rate-dependent viscosity model.,1/s,0.001,
@@ -128,45 +128,45 @@ PZ,2,...,nth location in z-direction for a mesh plane,cm,0.023,'Location of the 
 IF_MESH_ENABLED,,1,Activation flag for mesh block,NONE ,1,
 OBS,BLOCK,BLOCK,Geometry data,BLOCK,BLOCK,BLOCK
 FL,BLOCK,BLOCK,Fluid initial conditions,BLOCK,BLOCK,BLOCK
-nfls,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,
-fluidRegionName,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'powder bed','Fluid Region Name'
-ifdis,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,'Geometry'
-treg,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,293,'Fluid Tempearture'
-ffstl,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'../Base_Layer_Settling_GE/particle0011.stl','STL Geometry Filename'
-if_flreg_enabled,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,
-fluidRegionName,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'bulk','Fluid Region Name'
-fzh,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.015,'Z High'
-treg,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,293,'Fluid Tempearture'
-if_flreg_enabled,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,
-pvoid,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.0e+06,'Default Void Initial Vapor Pressure'
-iflinittyp,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,'Fluid Initialization'
+NFLS,,0,Number of fluid regions,NONE,2,
+FLUIDREGIONNAME,1,' ',Fluid region :envvar:`n` name (up to 256 characters),NONE,'powder bed','Fluid Region Name'
+IFDIS,1,0,Region type,NONE,-1,'Geometry'
+TREG,1,...,Region :envvar:`n` fluid #1 temperature,K,293,'Fluid Tempearture'
+FFSTL,1,:file:`fstlnn.inp`,"File name for stereolithography (STL) data file for defining initial conditions (:envvar:`IFDIS(n)` = -1), where ""nn"" = :envvar:`n`.",NONE,'../Base_Layer_Settling_GE/particle0011.stl','STL Geometry Filename'
+IF_FLREG_ENABLED,1,1,Activation flag for fluid region :envvar:`n`,NONE ,1,
+FLUIDREGIONNAME,2,' ',Fluid region :envvar:`n` name (up to 256 characters),NONE,'bulk','Fluid Region Name'
+FZH,2,...,Upper z-coordinate limit for region :envvar:`n`,cm,0.015,'Z High'
+TREG,2,...,Region :envvar:`n` fluid #1 temperature,K,293,'Fluid Tempearture'
+IF_FLREG_ENABLED,2,1,Activation flag for fluid region :envvar:`n`,NONE ,1,
+PVOID,,...,"Void initial vapor pressure. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.0e+06,'Default Void Initial Vapor Pressure'
+IFLINITTYP,,0,Fluid initialization flag,NONE,0,'Fluid Initialization'
 BF,BLOCK,BLOCK,Baffle setup,BLOCK,BLOCK,BLOCK
 MOTN,BLOCK,BLOCK,Non-inertial reference frame motion description,BLOCK,BLOCK,BLOCK
 GRAFIC,BLOCK,BLOCK,Graphics output requests,BLOCK,BLOCK,BLOCK
-anmtyp,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr1',
-anmtyp,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr10',
-anmtyp,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr11',
-anmtyp,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr12',
-anmtyp,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr13',
-anmtyp,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr14',
-anmtyp,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr15',
-anmtyp,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr16',
-anmtyp,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr2',
-anmtyp,10,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr3',
-anmtyp,11,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr4',
-anmtyp,12,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr5',
-anmtyp,13,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr6',
-anmtyp,14,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr7',
-anmtyp,15,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr8',
-anmtyp,16,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sclr9',
-anmtyp,17,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'sldfrc',
-anmtyp,18,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'tn',
-anmtyp,19,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'vel',
-RENDERSPACE,BLOCK,BLOCK,FAVORizer data,BLOCK,BLOCK,BLOCK
+ANMTYP,1,""" """,Quantity to be stored as selected data,NONE,'sclr1',
+ANMTYP,2,""" """,Quantity to be stored as selected data,NONE,'sclr10',
+ANMTYP,3,""" """,Quantity to be stored as selected data,NONE,'sclr11',
+ANMTYP,4,""" """,Quantity to be stored as selected data,NONE,'sclr12',
+ANMTYP,5,""" """,Quantity to be stored as selected data,NONE,'sclr13',
+ANMTYP,6,""" """,Quantity to be stored as selected data,NONE,'sclr14',
+ANMTYP,7,""" """,Quantity to be stored as selected data,NONE,'sclr15',
+ANMTYP,8,""" """,Quantity to be stored as selected data,NONE,'sclr16',
+ANMTYP,9,""" """,Quantity to be stored as selected data,NONE,'sclr2',
+ANMTYP,10,""" """,Quantity to be stored as selected data,NONE,'sclr3',
+ANMTYP,11,""" """,Quantity to be stored as selected data,NONE,'sclr4',
+ANMTYP,12,""" """,Quantity to be stored as selected data,NONE,'sclr5',
+ANMTYP,13,""" """,Quantity to be stored as selected data,NONE,'sclr6',
+ANMTYP,14,""" """,Quantity to be stored as selected data,NONE,'sclr7',
+ANMTYP,15,""" """,Quantity to be stored as selected data,NONE,'sclr8',
+ANMTYP,16,""" """,Quantity to be stored as selected data,NONE,'sclr9',
+ANMTYP,17,""" """,Quantity to be stored as selected data,NONE,'sldfrc',
+ANMTYP,18,""" """,Quantity to be stored as selected data,NONE,'tn',
+ANMTYP,19,""" """,Quantity to be stored as selected data,NONE,'vel',
+RENDERSPACE,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
 HEADER,BLOCK,BLOCK,GUI data,BLOCK,BLOCK,BLOCK
-project,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Base Layer Melt GE',
-version,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'double',
-nprocs,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,
+PROJECT,,...,Project name,'Base Layer Melt GE',
+VERSION,,...,debug version or release version,'double',
+NPROCS,,...,Number of processors,0,
 PARTS,BLOCK,BLOCK,Marker and mass particle setup,BLOCK,BLOCK,BLOCK
 DETAILS,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
 f3d_product_name,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'FLOW-3D',

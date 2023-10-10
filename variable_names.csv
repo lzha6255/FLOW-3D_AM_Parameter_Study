@@ -1,5 +1,6 @@
 NAME,SUBSCRIPT,DEFAULT_VALUE,DESCRIPTION,DIMENSIONS
-STANDARD FORMAT,OPTIONAL FORMAT,::
+STANDARD FORMAT,OPTIONAL FORMAT
+::,::
 APPLICATION,,0,Flag for type of application being modeled,NONE
 PROCESS,,0,Flag for type of process being modeled,NONE
 SUBPROCESS,,0,Flag for type of subprocess being modeled,NONE          
@@ -304,57 +305,108 @@ IFPRBVABS_FIN,k,0,Specify if to use the absolute probe variable value for probe 
 PRBVROP_FIN,k,' ',Probe variable relational operator for probe condition :envvar:`k`,NONE
 PRBVAL_CRITICAL_FIN,k,0.0,Critical value for probe condition :envvar:`k`,NONE
 PRBDT_FIN,k,0.0,Duration after the critical value has reached for probe condition :envvar:`k`,[t]
-Y,,y or |theta| -coordinate,Z,
-U,,Fluid x or r-velocity,V,
-W,,Fluid z velocity,UMG,
-P,,Pressure,F,
-RHO,,Macroscopic density,TN,
-TN2,,Temperature of fluid #2,TW,
-HTC,,Effective heat transfer coefficient,UPR,
-VPR,,Probe y or |theta| -velocity,WPR,
-UPRMG,,Probe velocity magnitude,PSIZPR,
-TEMPPR,,Probe temperature,QSR,
-QSRV,,Volume source rate,MU,
-TKE,,Turbulent energy,DTKE,
-TOMEGA,,Turbulent omega,STNR,
-VORTX,,x vorticity,VORTY,
-VORTZ,,z vorticity,VORTQ,
-DRG,,Normalized drag coefficient,FS,
-VMOBS,,Moisture concentration,VFOB,
-HYFD,,Flow depth,MHYFD,
-HYEL,,Free surface elevation,DAVEL,
-OFVEL,,Velocity at specified offset,FROUDE,
-SHYHD,,Specific hydraulic head,THYHD,
-THEAD,,Total hydraulic head 3D,SCSCLR,
-EOF2,,Zeta potential,ECHRG,
-FMDEN,,Foam density multiplier,DFAIR,
-DISSLV,,Dissolved solute concentration,BURNMF,
-MUPOR,,Percent micro-porosity,CONTACT,
-DFCTW,,Wicked foam residue concentration,DFCT,
-DFCTLF,,Foam residue concentration,RESID,
-DFCWE,,Wall defect concentration,RESDT,
-FILL1,,Time of first fluid arrival,PCAV,
-SEG,,Solute concentration,SSPC,
-SSPK,,Suspended sediment species packed volume fraction,ELASTXX,
-ELASTYY,,yy component of elastic stress,ELASTZZ,
-ELASTXY,,xy component of elastic stress,ELASTYZ,
-ELASTXZ,,xz component of elastic stress,NCG,
-PATH,,Distance traveled by fluid,TRACER,
-TRACERN,,Tracer from flux surface n,EPOT,
-EFIELD,,Electric field,STRSXX,
-STRSXY,,FSI/TSE stress component xy,STRSXZ,
-STRSYY,,FSI/TSE stress component yy,STRSYZ,
-STRSZZ,,FSI/TSE stress component zz,DISPX,
-DISPY,,FSI/TSE displacement in y-direction,DISPZ,
-STRNXX,,FSI/TSE strain component xx,STRNXY,
-STRNXz,,FSI/TSE strain component xz,STRNYY,
-STRNYZ,,FSI/TSE strain component yz,STRNZZ,
-PRVLEXP,,Relative volume expansion,PRISOST,
-PRVMISS,,Von Mises stress,TEMP,
-PSTRNXX,,FSI/TSE plastic strain component xx,PSTRNXY,
-PSTRNXZ,,FSI/TSE plastic strain component xz,PSTRNYY,
-PSTRNYZ,,FSI/TSE plastic strain component yz,PSTRNZZ,
-PSTRNMG,,FSI/TSE plastic strain magnitude,NAME
+X,,x or r-coordinate
+Y,,y or |theta| -coordinate
+Z,,z-coordinate
+U,,Fluid x or r-velocity
+V,,Fluid y or |theta| -velocity
+W,,Fluid z velocity
+UMG,,Fluid velocity magnitude
+P,,Pressure
+F,,Fraction of fluid
+RHO,,Macroscopic density
+TN,,Temperature of fluid #1
+TN2,,Temperature of fluid #2
+TW,,Wall temperature
+HTC,,Effective heat transfer coefficient
+UPR,,Probe x or r-velocity
+VPR,,Probe y or |theta| -velocity
+WPR,,Probe z-velocity
+UPRMG,,Probe velocity magnitude
+PSIZPR,,Probe diameter
+TEMPPR,,Probe temperature
+QSR,,Mass source rate
+QSRV,,Volume source rate
+MU,,Dynamic viscosity
+TKE,,Turbulent energy
+DTKE,,Turbulent dissipation
+TOMEGA,,Turbulent omega
+STNR,,Strain rate magnitude
+VORTX,,x vorticity
+VORTY,,y vorticity
+VORTZ,,z vorticity
+VORTQ,,Q-criterion for vortex detection
+DRG,,Normalized drag coefficient
+FS,,Solid fraction
+VMOBS,,Moisture concentration
+VFOB,,Free component or lost foam component volume fraction
+HYFD,,Flow depth
+MHYFD,,Maximum flow depth
+HYEL,,Free surface elevation
+DAVEL,,Depth averaged velocity
+OFVEL,,Velocity at specified offset
+FROUDE,,Froude number
+SHYHD,,Specific hydraulic head
+THYHD,,Total hydraulic head
+THEAD,,Total hydraulic head 3D
+SCSCLR,,User added scalar species
+EOF2,,Zeta potential
+ECHRG,,Electric charge density
+FMDEN,,Foam density multiplier
+DFAIR,,Volume fraction of entrained air
+DISSLV,,Dissolved solute concentration
+BURNMF,,Combustion gas mass fraction 
+MUPOR,,Percent micro-porosity
+CONTACT,,Fluid contact time with walls 
+DFCTW,,Wicked foam residue concentration
+DFCT,,Free surface defect concentration
+DFCTLF,,Foam residue concentration
+RESID,,Solid residue concentration
+DFCWE,,Wall defect concentration
+RESDT,,Fluid residence time
+FILL1,,Time of first fluid arrival
+PCAV,,Cavitation potential
+SEG,,Solute concentration
+SSPC,,Suspended sediment species concentration
+SSPK,,Suspended sediment species packed volume fraction
+ELASTXX,,xx component of elastic stress
+ELASTYY,,yy component of elastic stress
+ELASTZZ,,zz component of elastic stress
+ELASTXY,,xy component of elastic stress
+ELASTYZ,,yz component of elastic stress
+ELASTXZ,,xz component of elastic stress
+NCG,,Non-condensable gas density
+PATH,,Distance traveled by fluid
+TRACER,,Combined tracer
+TRACERN,,Tracer from flux surface n
+EPOT,,Electric potential
+EFIELD,,Electric field
+STRSXX,,FSI/TSE stress component xx
+STRSXY,,FSI/TSE stress component xy
+STRSXZ,,FSI/TSE stress component xz
+STRSYY,,FSI/TSE stress component yy
+STRSYZ,,FSI/TSE stress component yz
+STRSZZ,,FSI/TSE stress component zz
+DISPX,,FSI/TSE displacement in x-direction
+DISPY,,FSI/TSE displacement in y-direction
+DISPZ,,FSI/TSE displacement in z-direction
+STRNXX,,FSI/TSE strain component xx
+STRNXY,,FSI/TSE strain component xy
+STRNXz,,FSI/TSE strain component xz
+STRNYY,,FSI/TSE strain component yy
+STRNYZ,,FSI/TSE strain component yz
+STRNZZ,,FSI/TSE strain component zz
+PRVLEXP,,Relative volume expansion
+PRISOST,,FSI/TSE mean isotropic stress
+PRVMISS,,Von Mises stress
+TEMP,,FSI/TSE temperature
+PSTRNXX,,FSI/TSE plastic strain component xx
+PSTRNXY,,FSI/TSE plastic strain component xy
+PSTRNXZ,,FSI/TSE plastic strain component xz
+PSTRNYY,,FSI/TSE plastic strain component yy
+PSTRNYZ,,FSI/TSE plastic strain component yz
+PSTRNZZ,,FSI/TSE plastic strain component zz
+PSTRNMG,,FSI/TSE plastic strain magnitude
 NCYC,,0,Total number of thermal cycles,CYCLES
 ISEG_TYPE,n,...,Type of cycle segment :envvar:`n`,NONE
 CYCSEGNAME,n,...,Name of cycle segment :envvar:`n`,NONE
@@ -1178,3 +1230,1415 @@ GTRNZ,m,0.0,Translation of component :envvar:`m` in z-direction,[L]
 GXTRFC,m,0.0,x-coordinate of transformation center for component :envvar:`m`,[L]
 GYTRFC,m,0.0,y-coordinate of transformation center for component :envvar:`m`,[L]
 GZTRFC,m,0.0,z-coordinate of transformation center for component :envvar:`m`,[L]
+IVRT,m,0,Virtual component flag for component :envvar:`m`,NONE
+ICPY,n,0,Number for component that is template for copy :envvar:`n`,NONE
+CMAGN,n,1.0,Magnification (scaling) factor for component copy :envvar:`n`,NON-DIM
+CMAGNX,n,1.0,Scaling factor in x-direction for component copy :envvar:`n`,NON-DIM
+CMAGNY,n,1.0,Scaling factor in y-direction for component copy :envvar:`n`,NON-DIM
+CMAGNZ,n,1.0,Scaling factor in z-direction for component copy :envvar:`n`,NON-DIM
+CRFLX,n,...,Component copy :envvar:`n` x-reflection location.,[L]
+CRFLY,n,...,Component copy :envvar:`n` y-reflection location.,[L]
+CRFLZ,n,...,Component copy :envvar:`n` z-reflection location.,[L]
+CROTX,n,0°,"Component copy :envvar:`n` rotation about x-axis in degrees, positive in right-hand sense. ",(DEGREES
+CROTY,n,0°,Component copy :envvar:`n` rotation about y-axis (degrees),DEGREES
+CROTZ,n,0°,Component copy :envvar:`n` rotation about z-axis (degrees),DEGREES
+CTRNX,n,0.0,Component copy :envvar:`n` translation in x-direction,[L]
+CTRNY,n,0.0,Component copy :envvar:`n` translation in y-direction,[L]
+CTRNZ,n,0.0,Component copy :envvar:`n` translation in z-direction,[L]
+DFCWE,m,0.0,Rate at which solid material is eroded at mold walls (scalar specified by :envvar:`IDFCWE`).,NON-DIM     
+OCANG,m,CANGLE,,Static contact angle (in degrees) for fluid #1 wall adhesion for component :envvar:`m`. (:envvar:`CANGLE` is set in namelist :envvar:`PROPS`).,[DEGREES]
+CANGSUB,n,OCANG,m,Static contact angle (in degrees) for fluid #1 wall adhesion for subcomponent :envvar:`n` of component :envvar:`m`,[DEGREES]    
+IF_COMP_PIN,m,0,Flag to control the pinning of fluid interface contact line to the surface of component :envvar:`m`:,NONE  
+IF_SUB_PIN,n,IF_COMP_PIN,m,Flag to control the pinning of fluid interface contact line to the surface of subcomponent :envvar:`n` of component :envvar:`m`:,NONE          
+OFRCOF,m,-1.0,Coefficient of friction between fluid and solid walls for the partial slip model for component :envvar:`m`. A zero value corresponds to free slip and an infinite value to no-slip. A negative value turns off the partial slip model. ,[M L\ :sup:`-2` t\ :sup:`-1`]
+IROUGHUSE,m,0,Flag to control roughness data to use for surface of component :envvar:`m`:,NONE
+ROUGH,m,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,[L]
+ROUGHSUB,n,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    
+IOEPOTM,m,0,Type of electric field mode for component :envvar:`n`,NONE
+OEPOT,"t,m",0.0,Electrostatic potential of component :envvar:`m` at time :envvar:`TOBS(t)`.,[M L\ :sup:`2` Q\ :sup:`-1` t\ :sup:`-2`]
+FOEPOT,m,,The external filename for tabular electrostatic potential of component :envvar:`m` as a function of time (used only if :envvar:`IOEPOTC(m)` :math:`\geq` 2),NONE
+IOEPOTC,m,0,The column number for electrostatic potential of component :envvar:`m` in the external file,NONE
+OEPOTZT,m,0.0,Zeta potential of component :envvar:`m`,[M L\ :sup:`2` Q\ :sup:`-1` t\ :sup:`-2`]
+ODIEL,m,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM
+OECOND,m,0.0,Electric conductivity for component :envvar:`m`,[Q\ :sup:`2` t M\ :sup:`-1` L\ :sup:`-3`]
+OECHRG,m,0.0,Initial uniform electric charge density in component :envvar:`m`,[Q/L\ :sup:`3`]
+HOBEM1,m,0.0,Emissivity for component :envvar:`m` to type 1 void,NON-DIM
+HOBEM2,m,0.0,Emissivity for component :envvar:`m` to type 2 void,NON-DIM
+HOBEM3,m,0.0,Emissivity for component :envvar:`m` to type 3 void,NON-DIM
+HOBS1S,m,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,[M T\ :sup:`-1` t\ :sup:`-3`]
+HOBS1,m,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,[M T\ :sup:`-1` t\ :sup:`-3`]
+HOBS2,m,-1.0 ,Heat-transfer coefficient to fluid #2 for component :envvar:`m`. ,[M T\ :sup:`-1` t\ :sup:`-3`]
+HOBVT1,"t,m",0.0,Time-dependent component :envvar:`m` heat transfer to void,[M T\ :sup:`-1` t\ :sup:`-3`]
+FHOBVT1,m,,The external filename for tabular component :envvar:`m` heat transfer to void as a function of time (used only if :envvar:`IHOBVT1C(m)` :math:`\geq` 2),NONE
+IHOBVT1C,m,0,The column number for total component :envvar:`m` heat transfer to void in the external file,NONE
+HOBVT2,"t,m",0.0,Time-dependent component :envvar:`m` heat transfer to void,[M T\ :sup:`-1` t\ :sup:`-3`]
+FHOBVT2,m,,The external filename for tabular component :envvar:`m` heat transfer to void as a function of time (used only if :envvar:`IHOBVT2C(m)` :math:`\geq` 2),NONE
+IHOBVT2C,m,0,The column number for total component :envvar:`m` heat transfer to void in the external file,NONE
+HOBVT3,"t,m",0.0,Time-dependent component :envvar:`m` heat transfer to void,[M T\ :sup:`-1` t\ :sup:`-3`]
+FHOBVT3,m,,The external filename for tabular component :envvar:`m` heat transfer to void as a function of time (used only if :envvar:`IHOBVT3C(m)` :math:`\geq` 2),NONE
+IHOBVT3C,m,0,The column number for total component :envvar:`m` heat transfer to void in the external file,NONE
+HTCOB,"m1,m2",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,[M T\ :sup:`-1` t\ :sup:`-3`]
+TOBS,t,0.0,Times for time-dependent component arrays,[t]
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+HOBS1,m,0.0,Heat-transfer coefficient between fluid #1 and foam component :envvar:`m` (:envvar:`IFOB(m)` = 1),[M T\ :sup:`-1` t\ :sup:`-3`]
+RCOBS,m,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",[M L\ :sup:`-1` T\ :sup:`-1` t\ :sup:`-2`]
+REMFOB,m,0.0,Density times specific melting energy product for foam,[M L\ :sup:`-1` t\ :sup:`-2`]
+REVFOB,m,0.0,Density times specific vaporization energy product for foam,[M L\ :sup:`-1` t\ :sup:`-2`]
+TMFOB,m,0.0,Foam melting temperature,[T]
+TVFOB,m,0.0,Foam vaporization temperature,[T]
+IFCONTCOMP,m,0,Flag to output contact time of component :envvar:`m` with fluid #1,NONE       
+CYC_TRANS_X,m,0.0,Component displacement in x direction during spray cooling,[L]
+CYC_TRANS_Y,m,0.0,Component displacement in y direction during spray cooling,[L]
+CYC_TRANS_Z,m,0.0,Component displacement in y direction during spray cooling,[L]
+IFOBDISS,m,0,Dissolving component flag,NONE
+IFOBBURN,m,0,Combustible component flag,NONE
+BURNA,m,1.0e-05,The combustion front velocity in the solid.,[L :sup:`-1`]
+BURNB,m,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    
+BURNDEN,m,-1.0,Density of the solid combustible component :envvar:`m`       ,[M/L\ :sup:`3`]
+BURNIGNTEMP,m,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,[T]
+BURNTEMP,m,-1.0,Temperature at which combustible component :envvar:`m` burns      ,[T]                
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+VTAREA,m,"minimum cell size, squared",Open area of each individual vent defined by vent component :envvar:`m`,[L\ :sup:`2`]
+VTDIAM,m,0.0,Diameter of an individual vent channel,[L]
+VTPRES,"t,m",PVOID,External vent pressure at time :envvar:`TOBS(t)`,[M L\ :sup:`-1` t\ :sup:`-2`]
+IVTPRESC,m,0,The column number for external vent pressure in the external file,NONE
+FVTPRES,m,,The external filename for tabular external vent pressure as a function of time (used only if :envvar:`IVTPRESC(m)` :math:`\geq` 2),NONE
+VTTEMP,"t,m",TVOID,External vent temperature at time :envvar:`TOBS(t)`,[T]
+IVTTEMPC,m,0,The column number for external vent temperature in the external file,NONE
+FVTTEMP,m,,The external filename for tabular external vent temperature as a function of time (used only if :envvar:`IVTTEMPC(m)` :math:`\geq` 2),NONE
+IF_2WAY_VT,m,0,The flag for vent flow direction,NONE
+VTF_MIN,m,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM
+VTF_MAX,k,...,Fluid fraction at vent :envvar:`m` above which the vent is considered blocked to any flow through it.,NON-DIM      
+RHOAIR,,...,Air density for use in the calculation of the venting loss coefficient for vent components. ,[M/L\ :sup:`3`] 
+NEVENTS_VT,m,0,Number of events for vent component :envvar:`m`,NONE
+EVENT_NAME_VT,"n,m",' ',Event :envvar:`n` name (up to 50 characters),NONE
+IF_EVENT_ENABLED_VT,"n,m",1,Event :envvar:`n` enable/disable flag,NONE
+IF_GLOBAL_VT,"n,m",0,Global condition flag for event :envvar:`n`,NONE
+IGLOBAL_VT,"n,m",0,"Global condition id for event :envvar:`n` (used if :envvar:`IF_GLOBAL_VT(n,m)` = 1)",NONE
+NACTIONS_VT,"n,m",0,"Number of actions for event :envvar:`n` (used if :envvar:`IF_GLOBAL_VT(n,m)` = 0)",NONE
+NPROBES_VT,"n,m",0,Number of local probe conditions for event :envvar:`n`,NONE
+EVENT_CONDITION_LOGIC_VT,"n,m",' ',Logical operator between probe conditions for event :envvar:`n`,NONE
+EVENT_ACTION_VT,"i,n,m",' ',Event action :envvar:`i` for event :envvar:`n`,NONE
+VTPRES_EVENT,"t,n,m",PVOID,Vent external pressure at time :envvar:`TOBS(t)` for event :envvar:`n`,[M L\ :sup:`-1` t\ :sup:`-2`]
+IVTPRESC_EVENT,"n,m",0,The column number for the vent external pressure for event :envvar:`n`,NONE
+FVTPRES_EVENT,"n,m",,The external filename for the tabular vent external pressure for event :envvar:`n` as a function of time,NONE
+VTTEMP_EVENT,"t,n,m",TVOID,Vent external temperature at time :envvar:`TOBS(t)` for event :envvar:`n`,[T]
+IVTTEMPC_EVENT,"n,m",0,The column number for the vent external temperature for event :envvar:`n`,NONE
+FVTTEMP_EVENT,"n,m",,The external filename for the vent external temperature for event :envvar:`n` as a function of time,NONE
+IF_CONDITION_ENABLED_VT,"j,n,m",1,Probe condition :envvar:`j` enable/disable flag for event :envvar:`n`,NONE
+IPRBD_VT,"j,n,m",0,Probe id for probe condition :envvar:`j`,NONE
+IPRBSC_VT,"j,n,m",0,Scalar id for probe condition :envvar:`j`,NONE
+IPRBSCN_VT,"j,n,m",0,Additional scalar index for probe condition :envvar:`j`,NONE
+PRBVNAM_VT,"j,n,m",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_VT,"j,n,m",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_VT,"j,n,m",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_VT,"j,n,m",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_VT,"j,n,m",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
+IAQSRB,m,0,Activation flag for individual mass source (when flow rate is negative) for geometry component :envvar:`m`.,NONE
+IFQSRB,m,1,Index of fluid released by mass source (when flow rate is positive) for geometry component :envvar:`m`.,NONE
+IFSNKB,m,1,Index of fluid removed by mass source (when flow rate) is negative) for geometry component :envvar:`m`.,NONE
+IOQSRT,m,1,Mass source type,NONE
+ITQSRB,m,1,Indicator of fluid flow rate of mass source for geometry component :envvar:`m`.,NONE
+IVQSRB,m,2,Indicator of volume or mass flow rate for fluid from mass source for geometry component :envvar:`m`.,NONE
+QSROBS,"t,m",0.0 ,"Total flow rate from mass source at time :envvar:`TOBS(t)` for geometry component :envvar:`m`, where :envvar:`t` is index of time ",[L\ :sup:`3`/t] or [M/t]
+FQSROBS,m,,The external filename for tabular total flow rate from mass source for component :envvar:`m` as a function of time (used only if :envvar:`IQSROBSC(m)` :math:`\geq` 2),NONE
+IQSROBSC,m,0,The column number for total power for component :envvar:`m` in the external file,NONE
+RHOQSRB,m,...,Density of fluid released by mass source for geometry component :envvar:`m`,[M/L\ :sup:`3`]
+RHOSNKB,m,...,Density of gas in voids,[M/L\ :sup:`3`]
+ROBS,m,1.0,Surface area multiplier due to roughness of component :envvar:`m`. This multiplies the cell-face area to give the effective heat transfer area for each cell. No heat transfer at component :envvar:`m` if :envvar:`ROBS(m)` = 0.0.,NON-DIM
+SCLQSR,"ns,m",0.0,Scalar concentration of species ns in fluid added by mass source :envvar:`m`,[M/L\ :sup:`3`]
+SQSROBS,"t,m",0.0,"Flow rate per unit surface area from mass source at time :envvar:`TOBS(t)` for geometry component :envvar:`m`, where :envvar:`t` is index of time. ",[L\ :sup:`3`/t] or [M/t]
+FSQSROBS,m,,The external filename for tabular flow rate per unit surface area from mass source for component :envvar:`m` as a function of time (used only if :envvar:`ISQSROBSC(m)` :math:`\geq` 2),NONE
+ISQSROBSC,m,0,The column number for flow rate per unit surface area from mass source for component :envvar:`m` in the external file,NONE
+TQSRB,"t,m",0.0,"Temperature of fluid released by mass source for geometry component :envvar:`m` at time :envvar:`TMS(t)`, where :envvar:`t` is the index for time.",[T]
+FTQSRB,m,,The external filename for tabular temperature of mass source for component :envvar:`m` as a function of time (used only if :envvar:`ITQSRBC(m)` :math:`\geq` 2).,NONE
+ITQSRBC,m,0,The column number for temperature of mass source for component :envvar:`m` in the external file.,NONE
+TOBS,t,0.0,Times for time-dependent component arrays,[t]
+QSRAIR,m,0.0,Volume fraction of entrained air at mass source :envvar:`m`,NON-DIM
+QSRCHRG,m,0.0,Electric charge density at mass source :envvar:`m`,[Q/L\ :sup:`3`]
+QSRDSIZE,m,DFDIAM_INI,,Droplet diameter at mass source :envvar:`m`,[L]
+QSRDISS,m,0.0,Concentration of dissolved air at mass source :envvar:`m`,[M/L\ :sup:`3`]
+QSRNCG,m,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM
+RSATQSR,m,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM
+QSRSS,"m,k",0.0,Suspended sediment mass concentration of sediment species k at mass source :envvar:`m`,[M/L\ :sup:`3`]
+QSRSEG,m,0.0,Solute mass concentration at mass source :envvar:`m`,[M/L\ :sup:`3`]
+NEVENTS_QSRB,m,0,Number of events for mass source :envvar:`m`,NONE
+EVENT_NAME_QSRB,"n,m",' ',Event :envvar:`n` name (up to 50 characters),NONE
+IF_EVENT_ENABLED_QSRB,"n,m",1,Event :envvar:`n` enable/disable flag,NONE
+IF_GLOBAL_QSRB,"n,m",0,Global condition flag for event :envvar:`n`,NONE
+IGLOBAL_QSRB,"n,m",0,"Global condition id for event :envvar:`n` (used if :envvar:`IGLOBAL_QSRB(n,m)` = 1)",NONE
+NPROBES_QSRB,"n,m",0,"Number of probe conditions for event :envvar:`n` (used if :envvar:`IF_GLOBAL_QSRB(n,m)` = 0)",NONE
+EVENT_CONDITION_LOGIC_QSRB,"n,m",' ',Logical operator between probe conditions for event :envvar:`n`,NONE
+EVENT_ACTION_QSRB,"n,m",' ',Event action for event :envvar:`n`,NONE
+QSROBS_EVENT,"t,n,m",0.0,Total flow rate at time :envvar:`TOBS(t)` for event :envvar:`n`,[L\ :sup:`3`/t] or [M/t]
+IQSROBSC_EVENT,"n,m",0,The column number for the total flow rate for event :envvar:`n`,NONE
+FQSROBS_EVENT,"n,m",,The external filename for the tabular total flow rate for event :envvar:`n` as a function of time,NONE
+SQSROBS_EVENT,"t,n,m",0.0,Flow rate per unit surface area at time :envvar:`TOBS(t)` for event :envvar:`n`,[L\ :sup:`3`/t] or [M/t]
+ISQSROBSC_EVENT,"n,m",0,The column number for the flow rate per unit surface area for event :envvar:`n`,NONE
+FSQSROBS_EVENT,"n,m",,The external filename for the tabular flow rate per unit surface area for event :envvar:`n` as a function of time,NONE
+IF_CONDITION_ENABLED_QSRB,"j,n,m",1,Probe condition :envvar:`j` enable/disable flag for event :envvar:`n`,NONE
+IPRBD_QSRB,"j,n,m",0,Probe id for probe condition :envvar:`j`,NONE
+IPRBSC_QSRB,"j,n,m",0,Scalar id for probe condition :envvar:`j`,NONE
+IPRBSCN_QSRB,"j,n,m",0,Additional scalar index for probe condition :envvar:`j`,NONE
+PRBVNAM_QSRB,"j,n,m",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_QSRB,"j,n,m",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_QSRB,"j,n,m",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_QSRB,"j,n,m",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_QSRB,"j,n,m",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
+IFOBSMST,m,0,Moisture flag for component :envvar:`m`.,NONE
+OBSMST,m,0.0,Initial uniform moisture content in component :envvar:`m` defined as:,NON-DIM
+RHOBS,m,-1.0,Dry component :envvar:`m` microscopic density (weight per unit solid volume in mesh),[M/L\ :sup:`3`]
+IFSI,m,0,Fluid-structure interaction (FSI) flag for component :envvar:`m`,NONE
+IFFEM,m,0,Flag to use finite element (FE) mesh file for the fluid-structure interaction solver for component :envvar:`m`,NONE
+FFEM,m,...,Finite element (FE) mesh file name for component :envvar:`m`,NONE
+IFSICPL,m,0,Flag to control fluid/solid coupling for component :envvar:`m`. ,NONE
+ITETFSI,m,0,"Flag to use tetrahedral meshing to generate the mesh for Fluid-structure interaction (FSI) component :envvar:`m`. Default is a hexahedral mesh, and this value is overridden when reading in an existing mesh from a file (when :envvar:`IFFEM(m)` = 1).",NONE
+ICOUPLE,"m,m1",0,"Flag to control coupling between neighboring Fluid Structure Interaction (FSI) components :envvar:`m` and :envvar:`m1` (see :envvar:`IFSI(m)` above). Default is no coupling between components (i.e., a fixed boundary condition). Note that the coupling is always symmetric: the coupling of component :envvar:`m` to :envvar:`m1` is always the same as :envvar:`m1` to :envvar:`m`. If coupling is doubly defined between two components, the higher-valued :envvar:`ICOUPLE` prevails.",NONE
+FRICTION,"m,m1",-1.0,"Friction coefficient between neighboring Fluid Structure Interaction (FSI) components that are partially coupled, :envvar:`ICOUPLE(m,m1)` = 2.",NONE
+RHOBS,m,-1.0,Density of component :envvar:`m`,[M/L\ :sup:`3`]
+BLKMOD,m,0.0,Bulk modulus of component :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+ELASTMOD,m,0.0,Elastic modulus of component :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+POISSONR,m,-2.0,Poisson ratio of component :envvar:`m`,NON-DIM
+SHRMOD,m,0.0,Shear modulus of component :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+THEXOBS,m,0.0,Thermal expansion coefficient of component :envvar:`m`,[1/T]
+YLDSTR,m,0.0,Yield stress limit of component :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+IFSOFT,m,0,Flag to determine the stiffness of the component :envvar:`m` adjacent to solidified fluid region.,NONE
+IBUOYO,m,0,Flag for the output of buoyancy center and metacentric height,NONE
+ICLIDOB,"m1,m2",ICLID,,"Collision flag for components :envvar:`m1` and :envvar:`m2`, one of which is a coupled-motion GMO component.",NONE
+IGF,m,0,Type of input data for control force and torque. Used when :envvar:`IMO(m)` = 4.,NONE
+IGTRFMVB,m,0,"Flag for transformation of GMO dynamic properties for component :envvar:`m` if the component undergoes total transformation. These properties include mass properties, force(s), force application point(s), torque(s), linear and angular velocities, GMO reference point, and rotational axis location.    ",NONE
+IMO,m,0,Type of component :envvar:`m`,NONE
+IMOAXS,m,0,Specifies how the component's :envvar:`m` motion is constrained,NONE
+IOMXCAL,m,1,Flag for rotational component in x'-direction of body system,NONE
+IOMXPRE,m,0,Type of time-dependent x'- angular velocity in body system,NONE
+IOMYCAL,m,1,Flag for rotational component in y'-direction of body system,NONE
+IOMYPRE,m,0,Type of time-dependent y'- angular velocity in body system,NONE
+IOMZCAL,m,1,Flag for rotational component in z'-direction of body system,NONE
+IOMZPRE,m,0,Type of time-dependent z'- angular velocity in body system,NONE
+IPREF,m,1,Flag for reference pressure for component :envvar:`m` ,NONE
+IPRPMVB,m,0,Flag for mass property input,NONE
+IREFGF,m,1,Indicator of reference system in which control forces and torques are prescribed. ,NONE
+IREFGFM,"m,mf",1,Indicator of the reference system in which control force :envvar:`mf` exerting on component :envvar:`m` is defined,NONE
+IUMCAL,m,1,Flag for translational component in x-direction of space system,NONE
+IUPRE,m,0,Type of time-dependent translational x-velocity in space system,NONE
+IVMCAL,m,0,Flag for translational component in y-direction of space system,NONE
+IVPRE,m,0,Type of time-dependent translational y-velocity in space system,NONE
+IWMCAL,m,1,Flag for translational component in z-direction of space system,NONE
+IWPRE,m,0,Type of time-dependent translational z-velocity in space system,NONE
+ANGLMIN,m,1.0\ :math:`\times`\ 10\ :sup:`19`,"Maximum angular displacement from the initial position, in degrees, in the negative rotational direction for fixed-axis rotation.",[DEGREES]
+ANGLMAX,m,1.0\ :math:`\times`\ 10\ :sup:`19`,"Maximum angular displacement from the initial position, in degrees, in the positive rotational direction for fixed-axis motion.",[DEGREES]
+CFRC,m,FRCMOB,,"Coefficient of friction during collision for component :envvar:`m`. Used in the GMO collision model. The smallest value is used for two colliding components, one of which must be a coupled-motion component.",NON-DIM
+CRSTRNG,m,STRNGMOB,,"Coefficient of Stronge's restitution for component :envvar:`m`. Used in the GMO collision model. The smallest value is used for two colliding components, one of which must be a coupled-motion component. Values should be between 0.0 and 1.0.",NON-DIM
+DXMCMIN,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement from the initial position in the negative x-direction,[L]
+DXMCMAX,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement from the initial position in the positive x-direction,[L]
+DYMCMIN,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement from the initial position in the negative y-direction,[L]
+DYMCMAX,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement from the initial position in the positive y-direction,[L]
+DZMCMIN,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement from the initial position in the negative z-direction,[L]
+DZMCMAX,m,1.0\ :math:`\times`\ 10\ :sup:`19`,Maximum allowed displacement in the positive z-direction,[L]
+FXTOBS,"t,m",0.0,Time-dependent control force component at time :envvar:`TOBS(t)`,[M L t\ :sup:`-2`]
+FFXTOBS,m,,The external filename for tabular control force component for component :envvar:`m` as a function of time (used only if :envvar:`IFXTOBSC(m)` :math:`\geq` 2),NONE
+IFXTOBSC,m,0,The column number for control force component for component :envvar:`m` in the external file,NONE
+FXTOBSM,"t,m,mf",0.0,x-component of control force :envvar:`mf` at time :envvar:`TOBS(t)`. ,[M L t\ :sup:`-2`]
+FFXTOBSM,"m,mf",,"The external filename for tabular x-component of control force :envvar:`mf` for component :envvar:`m` as a function of time (used only if :envvar:`IFXTOBSMC(m,mf)` :math:`\geq` 2)",NONE
+IFXTOBSMC,"m,mf",0,The column number for x-component of control force :envvar:`mf` for component :envvar:`m` in the external file,NONE
+FYTOBS,"t,m",0.0,Time-dependent control force component at time :envvar:`TOBS(t)`. ,[M L t\ :sup:`-2`]
+FFYTOBS,m,,The external filename for tabular control force component for component :envvar:`m` as a function of time (used only if :envvar:`IFYTOBSC(m)` :math:`\geq` 2),NONE
+IFYTOBSC,m,0,The column number for control force component for component :envvar:`m` in the external file,NONE
+FYTOBSM,"t,m,mf",0.0,y-component of control force :envvar:`mf` at time :envvar:`TOBS(t)`,[M L t\ :sup:`-2`]
+FFYTOBSM,"m,mf",,"The external filename for tabular y-component of control force :envvar:`mf` for component :envvar:`m` as a function of time (used only if :envvar:`IFYTOBSMC(m,mf)` :math:`\geq` 2)",NONE
+IFYTOBSMC,"m,mf",0,The column number for y-component of control force :envvar:`mf` for component :envvar:`m` in the external file,NONE
+FZTOBS,"t,m",0.0,Time-dependent control force component at time :envvar:`TOBS(t)`,[M L t\ :sup:`-2`]
+FFZTOBS,m,,The external filename for tabular control force component for component :envvar:`m` as a function of time (used only if :envvar:`IFZTOBSC(m)` :math:`\geq` 2),NONE
+IFZTOBSC,m,0,The column number for control force component for component :envvar:`m` in the external file,NONE
+FZTOBSM,"t,m,mf",0.0,z-component of control force :envvar:`mf` at time :envvar:`TOBS(t)`,[M L t\ :sup:`-2`]
+FFZTOBMS,"m,mf",,"The external filename for tabular z-component of control force :envvar:`mf` for component :envvar:`m` as a function of time (used only if :envvar:`IFZTOBSMC(m,mf)` :math:`\geq` 2)",NONE
+IFZTOBSMC,"m,mf",0,The column number for z-component of control force :envvar:`mf` for component :envvar:`m` in the external file,NONE
+MASSMVB,m,...,Total mass of moving object,[M]
+OMXAMP,m,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",[radians/t]
+OMXFRE,m,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",[1/t]
+OMXPHS,m,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",[DEGREES]
+OMXTOBS,"t,m",0.0,Time-dependent angular velocity component in x'-direction of body system at time :envvar:`TOBS(t)`,[radians/t]
+FOMXTOBS,m,,The external filename for tabular angular velocity component in x'-direction of body system for component :envvar:`m` as a function of time (used only if :envvar:`IOMXTOBSC(m)` :math:`\geq` 2),NONE
+IOMXTOBSC,m,0,The column number for angular velocity component in x'-direction of body system for component :envvar:`m` in the external file,NONE
+OMYAMP,m,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",[radians/t]
+OMYFRE,m,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",[1/t]
+OMYPHS,m,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",[DEGREES]
+OMYTOBS,"t,m",0.0,Time-dependent angular velocity component in y'-direction of body system at time :envvar:`TOBS(t)`. ,[radians/t]
+FOMYTOBS,m,,The external filename for tabular angular velocity component in y'-direction of body system for component :envvar:`m` as a function of time (used only if :envvar:`IOMYTOBSC(m)` :math:`\geq` 2),NONE
+IOMYTOBSC,m,0,The column number for angular velocity component in y'-direction of body system for component :envvar:`m` in the external file,NONE
+OMZAMP,m,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",[radians/t]
+OMZFRE,m,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",[1/t]
+OMZPHS,m,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",[DEGREES]
+OMZTOBS,"t,m",0.0,Time-dependent angular velocity component in z'-direction of body system at time :envvar:`TOBS(t)`,[radians/t]
+FOMZTOBS,m,,The external filename for tabular angular velocity component in z'-direction of body system for component :envvar:`m` as a function of time (used only if :envvar:`IOMZTOBSC(m)` :math:`\geq` 2),NONE
+IOMZTOBSC,m,0,The column number for angular velocity component in z'-direction of body system for component :envvar:`m` in the external file,NONE
+PREFMBW,m,PVOID,,Reference pressure,[M L\ :sup:`-1` t\ :sup:`-2`]
+RHOMVB,m,0.0,Global mass density of moving object,[M/L\ :sup:`3`]
+RHOSUB,n,RHOMVB,m,Uniform mass density of subcomponent :envvar:`n` of moving component :envvar:`m`,[M/L\ :sup:`3`]
+TJAXS,m,...,Moment of inertia about fixed axis for component :envvar:`m`,[M L\ :sup:`2`]
+TJMVB,"m,i,j",...,Moment of inertia tensor in body system,[M L\ :sup:`2`]
+TOBS,t,0.0,Times for time-dependent component arrays,[t]
+TXTOBS,"t,m",0.0,"Time-dependent control torque component at time :envvar:`TOBS(t)`. When :envvar:`IREFGF(m)` = 1, it is in x-direction of space system. When :envvar:`IREFGF(m)` = 2, it is in x'-direction of body system.",[M L\ :sup:`2` t\ :sup:`-2`]
+FTXTOBS,m,,The external filename for tabular control torque component for component :envvar:`m` as a function of time (used only if :envvar:`ITXTOBSC(m)` :math:`\geq` 2),NONE
+ITXTOBSC,m,0,The column number for control torque component for component :envvar:`m` in the external file,NONE
+TYTOBS,"t,m",0.0,"Time-dependent control torque component at time :envvar:`TOBS(m)`. When :envvar:`IREFGF(m)` = 1, it is in y-direction of space system. When :envvar:`IREFGF(m)` = 2, it is in y'-direction of body system. ",[M L\ :sup:`2` t\ :sup:`-2`]
+FTYTOBS,m,,The external filename for tabular control torque component for component :envvar:`m` as a function of time (used only if :envvar:`ITYTOBSC(m)` :math:`\geq` 2),NONE
+ITYTOBSC,m,0,The column number for control torque component for component :envvar:`m` in the external file,NONE
+TZTOBS,"t,m",0.0,"Time-dependent control torque component at time :envvar:`TOBS(t)`. When :envvar:`IREFGF(m)` = 1, it is in z-direction of space system. When :envvar:`IREFGF(m)` = 2, it is in z'-direction of body system.",[M L\ :sup:`2` t\ :sup:`-2`]
+FTZTOBS,m,,The external filename for tabular control torque component for component :envvar:`m` as a function of time (used only if :envvar:`ITZTOBSC(m)` :math:`\geq` 2),NONE
+ITZTOBSC,m,0,The column number for control torque component for component :envvar:`m` in the external file,NONE
+UAMP,m,0.0,Amplitude of sinusoidal translational x-velocity in space system,[L/t]
+UFRE,m,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",[1/t]
+UPHS,m,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",[DEGREES]
+UTOBS,"t,m",0.0,Time-dependent velocity component in x-direction at time :envvar:`TOBS(t)`,[L/t]
+FUTOBS,m,,The external filename for tabular velocity component in x-direction for component :envvar:`m` as a function of time (used only if :envvar:`IUTOBSC(m)` :math:`\geq` 2),NONE
+IUTOBSC,m,0,The column number for velocity component in x-direction for component :envvar:`m` in the external file,NONE
+VAMP,m,0.0,Amplitude of sinusoidal translational y-velocity in space system,[L/t]
+VFRE,m,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",[1/t]
+VPHS,m,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",[DEGREES]
+VTOBS,"t,m",0.0,Time-dependent velocity component in y-direction at time :envvar:`TOBS(t)`,[L/t]
+FVTOBS,m,,The external filename for tabular velocity component in y-direction for component :envvar:`m` as a function of time (used only if :envvar:`IVTOBSC(m)` :math:`\geq` 2),NONE
+IVTOBSC,m,0,The column number for velocity component in y-direction for component :envvar:`m` in the external file,NONE
+WAMP,m,0.0,Amplitude of sinusoidal translational z-velocity in space system,[L/t]
+WFRE,m,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",[1/t]
+WPHS,m,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",[DEGREES]
+WTOBS,"t,m",0.0,Time-dependent velocity component in z-direction at time :envvar:`TOBS(t)`,[L/t]
+FWTOBS,m,,The external filename for tabular total power for component :envvar:`m` as a function of time (used only if :envvar:`IWTOBSC(m)` :math:`\geq` 2),NONE
+IWTOBSC,m,0,The column number for total power for component :envvar:`m` in the external file,NONE
+XAXS0,m,0.0,X-coordinate of fixed point or fixed axis in space system,[L]
+XFPNT,"m,mf",XMCMVB0,m,Initial x-coordinate (in space system) of the application point of control force :envvar:`mf`. The application point is fixed on geometry component :envvar:`m` (a moving object),[L]
+XMCMVB0,m,...,Initial x-coordinate of mass center in space system. Required when integrated mass properties are defined for moving component m under coupled or prescribed motion (:envvar:`IPRPMVB(m)` = 1 and :envvar:`IMO(m)` = 3 or 4).,[L]
+XREF0,m,...,Initial x-coordinate of the reference point in space system. Required for prescribed motion with 6 degrees of freedom (:envvar:`IMO(m)` = 3 and :envvar:`IMOAXS(m)` = 0). ,[L]
+YAXS0,m,0.0,Y-coordinate of fixed point or fixed axis in space system.,[L]
+YFPNT,"m,mf",YMCMVB0,m,Initial y-coordinate (in space system) of the application point of control force :envvar:`mf`. The application point is fixed on geometry component :envvar:`m` (a moving object).,[L]
+YMCMVB0,m,...,Initial y-coordinate of mass center in space system,[L]
+YREF0,m,...,Initial y-coordinate of the reference point in space system,[L]
+ZAXS0,m,0.0,Z-coordinate of fixed point or fixed axis in space system,[L]
+ZFPNT,"m,mf",ZMCMVB0,m,Initial z-coordinate (in space system) of the application point of control force :envvar:`mf`,[L]
+ZREF0,m,...,Initial z-coordinate of the reference point in space system,[L]
+NEVENTS_GMO,m,0,Number of events for GMO component :envvar:`m`,NONE
+EVENT_NAME_GMO,"n,m",' ',Event :envvar:`n` name (up to 50 characters),NONE
+IF_EVENT_ENABLED_GMO,"n,m",1,Event :envvar:`n` enable/disable flag,NONE
+IF_GLOBAL_GMO,"n,m",0,Global condition flag for event :envvar:`n`,NONE
+IGLOBAL_GMO,"n,m",0,"Global condition id for event :envvar:`n` (used if :envvar:`IF_GLOBAL_GMO(n,m)` = 1)",NONE
+NACTIONS_GMO,"n,m",0,Number of actions for event :envvar:`n`,NONE
+NPROBES_GMO,"n,m",0,"Number of local probe conditions for event :envvar:`n` (used if :envvar:`IF_GLOBAL_GMO(n,m)` = 0)",NONE
+EVENT_CONDITION_LOGIC_GMO,"n,m",' ',Logical operator between probe conditions for event :envvar:`n`,NONE
+EVENT_ACTION_GMO,"i,n,m",' ',Event action :envvar:`i` for event :envvar:`n`,NONE
+UTOBS_EVENT,"t,n,m",0.0,Velocity component in x-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[L/t]
+IUTOBSC_EVENT,"n,m",0,The column number for the velocity component in x-direction for event :envvar:`n`,NONE
+FUTOBS_EVENT,"n,m",,The external filename for the tabular velocity component in x-direction for event :envvar:`n` as a function of time,NONE
+VTOBS_EVENT,"t,n,m",0.0,Velocity component in y-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[L/t]
+IVTOBSC_EVENT,"n,m",0,The column number for the velocity component in y-direction for event :envvar:`n`,NONE
+FVTOBS_EVENT,"n,m",,The external filename for the tabular velocity component in y-direction for event :envvar:`n` as a function of time,NONE
+WTOBS_EVENT,"t,n,m",0.0,Velocity component in z-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[L/t]
+IWTOBSC_EVENT,"n,m",0,The column number for the velocity component in z-direction for event :envvar:`n`,NONE
+FWTOBS_EVENT,"n,m",,The external filename for the tabular velocity component in z-direction for event :envvar:`n` as a function of time,NONE
+OMXTOBS_EVENT,"t,n,m",0.0,Angular velocity component in x'-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[1/t]
+IOMXTOBSC_EVENT,"n,m",0,The column number for the angular velocity component in x'-direction for event :envvar:`n`,NONE
+FOMXTOBS_EVENT,"n,m",,The external filename for the tabular angular velocity component in x'-direction for event :envvar:`n` as a function of time,NONE
+OMYTOBS_EVENT,"t,n,m",0.0,Angular velocity component in y'-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[1/t]
+IOMYTOBSC_EVENT,"n,m",0,The column number for the angular velocity component in y'-direction for event :envvar:`n`,NONE
+FOMYTOBS_EVENT,"n,m",,The external filename for the tabular angular velocity component in y'-direction for event :envvar:`n` as a function of time,NONE
+OMZTOBS_EVENT,"t,n,m",0.0,Angular velocity component in z'-direction at time :envvar:`TOBS(t)` for event :envvar:`n`,[1/t]
+IOMZTOBSC_EVENT,"n,m",0,The column number for the angular velocity component in z'-direction for event :envvar:`n`,NONE
+FOMZTOBS_EVENT,"n,m",,The external filename for the tabular angular velocity component in z'-direction for event :envvar:`n` as a function of time,NONE
+IF_CONDITION_ENABLED_GMO,"j,n,m",1,Probe condition :envvar:`j` enable/disable flag for event :envvar:`n`,NONE
+IPRBD_GMO,"j,n,m",0,Probe id for probe condition :envvar:`j`,NONE
+IPRBSC_GMO,"j,n,m",0,Scalar id for probe condition :envvar:`j`,NONE
+IPRBSCN_GMO,"j,n,m",0,Additional scalar index for probe condition :envvar:`j`,NONE
+PRBVNAM_GMO,"j,n,m",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_GMO,"j,n,m",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_GMO,"j,n,m",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_GMO,"j,n,m",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_GMO,"j,n,m",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
+IFOBPQ2,m,0,Flag for PQ\ :sup:`2` analysis for component :envvar:`m`.,NONE
+IFOBPQ2_ADJUST,m,0,Flag for velocity adjustment based on PQ\ :sup:`2` analysis and machine performance for component :envvar:`m`.,NONE
+PQ2_PMAX,,0,Machine maximum pressure.,[M L\ :sup:`-1` t\ :sup:`-2`]
+PQ2_QMAX,,0,Machine maximum flow rate.,[L\ :sup:`3`/t]
+PQ2_QMIN,,1/3* :envvar:`PQ2_QMAX`,Machine minimum flow rate.,[L\ :sup:`3`/t]
+PQ2_MACC,,infinite,Machine maximum acceleration.,[L/t\ :sup:`2`]
+PQ2_DIAM,,0.0,Shot sleeve cross section diameter.,[L]
+IF_SQPIN,m,0,Squeeze pin flag,NONE
+SQP_X1,m,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,[L]
+SQP_Y1,m,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,[L]
+SQP_Z1,m,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,[L]
+SQP_X2,m,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,[L]
+SQP_Y2,m,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,[L]
+SQP_Z2,m,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,[L]
+ISQP_CONTROL,m,0,Squeeze pin activation flag,NONE
+SQP_FORCE,m,0.0,Constant force applied to squeeze pin,[M L t\ :sup:`-2`]
+SQP_TIME,m,0.0,Squeeze pin activation time,[t]
+SQP_DISTANCE,m,unlimited,Maximum distance the pin can move,[L]
+SQP_SOLID,m,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE
+EVENT_NAME_SQP,m,' ',Squeeze pin :envvar:`m` activation event name (up to 50 characters),NONE
+IF_GLOBAL_SQP,m,0,Global condition flag for squeeze pin :envvar:`m` activation event,NONE
+IGLOBAL_SQP,m,0,Global condition id for squeeze pin :envvar:`m` activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 0),NONE
+NPROBES_SQP,m,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE
+EVENT_CONDITION_LOGIC_SQP,m,' ',Logical operator between probe conditions for the activation event,NONE
+IF_CONDITION_ENABLED_SQP,"j,m",1,Probe condition :envvar:`j` enable/disable flag for the activation event,NONE
+IPRBD_SQP,"j,m",0,Probe id for probe condition :envvar:`j`,NONE
+PRBVNAM_SQP,"j,m",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_SQP,"j,m",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_SQP,"j,m",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_SQP,"j,m",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_SQP,"j,m",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
+IF_SPRP_ENABLED,nsp,1,Activation flag for spring/rope/line :envvar:`nsp`,NONE 
+IFSP,nsp,2,"Type of elastic spring, rope or mooring line :envvar:`nsp`",NONE
+IOBSP1,nsp,0,Index of the geometry component which end 1 of the spring/rope :envvar:`nsp` is attached to. Equal to 0 if fixed at a stationary point in space. ,NONE
+IOBSP2,nsp,0,Index of the geometry component which end 2 of the spring/rope :envvar:`nsp` is attached to. Equal to 0 if fixed at a stationary point in space. ,NONE
+ASP,nsp,...,Free length of spring/rope :envvar:`nsp`,[L]
+BSP,nsp,10% × :envvar:`ASP(nsp)`,Block length of spring :envvar:`nsp`.,[L]
+CDSPN,nsp,1.0,Drag coefficient in the normal direction of mooring line :envvar:`nsp`.,NONE
+CDSPT,nsp,0.3,Drag coefficient in the tangential direction of mooring line :envvar:`nsp`.,NONE
+CSP,nsp,...,Spring coefficient of spring/rope :envvar:`nsp`. Units in [force]/[length] if :envvar:`IFSP(nsp)` :math:`\ne` 5 and [torque]/[degrees] if :envvar:`IFSP(nsp)` = 5.,[M/t\ :sup:`2`] or [M L\ :sup:`2` t\ :sup:`-2`/DEGREES]
+CSPUNIT,nsp,...,Spring coefficient per unit length for mooring line :envvar:`nsp`.,[M L t :sup:`-2`] 
+DIASP,nsp,0.0,Diameter of mooring line :envvar:`nsp`. ,[L]
+DMPSP,nsp,0.0,Damping coefficient for spring/rope :envvar:`nsp`. Units in [force][t]/[length] if :envvar:`IFSP(nsp)` :math:`\ne` 5 and [torque][t]/[degrees] if :envvar:`IFSP(nsp)` = 5.,[M/t] or [M L\ :sup:`2` t\ :sup:`-1`/DEGREES]
+FSPBRK,nsp,...,minimum breaking load of mooring line :envvar:`nsp`. ,[M L t\ :sup:`2`]
+NSEGSP,nsp,31,total number of segments that the mooring line :envvar:`nsp` is divided into.,NONE
+NSPRP,,0,"Total number of elastic springs, elastic ropes and mooring lines.",NONE
+RHOSP,nsp,...,Linear mass density of mooring line :envvar:`nsp`.,[M L\ :sup:`-1`]
+RHOSP_MAT,nsp,...,Net mass density of mooring line :envvar:`nsp`.,[M L\ :sup:`-3`]
+SPRINGNAME,nsp,' ',Spring :envvar:`nsp` name (up to 256 characters),NONE
+TSP0,nsp,0.0,Initial torque of torsion spring nsp.,[M L\ :sup:`2` t\ :sup:`-2`]
+XSP01,nsp,...,Initial x-coordinate of end 1 of the spring/rope :envvar:`nsp`,[L]
+XSP02,nsp,...,Initial x-coordinate of end 2 of the spring/rope :envvar:`nsp`,[L]
+XSPMN,nsp,...,Lower limit of x-coordinate for the mooring line :envvar:`nsp`,[L]
+XSPMX,nsp,...,Upper limit of x-coordinate for the mooring line :envvar:`nsp`,[L]
+YSP01,nsp,...,Initial y-coordinate of end 1 of the spring/rope :envvar:`nsp`,[L]
+YSP02,nsp,...,Initial y-coordinate of end 2 of the spring/rope :envvar:`nsp`,[L]
+YSPMN,nsp,...,Lower limit of y-coordinate for the mooring line :envvar:`nsp`,[L]
+YSPMX,nsp,...,Upper limit of y-coordinate for the mooring line :envvar:`nsp`,[L]
+ZSP01,nsp,...,Initial z-coordinate of end 1 of the spring/rope :envvar:`nsp`,[L]
+ZSP02,nsp,...,Initial z-coordinate of end 2 of the spring/rope :envvar:`nsp`,[L]
+ZSPMN,nsp,...,Lower limit of z-coordinate for the mooring line :envvar:`nsp`,[L]
+ZSPMX,nsp,...,Upper limit of z-coordinate for the mooring line :envvar:`nsp`,[L]
+RHOAIR,,...,Air density for use in the calculation of air drag on mooring lines for the parts of a,[M/L\ :sup:`3`]      
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+SVFSUB,"n,k",0.0 for :envvar:`nsspc` :math:`>` 1; 1.0 for  :envvar:`nsspc` =1,Volume fraction of sediment species :envvar:`k` in subcomponent n,NON-DIM
+IBTMSHR,m,0,Flag for the calculation of the drag coefficient in shallow water shear stress on component :envvar:`m`,NONE
+CBTMSHR,m,BTMSHR,,Drag coefficient in the shallow water shear stress on component :envvar:`m`,NONE
+RCMAN,m,0.0,Manning roughness coefficient on component :envvar:`m`,[t/L\ :sup:`1/3`]
+RCMANSUB,n,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,[t/L\ :sup:`1/3`]
+IMANUSE,m,0,Flag for input method for Manning's roughness coefficient for component :envvar:`m`,NONE
+IMO,m,0,Type of component :envvar:`m`,NONE
+TOBS,t,0.0,Times for time-dependent component arrays,[t]
+UTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in x-direction at time :envvar:`TOBS(t)`,[L/t]
+VTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in y-direction at time :envvar:`TOBS(t)`,[L/t]
+WTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in z-direction at time :envvar:`TOBS(t)`,[L/t]
+IFSPIN,m,0,Flag for axisymmetric spinning component :envvar:`m`,NONE
+CMOX,m,...,x coordinate of point 1 on spin axis for spinning component :envvar:`m`.,[L]
+CMOY,m,...,y coordinate of point 1 on spin axis for spinning component :envvar:`m`.,[L]
+CMOZ,m,...,z coordinate of point 1 on spin axis for spinning component :envvar:`m`.,[L]
+CMOX2,m,...,x coordinate of point 2 on spin axis for spinning component :envvar:`m`.,[L]
+CMOY2,m,...,y coordinate of point 2 on spin axis for spinning component :envvar:`m`.,[L]
+CMOZ2,m,...,z coordinate of point 2 on spin axis for spinning component :envvar:`m`.,[L]
+OSPIN,"t,m",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,[radians/t]
+FOSPIN,m,,The external filename for tabular spin rate for rotating component :envvar:`m` as a function of time (used only if :envvar:`IOSPINC(m)` :math:`\geq` 2),NONE
+IOSPINC,m,0,The column number for spin rate for rotating component :envvar:`m` in the external file,NONE
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+CMOX,m,...,x coordinate of point 1 on spin axis for fan/impleller component :envvar:`m`.,[L]
+CMOY,m,...,y coordinate of point 1 on spin axis for fan/impeller component :envvar:`m`.,[L]
+CMOZ,m,...,z coordinate of point 1 on spin axis for fan/impeller component :envvar:`m`.,[L]
+CMOX2,m,...,x coordinate of point 2 on spin axis for fan/impeller component :envvar:`m`.,[L]
+CMOY2,m,...,y coordinate of point 2 on spin axis fan/impeller component :envvar:`m`.,[L]
+CMOZ2,m,...,z coordinate of point 2 on spin axis fan/impeller component :envvar:`m`.,[L]
+OADRG,m,0.0,"For fan/impeller component :envvar:`m`, the accommodation coefficient for rotational velocity.",[1/t]
+OBDRG,m,0.0 ,"For fan/impeller component :envvar:`m`, the accommodation coefficient for axial velocity. A negative axial velocity is generated by :envvar:`OBDRG` :math:`<` 0.",[1/radians]
+OSPIN,"t,m",0.0,"Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`. Component must be axisymmetric about axis of spin. The spin axis are determined by :envvar:`CMOX(m)`, :envvar:`CMOY(m)`, :envvar:`CMOZ(m)`, :envvar:`CMOX2(m)`, :envvar:`CMOY2(m)` and :envvar:`CMOZ2(m)`.",[radians/t]
+NOBLDS,m,0,Number of blades for added bladed effects,NONE
+OBLTHK,m,0.0,Blade tip thickness in the azimuthal direction (in units of length),[L]
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+UTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in x-direction at time :envvar:`TOBS(t)`,[L/t]
+VTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in y-direction at time :envvar:`TOBS(t)`,[L/t]
+WTOBS,"t,m",0.0,Time-dependent component :envvar:`m` velocity in z-direction at time :envvar:`TOBS(t)`,[L/t]
+IOPMARKER_RESTIT,m,0,Flag for interaction of marker particles with component :envvar:`m`,NONE 
+OPMASS_RESTIT,m,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM 
+OPGAS_RESTIT,m,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM
+OPLIQUID_RESTIT,m,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM
+OPLIQUIDSD_RESTIT,m,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM
+OPVOID_RESTIT,m,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+IMB,m,0,Type of deforming object,NONE
+IMBE,m,1,Type of membrane edge,NONE
+IMBN,m,3,Normal direction of membrane,NONE
+IMBPR,m,0,Flag for fluid pressure force on membrane,NONE
+NFMBW,m,3,Type of actuator force (always along the membrane's normal and positive in the positive direction of the coordinate axis),NONE
+EMBW,m,...,Young's modulus,[M L\ :sup:`-1` t\ :sup:`-2`]
+FAMP,m,0.0,Amplitude of sinusoidal actuator force,[M L t\ :sup:`2`]
+FMBW,"t,m",0.0,Actuator force at time :envvar:`TOBS(t)`. ,[M L t\ :sup:`2`]
+FFMBW,m,,The external filename for tabular actuator force for component :envvar:`m` as a function of time (used only if :envvar:`IPOBSC(m)` :math:`\geq` 2),NONE
+IFMBWC,m,0,The column number for actuator force for component :envvar:`m` in the external file,NONE
+FREQ,m,0.0,Frequency of sinusoidal actuator force,[1/t]
+FPHS,m,0.0,Initial phase of sinusoidal actuator force,[DEGREES]
+PREFMBW,m,PVOID,,Reference pressure,[M L\ :sup:`-1` t\ :sup:`-2`]
+RAMBW,m,...,Radius of the circular membrane,[L]
+RFMBW,m,0.0,Radius of the circular distribution area of actuator force,[L]
+RHOMBW,m,-1.0,Mass density of the membrane,[M/L\ :sup:`3`]
+RPMBW,m,...,Poisson's Ratio of the membrane,NON-DIM
+TOBS,m,0.0,Time for time-dependent component arrays,[t]
+XCMBW,m,...,x-coordinate of the membrane center,[L]
+XFMBW,m,0.0,x-length of the rectangular distribution area of actuator force,[L]
+XMBW,m,...,x-length of rectangular membrane. ,[L]
+YCMBW,m,...,y-coordinate of the membrane center,[L]
+YFMBW,m,0.0,y-length of the rectangular distribution area of actuator force,[L]
+YMBW,m,...,y-length of rectangular membrane. ,[L]
+ZCMBW,m,...,z-coordinate of the membrane center,[L]
+ZFMBW,m,0.0,z-length of the rectangular distribution area of actuator force,[L]
+ZMBW,m,...,z-length of rectangular membrane. ,[L]
+IMB,m,0,Type of deforming object,NONE
+PREFMBW,m,PVOID,,Reference pressure,[M L\ :sup:`-1` t\ :sup:`-2`]
+CSPMBW,m,1.0\ :math:`\times`\ 10\ :sup:`35`,Stiffness coefficient per unit area. Deformation of elastic wall is negligible at the default value of :envvar:`CSPMBW`. ,[M L\ :sup:`-2` t\ :sup:`-2`]
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+IODRG,m,0,"Drag function flag for porous component, :envvar:`IFOB(m)` =-1",NONE 
+IOVG,m,0,"| =0, simplified model for capillary pressure used for component :envvar:`m`",NONE
+IODFIT,m,2,Drag function flag relationship between drag and saturation for component :envvar:`m`,NONE
+IOPCFD,m,0,Capillary pressure operation mode,NONE
+PERM,m,0.0 ,Porous component Darcian Permeability (used if :envvar:`IODRG(m)` = 2),[L\ :sup:`2`]
+PERM2,m,0.0 ,Porous component non-Darcian Permeability (used if :envvar:`IODRG(m)` = 2),[L]
+OADRG,m,0.0 ,"For porous component, a constant used in porous component drag formulation (used if :envvar:`IODRG(m)` = 1 or :envvar:`IODRG(m)` = 4)",
+OBDRG,m,0.0,"For porous component, a constant used in porous component drag formulation (used if :envvar:`IODRG(m)` = 4 or 5).",
+OPCAP,m,0.0 ,Capillary pressure for component :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+OPOR,m,...,Component porosity (open volume fraction),NON-DIM
+OPORX,m,...,Open area per unit area in x-direction,NON-DIM
+OPORY,m,...,Open area per unit area in y-direction,NON-DIM
+OPORZ,m,...,Open area per unit area in z-direction,NON-DIM
+OSPOR,m,1.0,Surface area per unit bulk volume for porous component :envvar:`m` (used for heat transfer only). ,[1/L]
+OFCMN,m,0.0,Irreducible saturation for component m (value must be less than :envvar:`OFPCMX(m)`).,NON-DIM
+OFCMX,m,1.0,Fully saturated F value for component :envvar:`m`,NON-DIM
+OFPCMX,m,-1.0,"F value corresponding to end of capillary pressure curve at lowest saturation for component :envvar:`m`. For F values less than :envvar:`OFPCMX`, capillary pressure assumed constant. ",NON-DIM
+OPCMX,m,-1.0,Maximum capillary pressure at F = :envvar:`FPCMX`,[M L\ :sup:`-1` t\ :sup:`-2`]
+OPEXP,m,-1.0,Exponent for capillary pressure-saturation relationship,NON-DIM
+XNWOBS,m,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM
+XNDOBS,m,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM
+XMWOBS,m,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM
+XMDOBS,m,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM
+ALPHWOBS,m,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),[M L\ :sup:`-1` t\ :sup:`-2`]
+ALPHDOBS,m,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),[M L\ :sup:`-1` t\ :sup:`-2`]
+IHTOBS,m,0,Heat transfer mode flag for component :envvar:`m`,NONE
+ITPOBS,m,0,Power source flag for component :envvar:`m`,NONE
+ITPOBS_CONTROL,m,1,Control mode for power source component :envvar:`m`,NONE
+ITPOBS_TIME,"t,m",1,on/off status table for power component :envvar:`m`,NONE
+IITPOBS_TIMEC,m,0,The column number of on/off status for power component :envvar:`m` in the external file,NONE
+FITPOBS_TIME,m,,The external filename for tabular on/off status for power component :envvar:`m` as a function of time (used only if :envvar:`IITPOBS_TIMEC(m)` :math:`\geq` 2),NONE
+ITPOBS_PRB,m,0,Probe number controlling the on/off status for power component :envvar:`m` (used only if :envvar:`ITPOBS_CONTROL(m)` :math:`=` 3 or 4),NONE
+TPOBS_TC1,m,,Turn on temperature at probe :envvar:`ITPOBS_PRB(m)` for power component :envvar:`m` (used only if :envvar:`ITPOBS_CONTROL(m)` :math:`=` 3 or 4),[T]
+TPOBS_TC2,m,,Turn off temperature at probe :envvar:`ITPOBS_PRB(m)` for power component :envvar:`m` (used only if :envvar:`ITPOBS_CONTROL(m)` :math:`=` 3 or 4),[T]
+POBS,"t,m",0.0,Total power for component :envvar:`m` (energy/time) at time :envvar:`TOBS(t)`,[M L\ :sup:`2` t\ :sup:`-3`]
+FPOBS,m,,The external filename for tabular total power for component :envvar:`m` (energy/time) as a function of time (used only if :envvar:`IPOBSC(m)` :math:`\geq` 2),NONE
+IPOBSC,m,0,The column number for total power for component :envvar:`m` (energy/time) in the external file,NONE
+SPOBS,"t,m",0.0,Heat flow per unit surface area (energy/time/area) or heat source per unit volume (energy/time/volume) for component :envvar:`m` at time :envvar:`TOBS(t)`; see :envvar:`ITPOBS(m)` above.,[M t\ :sup:`-3`] or [M L\ :sup:`-1` t\ :sup:`-3`]
+FSPOBS,m,,The external filename for tabular Heat flow per unit surface area (energy/time/area) or heat source per unit volume (energy/time/volume) for component :envvar:`m` (energy/time) as a function of time (used only if :envvar:`ISPOBSC(m)` :math:`\geq` 2),NONE
+ISPOBSC,m,0,The column number for Heat flow per unit surface area (energy/time/area) or heat source per unit volume (energy/time/volume) for component :envvar:`m` (energy/time) in the external file,NONE
+TOBI,m,-1.0e+19 ,"Override temperature for restart calculations. If :envvar:`TOBI(m)` :math:`>` 0, :file:`HYDR3D` will initialize the cell temperatures in conducting component :envvar:`m` to :envvar:`TOBI(m)` upon restart.",[T]
+TOBS,t,0.0 ,Times for time-dependent component arrays,[t]
+TWOBS,"t,m",TBCD,,Uniform temperature for component :envvar:`m`,[T]
+FTWOBS,m,,The external filename for tabular uniform temperature for component :envvar:`m` as a function of time (used only if :envvar:`ITWOBSC(m)` :math:`\geq` 2),NONE
+ITWOBSC,m,0,The column number for uniform temperature for component :envvar:`m` in the external file,NONE
+IRHOBS,m,0,Flag for the definition of density of component :envvar:`m`,NONE
+FRHOBS,m,,The external filename for tabular density of component :envvar:`m` as a function of temperature (used only if :envvar:`IRHOBSC(m)` :math:`\geq` 2),NONE
+IRHOBSC,m,0,The column number for density of component :envvar:`m` in the external file,NONE
+IBLKMOD,m,0,Flag for the definition of bulk modulus of component :envvar:`m`,NONE
+FBLKMOD,m,,The external filename for tabular bulk modulus of component :envvar:`m` as a function of temperature (used only if :envvar:`IBLKMODC(m)` :math:`\geq` 2),NONE
+IBLKMODC,m,0,The column number for bulk modulus of component :envvar:`m` in the external file,NONE
+IELASTMOD,m,0,Flag for the definition of elastic modulus of component :envvar:`m`,NONE
+FELASTMOD,m,,The external filename for tabular elastic modulus of component :envvar:`m` as a function of temperature (used only if :envvar:`IELASTMODC(m)` :math:`\geq` 2),NONE
+IELASTMODC,m,0,The column number for elastic modulus of component :envvar:`m` in the external file,NONE
+IPOISSONR,m,0,Flag for the definition of Poisson ratio of component :envvar:`m`,NONE
+FPOISSONR,m,,The external filename for tabular Poisson ratio of component :envvar:`m` as a function of temperature (used only if :envvar:`IPOISSONRC(m)` :math:`\geq` 2),NONE
+IPOISSONRC,m,0,The column number for Poisson ratio of component :envvar:`m` in the external file,NONE
+IYLDSTR,m,0,Flag for the definition of yield stress limit of component :envvar:`m`,NONE
+FYLDSTR,m,,The external filename for tabular yield stress limit of component :envvar:`m` as a function of temperature (used only if :envvar:`IYLDSTRC(m)` :math:`\geq` 2),NONE
+IYLDSTRC,m,0,The column number for yield stress limit of component :envvar:`m` in the external file,NONE
+ISHRMOD,m,0,Flag for the definition of shear modulus of component :envvar:`m`,NONE
+FSHRMOD,m,,The external filename for tabular shear modulus of component :envvar:`m` as a function of temperature (used only if :envvar:`ISHRMODC(m)` :math:`\geq` 2),NONE
+ISHRMODC,m,0,The column number for shear modulus of component :envvar:`m` in the external file,NONE 
+IRCOBS,m,0,Flag for the definition of density times specific heat product of component :envvar:`m`,NONE
+FRCOBS,m,,The external filename for tabular density times specific heat product of component :envvar:`m` as a function of temperature (used only if :envvar:`IRCOBSC(m)` :math:`\geq` 2),NONE
+IRCOBSC,m,0,The column number for density times specific heat product of component :envvar:`m` in the external file,NONE
+IKOBS,m,0,Flag for the definition of thermal conductivity of component :envvar:`m`,NONE
+FKOBS,m,,The external filename for tabular thermal conductivity of component :envvar:`m` as a function of temperature (used only if :envvar:`IKOBSC(m)` :math:`\geq` 2),NONE
+IKOBSC,m,0,The column number for thermal conductivity of component :envvar:`m` in the external file,NONE
+IHOBS1,m,0,Flag for the definition of heat-transfer coefficient to fluid #1 of component :envvar:`m`,NONE
+FHOBS1,m,,The external filename for tabular heat-transfer coefficient to fluid #1 of component :envvar:`m` as a function of temperature (used only if :envvar:`IHOBS1C(m)` :math:`\geq` 2),NONE
+IHOBS1C,m,0,The column number for heat-transfer coefficient to fluid #1 of component :envvar:`m` in the external file,NONE
+IHOBS2,m,0,Flag for the definition of heat-transfer coefficient to fluid #2 of component :envvar:`m`,NONE
+FHOBS2,m,,The external filename for tabular heat-transfer coefficient to fluid #2 of component :envvar:`m` as a function of temperature (used only if :envvar:`IHOBS2C(m)` :math:`\geq` 2),NONE
+IHOBS2C,m,0,The column number for heat-transfer coefficient to fluid #2 of component :envvar:`m` in the external file,NONE
+KOBS,m,0.0,Thermal conductivity of component :envvar:`m`,[M L t\ :sup:`-3` T\ :sup:`-1`]
+XKOBS,m,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM
+YKOBS,m,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM
+ZKOBS,m,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM
+MOBS,m,0.0,Mass times specific heat product for component :envvar:`m`,[M L\ :sup:`2` T\ :sup:`-1` t\ :sup:`-2`]
+OBSL,m,0.0,Length scale of component :envvar:`m`,[L]
+OSPOR,m,1.0,Surface area per unit bulk volume for porous component :envvar:`m` (used for heat transfer and mass sources). ,[1/L]
+RCOBS,m,0.0,Density times specific heat product for component :envvar:`m`,[M L\ :sup:`-1` T\ :sup:`-1` t\ :sup:`-2`]
+ROBS,m,1.0,Surface area multiplier to account for roughness of component :envvar:`m`,NON-DIM
+SAOBS,m,0.0,"Total surface area for heat transfer for component :envvar:`m`, including roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",[L\ :sup:`2`]
+ILTHOBS,m,0,Activates the thermal penetration depth of the component.,NON-DIM
+LTHOBS,m,-1 ,The thickness of the thermally active layer along the surface of geometry component :envvar:`m`,[L]
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+PORCG,m,0.0,Core porosity,NON-DIM
+IDRGKCG,m,0,Core permeability input parameter flag,NON-DIM
+GRAINDIAM,m,0.0,Average sand grain diameter,[L]
+PERMCG,m,0.0,Sand core Darcian permeability,[L\ :sup:`2`]
+PERMCG2,m,0.0,Sand core non-Darcian permeability,[L]
+RHOCOR,m,0.0,Core density,[M/L\ :sup:`3`]
+BNDRFRC,m,0.0,Binder weight fraction of core total weight,NON-DIM
+EB1,m,0.0,"Binding energy, energy/mole",[M L\ :sup:`2` t\ :sup:`-2` mol\ :sup:`-1`]
+DCMPR1,m,0.0,"Decomposition rate, 1/time",[1/t]
+RFCOR,m,0.0,Specific gas constant of binder gas,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
+MUCG,m,0.0,Core gas dynamic viscosity,[M L\ :sup:`-1` t\ :sup:`-1`]
+FRES,m,0.0,Residue mass fraction of the initial binder,NON-DIM
+ISHELLM,m,0.0,Shell mold flag,NONE
+IOBSVENT,m,0,Permeable mold flag,NONE
+IDRGKCG,m,0,mold permeability input parameter flag,NON-DIM
+GRAINDIAM,m,0.0,Average sand diameter for permeable mold component :envvar:`m`,[L]
+PERMCG,m,0.0,Sand mold Darcian permeability for permeable mold component :envvar:`m`,[L\ :sup:`2`]
+LPRMOBS,m,0.0,"Average permeable mold thickness, which is a measure of the distance that the gas in the cavity needs to travel through the mold to escape.",[L]
+PORCG,m,0.0,mold porosity for permeable mold component :envvar:`m`.,NON-DIM
+IFOBCYCCOR,m,0,Core/liner flag for component :envvar:`m`,NONE
+IFOBCYCCON,"m,n",0,Contacting die flag between components :envvar:`m` and :envvar:`n`,NONE
+IFOBCYCCOV,m,0,Cover/ejector flag for component :envvar:`m`,NONE
+SAOBS_C,m,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE
+SAOBS_C_COV,m,0.0,"Total surface area for heat transfer for component :envvar:`m` without cover cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE
+IFOB,m,0,"""Free"" (or phantom) component flag",NONE
+IFVSPNG,m,1,flag for background stream velocity,NONE
+C0SPNG,m,0.0,damping coefficient at the starting side of the wave absorbing layer,[1/t]
+C1SPNG,m,1.0,damping coefficient at the end side of the wave absorbing layer,[1/t]
+XSPNG,m,...,x-coordinate of a user-selected point at the starting side of wave absorbing component,[L]
+YSPNG,m,...,y-coordinate of a user-selected point at the starting side of wave absorbing component,[L]     
+ZSPNG,m,...,z-coordinate of a user-selected point at the starting side of wave absorbing component,[L]  
+XDSPNG,m,...,x-component of the downstream direction vector,[L]
+YDSPNG,m,...,y-component of the downstream direction vector,[L]
+ZDSPNG,m,...,z-component of the downstream direction vector,[L]
+USPNG,m,0.0,x-component of background stream velocity,[L/t]
+VSPNG,m,0.0,y-component of background stream velocity,[L/t]
+WSPNG,m,0.0,z-component of background stream velocity,[L/t]
+IFOB_SHELL,m,0,Shell mold flag for component :envvar:`m`,NONE
+SHELL_THOBS,m,0.0,Shell mold thickness for component :envvar:`m`,[L]
+IFLINITTYP,,0,Fluid initialization flag,NONE
+AIRI,,0.0,Initial uniform volume fraction of entrained air in the fluid,NON-DIM
+CHRGI,,0.0,Initial uniform electric charge density in the fluid,[Q/L\ :sup:`3`]
+CNCI,,0.0,Initial volume fraction of the non-condensable gas component in the gas phase,NON-DIM
+CSLDGI,,...,Initial concentration of sludge,[M L\ :sup:`-3`]
+RSATI,,0.0,Initial relative saturation of vapor in the gas phase when the non-condensable gas model is used.,NON-DIM
+DSIZEI,,DFDIAM_INI,,Initial uniform droplet size in the fluid,[L]     
+DISSI,,0.0,Initial uniform concentration of dissolved solute in the fluid     ,[M/L\ :sup:`3`]
+ELSTI,k,0.0,Initial uniform value of elastic stress component :envvar:`k`,[M L\ :sup:`-1` t\ :sup:`-2`]
+FLHT,,...,Initial fluid elevation in z-direction,[L]
+FMDENI,,0.0,Uniform foam density function,[M/L\ :sup:`3`]
+NBCWAVE,,0,"Reference mesh boundary index (1, 2, 3 or 4) in mesh block :envvar:`NBLWAVE` specified as type 'surface wave' to be used for fluid initialization. Used only when :envvar:`IFLINITTYP` = 3.",NONE
+NBLWAVE,,0,Reference mesh block number containing the surface wave boundary condition (see :envvar:`NBCWAVE`) to be used for fluid initialization.,NONE
+PRESI,,PVOID,,Uniform initial fluid pressure,[M L\ :sup:`-1` t\ :sup:`-2`]
+PVOID,,...,"Void initial vapor pressure. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",[M L\ :sup:`-1` t\ :sup:`-2`]
+RPSI,,0.0,Initial rotation rate of fluid around z-axis in radians per unit time,[radians/t]
+SCLRI,ns,0.0,Initial uniform scalar species :envvar:`ns` magnitude,Typically [M/L\ :sup:`3`]
+SSSI,m,0.0,Initial uniform suspended sediment mass concentration of sediment species :envvar:`m`,[M/L\ :sup:`3`]
+SEGI,,0.0,Initial uniform segregation solute mass concentration,[M/L\ :sup:`3`]
+TKEI,,...,Initial uniform turbulent energy (per unit mass),[L\ :sup:`2`/t\ :sup:`2`]
+TEMPI,,T_REFERENCE,,Uniform initial fluid temperature of fluid #1.,[T]
+TEMPI2,,TEMPI,,Uniform initial fluid temperature of fluid #2.,[T]     
+TVOID,,TEMPI,,Constant uniform void-region temperature,[T]
+UI,,0.0,Initial uniform fluid velocity in x-direction,[L/t]
+VI,,0.0,Initial uniform fluid velocity in y-direction,[L/t]
+VLIN,,0.0,Initial volume of fluid #1 in mesh,[L\ :sup:`3`]
+WI,,0.0,Initial uniform fluid velocity in z-direction.,[L/t]
+FIOH,n,1,Fluid region type,NONE
+FFSTL,n,:file:`fstlnn.inp`,"File name for stereolithography (STL) data file for defining initial conditions (:envvar:`IFDIS(n)` = -1), where ""nn"" = :envvar:`n`.",NONE
+IFDIS,n,0,Region type,NONE
+IF_FLREG_ENABLED,n,1,Activation flag for fluid region :envvar:`n`,NONE 
+IRESFL,n,0,Restart override fluid region flag,NONE
+NFLS,,0,Number of fluid regions,NONE
+AIRREG,n,...,Initial volume fraction of entrained air in region :envvar:`n`,NON-DIM
+CHRGREG,n,...,Initial electric charge density in region :envvar:`n`,[Q/L\ :sup:`3`]
+CNCREG,n,...,Initial volume fraction of the non-condensable gas component in the gas phase in region :envvar:`n`,NON-DIM
+RSATREG,n,...,Initial relative saturation of vapor in the gas phase in region :envvar:`n` when the non-condensable gas model is used.,NON-DIM
+DSIZEREG,n,...,Initial droplet size in region :envvar:`n`,[L]     
+DISSREG,n,...,Initial concentration of dissolved solute in region :envvar:`n`,[M/L\ :sup:`3`]
+ELSTREG,"n,k",...,Initial value if elastic stress component :envvar:`k` in region :envvar:`n`,[M L\ :sup:`-1` t\ :sup:`-2`]
+FMDENREG,n,...,Foam density function in region :envvar:`n`,[M/L\ :sup:`3`]
+FREG,n,...,Initial fluid fraction in region :envvar:`n`,NON-DIM
+ISCTYP,n,0,Scalar species identifier when :envvar:`IFDIS(n)` = 8,NONE
+PREG,n,...,Initial pressure in region :envvar:`n`,[M L\ :sup:`-1` t\ :sup:`-2`]
+RHOREG,n,...,Initial density in region :envvar:`n` (when :envvar:`IFRHO` :math:`>` 2 and :envvar:`NMAT` = 1).,[M/L\ :sup:`3`]
+SCLREG,"n,ns",... ,Initial scalar species :envvar:`ns` magnitude in region :envvar:`n`,Typically [M/L\ :sup:`3`]
+SEGREG,n,... ,Initial segregation solute mass concentration in region :envvar:`n`,[M/L\ :sup:`3`]
+SSSREG,"n,m",... ,Initial suspended sediment mass concentration of sediment species :envvar:`m` in region :envvar:`n`,[M/L\ :sup:`3`]
+TKEREG,n,...,Initial turbulent energy per unit mass in region :envvar:`n`,[L\ :sup:`2`/t\ :sup:`2`]
+TREG,n,...,Region :envvar:`n` fluid #1 temperature,[T]
+TREG2,n,TREG,n,Region :envvar:`n` fluid #2 temperature,[T]     
+TWREG,n,... ,Region :envvar:`n` solid temperature,[T]
+UREG,n,...,Initial velocity (x-direction) in region :envvar:`n`,[L/t]
+VREG,n,...,Initial velocity (y-direction) in region :envvar:`n`,[L/t]
+WREG,n,...,Initial velocity (z-direction) in region :envvar:`n`,[L/t]
+FANGLH,n,...,"Upper cylindrical angle limit for region :envvar:`n` (measured in the x-y plane from the x-axis, in degrees)",[DEGREES]
+FANGLL,n,...,"Lower cylindrical angle limit for region :envvar:`n` (measured in the x-y plane from the x-axis, in degrees)",[DEGREES]
+FCONEH,n,...,Upper conical angle limit for region :envvar:`n` (measured from the z-axis in degrees),[DEGREES]
+FCONEL,n,...,Lower conical angle limit for region :envvar:`n` (measured from the z-axis in degrees),[DEGREES]
+FLUIDREGIONNAME,n,' ',Fluid region :envvar:`n` name (up to 256 characters),NONE
+FRAH,n,...,Upper cylindrical-radius limit for region :envvar:`n`,[L]
+FRAL,n,...,Lower cylindrical-radius limit for region :envvar:`n`,[L]
+FRSH,n,...,Upper spherical-radius limit for region :envvar:`n`,[L]
+FRSL,n,...,Lower spherical-radius limit for region :envvar:`n`,[L]
+FXH,n,...,Upper x-coordinate limit for region :envvar:`n`,[L]
+FXL,n,...,Lower x-coordinate limit for region :envvar:`n`,[L]
+FYH,n,...,Upper y-coordinate limit for region :envvar:`n`,[L]
+FYL,n,...,Lower y-coordinate limit for region :envvar:`n`,[L]
+FZH,n,...,Upper z-coordinate limit for region :envvar:`n`,[L]
+FZL,n,...,Lower z-coordinate limit for region :envvar:`n`,[L]
+CSLDGREG,n,...,"Initial sludge mass concentration in fluid region :envvar:`n`, only used when   :envvar:`ISLDG` =1.",[M L\ :sup:`-3`]
+FCC,n,0.0,Function constant coefficient for region :envvar:`n`,"VARIES, NON-DIM WHEN IFDIS(n) = 0"
+FCX,n,0.0,Function coefficient of x for region :envvar:`n`,"VARIES, [1/L] WHEN IFDIS(n) = 0"
+FCY,n,0.0,Function coefficient of y for region :envvar:`n`,"VARIES, [1/L] WHEN IFDIS(n) = 0"
+FCZ,n,0.0,Function coefficient z for region :envvar:`n`,"VARIES, [1/L] WHEN IFDIS(n) = 0"
+FCXY,n,0.0,Function coefficient of xy for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCXZ,n,0.0,Function coefficient of xz for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCYZ,n,0.0,Function coefficient yz for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCX2,n,0.0,Function coefficient x :sup:`2` for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCY2,n,0.0,Function coefficient y :sup:`2` for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCZ2,n,0.0,Function coefficient z :sup:`2` for region :envvar:`n`,"VARIES, [1/L\ :sup:`2`] WHEN IFDIS(n) = 0"
+FCRXY,n,0.0,Function coefficient :math:`\sqrt {{x^2} + {y^2}}` for region :envvar:`n`,"VARIES, [1/L] WHEN IFDIS(n) = 0"
+FCDUM,n,0.0,Dummy function coefficient for region :envvar:`n` for customizing functions.,VARIES
+FMAGN,n,1.0,Magnification (scaling) factor for region :envvar:`n`,NON-DIM
+FMAGN,n,1.0,Magnification (scaling) factor for region :envvar:`n`,NON-DIM
+FMAGNX,n,1.0,Scaling factor in x-direction for region :envvar:`n`,NON-DIM
+FMAGNY,n,1.0,Scaling factor in y-direction for region :envvar:`n`,NON-DIM
+FMAGNZ,n,1.0,Scaling factor in z-direction for region :envvar:`n`,NON-DIM
+FROTX,n,0°,"Region :envvar:`n` rotation about x-axis in degrees, positive in right hand sense",[DEGREES]
+FROTY,n,0°,Region :envvar:`n` rotation about y-axis in degrees,[DEGREES]
+FROTZ,n,0°,Region :envvar:`n` rotation about z-axis in degrees,[DEGREES]
+FTRNX,n,0.0,Region :envvar:`n` translation in x-direction,[L]
+FTRNY,n,0.0,Region :envvar:`n` translation in y-direction,[L]
+FTRNZ,n,0.0,Region :envvar:`n` translation in z-direction,[L]
+FXTRFC,n,0.0,x-coordinate of transformation center for fluid region :envvar:`n`,[L]
+FYTRFC,n,0.0,y-coordinate of transformation center for fluid region :envvar:`n`,[L]
+FZTRFC,n,0.0,z-coordinate of transformation center for fluid region :envvar:`n`,[L]
+IF_POINTER_ENABLED,k,1,Activation flag for pointer :envvar:`k`,NONE 
+POINTERNAME,k,' ',Pointer :envvar:`k` name (up to 256 characters),NONE
+XVR,k,...,X location in connected region :envvar:`k`,[L]
+YVR,k,...,Y location in connected region :envvar:`k`,[L]
+ZVR,k,...,Z location in connected region :envvar:`k`,[L]
+IFVRD,k,0,Type of pointer for setting fluid initial conditions,NONE
+FVRD,k,1.0,"Fluid fraction assigned to contiguous region that includes pointer :envvar:`k` (defined by :envvar:`XVR(k)`, :envvar:`YVR(k)`, :envvar:`ZVR(k)` in :ref:`InitialConditionsPointers`).",NON-DIM
+CNCVRD,k,0.0,Volume fraction of the non-condensable gas component in the contiguous gas region that includes pointer :envvar:`k`. ,NON-DIM
+ICVRD,k,0,"Flag for time-dependent prescribed void pressure and temperature :envvar:`PVRD(t,k)` and :envvar:`TVRD(t,k)`.",NON-DIM     
+RSATVRD,k,0.0,Initial relative saturation of vapor in the gas phase in the contiguous gas region that includes pointer :envvar:`k`. ,NON-DIM
+PVRD,"t,k",PVOID,,Prescribed void pressure at time :envvar:`TIMVRD(t)` in the contiguous void region that includes pointer :envvar:`k`. ,[M L\ :sup:`-1` t\ :sup:`-2`]
+FPVRD,k,,The external filename for tabular prescribed void pressure in the contiguous void region that includes pointer :envvar:`k` as a function of time (used only if :envvar:`IPVRDC(k)` :math:`\geq` 2),NONE
+IPVRDC,k,0,The column number for prescribed void pressure in the contiguous void region that includes pointer :envvar:`k` in the external file,NONE
+TIMVRD,t,0.0,"Times for time-dependent prescribed void pointer pressure and temperature arrays :envvar:`PVRD(t,k)` and :envvar:`TVRD(t,k)`.",[t] 
+TVRD,"t,k",TVOID,,Prescribed void temperature at time :envvar:`TIMVRD(t)` in the contiguous void region that includes pointer :envvar:`k`. ,[T]
+FTVRD,k,,The external filename for tabular prescribed void temperature in the contiguous void region that includes pointer :envvar:`k` as a function of time (used only if :envvar:`ITVRDC(k)` :math:`\geq` 2),NONE
+ITVRDC,k,0,The column number for prescribed void temperature in the contiguous void region that includes pointer :envvar:`k` in the external file,NONE      
+IGIVHT,,0,"Global heat transfer void identifier; indicates which heat transfer coefficients will be used for voids. (Heat transfer coefficients are in namelists :envvar:`XPUT`, :envvar:`BCDATA`, :envvar:`OBS` and :envvar:`BF`.)",NONE
+IVHT,k,IGIVHT,,"Heat transfer void identifier for input-void region :envvar:`k`; indicates which heat transfer coefficients will be used for this void. (Heat transfer coefficients are in namelists :envvar:`XPUT`, :envvar:`BCDATA`, :envvar:`OBS` and :envvar:`BF`.)",NONE
+FVALP,k,,The external filename for tabular external pressure for valve :envvar:`k` as a function of time (used only if :envvar:`IVALPC(k)` :math:`\geq` 2),NONE
+FVALT,k,,The external filename for tabular external temperature for valve :envvar:`k` as a function of time (used only if :envvar:`IVALPT(k)` :math:`\geq` 2),NONE      
+IF_2WAY,k,0,The flag for valve flow direction,NONE
+IF_VALVE_ENABLED,k,1,Activation flag for valve :envvar:`k`,NONE 
+IVALPC,k,0,The column number for external pressure for valve :envvar:`k` in the external file,NONE     
+IVALTC,k,0,The column number for external temperature for valve :envvar:`k` in the external file,NONE    
+TIMVAL,t,0.0,Times for time-dependent valve arrays,[t]
+VALAREA,k,minimum cell size squared,Open area of valve :envvar:`k`,[L\ :sup:`2`]     
+VALC,k,0.0,Valve pressure coefficient for valve :envvar:`k`,[L\ :sup:`3.5`/M\ :sup:`0.5`]
+VALCGX,,0.02,"Global vent coefficient multiplier: multiply VALCGX by the sum of all VALC to represent the global air flow through the granular material to the vents. The global valve coefficient accounts for the average flow losses through sand plus the reduction in the effective area of vents because of blockage by sand, and is experienced by all void regions regardless of whether they contain a vent.",NON-DIM
+VALP,"t,k",PVOID,,External pressure for valve :envvar:`k` at time :envvar:`TIMVAL(t)`,[M L\ :sup:`-1` t\ :sup:`-2`]
+VALT,"t,k",TVOID,,External temperature for valve :envvar:`k` at time :envvar:`TIMVAL(t)`,[T]
+VALF_MIN,k,0.0,Fluid fraction at valve :envvar:`k` below which fluid #1 is allowed to escape through the valve. ,NON-DIM
+VALF_MAX,k,...,Fluid fraction at valve :envvar:`k` above which the valve is considered blocked to any flow through it.,NON-DIM     
+VALVENAME ,k,' ',Valve :envvar:`k` name (up to 256 characters),NONE
+VALX,k,...,X location for valve :envvar:`k`,[L]
+VALY,k,...,Y location for valve :envvar:`k`,[L]
+VALZ,k,...,Z location for valve :envvar:`k`,[L]
+NEVENTS_VAL,k,0,Number of events for valve :envvar:`k`,NONE
+EVENT_NAME_VAL,"m,k",' ',Event :envvar:`m` name for valve :envvar:`k` (up to 50 characters),NONE
+IF_EVENT_ENABLED_VAL,"m,k",1,Event :envvar:`m` enable/disable flag,NONE
+IF_GLOBAL_VAL,"m,k",0,Global condition flag for event :envvar:`m`,NONE
+IGLOBAL_VAL,"m,k",0,"Global condition id for event :envvar:`m` (used if :envvar:`IF_GLOBAL_VAL(m,k)` = 1)",NONE
+NACTIONS_VAL,"m,k",0,Number of actions for event :envvar:`m`,NONE
+NPROBES_VAL,"m,k",0,"Number of local probe conditions for event :envvar:`m` (used if :envvar:`IF_GLOBAL_VAL(m,k)` = 0)",NONE
+EVENT_CONDITION_LOGIC_VAL,"m,k",' ',Logical operator between probe conditions for event :envvar:`m`,NONE
+EVENT_ACTION_VAL,"i,m,k",' ',Event action :envvar:`i` for event :envvar:`m`,NONE
+VALP_EVENT,"t,m,k",PVOID,Valve external pressure at time :envvar:`TIMVAL(t)` for event :envvar:`m`,[M L\ :sup:`-1` t\ :sup:`-2`]
+IVALPC_EVENT,"m,k",0,The column number for the valve external pressure for event :envvar:`m`,NONE
+FVALP_EVENT,"m,k",,The external filename for the tabular valve external pressure for event :envvar:`m` as a function of time,NONE
+VALT_EVENT,"t,m,k",TVOID,Valve external temperature at time :envvar:`TIMVAL(t)` for event :envvar:`m`,[T]
+IVALTC_EVENT,"m,k",0,The column number for the valve external temperature for event :envvar:`m`,NONE
+FVALT_EVENT,"m,k",,The external filename for the valve external temperature for event :envvar:`m` as a function of time,NONE
+IF_CONDITION_ENABLED_VAL,"j,m,k",1,Probe condition :envvar:`j` enable/disable flag for event :envvar:`m`,NONE
+IPRBD_VAL,"j,m,k",0,Probe id for probe condition :envvar:`j`,NONE
+IPRBSC_VAL,"j,m,k",0,Scalar id for probe condition :envvar:`j`,NONE
+IPRBSCN_VAL,"j,m,k",0,Additional scalar index for probe condition :envvar:`j`,NONE
+PRBVNAM_VAL,"j,m,k",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_VAL,"j,m,k",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_VAL,"j,m,k",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_VAL,"j,m,k",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_VAL,"j,m,k",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]
+UDEEP,,0.0,Deep water velocity in x-direction.,[L/t]
+VDEEP,,0.0,Deep water velocity in y-direction.,[L/t]     
+WDEEP,,0.0,Deep water velocity in z-direction.,[L/t]    
+IWND,,0,Flag for wind shear at horizontal fluid surface (wind in x-y plane only).,NONE
+FWNDNAM,,...,Name of wind data file,
+UWND,,0.0,x-velocity of wind at 10 meters above fluid surface,[L/t]
+VWND,,0.0,y-velocity of wind at 10 meters above fluid surface,[L/t]
+WNDSHR,,0.003,Drag coefficient for quadratic wind shear stress,NON-DIM
+RHOAIR,,...,Air density for calculation of wind shear stress on horizontal fluid surfaces. ,[M/L\ :sup:`3`]
+IF_DROPLET_ENABLED,n,1,Activation flag for droplet source :envvar:`n`,NONE 
+NDROP,,0,Number of droplet sources,NONE
+XDROP,n,0.0,Initial x-coordinate of droplet's center at source # :envvar:`n`,[L]
+YDROP,n,0.0,Initial y-coordinate of droplet's center at source # :envvar:`n`,[L]
+ZDROP,n,0.0,Initial z-coordinate of droplet's center at source # :envvar:`n`,[L]
+UDROP,n,0.0,Initial x-velocity of droplet at source # :envvar:`n`,[L/t]
+VDROP,n,0.0,Initial y-velocity of droplet at source # :envvar:`n`,[L/t]
+WDROP,n,0.0,Initial z-velocity of droplet at source # :envvar:`n`,[L/t]
+IFDROP,n,1,Type of fluid at source # :envvar:`n`,NONE
+RHODROP,n,...,"Fluid density in the droplet at source # :envvar:`n`. Can only be set for one-fluid, variable-density problems, :envvar:`NMAT` = 1 and :envvar:`IFRHO` :math:`>` 1.",[M/L\ :sup:`3`]
+SCLRDROP,"n,ns",0.0,Initial scalar :envvar:`ns` concentration in the droplet at source # :envvar:`n`.,[M/L\ :sup:`3`]     
+TIMDROP,n,1.0,Time interval between droplets at source # :envvar:`n`,[t]
+SDROP,n,0.0,Starting time for droplet generation at source # :envvar:`n`,[t]
+EDROP,n,2 x :envvar:`TWFIN`,Ending time for droplet generation at source # :envvar:`n`,[t]
+RDROP,n,1.0,Initial droplet radius at source # :envvar:`n`,[L]
+PDROP,n,...,Initial droplet pressure at source # :envvar:`n`,[M L\ :sup:`-1` t\ :sup:`-2`]
+TDROP,n,...,Initial droplet temperature at source # :envvar:`n`,[T]
+HBAF1,m,0.0,Effective heat-transfer coefficient for fluid #1,[M T\ :sup:`-1` t\ :sup:`-3`]
+HBAF2,m,0.0,Effective heat-transfer coefficient for fluid #2,[M T\ :sup:`-1` t\ :sup:`-3`]
+HBFV1,m,0.0,Cross-baffle heat transfer coefficient to type 1 void,[M T\ :sup:`-1` t\ :sup:`-3`]
+HBFV2,m,0.0,Cross-baffle heat transfer coefficient to type 2 void,[M T\ :sup:`-1` t\ :sup:`-3`]
+HBFV3,m,0.0,Cross-baffle heat transfer coefficient to type 3 void,[M T\ :sup:`-1` t\ :sup:`-3`]
+KBAF1,m,0.0,Linear coefficient for baffle pressure drop,[L/t]
+KBAF2,m,0.0,Quadratic coefficient for baffle pressure drop,NON-DIM
+PBAF,m,...,Baffle porosity (open area fraction),NON-DIM
+IF_SCRST,"ns,m",0,Flag for resetting advectable scalar :envvar:`ns` at a porous or flux-surface baffle :envvar:`m`,NONE     
+IF_DFCT_RST,m,0,Flag for resetting free surface defect concentration at a porous or flux-surface baffle :envvar:`m`,NONE
+IF_RESDT_RST,m,0,Flag for resetting fluid residence time at a porous or flux-surface baffle :envvar:`m`,NONE
+IF_DFAIR_RST,m,0,Flag for resetting entrained air concentration at a porous or flux-surface baffle :envvar:`m`,NONE
+IF_DFCT_LF_RST,m,0,Flag for resetting foam residue concentration at a porous or flux-surface baffle :envvar:`m`,NONE
+IF_CONTACT_RST,m,0,Flag for resetting wall/fluid contact time at a porous or flux-surface baffle :envvar:`m`,NONE
+IF_PATH_RST,m,0,Flag for resetting distance traveled by fluid at a porous or flux-surface baffle :envvar:`m`,NONE               
+IFBAF,m,0,Flux surface flag,NONE
+IFTRC,m,0,Tracer flag,NONE
+CMSC_TR,m,0.0,Molecular diffusion coefficient of tracer *m*,[M L\ :sup:`-1` t\ :sup:`-1`]
+RMSC_TR,m,0.0,Turbulent diffusion coefficient multiplier for tracer *m*,NON-DIM
+FPTITL,m,"""flux surfc m""",Flux surface title (up to 30 characters),NONE
+BAFFLEREGIONNAME,n,' ',Baffle region :envvar:`n` name (up to 256 characters),NONE
+ISTLBF,n,0,Flag for STL input for baffle region :envvar:`n`,NONE
+BANGL,n,...,"Baffle cylindrical angle for region :envvar:`n` (measured in the x-y plane from the x-axis, in degrees). Used when :envvar:`ISTLBF(n)` = 5.",DEGREES
+BCONE,n,...,Baffle cone angle for region :envvar:`n` (measured from the z-axis in degrees). Used when :envvar:`ISTLBF(n)` = 8.,DEGREES
+BRA,n,...,Baffle cylindrical radius for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 6.,[L]
+BRS,n,...,Baffle spherical radius for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 7.,[L]
+BX,n,...,X-coordinate for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 2.,[L]
+BY,n,...,y-coordinate for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 3.,[L]
+BZ,n,...,Z-coordinate for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 4.,[L]
+ISTLBF,n,0,Flag for STL input for baffle region :envvar:`n`,NONE
+BCC,n,0.0,Function constant coefficient for region :envvar:`n`,NON-DIM
+BCX,n,0.0,Function coefficient of x for region :envvar:`n`,[1/L]
+BCY,n,0.0,Function coefficient of y for region :envvar:`n`,[1/L]
+BCZ,n,0.0,Function coefficient of z for region :envvar:`n`,[1/L]
+BCXY,n,0.0,Function coefficient of xy for region :envvar:`n`,[1/L\ :sup:`2`]
+BCXZ,n,0.0,Function coefficient of xz for region :envvar:`n`,[1/L\ :sup:`2`]
+BCYZ,n,0.0,Function coefficient of yz for region :envvar:`n`,[1/L\ :sup:`2`]
+BCX2,n,0.0,Function coefficient of x :sup:`2` for region :envvar:`n`,[1/L\ :sup:`2`]
+BCY2,n,0.0,Function coefficient of y :sup:`2` for region :envvar:`n`,[1/L\ :sup:`2`]
+BCZ2,n,0.0,Function coefficient of z :sup:`2` for region :envvar:`n`,[1/L\ :sup:`2`]
+BCRXY,n,0.0,Function coefficient of :math:`\sqrt {{x^2} + {y^2}}` for region :envvar:`n`,[1/L]
+BCDUM,n,0.0,Dummy function coefficient for region :envvar:`n` for customizing functions.,VARIES
+BIOH,n,1,Baffle region type,NONE
+FSTLBF,n,...,Name of STL file for baffle region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 1. The file can be either in ASCII or in binary format.,
+IBAF,n,0,Associates region :envvar:`n` with  baffle :envvar:`IBAF(n)`.,NONE
+IF_BFREG_ENABLED,n,1,Activation flag for region :envvar:`n`,NONE     
+ISTLBF,n,0,Flag for STL input for baffle region :envvar:`n`,NONE
+IFMMSRC,n,,"Associates baffle :envvar:`n` with a mass momentum source. The baffle is used to specify the shape of a mass momentum source using STL files or primitives available for baffles. For example, if we want to associate a mass momentum source :envvar:`m` with baffle :envvar:`n`, then we set :envvar:`IFMMSRC(n)` = :envvar:`m`.",NONE
+BANGLH,n,...,"Upper cylindrical angle limit for region :envvar:`n` (measured in the x-y plane from the x-axis, in degrees).",DEGREES
+BANGLL,n,...,"Lower cylindrical angle limit for region :envvar:`n` (measured in the x-y plane from the x-axis, in degrees).",DEGREES
+BCONEH,n,...,Upper conical angle limit for region :envvar:`n` (measured from the z-axis in degrees).,DEGREES
+BCONEL,n,...,Lower conical angle limit for region :envvar:`n` (measured from the z-axis in degrees).,DEGREES
+BRAH,n,...,Upper cylindrical-radius limit for region :envvar:`n`,[L]
+BRAL,n,...,Lower cylindrical-radius limit for region :envvar:`n`,[L]
+BRSH,n,...,Upper spherical-radius limit for region :envvar:`n`,[L]
+BRSL,n,...,Lower spherical-radius limit for region :envvar:`n`,[L]
+BXH,n,...,Upper x-coordinate limit for region :envvar:`n`,[L]
+BXL,n,...,Lower x-coordinate limit for region :envvar:`n`,[L]
+BYH,n,...,Upper y-coordinate limit for region :envvar:`n`,[L]
+BYL,n,...,Lower y-coordinate limit for region :envvar:`n`,[L]
+BZH,n,...,Upper z-coordinate limit for region :envvar:`n`,[L]
+BZL,n,...,Lower z-coordinate limit for region :envvar:`n`,[L]
+BMAGN,n,1.0,Magnification (scaling) factor for region :envvar:`n`,NON-DIM
+BMAGNX,n,1.0,Scaling factor in x-direction for region :envvar:`n`,NON-DIM
+BMAGNY,n,1.0,Scaling factor in y-direction for region :envvar:`n`,NON-DIM
+BMAGNZ,n,1.0,Scaling factor in z-direction for region :envvar:`n`,NON-DIM
+BROTX,n,0°,"Region :envvar:`n` rotation about x-axis in degrees, positive in right-hand sense.",DEGREES
+BROTY,n,0°,Region :envvar:`n` rotation about y-axis in degrees,DEGREES
+BROTZ,n,0°,Region :envvar:`n` rotation about z-axis in degrees,DEGREES
+BTRNX,n,0.0,Region :envvar:`n` translation in x-direction,[L]
+BTRNY,n,0.0,Region :envvar:`n` translation in y-direction,[L]
+BTRNZ,n,0.0,Region :envvar:`n` translation in z-direction,[L]
+BXTRFC,n,0.0,x-coordinate of transformation center for baffle region :envvar:`n`,[L]
+BYTRFC,n,0.0,y-coordinate of transformation center for baffle region :envvar:`n`,[L]
+BZTRFC,n,0.0,z-coordinate of transformation center for baffle region :envvar:`n`,[L]
+NBAFS,,0,Number of baffles,NONE
+IF_BAFFLE_ENABLED,m,1,Activation flag for baffle :envvar:`m`,NONE     
+IFRCBF,,0,Baffle force calculation flag,NONE
+RCX,,0.0,X-coordinate point about which angular velocities are given,[L]
+RCY,,0.0,Y-coordinate point about which angular velocities are given,[L]
+RCZ,,0.0,Z-coordinate point about which angular velocities are given,[L]
+ICGINP,,0,Flag to specify an external file to input center of rotation as a function of time,NONE
+FCGINP,,:file:`cg.inp`,The name of the tabular data input file for center of rotation coordinates as a function of time,NONE
+IATYPE,,0,Reference frame motion specification flag,NONE
+IATYPE,,0,Rigid body dynamics control force flag,NONE
+A0,,0.0,Acceleration magnitude of sinusoidal shake in x-direction,[L/t\ :sup:`2`]
+OMG0,,0.0,Acceleration frequency for sinusoidal shake in x-direction (rad/s),[1/t]
+RPS,,0.0,Rotation rate of mesh about z-axis (rad/s),[1/t]
+SPIN,,0.0,Spin rate about x-axis for acceleration calculation (rad/s),[1/t]
+GRAVX,,0.0,Initial x-direction component of gravity,[L/t\ :sup:`2`]
+GRAVY,,0.0,Initial y-direction component of gravity,[L/t\ :sup:`2`]
+GRAVZ,,0.0,Initial z-direction component of gravity,[L/t\ :sup:`2`]
+RFREQX,,0.0,Angular frequency of angular displacement in the x-direction (rad/s),[1/t]
+RFREQY,,0.0,Angular frequency of angular displacement in the y-direction (rad/s),[1/t]
+RFREQZ,,0.0,Angular frequency of angular displacement in the z-direction (rad/s),[1/t]
+RMAGX,,0.0,Magnitude of angular displacement in the x-direction,NON-DIM (RADIANS)
+RMAGY,,0.0,Magnitude of angular displacement in the y-direction,NON-DIM (RADIANS)
+RMAGZ,,0.0,Magnitude of angular displacement in the z-direction,NON-DIM (RADIANS)
+RPHIX,,0.0,Phase angle of angular displacement in the x-direction,NON-DIM (RADIANS)
+RPHIY,,0.0,Phase angle of angular displacement in the y-direction,NON-DIM (RADIANS)
+RPHIZ,,0.0,Phase angle of angular displacement in the z-direction,NON-DIM (RADIANS)
+TFREQX,,0.0,Angular frequency of linear displacement in the x-direction (rad/s),[1/t]
+TFREQY,,0.0,Angular frequency of linear displacement in the y-direction (rad/s),[1/t]
+TFREQZ,,0.0,Angular frequency of linear displacement in the z-direction (rad/s),[1/t]
+TMAGX,,0.0,Magnitude of linear displacement in the x-direction,[L]
+TMAGY,,0.0,Magnitude of linear displacement in the y-direction,[L]
+TMAGZ,,0.0,Magnitude of linear displacement in the z-direction,[L]
+TPHIX,,0.0,Phase angle of linear displacement in the x-direction,NON-DIM (RADIANS)
+TPHIY,,0.0,Phase angle of linear displacement in the y-direction,NON-DIM (RADIANS)
+TPHIZ,,0.0,Phase angle of linear displacement in the z-direction,NON-DIM (RADIANS)
+IMOTRD,,2,Format indicator for acceleration input file (:file:`movin.inp`) or force input file (:file:`thrust.inp` for :envvar:`IACCF` = 2).,NONE
+FMOVIN,,:file:`movin.inp`,The name of the tabular data input file for linear and angular velocities and accelerations of the non-inertial reference frame.,NONE
+ACONV,,1.0,Conversion factor for linear acceleration data or force data in tabular input,NON-DIM
+OMCONV,,1.0,Conversion factor for angular velocity and acceleration or torque data in tabular input,NON-DIM
+RADKRB,,0.0,Spring constant for radial oscillator model,[M/t\ :sup:`2`]
+RDMPRB,,0.0,Damping constant for radial oscillator model,[M/t]
+REQRB,,0.0,Equilibrium radial distance for radial oscillator model,[L]
+TDMPRB,,0.0,Damping constant for angular oscillator model,[M L\ :sup:`2` t\ :sup:`-1` rad\ :sup:`-1`]
+THEKRB,,0.0,Spring constant for angular oscillator model,[M L\ :sup:`2` t\ :sup:`-2` rad\ :sup:`-1`]
+ANGLAT,,0.0,Latitude (in degrees) between -90° and 90°. Positive in the northern hemisphere and negative in the southern hemisphere.,DEGREES
+ICOLOR,,1,Default color plot indicator,NONE
+ISYMX,,0,Symmetry reflection flag,NONE
+ISYMY,,0,Symmetry reflection flag,NONE
+ISYMZ,,0,Symmetry reflection flag,NONE
+ANMTYP,n,""" """,Quantity to be stored as selected data,NONE
+ANMTYP,n,""" """,Quantity to be stored as selected data (continued),NONE
+ANMTYP,n,""" """,Quantity to be stored as selected data (continued),NONE
+CONTYP,n,"""p""",Quantity to be contoured,NONE
+IDATYP,n,0,Data source flag for contour plots,NONE
+ICTYP,n,...,Contour type:,NONE
+IPERC,n,...,Indicator for type of plot:,NONE
+NC,n,10,Number of contours to be plotted for line contour plots,NONE
+NCC,n,5,Number of contour lines laid over color-shaded plots,NONE
+NCPLTS,,0,Number of contour plots,NONE
+QMN,n,...,"If specified, :envvar:`QMN(n)` is the minimum contour value for all plots generated for contour plot :envvar:`n`. If :envvar:`QMN(n)` is not specified, the minimum contour for each plot will be the minimum data value for that individual plot.",Depends on quantity plotted.
+QMX,n,...,"If specified, :envvar:`QMX(n)` is the maximum contour value for all plots generated for contour plot :envvar:`n`. If :envvar:`QMX(n)` is not specified, the maximum contour for each plot will be the maximum data value for that individual plot.",Depends on quantity plotted.
+IPERC,n,...,Indicator for type of plot:,NONE
+IC1,n,...,Minimum I index for plot :envvar:`n`.,NONE
+IC2,n,...,Maximum I index for plot :envvar:`n`.,NONE
+JC1,n,...,Minimum J index for plot :envvar:`n`.,NONE
+JC2,n,...,Maximum J index for plot :envvar:`n`.,NONE
+KC1,n,...,Minimum K index for plot :envvar:`n`.,NONE
+KC2,n,...,Maximum K index for plot :envvar:`n`.,NONE
+XC1,n,...,Minimum x-coordinate for plot :envvar:`n`.,[L]
+XC2,n,...,Maximum x-coordinate for plot :envvar:`n`.,[L]
+YC1,n,...,Minimum Y-coordinate for plot :envvar:`n`.,[L] or DEGREES
+YC2,n,...,Maximum x-coordinate for plot :envvar:`n`.,[L] or DEGREES
+ZC1,n,...,Minimum z-coordinate for plot :envvar:`n`.,[L]
+ZC2,n,...,Maximum z-coordinate for plot :envvar:`n`.,[L]
+EXPTYP,n,...,Quantity specified to be written to export data files:,NONE
+IDATEX,,0,Data source flag for export data,NONE
+IBIN,,0,Binary data flag for EnSight\ |reg| data,NONE
+IPLT3D,,0,Data export flag,NONE
+ITRANP,,1,Indicates format of export data for visualization programs,NONE
+IEXH,,...,Maximum I index for graphics export data,NONE
+IEXL,,...,Minimum I index for graphics export data,NONE
+JEXH,,...,Maximum J index for export data,NONE
+JEXL,,...,Minimum J index for export data,NONE
+KEXH,,...,Maximum K index for export data,NONE
+KEXL,,...,Minimum K index for export data,NONE
+XEXH,,...,Maximum x-coordinate for export data,[L]
+XEXL,,...,Minimum x-coordinate for export data,[L]
+YEXH,,...,Maximum y-coordinate for export data,[L] or DEGREES
+YEXL,,...,Minimum y-coordinate for export data,[L] or DEGREES
+ZEXH,,...,Maximum z-coordinate for export data,[L]
+ZEXL,,...,Minimum z-coordinate for export data,[L]
+IF_PROBE_ENABLED,n,1,Activation flag for history probe :envvar:`n`,NONE 
+IHPROBE_RESTART,n,0,"Flag for history probe :envvar:`n` initialization during restarts, :envvar:`IFREST` = 1.",NONE                            
+NPMOV,n,...,Flag for type of fluid history probe :envvar:`n`,NONE
+LOCOBS,n,0,Index of the moving component to which the history probe :envvar:`n` is attached.,NONE
+LOCOPT,n,0,Option flag for probe :envvar:`n` moving with a GMO component defined by :envvar:`LOCOBS(n)`,NONE
+WINTL,n,...,Title for history probe :envvar:`n` (up to 30 characters),
+XLOC,n,...,X-coordinate for history probe :envvar:`n`,[L]
+YLOC,n,...,Y-coordinate for history probe :envvar:`n`,[L] or DEGREES
+ZLOC,n,...,Z-coordinate for history probe :envvar:`n`,[L]
+CONTPS,n,"""f""",Quantity to be contoured for iso-surface :envvar:`n`,NONE
+CLRTPS,n,...,"If specified, this quantity is used to color the iso-surface",NONE
+IDATPS,n,0,Data source flag for iso-surface plot :envvar:`n`,NONE
+QVAL,n,...,Iso-surface value,Varies
+ICTPS,n,...,Iso-surface type flag,NONE
+IHIDE,n,...,Hidden surface indicator for wireframe plots,NONE
+IPASN,n,1,Iso-surface contour flag for wireframe plots,NONE
+ISVEW,n,1,Viewpoint for iso-surface plot :envvar:`n`,NONE
+NSPLTS,,0,Number of iso-surface plots,NONE
+SQMN,n,...,"If specified, :envvar:`SQMN(n)` is the minimum contour value for the coloring variable :envvar:`CLRTPS` for all plots generated for iso-surface plot :envvar:`n`. If :envvar:`SQMN(n)` is not specified, the minimum contour for each plot will be the minimum data value for that individual plot.",Varies
+SQMX,n,...,"If specified, :envvar:`SQMX(n)` is the maximum contour value for the coloring variable CLRTPS for all plots generated for iso-surface plot :envvar:`n`. If :envvar:`SQMX(n)` is not specified, the maximum contour for each plot will be the maximum data value for that individual plot.",Varies
+IS1,n,...,Minimum I index for plot :envvar:`n`,NONE
+IS2,n,...,Maximum I index for plot :envvar:`n`,NONE
+JS1,n,...,Minimum J index for plot :envvar:`n`,NONE
+JS2,n,...,Maximum J index for plot :envvar:`n`,NONE
+KS1,n,...,Minimum K index for plot :envvar:`n`,NONE
+KS2,n,...,Maximum K index for plot :envvar:`n`,NONE
+XS1,n,...,Minimum x-coordinate for plot :envvar:`n`,[L]
+XS2,n,...,Maximum x-coordinate for plot :envvar:`n`,[L]
+YS1,n,...,Minimum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+YS2,n,...,Maximum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+ZS1,n,...,Minimum z-coordinate for plot :envvar:`n`,[L]
+ZS2,n,...,Maximum z-coordinate for plot :envvar:`n`,[L]
+CONTPP,n,"""f""",Quantity for color contours under particles (for 2-D plots),NONE
+IDATPP,n,0,Data source flag for particle plots,NONE
+IPERP,n,...,Indicator of type of plot ,NONE
+IPTYP,n,0,Particle plot type:,NONE
+IPVEW,n,1,Viewpoint for 3-D perspective particle plot :envvar:`n`,NONE
+NPPLTS,,0,Number of particle plots,NONE
+IPERP,n,...,Indicator of type of plot ,NONE
+IP1,n,...,Minimum I index for plot :envvar:`n`,NONE
+IP2,n,...,Maximum I index for plot :envvar:`n`,NONE
+JP1,n,...,Minimum J index for plot :envvar:`n`,NONE
+JP2,n,...,Maximum J index for plot :envvar:`n`,NONE
+KP1,n,...,Minimum K index for plot :envvar:`n`,NONE
+KP2,n,...,Maximum K index for plot :envvar:`n`,NONE
+XP1,n,...,Minimum x-coordinate for plot :envvar:`n`,[L]
+XP2,n,...,Maximum x-coordinate for plot :envvar:`n`,[L]
+YP1,n,...,Minimum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+YP2,n,...,Maximum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+ZP1,n,...,Minimum z-coordinate for plot :envvar:`n`,[L]
+ZP2,n,...,Maximum z-coordinate for plot :envvar:`n`,[L]
+IOBSL,,...,Minimum x cell for pre-processor plots,NONE
+IOBSR,,...,Maximum x cell for pre-processor plots,NONE
+JOBSBK,,...,Maximum y cell for pre-processor plots,NONE
+JOBSF,,...,Minimum y cell for pre-processor plots,NONE
+KOBSB,,...,Minimum z cell for pre-processor plots,NONE
+KOBST,,...,Maximum z cell for pre-processor plots ,NONE
+XOBSL,,...,Minimum x-coordinate for pre-processor plots,[L]
+XOBSR,,...,Maximum x-coordinate for pre-processor plots,[L]
+YOBSBK,,...,Maximum y-coordinate for pre-processor plots,[L] or DEGREES
+YOBSF,,...,Minimum y-coordinate for pre-processor plots ,[L] or DEGREES
+ZOBSB,,...,Minimum z-coordinate for pre-processor plots ,[L]
+ZOBST,,...,Maximum z-coordinate for pre-processor plots ,[L]
+CONTPV,n,...,Quantity to be contoured under the vectors (cannot be used with :envvar:`CLRTPV`),NONE
+CLRTPV,n,...,"If specified, this quantity is used to color the vectors in both 2-D and 3-D vector plots. The color used for each vector is determined by the value of this quantity at the vector location. The quantities that can be specified are the same as those for :envvar:`CONTPV(n)`. (Cannot be used with :envvar:`CONTPV`.)",NONE
+IDATPV,n,0,Data source flag for vector plots,NONE
+IPERV,n,...,Indicator for type of plot,NONE
+IV3OPT,n,1,3-D vector option,NONE
+IVTYP,n,0,Vector plot type,NONE
+IVVEW,n,1,Viewpoint for 3-D perspective velocity vector plot :envvar:`n`,NONE
+NVPLTS,,0,Number of velocity vector plots,NONE
+VELMX,,1.0,Scaling multiplier for velocity vectors,NON-DIM
+VMAX,n,...,"If specified as a positive value, :envvar:`VMAX(n)` is the maximum velocity for scaling vector lengths for all plots generated for vector plot :envvar:`n` (all plots would use the same vector length scale making comparison between plots easier). However, if :envvar:`VMAX(n)` is a negative value, all plot n vector plots would use the same vector length scale, determined by the maximum velocity in the accumulated data. ",[L/t]
+VQMN,n,...,"If specified, :envvar:`VQMN(n)` is the minimum contour or coloring value for all plots generated for vector plot :envvar:`n`. If :envvar:`VQMN(n)` is not specified, the minimum value for each plot will be the minimum data value for that individual plot.",Varies
+VQMX,n,...,"If specified, :envvar:`VQMX(n)` is the maximum contour or coloring value for all plots generated for vector plot :envvar:`n`. If :envvar:`VQMX(n)` is not specified, the maximum value for each plot will be the maximum data value for that individual plot. ",Varies
+VSCALE,n,1.0,Scaling multiplier for velocity vectors,NON-DIM
+IPERV,n,...,Indicator for type of plot,NONE
+IV1,n,...,Minimum I index for plot :envvar:`n`,NONE
+IV2,n,...,Maximum I index for plot :envvar:`n`,NONE
+JV1,n,...,Minimum J index for plot :envvar:`n`,NONE
+JV2,n,...,Maximum J index for plot :envvar:`n`,NONE
+KV1,n,...,Minimum K index for plot :envvar:`n`,NONE
+KV2,n,...,Maximum K index for plot :envvar:`n`,NONE
+XV1,n,...,Minimum x-coordinate for plot :envvar:`n`,[L]
+XV2,n,...,Maximum x-coordinate for plot :envvar:`n`,[L]
+YV1,n,...,Minimum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+YV2,n,...,Maximum y-coordinate for plot :envvar:`n`,[L] or DEGREES
+ZV1,n,...,Minimum z-coordinate for plot :envvar:`n`,[L]
+ZV2,n,...,Maximum z-coordinate for plot :envvar:`n`,[L]
+NVEWS,,1,Number of viewpoints,NONE
+XEA,n,...,X-coordinate eye point for viewpoint :envvar:`n`,[L]
+YEA,n,...,Y-coordinate eye point for viewpoint :envvar:`n`,[L]
+ZEA,n,...,Z-coordinate eye point for viewpoint :envvar:`n`,[L]
+RSXMIN,,...,X-min coordinate of the renderspace
+RSXMAX,,...,X-max coordinate of the renderspace
+RSYMIN,,...,Y-min coordinate of the renderspace
+RSYMAX,,...,Y-max coordinate of the renderspace
+RSZMIN,,...,Z-min coordinate of the renderspace
+RSZMAX,,...,Z-max coordinate of the renderspace
+RSCSIZE,,...,cell size
+IFRS,,0,"| = 0, use user-defined mesh to FAVORize geometry"
+IFCOMP,,0,"| = 0, display solid volume"
+IFCOMPF,,-1,"| = -1, do not display fluid"
+QVAL_FAVOR,,0.5,iso-surface value for displaying geometry and fluid
+PROJECT,,...,Project name
+FFORMAT,,...,Not used
+VERSION,,...,debug version or release version
+NPROCS,,...,Number of processors
+RUNSER,,0,Indicates if serial fall back  is on or off (DEPRECATED). If an input file from
+USE_PARALLEL_TOKEN,,0,Flag indicating if a parallel token is to be used (DEPRECATED)
+RUN_WITH_AVAILABLE,,0,Flag indicating the solver has permission to run with less core/license resources
+MPISCHED,,0,MPI scheduler type
+MPIPROCS,,1,Number of MPI processors requested
+MPIPPN,,0,Number of processors per node
+MPIMMEM,,0,Maximum memory for each rank
+MPIMMEMU,,0,Units for maximum memory
+MPIMTIME,,20160,Maximum wall-clock time in minutes (default is 2 weeks defined in minutes)
+MPIMACHN,,50,Not used
+MIPARGS,,50,Additional arguments that override other settings
+MPIPARADIGM,,0,MPI paradigm
+IACDEP,,0,Dielectrophoresis model flag,NONE
+IF_PBLOCK_ENABLED,n,1,Activation flag for initial particle block :envvar:`n`,NONE 
+NPXYZ,,0,Total number of initial particle blocks,NONE
+NBLK_TOTAL,n,0,"Total number of particles generated in initial particle block :envvar:`n`. :envvar:`NBLK_TOTAL(n)` is used for directions for which extents have been specified by :envvar:`XPL(n)`, :envvar:`XPR(n)`, :envvar:`YPF(n)`, :envvar:`YPBK(n)`, :envvar:`ZPB(n)` and :envvar:`ZPT(n)`, but not the number of particles :envvar:`NPX(n)`, :envvar:`NPY(n)`, or :envvar:`NPZ(n)`, see below.",NONE
+NPX,n,0,Number of particles in x-direction in initial particle block :envvar:`n`,NONE
+NPY,n,0,Number of particles in y-direction in initial particle block :envvar:`n`,NONE
+NPZ,n,0,Number of particles in z-direction in initial particle block :envvar:`n`,NONE
+IBLK_SET,n,0,Particle generation flag at initial particle block :envvar:`n`,NONE     
+XPL,n,...,Minimum x-coordinate of initial rectangular particle block :envvar:`n`,[L]
+XPR,n,...,Maximum x-coordinate of initial rectangular particle block :envvar:`n`,[L]
+YPBK,n,...,Maximum y-coordinate of initial rectangular particle block :envvar:`n`,[L] or DEGREES
+YPF,n,...,Minimum y-coordinate of initial rectangular particle block :envvar:`n`,[L] or DEGREES
+ZPB,n,...,Minimum z-coordinate of initial rectangular particle block :envvar:`n`,[L]
+ZPT,n,...,Maximum z-coordinate of initial rectangular particle block :envvar:`n`,[L]
+UPI,n,0.0,Initial particle x-direction velocity at initial particle block :envvar:`n`,[L/t]
+VPI,n,0.0,Initial particle y-direction velocity at initial particle block :envvar:`n`,[L/t]
+WPI,n,0.0,Initial particle z-direction velocity at initial particle block :envvar:`n`,[L/t]
+IBLK_CLASS,n,0,Particle class generated at initial particle block :envvar:`n`,NONE
+BLK_SPECIES,"l,n",1.0,Concentration factor for species :envvar:`l` of class :envvar:`IBLK_CLASS(n)` at initial particle block :envvar:`n`. The scale is relative and is automatically normalized in the solver to sum up to 1.0.,NON-DIM     
+BLK_TEMPERATURE,n,T_REFERENCE,,"Initial temperature of particles at initial particle block :envvar:`n`. Used when :envvar:`IF_BLK_TEMPERATURE(n)` = 0, :envvar:`IFENRG` = 2 or 3 and :envvar:`IBLK_CLASS(n)` points to a material particle class, for example, the mass particles.",[T] 
+IF_BLK_TEMPERATURE,n,0,"Flag for setting the initial temperature of particles at initial particle block :envvar:`n`. Used when :envvar:`IFENRG` = 2 or 3 and :envvar:`IBLK_CLASS(n)` points to a material particle class, for example, the mass particles.",NONE 
+BLK_PRESSURE,n,0.0,"Initial pressure of particles at initial particle block :envvar:`n`. Used when :envvar:`IBLK_CLASS(n)` = 16, i.e., generates gas particles.",[M L\ :sup:`-1` t\ :sup:`-2`]
+IF_BLK_PRESSURE,n,0,"Flag for setting the initial pressure of particles at initial particle block :envvar:`n`. Used when :envvar:`IF_BLK_PRESSURE(n)` = 0 and :envvar:`IPBLK_CLASS(n)` = 16, i.e., generates gas particles.",NONE      
+BLK_CHARGE,n,0.0,"Electric charge of particles at initial particle block :envvar:`n`. Used when :envvar:`IECHRG` = 1 and :envvar:`IBLK_CLASS(n)` points to a material particle class, for example, the mass particles.",[Q]   
+BLK_ATTRIBUTE,"m,n",0.0,"Initial value of user-defined particle attribute :envvar:`m` at initial particle block :envvar:`n`. Used when a user-defined particle class is generated, :envvar:`IBLK_CLASS(n)` = 1 to :envvar:`NSC_PART`.",NON-DIM       
+IF_PSOURCE_ENABLED,n,1,Activation flag for particle source :envvar:`n`,NONE 
+IPPKT,,0,Number of particle sources,NONE
+PARTICLESOURCENAME,n,' ',Particle source :envvar:`n` name (up to 256 characters),NONE
+RATET,"t,n",0.0,Time-dependent rate of particle creation at source :envvar:`n` at time :envvar:`TMS(t)`.,[1/t]
+FRATET,n,,The external filename for tabular rate of particle creation at source :envvar:`n` as a function of time (used only if :envvar:`IRATETC(n)` :math:`\geq` 2),NONE
+IRATETC,n,0,The column number for rate of particle creation at source :envvar:`n` in the external file,NONE
+TMS,t,0.0,Time table for time-dependent particle source parameters,[t]     
+UPP,n,0.0,Particle initial x-direction velocity at particle source :envvar:`n`,[L/t]
+VPP,n,0.0,Particle initial y-direction velocity at particle source :envvar:`n`,[L/t]
+WPP,n,0.0,Particle initial z-direction velocity at particle source :envvar:`n`,[L/t]
+XPPL,n,...,Lower x-coordinate limit for volumetric particle source :envvar:`n`,[L]
+XPPR,n,...,Upper x-coordinate limit for volumetric particle :envvar:`n`,[L] or DEGREES
+YPPF,n,...,"Lower y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPF` is in degrees.",[L] or DEGREES
+YPPBK,n,...,"Upper y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPBK` is in degrees.",[L] or DEGREES
+ZPPB,n,...,Lower z-coordinate limit for volumetric particle source :envvar:`n`,[L]
+ZPPT,n,...,Upper z-coordinate limit for particle source :envvar:`n`,[L]
+XPSOU0,m,0.0,Initial x-coordinate of particle source reference point in space system. ,[L]
+YPSOU0,m,0.0,Initial y-coordinate of particle source reference point in space system. ,[L]
+ZPSOU0,m,0.0,Initial z-coordinate of particle source reference point in space system. ,[L]
+UTPSOU,"t,m",0.0,Time-dependent velocity component of particle source :envvar:`m` in x-direction at time :envvar:`TMS(t)`,[L/t]
+VTPSOU,"t,m",0.0,Time-dependent velocity component of particle source :envvar:`m` in y-direction at time :envvar:`TMS(t)`,[L/t]
+WTPSOU,"t,m",0.0,Time-dependent velocity component of particle source :envvar:`m` in z-direction at time :envvar:`TMS(t)`,[L/t]
+OMXTPSOU,"t,m",0.0,Time-dependent angular velocity component of particle source :envvar:`m` in x-direction at time :envvar:`TMS(t)`,[L/t]
+OMYTPSOU,"t,m",0.0,Time-dependent angular velocity component of particle source :envvar:`m` in y-direction at time :envvar:`TMS(t)`,[L/t]
+OMZTPSOU,"t,m",0.0,Time-dependent angular velocity component of particle source :envvar:`m` in z-direction at time :envvar:`TMS(t)`,[L/t]
+IUTOBSC,m,0,The column number for velocity component in x-direction for particle source :envvar:`m` in the external file,NONE
+IVTOBSC,m,0,The column number for velocity component in y-direction for particle source :envvar:`m` in the external file,NONE
+IWTOBSC,m,0,The column number for velocity component in z-direction for particle source :envvar:`m` in the external file,NONE
+FUTPSOU,m,,The external filename for tabular velocity component in x-direction for particle source :envvar:`m` as a function of time (used only if :envvar:`IUTPSOUC(m)` :math:`\geq` 2),NONE
+FVTPSOU,m,,The external filename for tabular velocity component in y-direction for particle source :envvar:`m` as a function of time (used only if :envvar:`IVTPSOUC(m)` :math:`\geq` 2),NONE
+FWTPSOU,m,,The external filename for tabular velocity component in z-direction for particle source :envvar:`m` as a function of time (used only if :envvar:`IWTPSOUC(m)` :math:`\geq` 2),NONE
+IOMXTPSOUC,m,0,The column number for angular velocity component in x'-direction of body system for particle source :envvar:`m` in the external file,NONE
+IOMYTPSOUC,m,0,The column number for angular velocity component in y'-direction of body system for particle source :envvar:`m` in the external file,NONE
+IOMZTPSOUC,m,0,The column number for angular velocity component in z'-direction of body system for particle source :envvar:`m` in the external file,NONE
+FOMXTPSOU,m,,The external filename for tabular angular velocity component in x'-direction of body system for particle source :envvar:`m` as a function of time (used only if :envvar:`IOMXTPSOUC(m)` :math:`\geq` 2),NONE
+FOMYTPSOU,m,,The external filename for tabular angular velocity component in y'-direction of body system for particle source :envvar:`m` as a function of time (used only if :envvar:`IOMYTPSOUC(m)` :math:`\geq` 2),NONE
+FOMZTPSOU,m,,The external filename for tabular angular velocity component in z'-direction of body system for particle source :envvar:`m` as a function of time (used only if :envvar:`IOMZTPSOUC(m)` :math:`\geq` 2),NONE
+ISRC_SET,n,0,Particle generation flag at particle source :envvar:`n`,NONE  
+ISRC_CLASS,n,0,Particle class generated at particle source :envvar:`n`,NONE
+SRC_SPECIES,"l,n",1.0,Concentration factor for species :envvar:`l` of class :envvar:`ISRC_CLASS(n)` at particle source :envvar:`n`. The scale is relative and is automatically normalized in the solver to sum up to 1.0.,NON-DIM     
+SRC_TEMPERATURE,n,T_REFERENCE,,"Initial temperature of particles at particle source :envvar:`n`. Used when :envvar:`IF_SRC_TEMPERATURE(n)` = 0, :envvar:`IFENRG` = 2 or 3 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",[T] 
+IF_SRC_TEMPERATURE,n,0,"Flag for setting the initial temperature of particles at particle source :envvar:`n`. Used when :envvar:`IFENRG` = 2 or 3 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",NONE 
+SRC_PRESSURE,n,0.0,"Initial pressure of particles at particle source :envvar:`n`. Used when :envvar:`ISRC_CLASS(n)` = 16, i.e., generates gas particles.",[M L\ :sup:`-1` t\ :sup:`-2`]
+IF_SRC_PRESSURE,n,0,"Flag for setting the initial pressure of particles at particle source :envvar:`n`. Used when :envvar:`IF_SRC_PRESSURE(n)` = 0 and :envvar:`IPSRC_CLASS(n)` = 16, i.e., generates gas particles.",NONE      
+SRC_CHARGE,n,0.0,"Electric charge of particles at particle source :envvar:`n`. Used when :envvar:`IECHRG` = 1 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",[Q] 
+SRC_ATTRIBUTE,"m,n",0.0,"Initial value of user-defined particle attribute :envvar:`m` at particle source :envvar:`n`. Used when a user-defined particle class is generated, :envvar:`ISRC_CLASS(n)` = 1 to :envvar:`NSC_PART`.",NON-DIM          
+NPSOUR,m,m,,Particle source identifier for restarts; used to identify the old particle source number if particle sources have been changed for restart runs.,NONE
+IF_PHIST_ENABLED,n,1,Activation flag for history particle :envvar:`n`,NONE 
+PLOCTL,n,'Particle probe #n',Title for history particle :envvar:`n` (30 characters maximum),NONE
+ULOCP,n,0.0,Initial u-velocity for history particle :envvar:`n` ,[L/t]
+VLOCP,n,0.0,Initial v-velocity for history particle :envvar:`n` ,[L/t]
+WLOCP,n,0.0,Initial w-velocity for history particle :envvar:`n` ,[L/t]
+XLOCP,n,...,Initial x-coordinate for history particle :envvar:`n` ,[L]
+YLOCP,n,...,Initial y-coordinate for history particle :envvar:`n`,[L] or DEGREES
+ZLOCP,n,...,Initial z-coordinate for history particle :envvar:`n` ,[L]
+IPROBE_CLASS,n,0,Particle class represented by probe :envvar:`n`.  The properties of the probe are taken from those defined for particle species :envvar:`IPROBE_SPECIES(n)` of class :envvar:`IPROBE_CLASS(n)`.,NONE
+IPROBE_SPECIES,n,0,Particle species of class :envvar:`IPROBE_CLASS(n)` represented by probe :envvar:`n`. The properties of the probe are taken from those defined for particle species :envvar:`IPROBE_SPECIES(n)` of class :envvar:`IPROBE_CLASS(n)`.,NONE        
+PROBE_TEMPERATURE,n,T_REFERENCE,,"Initial temperature of probe :envvar:`n`. Used when :envvar:`IFENRG` = 2 or 3 and :envvar:`IPROBE_CLASS(n)` points to a material particle class, for example, the mass particles.",[T] 
+PROBE_CHARGE,n,0.0,"Initial electric charge of probe :envvar:`n`. Used when :envvar:`IECHRG` = 1 and :envvar:`IPROBE_CLASS(n)` points to a material particle class, for example, the mass particles.",[Q] 
+PROBE_PRESSURE,n,0.0,"Initial pressure of probe :envvar:`n`. Used when :envvar:`IPROBE_CLASS(n)` = 16, i.e., points to the gas particle class.",[M L\ :sup:`-1` t\ :sup:`-2`]
+PROBE_ATTRIBUTE,"m,n",0.0,"Initial value of user-defined particle attribute :envvar:`m` of probe :envvar:`n`. Used when :envvar:`IPROBE_CLASS(n)` i.e., points to a user-defined particle class, :envvar:`IPROBE_CLASS(n)` = 1 to :envvar:`NSC_PART`.",NON-DIM
+IPROBE_RESTART,n,0,"Flag for history particle :envvar:`n` initialization during restarts, :envvar:`IFREST` = 1.",NONE                            
+IAQSRP,m,1,Activation flag for mass-momentum source :envvar:`m`,NONE
+DHOLE,m,0.0,Diameter of holes in spray bar source :envvar:`m`,[L]
+IFLOWDIR,m,1,Direction of fluid released by source m (when flow rate is positive),NONE
+IFQSRP,m,1,Index of fluid released by source m (when flow rate is positive),NONE
+IFSNKP,m,1,Index of fluid removed by mass source :envvar:`m` (when flow rate is negative),NONE
+IVQSRP,m,2,Indicator of volume or mass flow rate for source :envvar:`m`,NONE
+MASSMOMENTUMNAME,m,' ',Mass/momentum source :envvar:`m` name (up to 256 characters),
+NAZ,m,0,Number of holes at each axial location spaced uniformly around the circumference of spray bar source :envvar:`m`,NONE
+NVNTS,,0,Total number of mass/momentum sources,NONE
+NVTYP,m,1,Shape of source surface,NONE
+NZL,m,0,Number of axial locations of holes of spray bar source :envvar:`m`,NONE
+RHOQSRP,m,...,Density of fluid released from source :envvar:`m`,[M/L\ :sup:`3`]
+RHOSNKP,m,...,Density of gas in voids,[M/L\ :sup:`3`]
+SBANGLE,m,0.0,Spray angle with respect to the horizontal plane at the initial spray location of spray bar :envvar:`m`. ,DEGREES
+TQSRP,"t,m",0.0,"Temperature of fluid (:envvar:`NVTYP(m)` = 1-4 and 6) or particles (:envvar:`NVTYP(m)` = 5) released from source :envvar:`m` at time :envvar:`TMS(t)`, where :envvar:`t` is the index for time.",[T]
+FTQSRP,m,,The external filename for tabular temperature of source :envvar:`m` as a function of time (used only if :envvar:`ITQSRPC(m)` :math:`\geq` 2),NONE
+ITQSRPC,m,0,The column number for temperature of source :envvar:`m` in the external file,NONE
+EQSRP,n,0.0,"Electric charge of fluid particles at mass-momentum source :envvar:`n` of type *spray bar*, :envvar:`NVTYP(n)` = 5. Used when :envvar:`IECHRG` = 1.",[Q]        
+TVFR,"t,m",0.0,"Total flow rate from source :envvar:`m` at time :envvar:`TMS(t)`, where :envvar:`t` is the index for time",[L\ :sup:`3`/t] or [M/t]
+XV,m,0.0,Translation along the x-coordinate of the center of source :envvar:`m`,[L]
+YV,m,0.0,Translation along the y-coordinate of the center of source :envvar:`m`,[L]
+ZV,m,0.0,Translation along the z-coordinate of the center of source :envvar:`m`,[L]
+XSIZE,m,0.0,"Size of source :envvar:`m` along the x-direction. For spray bar source, :envvar:`NVTYP(m)` = 5, is the outer diameter of the spray bar.",[L]
+YSIZE,m,0.0,"Size of a rectangular or elliptical source :envvar:`m` along the y-direction. For spray bar source, :envvar:`NVTYP(m)` = 5, is the length of the spray bar.",[L]
+VNX,m,0.0,Rotation around x-axis of source :envvar:`m`,DEGREES
+VNY,m,0.0,Rotation around y-axis of source :envvar:`m`,DEGREES
+VNZ,m,0.0,Rotation around z-axis of source :envvar:`m`,DEGREES
+TMS,t,0.0,Time table for time-dependent mass momentum source parameters,[t]
+UV,"t,m",...,x-component of fluid velocity at source :envvar:`m` at time TMS(t),[L/t]
+VV,"t,m",...,y-component of fluid velocity at source :envvar:`m` at time :envvar:`TMS(t)`,[L/t]
+WV,"t,m",...,z-component of fluid velocity at source :envvar:`m` at time :envvar:`TMS(t)`,[L/t]
+USOU,"t,m",0.0,x-component of the velocity of source :envvar:`m` at time :envvar:`TMS(t)`,[L/t]
+FUSOU,m,,The external filename for tabular x-component of the velocity of source :envvar:`m` as a function of time (used only if :envvar:`IUSOUC(m)` :math:`\geq` 2),NONE
+IUSOUC,m,0,The column number for x-component of the velocity of source :envvar:`m` in the external file,NONE
+VSOU,"t,m",0.0,y-component of the velocity of source :envvar:`m` at time :envvar:`TMS(t)`,[L/t]
+FVSOU,m,,The external filename for tabular y-component of the velocity of source :envvar:`m` as a function of time (used only if :envvar:`IVSOUC(m)` :math:`\geq` 2),NONE
+IVSOUC,m,0,The column number for y-component of the velocity of source :envvar:`m` in the external file,NONE
+WSOU,"t,m",0.0,z-component of the velocity of source :envvar:`m` at time :envvar:`TMS(t)`,[L/t]
+FWSOU,m,,The external filename for tabular z-component of the velocity of source :envvar:`m` as a function of time (used only if :envvar:`IWSOUC(m)` :math:`\geq` 2),NONE
+IWSOUC,m,0,The column number for z-component of the velocity of source :envvar:`m` in the external file,NONE
+TVFR,"t,m",0.0,"Total flow rate from source :envvar:`m` at time :envvar:`TMS(t)`, where :envvar:`t` is the index for time",[L\ :sup:`3`/t] or [M/t]
+SCPQSR,"t,m,ns",0.0,Scalar :envvar:`ns` concentration at source :envvar:`m` at time :envvar:`TMS(t)`,[M/L\ :sup:`3`]
+FSCPQSR,"m,ns",,"The external filename for tabular Scalar :envvar:`ns` concentration at source :envvar:`m` as a function of time (used only if :envvar:`ISCPQSRC(m,ns)` :math:`\geq` 2)",NONE
+ISCPQSRC,"m,ns",0,The column number for Scalar :envvar:`ns` concentration at source :envvar:`m` in the external file,NONE
+PQSRAIR,"t,m",0.0,Volume fraction of air at source :envvar:`m` at time :envvar:`TMS(t)`,NON-DIM
+FPQSRAIR,m,,The external filename for tabular volume fraction of air at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRAIRC(m)` :math:`\geq` 2),NONE
+IPQSRAIRC,m,0,The column number for volume fraction of air at source :envvar:`m` in the external file,NONE
+PQSRDSIZE,"t,m",DFDIAM_INI,,Droplet size at source :envvar:`m` at time :envvar:`TMS(t)`,[L]
+FPQSRDSIZE,m,' ',The external filename for tabular droplet size at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRDSIZEC(m)` :math:`\geq` 2),NONE
+IPQSRDSIZEC,m,0,The column number for droplet size at source :envvar:`m` in the external file :envvar:`FPQSRDSIZE(m)`,NONE
+PQSRDISS,"t,m",0.0,Concentration dissolved solute at source :envvar:`m` at time :envvar:`TMS(t)`,[M/L\ :sup:`3`]
+FPQSRDISS,m,,The external filename for tabular concentration dissolved solute at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRDISSC(m)` :math:`\geq` 2),NONE
+IPQSRDISSC,m,0,The column number for concentration dissolved solute at source :envvar:`m` in the external file,NONE
+PQSRNCG,"t,m",0.0,Volume fraction of non-condensable gas at source :envvar:`m` at time :envvar:`TMS(t)`,NON-DIM
+FPQSRNCG,m,,The external filename for tabular volume fraction of non-condensable gas at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRNCGC(m)` :math:`\geq` 2),NONE
+IPQSRNCGC,m,0,The column number for volume fraction of non-condensable gas at source :envvar:`m` in the external file,NONE
+RSATPQSR,"t,m",0.0,Relative saturation of vapor component at source :envvar:`m` at time :envvar:`TMS(t)`,NON-DIM
+FRSATPQSR,m,,The external filename for tabular relative saturation of vapor component at source :envvar:`m` as a function of time (used only if :envvar:`IRSATPQSRC(m)` :math:`\geq` 2),NONE
+IRSATPQSRC,m,0,The column number for relative saturation of vapor component at source :envvar:`m` in the external file,NONE
+PQSRCHRG,"t,m",0.0,Electric charge density at source :envvar:`m` at time :envvar:`TMS(t)`. ,[Q/L\ :sup:`3`]
+FPQSRCHRG,m,,The external filename for tabular electric charge density at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRCHRGC(m)` :math:`\geq` 2),NONE
+IPQSRCHRGC,m,0,The column number for electric charge density at source :envvar:`m` in the external file,NONE
+PQSRSEG,"t,m",0.0,Concentration of solute at source :envvar:`m` at time :envvar:`TMS(t)`. ,[M/L\ :sup:`3`]
+FPQSRSEG,m,,The external filename for tabular concentration of solute at source :envvar:`m` as a function of time (used only if :envvar:`IPQSRSEGC(m)` :math:`\geq` 2),NONE
+IPQSRSEGC,m,0,The column number for concentration of solute at source :envvar:`m` in the external file,NONE
+PQSRSS,"t,m,k",0.0,Concentration of suspended sediment species :envvar:`k` at a mass momentum source :envvar:`m` at time :envvar:`TMS(t)`,[M/L\ :sup:`3`]
+FPQSRSS,"m,k",,"The external filename for tabular concentration of suspended sediment species :envvar:`k` at a mass momentum source :envvar:`m` as a function of time (used only if :envvar:`IPQSRSSC(m,k)` :math:`\geq` 2)",NONE
+IPQSRSSC,"m,k",0,The column number for concentration of suspended sediment species :envvar:`k` at a mass momentum source :envvar:`m` in the external file,NONE
+NSOUR,m,m,,Mass momentum source identifier for restarts; used to identify the old mass momentum source number if mass momentum sources have been changed for restart runs.,NONE
+PSPACE,m,:math:`\pi/10`,"Spacing between particles on a mass momentum source. If :envvar:`PSPACE(m)` = 0.5, then the particle spacing on the mass momentum source becomes 0.5 :math:`\times` DXMIN, where the DXMIN is the smallest cell dimension in all the mesh blocks",NONE
+NP_MARKER,,0,Marker particle model activation flag.,NONE
+IPMARKER_NMAX,,"10,000",The maximum allowed number of marker particles,NONE  
+PMARKER_TITLE,,'marker particles',Title for marker particle class. The maximum length of the title is 30 characters.,NONE         
+IPMARKER_FS,,1,Host fluid flag,NONE  
+IPMARKER_RESTIT,,0,Flag for interaction with walls,NONE  
+PMARKER_DIFF,,0.0,Constant marker particle diffusion coefficient (see :envvar:`PMARKER_RM` below),[L\ :sup:`2`/t]  
+PMARKER_RM,,0.0,Inverse Schmidt number for marker particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PMARKER_DIFF`.,NON-DIM    
+IPMARKER_RESTART,,0,"Flag for marker particle initialization during restarts, :envvar:`IFREST` = 1.",NONE     
+NP_MASS,,0,Marker particle model activation flag.,NONE
+IPMASS_NMAX,,"10,000",The maximum allowed number of mass particles,NONE  
+PMASS_TITLE,,'solid particles',Title for mass particle class. The maximum length of the title is 30 characters.,NONE     
+IPMASS_MOTION,,1,Motion flag for mass particles.,NONE     
+IPMASS_FS,,0,Host fluid flag,NONE  
+IPMASS_IMP,,0,Flag for momentum coupling of mass particles and fluid.,NONE     
+PMASS_RESTIT,,1.0,Mass particle coefficient of restitution,NON-DIM  
+PMASS_DIFF,,0.0,Constant mass particle diffusion coefficient (see :envvar:`PMASS_RM` below),[L\ :sup:`2`/t]  
+PMASS_RM,,0.0,Inverse Schmidt number for mass particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PMASS_DIFF`.,NON-DIM                              
+PMASS_MACRO,,1.0,"Macro-particle coefficient. When :envvar:`PMASS_MACRO` > 1.0, each mass particle represents a cloud of :envvar:`PMASS_MACRO` particles.",NON-DIM                             
+PMASS_DRAG,,1.0,"Multiplier for coefficient of drag for a mass particle, which is a function of Reynolds number of the fluid flow around the particle.",NON-DIM
+PMASS_HTC,,-1.0,Heat-transfer coefficient between mass particles and fluid,[M T\ :sup:`-1` t\ :sup:`-3`]
+PMASS_CV,,0.0,Specific heat of a mass particle,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]                            
+PMASS_THC,,0.0,Thermal conductivity of a mass particle,[M L t\ :sup:`-3` T\ :sup:`-1`]
+PMASS_DIELC,,1.0,Dielectric constant of a mass particle. Used when :envvar:`IEPOT` = 1.,NON-DIM   
+PMASS_ECOND,,0.0,"Mass particle electric conductivity. Used with the AC particle dielectrophoresis model, :envvar:`IACDEP` = 1.",[Q\ :sup:`2` t M\ :sup:`-1` L\ :sup:`-3`]      
+IPMASS_RESTART,,0,"Flag for mass particle initialization during restarts, :envvar:`IFREST` = 1.",NONE
+IPMASS_SPECIES,,0,Number of species of mass particles. Particles in each species are characterized by unique density and size.,NONE
+PMASS_SPECIES_DENSITY,n,0.0,Density of mass particles in species :envvar:`n`,[M/L\ :sup:`3`] 
+PMASS_SPECIES_DIAMETER,n,0.0,Diameter of mass particles in species :envvar:`n`,[L]             
+PMASS_SPECIES_TITLE,n,'solid particles: species #n',Title for mass particles species :envvar:`n`. The maximum length of the title is 40 characters.,NONE                
+NP_LIQUID,,0,Fluid #1 particle model activation flag.,NONE
+IPLIQUID_NMAX,,"10,000",The maximum allowed number of fluid particles,NONE
+PLIQUID_TITLE,,'Fluid #1 droplet particles',Title for fluid particle class. The maximum length of the title is 30 characters.,NONE     
+IPLIQUID_IMP,,0,Flag for momentum coupling of fluid particles and fluid.,NONE     
+PLIQUID_RESTIT,,-1.0,Fluid particle coefficient of restitution at liquid state,NON-DIM  
+PLIQUIDSD_RESTIT,,1.0,Fluid particle coefficient of restitution at solid state,NON-DIM     
+PLIQUID_DIFF,,0.0,Constant fluid particle diffusion coefficient (see :envvar:`PLIQUID_RM` below),[L\ :sup:`2`/t]  
+PLIQUID_RM,,0.0,Inverse Schmidt number for fluid particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PLIQUID_DIFF`,NON-DIM                              
+PLIQUID_MACRO,,1.0,"Macro-particle coefficient. When :envvar:`PLIQUID_MACRO` > 1.0, each fluid particle represents a cloud of :envvar:`PLIQUID_MACRO` particles",NON-DIM                           
+PLIQUID_DRAG,,1.0,"Multiplier for coefficient of drag for a fluid particle, which is a function of Reynolds number of the fluid flow around the particle",NON-DIM
+PLIQUID_HTC,,-1.0,Heat-transfer coefficient between fluid particles and fluid,[M T\ :sup:`-1` t\ :sup:`-3`]         
+IPLIQUID_RESTART,,0,"Flag for fluid particle initialization during restarts, :envvar:`IFREST` = 1.",NONE     
+IPLIQUID_SPECIES,,0,Number of species of fluid particles. Particles in each species are characterized by unique density and size.,NONE
+PLIQUID_SPECIES_DENSITY,n,0.0,Density of fluid particles in species :envvar:`n`,[M/L\ :sup:`3`] 
+PLIQUID_SPECIES_DIAMETER,n,0.0,Diameter of fluid particles in species :envvar:`n`,[L]             
+PLIQUID_SPECIES_TITLE,n,'fluid #1 droplet particles: species #n',Title for fluid particles species :envvar:`n`. The maximum length of the title is 40 characters.,NONE       
+NP_GAS,,0,GAs particle model activation flag.,NONE
+IPGAS_NMAX,,"10,000",The maximum allowed number of gas particles,NONE    
+PGAS_TITLE,,'gas bubble particles',Title for gas particle class. The maximum length of the title is 30 characters.,NONE       
+IPGAS_ADD,,0,Flag for interaction of gas particles with void regions,NONE 
+IPGAS_FS,,1,Host fluid flag,NONE       
+IPGAS_IMP,,0,Flag for momentum coupling of gas particles and fluid.,NONE        
+PGAS_RESTIT,,0.0,Gas particle coefficient of restitution,NON-DIM  
+PGAS_DIFF,,0.0,Constant gas particle diffusion coefficient (see :envvar:`PGAS_RM` below),[L\ :sup:`2`/t]  
+PGAS_RM,,0.0,Inverse Schmidt number for gas particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PGAS_DIFF`.,NON-DIM                              
+PGAS_MACRO,,1.0,"Macro-particle coefficient. When :envvar:`PGAS_MACRO` > 1.0, each gas particle represents a cloud of :envvar:`PGAS_MACRO` particles.",NON-DIM 
+PGAS_GAMMA,,GAMMA,,"Exponent in particle gas equation of state, ``P*V^GAMMA = constant``. Zero or negative value indicates constant pressure. :envvar:`GAMMA` = ratio of specific heats of gas C\ :sub:`p`/C\ :sub:`v`, assumed constant.",NON-DIM                                
+PGAS_DRAG,,1.0,"Multiplier for coefficient of drag for a gas particle, which is a function of Reynolds number of the fluid flow around the particle.",NON-DIM   
+PGAS_HTC,,-1.0,Heat-transfer coefficient between gas particles and fluid.,[M T\ :sup:`-1` t\ :sup:`-3`]
+PGAS_RF,,0.0,Specific gas constant for gas particles (:envvar:`PGAS_RF` = (:envvar:`PGAS_GAMMA`-1)•:envvar:`PGAS_CV` for a gamma-law gas),[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
+PGAS_CV,,0.0,Specific heat of a gas particle.,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]                            
+PGAS_THC,,0.0,Thermal conductivity of a gas particle.,[M L t\ :sup:`-3` T\ :sup:`-1`]
+PGAS_DIELC,,1.0,Dielectric constant of a gas particle. Used when :envvar:`IEPOT` = 1.,NON-DIM 
+PGAS_ECOND,,0.0,"Gas particle electric conductivity. Used with the AC particle dielectrophoresis model, :envvar:`IACDEP` = 1.",[Q\ :sup:`2` t M\ :sup:`-1` L\ :sup:`-3`]        
+IPGAS_RESTART,,0,"Flag for gas particle initialization during restarts, :envvar:`IFREST` = 1.",NONE    
+IPGAS_SPECIES,,0,Number of species of gas particles. Particles in each species are characterized by unique density and size.,NONE
+PGAS_SPECIES_DIAMETER,n,0.0,Diameter of gas particles in species :envvar:`n`,[L]             
+PGAS_SPECIES_TITLE,n,'gas bubble particles: species #n',Title for gas particles species :envvar:`n`. The maximum length of the title is 40 characters.,NONE
+NP_VOID,,0,Void particle model activation flag.,NONE
+IPVOID_NMAX,,"10,000",The maximum allowed number of void particles,NONE          
+IPVOID_TYPE,,1,Type of void particles,NONE   
+IPVOID_IMP,,0,Flag for momentum coupling of void particles and fluid.,NONE               
+PVOID_RESTIT,,0.0,Void particle coefficient of restitution,NON-DIM  
+PVOID_DIFF,,0.0,Constant void particle diffusion coefficient (see :envvar:`PVOID_RM` below),[L\ :sup:`2`/t]  
+PVOID_RM,,0.0,Inverse Schmidt number for void particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PVOID_DIFF`.,NON-DIM                               
+PVOID_DRAG,,1.0,"Multiplier for coefficient of drag for a void particle, which is a function of Reynolds number of the fluid flow around the particle.",NON-DIM   
+PVOID_HTC,,-1.0,Heat-transfer coefficient between void particles and fluid.,[M T\ :sup:`-1` t\ :sup:`-3`]                                
+PVOID_RF,,0.0,Specific gas constant for void particles (:envvar:`PVOID_RF` = (:envvar:`GAMMA`-1)•:envvar:`PVOID_CV` for a gamma-law gas),[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
+PVOID_CV,,0.0,Specific heat of a void particle.,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]                            
+PVOID_THC,,0.0,Thermal conductivity of a void particle.,[M L t\ :sup:`-3` T\ :sup:`-1`]        
+IPVOID_RESTART,,0,"Flag for void particle initialization during restarts, :envvar:`IFREST` = 1.",NONE                                         
+NSC_PART,,0,Number of user-defined particle classes,NONE
+IP_NMAX,n,"10,000",The maximum allowed number of user particles in class :envvar:`n`,NONE  
+P_TITLE,n,'particle class # n',Title for user particle class :envvar:`n`. The maximum length of the title is 30 characters.,NONE
+IP_TYPE,n,0,Type of user particle class :envvar:`n`,NONE
+IP_MOTION,n,1,Motion flag for user particle class :envvar:`n`,NONE   
+IP_FS,n,0,Host fluid flag for user particles in class :envvar:`n`,NONE 
+IP_IMP,n,0,Flag for momentum coupling of particles in class :envvar:`n` and fluid.,NONE      
+P_RESTIT,n,1.0,Coefficient of restitution for user particles in class :envvar:`n`,NON-DIM  
+P_DIFF,n,0.0,Constant diffusion coefficient for user particles in class :envvar:`n` (see :envvar:`P_RM(n)` below),[L\ :sup:`2`/t]  
+P_RM,n,0.0,Inverse Schmidt number diffusion of user particles in class :envvar:`n`; multiplies kinematic viscosity and is added to :envvar:`P_DIFF(n)`.,NON-DIM                              
+P_CHARGE,n,0.0,Electric charge of user particles in class :envvar:`n`. Used when :envvar:`IECHRG` = 1.,[Q]
+P_DENSITY,,0.0,Density of user particles in class :envvar:`n`,[M/L\ :sup:`3`]
+P_MACRO,n,1.0,"Macro-particle coefficient for user particles in class :envvar:`n`. When :envvar:`P_MACRO(n)` > 1.0, each particle represents a cloud of :envvar:`P_MACRO(n)` particles.",NON-DIM 
+P_DIAMETER,n,0.0,Diameter of user particles in class :envvar:`n`,[L]                             
+P_DRAG,n,0.0,"Multiplier for coefficient of drag for a user particle in class :envvar:`n`, which is a function of Reynolds number of the fluid flow around the particle.",NON-DIM 
+P_TEMPERATURE,n,T_REFERENCE,,Initial temperature of user particles in class :envvar:`n`. Used when :envvar:`IFENRG` = 2 or 3.,[T]
+P_HTC,n,0.0,Heat-transfer coefficient between user particles in class :envvar:`n` and fluid.,[M T\ :sup:`-1` t\ :sup:`-3`]
+P_CV,n,0.0,Specific heat of a user particle in class :envvar:`n`,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]                            
+P_THC,n,0.0,Thermal conductivity of a user particle in class :envvar:`n`,[M L t\ :sup:`-3` T\ :sup:`-1`]
+P_DIELC,n,0.0,Dielectric constant of a user particle in class :envvar:`n`. Used when :envvar:`IEPOT` = 1.,NON-DIM  
+P_ECOND,n,0.0,"Electric conductivity of user particles in class :envvar:`n`. Used with the AC particle dielectrophoresis model, :envvar:`IACDEP` = 1.",[Q\ :sup:`2` t M\ :sup:`-1` L\ :sup:`-3`] 
+IP_SPECIES,n,0,Number of species of user particles in class :envvar:`n`. Particles in each species are characterized by unique density and size.,NONE
+P_SPECIES_DENSITY,"m,n",0.0,Density of particles in species :envvar:`m` of user particle class :envvar:`n` ,[M/L\ :sup:`3`] 
+P_SPECIES_DIAMETER,"m,n",0.0,Diameter of particles in species :envvar:`m` of user particle class :envvar:`n` ,[L]             
+P_SPECIES_TITLE,"m,n",'user particle class #n: species #m',Title for particle species :envvar:`m` of user particle class :envvar:`n`. The maximum length of the title is 40 characters.,NONE     
+N_USR_ATTR,n,0,NUmber of user-defined free attributes for user particle class :envvar:`n`. A maximum of 3 is currently allowed.,NONE               
+IP_RESTART,n,0,"Flag for user particle class :envvar:`n` initialization during restarts, :envvar:`IFREST` = 1.",NONE         
+NEVENTS_QSRP,m,0,Number of events for mass momentum source :envvar:`m`,NONE
+EVENT_NAME_QSRP,"n,m",' ',Event :envvar:`n` name (up to 50 characters),NONE
+IF_EVENT_ENABLED_QSRP,"n,m",1,Event :envvar:`n` enable/disable flag,NONE
+IF_GLOBAL_QSRP,"n,m",0,Global condition flag for event :envvar:`n`,NONE
+IGLOBAL_QSRP,"n,m",0,"Global condition id for event :envvar:`n` (used if :envvar:`IGLOBAL_QSRP(n,m)` = 1)",NONE
+NPROBES_QSRP,"n,m",0,"Number of local probe conditions for event :envvar:`n` (used if :envvar:`IGLOBAL_QSRP(n,m)` = 0)",NONE
+EVENT_CONDITION_LOGIC_QSRP,"n,m",' ',Logical operator between probe conditions for event :envvar:`n`,NONE
+EVENT_ACTION_QSRP,"n,m",' ',Event action for event :envvar:`n`,NONE
+TVFR_EVENT,"t,n,m",0.0,Total flow rate at time :envvar:`TMS(t)` for event :envvar:`n`,[L\ :sup:`3`/t] or [M/t]
+UV_EVENT,"t,n,m",0.0,x-component of fluid velocity at time :envvar:`TMS(t)` for event :envvar:`n`,[L/t]
+VV_EVENT,"t,n,m",0.0,y-component of fluid velocity at time :envvar:`TMS(t)` for event :envvar:`n`,[L/t]
+WV_EVENT,"t,n,m",0.0,z-component of fluid velocity at time :envvar:`TMS(t)` for event :envvar:`n`,[L/t]
+IF_CONDITION_ENABLED_QSRP,"j,n,m",1,Probe condition :envvar:`j` enable/disable flag for event :envvar:`n`,NONE
+IPRBD_QSRP,"j,n,m",0,Probe id for probe condition :envvar:`j`,NONE
+IPRBSC_QSRP,"j,n,m",0,Scalar id for probe condition :envvar:`j`,NONE
+IPRBSCN_QSRP,"j,n,m",0,Additional scalar index for probe condition :envvar:`j`,NONE
+PRBVNAM_QSRP,"j,n,m",...,Probe variable name for probe condition :envvar:`j`,NONE
+IFPRBVABS_QSRP,"j,n,m",0,Specify if to use the absolute probe variable value for probe condition :envvar:`j`,NONE
+PRBVROP_QSRP,"j,n,m",' ',Probe variable relational operator for probe condition :envvar:`j`,NONE
+PRBVAL_CRITICAL_QSRP,"j,n,m",0.0,Critical value for probe condition :envvar:`j`,NONE
+PRBDT_QSRP,"j,n,m",0.0,Duration after the critical value has reached for probe condition :envvar:`j`,[t]  
+TCP_X,ntime,0.0,TCP X coordinate,[L]
+TCP_Y,ntime,0.0,TCP Y coordinate,[L]
+TCP_Z,ntime,0.0,TCP Z coordinate,[L]
+TCP_RX,ntime,0.0,TCP rotation about X axis,[DEG]
+TCP_RY,ntime,0.0,TCP rotation about Y axis,[DEG]
+TCP_RZ,ntime,0.0,TCP rotation about Z axis,[DEG]
+TCP_TIME,ntime,0.0,TCP time table,[t]
+IFTCP,,0,Flag to specify TCP from internal file,NONE
+FTCP_X,,'',TCP_X` input external file nam,,NONE
+I_TCP_X,,0,TCP_X` input from external fil,,NONE
+FTCP_Y,,'',TCP_Y` input external file nam,,NONE
+I_TCP_Y,,0,TCP_Y` input from external fil,,NONE
+FTCP_Z,,'',TCP_Z` input external file nam,,NONE
+I_TCP_Z,,0,TCP_Z` input from external fil,,NONE
+FTCP_RX,,'',TCP_RX` input external file nam,,NONE
+I_TCP_RX,,0,TCP_RX` input from external fil,,NONE
+FTCP_RY,,'',TCP_RY` external file nam,,NONE
+I_TCP_RY,,0,TCP_RY` input from external fil,,NONE
+FTCP_RZ,,'',TCP_RZ` input external file nam,,NONE
+I_TCP_RZ,,0,TCP Z input from external file,NONE
+NBANKS,,0,Number of spray banks,NONE
+BANK_NAME,nb,'',Name of bank :envvar:`nb`,NONE
+IF_BANK_ENABLED,nb,1,Flag for bank :envvar:`nb` enable/disable status,NONE
+BANK_NOZZLE_NAME,nb,'',Nozzle name of bank :envvar:`nb`,NONE
+BANK_NOZZLE_TYPE,nb,1,Nozzle type for bank :envvar:`nb`,NONE
+BANK_TEMP,nb,...,Spray temperature of bank :envvar:`nb`,[T]
+CONE_ANGLE,nb,0.0,Spray cone angle of bank :envvar:`nb`,[DEG]
+BANK_SPRAY_OBS,"m,nb",0,The :envvar:`m` th Spray component index for bank :envvar:`nb`,NONE
+BANK_CONTROL,"ntime,nb",1,Bank on/off status,NONE
+BANK_TIME,"ntime,nb",0.0,Bank time table,[t]
+IHTC_CALC,nb,0,Flag for heat transfer coefficient computation method for spray cooling for bank :envvar:`nb`,NONE
+BANK_HTC,"ntemp,nb",0.0,Heat transfer coefficient as a function of mold temperature for the bank :envvar:`nb`,[M T\ :sup:`-1` t\ :sup:`-3`]
+BANK_HTC_TEMP,"ntemp,nb",0.0,Heat transfer coefficient temperature table,NONE
+HTC_DIST_FACTOR,"nd,nb",1.0,Heat transfer coefficient distance dependence factor table,NONE
+HTC_DIST,"nd,nb",0.0,Heat transfer coefficient distance table for bank :envvar:`nb`,NONE
+HTC_ANGLE_B_FACTOR,"nab,nb",1.0,Heat transfer coefficient angle |beta| dependence factor table for bank :envvar:`nb`,NONE
+HTC_ANGLE_B,"nab,nb",0.0,Heat transfer coefficient angle |beta| table for bank :envvar:`nb`,NONE
+HTC_ANGLE_E_FACTOR,"nae,nb",1.0,Heat transfer coefficient angle |epsilon| dependence factor table for bank :envvar:`nb`,NONE
+HTC_ANGLE_E,"nae,nb",0.0,Heat transfer coefficient angle |epsilon| table for bank :envvar:`nb`,NONE
+HTC_EFFC,nb,0.75,Spray cooling heat transfer efficiency coefficient for bank :envvar:`nb`,NONE
+HTC_RHO,nb,-1.0,Density of the spray medium for bank :envvar:`nb`,[M/L :sup:`3`]
+HTC_VFLR,nb,0.0,Spray medium volume flow rate for each nozzle for bank :envvar:`nb`,[L\ :sup:`3`/t]
+HTC_CLHV,nb,0.0,Spray medium latent heat of vaporization for bank :envvar:`nb`,[L\ :sup:`2`/t\ :sup:`2`]
+HTC_CV,nb,0.0,Spray medium specific heat for bank :envvar:`nb`,[L\ :sup:`2` t\ :sup:`-2` T\ :sup:`-1`]
+HTC_TV,nb,...,Spray medium vaporization temperature for bank :envvar:`nb`,[T]
+NNOZZLES,nb,0,Number of nozzles for bank :envvar:`nb`,NONE
+SPRAY_ORIGIN_X,"nn,nb",0.0,Spray origin for X for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_ORIGIN_Y,"nn,nb",0.0,Spray origin for Y for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_ORIGIN_Z,"nn,nb",0.0,Spray origin for Z for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_END_X,"nn,nb",0.0,Spray end for X for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_END_Y,"nn,nb",0.0,Spray end for Y for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_END_Z,"nn,nb",0.0,Spray end for Z for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_DIRECTION_X,"nn,nb",0.0,Spray direction for X for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_DIRECTION_Y,"nn,nb",0.0,Spray direction for Y for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+SPRAY_DIRECTION_Z,"nn,nb",0.0,Spray direction for Z for nozzle :envvar:`nn` in bank :envvar:`nb`,[L]
+IFNOZZLE,nb,0,Flag input for input nozzle definition from external file for bank :envvar:`nb`,NONE
+FNOZZLE,nb,'',External file name for nozzle definition for bank :envvar:`nb`,NONE
+I_SPRAY_ORIGIN_X,nb,0,Column number for spray origin X for bank :envvar:`nb`,NONE
+I_SPRAY_ORIGIN_Y,nb,0,Column number for spray origin Y for bank :envvar:`nb`,NONE
+I_SPRAY_ORIGIN_Z,nb,0,Column number for spray origin Z for bank :envvar:`nb`,NONE
+I_SPRAY_END_X,nb,0,Column number for spray end X for bank :envvar:`nb`,NONE
+I_SPRAY_END_Y,nb,0,Column number for spray end Y for bank :envvar:`nb`,NONE
+I_SPRAY_END_Z,nb,0,Column number for spray end Z for bank :envvar:`nb`,NONE
+I_SPRAY_DIRECTION_X,nb,0,Column number for spray direction X for bank :envvar:`nb`,NONE
+I_SPRAY_DIRECTION_Y,nb,0,Column number for spray direction Y for bank :envvar:`nb`,NONE
+I_SPRAY_DIRECTION_Z,nb,0,Column number for spray direction Z for bank :envvar:`nb`,NONE
+CDUMVR,,...,Character dummy variable,NONE
+IUDUMV,,...,Integer dummy variable,NONE
+REMARK,,...,Dummy character string for adding comments to :envvar:`URSDAT`,NONE

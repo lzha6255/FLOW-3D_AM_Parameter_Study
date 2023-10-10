@@ -13,18 +13,20 @@ def write_dictionary(file_name, csv_name, fields, header):
     fp = open(file_name, "r")
 
     line = fp.readline()
-    column = -1             # Equivalent to field in a dictionary entry
-    rows = [header]
-    row = []
+    line_number = 1
+    rows = []
+    row = header
 
     while line:
         # "*" indicates the start of an entry, so the column number is now tracked.
-        if len(line) > 7 and line[3] == "*":
-            column = column + 1
+        if len(line) > 7 and line[3:6] == "* -":
+            if not(row[0] == "NAME" or row[0] == "NAMELIST") or len(rows) == 0:
+                rows.append(row)
+                print("Appending row at line number " + str(line_number))
+            row = []
 
         # Each field in a dictionary entry is preceded by a hyphen.
-        if column >= 0 and len(line) > 5 and line[5] == "-":
-            column = column + 1
+        if len(line) > 6 and line[5:7] == "- ":
             if len(line) < 16 or not(line[7:15] == ":envvar:"):
                 row.append(line[7:len(line)-1])
             # Variable names are preceded by ":envvar:" and surrounded by backticks.
@@ -41,17 +43,12 @@ def write_dictionary(file_name, csv_name, fields, header):
                     row.append(line[16:len(line)-2])
                     row.append("")
 
-        if column == fields:
-            # Exclusions
-            if not(row[0] == "NAME" or row[0] == "NAMELIST"):
-                rows.append(row)
-            row = []
-            column = -1
-
         line = fp.readline()
+        line_number = line_number + 1
     
     fp.close()
 
     with open(csv_name, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(rows)
+    print("Lines read: " + str(line_number))

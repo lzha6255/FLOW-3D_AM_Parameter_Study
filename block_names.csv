@@ -19,4 +19,3 @@ PARTS,,Marker and mass particle setup,Yes
 SPRAY,,Spray cooling properties for thermal die cycling,No
 USRDAT,,User-definable namelist data,No
 HEADER,,GUI data,No
-RENDERSPACE,,FAVORizer data,No
