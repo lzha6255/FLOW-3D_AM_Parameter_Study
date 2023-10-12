@@ -10,8 +10,12 @@ import csv
 # DELTA = "-" where VALUE_2 is missing.
 
 def write_delta(prepin_csv_1, prepin_csv_2):
+
+    delta_csv_fname = "delta_" + prepin_csv_1 + "_" + prepin_csv_2 + ".csv"
+
     # Reading each csv file into 2 dimensional arrays.
     prepin_1 = []
+    prepin_csv_1 = "prepin_csv_files\\" + prepin_csv_1 + ".csv"
     with open(prepin_csv_1, "r") as csvfile:
         csvreader = csv.reader(csvfile)
         for row in csvreader:
@@ -19,6 +23,7 @@ def write_delta(prepin_csv_1, prepin_csv_2):
                 prepin_1.append(row)
 
     prepin_2 = []
+    prepin_csv_2 = "prepin_csv_files\\" + prepin_csv_2 + ".csv"
     with open(prepin_csv_2, "r") as csvfile:
         csvreader = csv.reader(csvfile)
         for row in csvreader:
@@ -35,11 +40,17 @@ def write_delta(prepin_csv_1, prepin_csv_2):
             if prepin_1[i][0].lower() == prepin_2[j][0].lower() and prepin_1[i][1] == prepin_2[j][1]:
                 match = True
                 # Check if the values of the variable are not equal.
-                if not(prepin_1[i][5] == prepin_2[i][5]):
-                    # TODO Check if the variable is numeric including the decimal point and scientific notation.
+                if not(prepin_1[i][5] == prepin_2[j][5]):
                     row = prepin_1[i].copy()
                     row.append(prepin_2[j][5])
-                    row.append("VAL_CHANGE")
+                    # Difference should be written for numeric variables, otherwise write "Non-numeric change".
+                    try:
+                        value_delta = float(row[6]) - float(row[5])
+                        row.append(str(value_delta))
+                    except ValueError:
+                        row.append("Non-numeric change")
+                    else:
+                        row.append("Error")
                     delta.append(row)
                 # Remove the variable from prepin 2.
                 prepin_2.pop(j)
@@ -51,3 +62,16 @@ def write_delta(prepin_csv_1, prepin_csv_2):
             row.append("")
             row.append("-")
             delta.append(row)
+
+    # After iterating through prepin 1 and deleting variable, subscript matches from prepin 2, the remaining prepin 2
+    # array only contains new variables added in prepin 2.
+    for i in range(len(prepin_2)):
+        row = prepin_2[i].copy()
+        row.append(row[5])
+        row[5] = ""
+        row.append("+")
+        delta.append(row)
+
+    with open(delta_csv_fname, "w", newline="") as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerows(delta)

@@ -9,7 +9,7 @@ from numpy import *
 #    scltit(1)='Cooling rate R',
 
 
-def prepin_to_csv(prepin_file_name, block_name_dictionary, var_name_dictionary, csv_name, unit_system):
+def prepin_to_csv(prepin_file_name, block_name_dictionary, var_name_dictionary, unit_system):
 
     # Array of block name entries
     block_names = []
@@ -30,6 +30,8 @@ def prepin_to_csv(prepin_file_name, block_name_dictionary, var_name_dictionary, 
     rows = [["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "UNITS", "SET_VALUE", "REMARK"]]
     row = []
 
+    csv_name = "prepin_csv_files\\" + prepin_file_name + ".csv"
+    prepin_file_name = "prepin_files\\" + prepin_file_name + ".txt"
     fp = open(prepin_file_name, "r")
 
     line = " "
@@ -88,7 +90,7 @@ def prepin_to_csv(prepin_file_name, block_name_dictionary, var_name_dictionary, 
             for i in range(len(var_names)):
                 if var_name.lower() == var_names[i][0].lower():
                     # Case where a generic expression is given for the units.
-                    if len(var_names[i]) > 4 and var_names[i][4][0] == "[":
+                    if len(var_names[i]) > 4 and len(var_names[i][4]) and var_names[i][4][0] == "[":
                         generic_units = var_names[i][4].replace("\ :sup:", "^")
                         units = ""
                         keys = list(unit_system)
@@ -104,6 +106,9 @@ def prepin_to_csv(prepin_file_name, block_name_dictionary, var_name_dictionary, 
                         row.append(units)
                     else:
                         row = var_names[i].copy()
+                    # Filling out the row so that it contains at least 5 elements.
+                    while len(row) < 5:
+                        row.append("")
                     break
             row[1] = subscript
             row.append(value)

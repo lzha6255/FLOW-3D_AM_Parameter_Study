@@ -25,7 +25,7 @@ LUNITS,,...,"Character string used to identify length units when ""Custom"" opti
 TIMUNITS,,...,"Character string used to identify time units when ""Custom"" option is chosen (up to 10 characters)",NONE,'s','time units'
 CUNITS,,...,"Character string used to identify charge units when ""Custom"" option is chosen (up to 10 characters)",NONE,'scoul','charge units'
 GAMMA,,1.4,"Exponent in void region equation of state, ``P*V^GAMMA = constant``. Zero or negative value indicates constant pressure. :envvar:`GAMMA` = ratio of specific heats of 'void' gas C\ :sub:`p`/C\ :sub:`v`, assumed constant.",NON-DIM,1.4,'gamma'
-PCAV,,Cavitation potential,0,
+PCAV,,Cavitation potential,,,0,
 MU1,,MUI,,Dynamic viscosity of fluid #1,[M L\ :sup:`-1` t\ :sup:`-1`],0.033,'viscosity'
 FLUID1,,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE,'Bronze_(Ship propeller)','material name'
 MUCTST,,1/(1000 • :envvar:`TWFIN`),Minimum fluid strain rate applied in strain rate-dependent viscosity model.,1/s,0.001,
@@ -164,9 +164,9 @@ ANMTYP,18,""" """,Quantity to be stored as selected data,NONE,'tn',
 ANMTYP,19,""" """,Quantity to be stored as selected data,NONE,'vel',
 RENDERSPACE,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
 HEADER,BLOCK,BLOCK,GUI data,BLOCK,BLOCK,BLOCK
-PROJECT,,...,Project name,'Base Layer Melt GE',
-VERSION,,...,debug version or release version,'double',
-NPROCS,,...,Number of processors,0,
+PROJECT,,...,Project name,,'Base Layer Melt GE',
+VERSION,,...,debug version or release version,,'double',
+NPROCS,,...,Number of processors,,0,
 PARTS,BLOCK,BLOCK,Marker and mass particle setup,BLOCK,BLOCK,BLOCK
 DETAILS,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK
 f3d_product_name,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'FLOW-3D',

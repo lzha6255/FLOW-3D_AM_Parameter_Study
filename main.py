@@ -1,5 +1,6 @@
 import dictionary
 import prepin_to_csv
+import delta
 
 # This is a sample Python script.
 
@@ -21,9 +22,10 @@ if __name__ == '__main__':
     dictionary.write_dictionary(block_name_file, block_name_csv, 3, block_name_header)
     dictionary.write_dictionary(variable_name_file, variable_name_csv, 4, variable_name_header)
 
-    prepin_file_name = "prepin_files\prepin.ship_propeller_1.txt"
-    prepin_csv_name = "prepin_csv_files\prepin.ship_propeller_1.csv"
+    prepin_file_name = "prepin.Solidification"
+    prepin_2_fname = "prepin.ship_propeller_1"
 
-    prepin_to_csv.prepin_to_csv(prepin_file_name, block_name_csv, variable_name_csv, prepin_csv_name, cgs_kelvin)
+    prepin_to_csv.prepin_to_csv(prepin_file_name, block_name_csv, variable_name_csv, cgs_kelvin)
+    delta.write_delta(prepin_file_name, prepin_2_fname)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
