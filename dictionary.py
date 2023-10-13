@@ -9,7 +9,7 @@ import csv
 #      - REQUIRED
 
 
-def write_dictionary(file_name, csv_name, fields, header):
+def write_dictionary(file_name, csv_name, header):
     fp = open(file_name, "r")
 
     line = fp.readline()

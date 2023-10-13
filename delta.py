@@ -11,7 +11,7 @@ import csv
 
 def write_delta(prepin_csv_1, prepin_csv_2):
 
-    delta_csv_fname = "delta_" + prepin_csv_1 + "_" + prepin_csv_2 + ".csv"
+    delta_csv_fname = "delta_files\\delta_" + prepin_csv_1 + "_" + prepin_csv_2 + ".csv"
 
     # Reading each csv file into 2 dimensional arrays.
     prepin_1 = []

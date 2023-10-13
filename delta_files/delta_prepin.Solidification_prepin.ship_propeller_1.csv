@@ -1,0 +1,1834 @@
+NAME,SUBSCRIPT,DEFAULT_VALUE,DESCRIPTION,UNITS,VALUE_1,VALUE_2,DELTA
+APPLICATION,,0,Flag for type of application being modeled,NONE,1,,,-
+PROCESS,,0,Flag for type of process being modeled,NONE,11,,,-
+SUBPROCESS,,0,Flag for type of subprocess being modeled,NONE          ,3,,,-
+TWFIN,,...,Time to end calculation,s,360,,0.003,Non-numeric change
+IHELP,,1,Flag for mentor help feature,NONE,0,,,-
+IFIN,,1,Selects the basis for termination of the calculation,NONE,3,,,-
+FRCFIN,,1.0,Fill fraction (:envvar:`IFIN` = 2) or solid fraction (:envvar:`IFIN` = 3) for termination of the calculation,NON-DIM,1.0,,,-
+ITWFIN,,...,Number of times steps (cycles) to end calculation.,NONE,2000000000,,,-
+DLTSTDY,,1.0,Variation threshold below which the flow is considered steady state (in percent),PERCENTAGE,1.0,,,-
+DTIMPX,,1.0\ :math:`\times`\ 10\ :sup:`10`,"Maximum Courant number used to limit the time step size in the implicit advection model, :envvar:`IMPADV` = 1. Used in addition to any other limiting factors.",NON-DIM,1.0E10,,,-
+IHTC,,0,Fluid/component/void heat transfer flag ,NONE,1,,,-
+IFVISC,,0,Viscous flow flag,NONE,0,,1,Non-numeric change
+IFVIS,,0,Viscosity and turbulence options flag,NONE,0,,,-
+IFSFT,,0,Surface tension flag,NONE ,0,,1,Non-numeric change
+EPSHTC,,1.0,Multiplier for temperature iteration convergence criterion,NON-DIM,1.0,,,-
+OMEGHT,,2.0,Relaxation factor for implicit heat transfer and conduction,NON-DIM,2.0,,,-
+CFPK,,1.0,Multiplies F-packing term (for :envvar:`IFPK` :math:`>` 0),NON-DIM,1.0,,,-
+FCLEAN,,0.0,"Fluid fraction cleanup coefficient for fluid #1. Throws away fluid #1 ""mist"" regions where local (isolated) fluid fraction within a cell is less than :envvar:`FCLEAN`.",NON-DIM,0.05,,,-
+FCLEAN2,,0.0,"Complement of fluid fraction cleanup coefficient for fluid #2. Throws away fluid #2 ""mist"" regions where local (isolated) fluid fraction complement, :math:`1-F`, within a cell is less than :envvar:`FCLEAN2`.",NON-DIM     ,0.0,,,-
+EPSADJ,,1.0,Multiplier for the calculated pressure iteration convergence criterion ,NON-DIM,1.0,,,-
+ALPHAMB,,0.25 ,Controls weighting of Neumann- and Dirichlet-type boundary conditions for pressure at inter-block boundaries: ,NON-DIM,0.25,,,-
+IAUTOSET,,0,Flag to use algorithm to automatically adjust subspace size used for GMRES pressure solver.,NONE,1,,,-
+EPSELS,,1.0,Convergence adjustment for implicit elastic stress model,NON-DIM,1.0,,,-
+EPSVIS,,1.0,Convergence adjustment for implicit viscous model,NON-DIM,1.0,,,-
+IFVELP,,0,Fluid flow solver options,NONE,2,,,-
+TLEN,,...,Turbulent mixing length,cm],1e-3,,,-
+ACCIMP,,1.0,Coriolis acceleration explicit/implicit weighting parameter,NON-DIM,1.0,,,-
+IFREST,,0,Restart activation flag,NONE,1,,,-
+RESFILE,,""" ""","Name of the restart source file, e.g. :envvar:`resfile` = :file:`'flsgrf.dat'`",NONE,'../Filling/flsgrf.Filling',,,-
+TREST,,...,Restart calculation time,s,8,,,-
+DELTR,,...,Initial time-step size for restart calculation,s,0.001,,,-
+IRESF1,,0,Fluid condition restart flag,NONE,1,,,-
+IRSAT,,0,Flag to control input parameters for non-condensable gas model,NONE,1,,,-
+EPSADJCG,,1.0,Multiplier for the convergence criterion for the implicit core gas pressure solver.,NON-DIM,1.0,,,-
+TAURLXCG,,0.0,Time over which the metal pressure at core surface is averaged,s,0,,,-
+ISSDIMCG,,4,Sub-scaling dimension of the binder array. Each computational cell within a core is subdivided into :envvar:`ISSDIMCG` equal sub-cells in each coordinate direction to store binder concentration.,sub-cells,4,,,-
+GX,,0.0,Gravity component in x-direction,cm/s^2,0,,,-
+GY,,0.0,Gravity component in y-direction,cm/s^2,0,,,-
+GZ,,0.0,Gravity component in z-direction,cm/s^2,-9.81,,-981,Non-numeric change
+IFDRYING,,0,Moisture drying model flag,NONE,1,,,-
+STRNGMOB,,1.0,Global coefficient of Stronge's restitution during collision between coupled-motion GMO components and other components and walls. Values should be between 0.0 and 1.0.,NON-DIM,1.0,,,-
+FRCMOB,,0.0,Global coefficient of friction during collision between coupled-motion GMO components and other components and walls,NON-DIM,0.0,,,-
+epsi_rad_norm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.001,,,-
+itmax_rad_norm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,500,,,-
+epsi_rad_outer,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.1,,,-
+itmax_rad_outer,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,20,,,-
+omega_rad_inner,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1.3,,,-
+epsi_rad_inner,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01,,,-
+itmax_rad_inner,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,100,,,-
+BTMSHR,,0.0026,Drag coefficient for quadratic bottom shear stress. Used when :envvar:`ISWATLOC` = 1 and :envvar:`IFVISWAT` = 2.,NONE,0.0026,,,-
+WNDSHR,,0.003,Drag coefficient for quadratic wind shear stress,NON-DIM,0.003,,,-
+RMVISZ,,1.5,Vertical viscosity multiplier,NONE,1.5,,,-
+SSACC,,0.0,"Damping rate coefficient for steady-state acceleration for free surface flows. Used when positive, and :envvar:`NMAT` = 1 and :envvar:`ITB` = 1.",NON-DIM  ,0.0,,,-
+CD_MAX,,0.1,Maximum value of drag coefficient of bottom shear stress ,NONE,0.1,,,-
+ISHRNK,,0,Solidification shrinkage flag,NONE,2,,,-
+THCGAP,,...,"Thermal conductivity of the gas in the gap, e.g., air.",g cm s^-3 K^-1\ ,0.06,,,-
+EFE1GAP,,0.0,Emissivity of solidified fluid #1 in the gap,NON-DIM,1.0,,,-
+NCYC,,0,Total number of thermal cycles,CYCLES,0,,,-
+ncycpt_selected,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,,,-
+RMF,,0.0,Fluid fraction diffusion coefficient multiplier,NON-DIM,0.0,,,-
+OFFSET,,0.0,Distance in z-direction above the bottom of a reservoir at which velocity is computed and stored as part of the Hydraulic data output.,NONE,0.0,,,-
+IPDIS,,0,Flag for initial hydrostatic pressure distribution,NONE,0,,,-
+IEVENT_RST,,1,Active simulation control events restart flag,NONE,0,,,-
+PLTFRC,,0.1,Interval for restart spatial plots based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.1,,,-
+PLTAFRC,,0.01,Interval for selected spatial plots based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.01,,,-
+ESPRTDT,,10.0,Short print wall clock interval (in minutes).,s,10.0,,,-
+PRTFRC,,0.1,Interval for long prints based on fill fraction (:envvar:`IEDT` = 2) or solid fraction (:envvar:`IEDT` = 3).,NON-DIM,0.1,,,-
+IEDT,,1,Selects the basis for long print and spatial plot intervals,NONE,3,,,-
+CONHT,,0.45,Safety factor for explicit heat conduction/transfer time step size stability limit,NON-DIM,0.45,,,-
+CONFS,,1.0,Safety factor for free surface stability,NON-DIM,1.0,,,-
+CONSHR,,0.45,"Multiplier for sub-time stepping in rapid shrinkage model and microporosity models when used together with the implicit heat transfer solver, :envvar:`IMPHTC` :math:`>` 0.",NON-DIM,0.45,,,-
+FRCTTSE,,0.0,"Friction coefficient between Thermal Stress Evolution (TSE) region and neighboring Fluid Structure Interaction (FSI) components. A negative value indicates that the coefficient is infinite (i.e., tangential traction is not limited), and a positive value indicates the friction coefficient. Its value represents the ratio between the limit of the magnitude of tangential traction to the normal traction between the TSE region and the component face. Physical values are typically less than 1.0.",NONE,0.0,,,-
+FSI_MEMORY,,7.0,Amount of additional memory (in GB) that may be used to store data structures that can significantly speed up the FSI solver. ,GB (Giga Bytes),7,,,-
+IMPADV2,,0,"Time step control flag for implicit advection option, :envvar:`IMPADV` = 1",NONE    ,1,,,-
+V_THRESH,,1.0\ :math:`\times`\ 10\ :sup:`35`,Velocity threshold for implicit advection. Cells with velocity above :envvar:`V_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 1. ,cm/s,5,,,-
+DT_THRESH,,0.0,Time step threshold for implicit advection. Cells with local advective stability limit below :envvar:`DT_THRESH` are treated implicitly. Used when :envvar:`IMPADV` = 1 and :envvar:`IMPADV2` = 2. ,s],0,,,-
+VOL_CORR_TIME,,...,Characteristic time for fluid #1 volume correction. Defaults to 10.0 when :envvar:`IVOL_CORR_TIME` = 1. Must be positive when :envvar:`IVOL_CORR_TIME` = 2.,"NON-DIM if :envvar:`IVOL_CORR_TIME` = 1, [t] otherwise",10,,,-
+EPSFSI,,1.0\ :math:`\times`\ 10\ :sup:`-3`,Fluid-structure interaction (FSI) and thermal stress evolution (TSE) convergence criterion.,NON-DIM,1e-3,,,-
+CGFOB,,0.0,Coefficient of gravity effect on metal/foam heat transfer for the lost foam casting model (used in conjunction with foam component roughness).,NON-DIM,0.0,,,-
+IMUPOR,,0,Microporosity model flag,NONE,1,,,-
+HFLV1,,0.0,Heat transfer coefficient for fluid #1 to type 1 void,g K^-1 s^-3,40,,1.0e+05,Non-numeric change
+HFLV2,,0.0,Heat transfer coefficient for fluid #1 to type 2 void,g K^-1 s^-3,0,,,-
+HFLV3,,0.0,Heat transfer coefficient for fluid #1 to type 3 void,g K^-1 s^-3,0,,,-
+HFLEM1,,0.0,Emissivity for fluid #1 to type 1 void,NON-DIM,0.0,,,-
+HFLEM2,,0.0,Emissivity for fluid #1 to type 2 void,NON-DIM,0.0,,,-
+HFLEM3,,0.0,Emissivity for fluid #1 to type 3 void,NON-DIM,0.0,,,-
+CMF,,0.0,Fluid mass diffusion coefficient,g cm^-1 s^-1,0,,,-
+RHOAIR,,...,"Air density for use in the calculation of wind shear stress on horizontal fluid surfaces, air drag for mooring lines, ",g/cm^3],1.225,,,-
+NGLOBALS,,0,Number of global conditions,NONE,0,,,-
+ITHTMX,,100,Maximum number of temperature iterations per cycle ,NONE,100,,,-
+IDTHT,,10,Maximum number of temperature iterations before the time step is reduced,NONE,10,,,-
+ITMAX,,...,Maximum number of pressure iterations per cycle ,NONE,100,,,-
+ITFLMX,,25,Maximum number of pressure iteration failures allowed ,NONE,25,,,-
+MRSTRT,,15,Restart number for GMRES pressure solver. It is not allowed to be less than 15 or greater than 100.,NONE,25,,,-
+ITESMX,,30,Maximum number of implicit elastic stress iterations,NONE,30,,,-
+IDTES,,15,Maximum number of elastic iterations before the time step is reduced,NONE,15,,,-
+ITVSMX,,...,Maximum number of implicit viscous stress iterations,NONE,0,,,-
+ITMAXCG,,1000,Maximum number of core gas pressure solver iterations ,NONE,1000,,,-
+ITSHMX,,100,Maximum number of volume iterations for the simple shrinkage model,NONE,100,,,-
+MRSTRTFSI,,20,Restart number for GMRES Fluid structure interaction (FSI) and thermal stress evolution (TSE) solver. It is not allowed to be less than 6 or greater than 1000.,NONE,35,,,-
+itminfsi,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ITMAXFSI,,25,Maximum number of Fluid Structure Interaction (FSI) or Thermal Stress Evolution (TSE) solver iterations ,NONE,50,,,-
+IITMX,,1,Inner iteration count maximum for non-linear equation-of-state ,NONE,1,,,-
+NSTSHR,,10,Maximum number of sub-time steps for simple shrinkage and microporosity models,NONE,10,,,-
+EPS,,0.01,Cutoff value for the evaluation of area and volume fractions,NON-DIM,0.01,,,-
+VFCLEAN,,0.05,Volume fraction cleanup coefficient. Fully blocks cells where local (isolated) open volume fraction is less than :envvar:`VFCLEAN`.,NON-DIM,0.05,,,-
+NCFLMX,,2,Maximum number of consecutive convection or pressure convergence failures allowed,NONE,10,,,-
+RCSQL,,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #1,cm s^2/g,1.0e-10,,,-
+RCSQV,,0.0,Reciprocal (|rho| •c\ :sup:`2`) of fluid #2,cm s^2/g,0,,,-
+UNITS,,...,Character string used to identify units (up to 10 characters),NONE,'si',,'cgs',Non-numeric change
+TUNITS,,...,Character string used to identify temperature units (up to 10 characters),NONE,'c',,'k',Non-numeric change
+MUNITS,,...,"Character string used to identify mass units when ""Custom"" option is chosen (up to 10 characters)",NONE,'kg',,'g',Non-numeric change
+LUNITS,,...,"Character string used to identify length units when ""Custom"" option is chosen (up to 10 characters)",NONE,'m',,'cm',Non-numeric change
+CUNITS,,...,"Character string used to identify charge units when ""Custom"" option is chosen (up to 10 characters)",NONE,'coul',,'scoul',Non-numeric change
+RFNC,,0.0,Specific gas constant for the non-condensable gas component.,cm^2 s^-2 K^-1,287.058,,,-
+CVNC,,0.0,Specific heat for the non-condensable gas component.,cm^2 s^-2 K^-1,718.81,,,-
+DFCD,,0.5,Drag coefficient for a particle of the dispersed phase moving in the continuous phase.,NON-DIM,0.5,,,-
+DFDIAM,,0.0,Average particle diameter of the dispersed phase. Used when :envvar:`IDSIZE=` = 0.,cm,0,,,-
+DFDIAM_INI,,0.0,Initial particle diameter of the dispersed phase. Used when :envvar:`IDSIZE=` = 1.,cm]    ,0,,,-
+RZMLT,,1.0,Constant multiplier for dynamically-computed Richardson-Zaki coefficient,NON-DIM,1.0,,,-
+F1MX,,1.0,Maximum volume fraction of phase #1.,NON-DIM,1.0,,,-
+PERMDER,,0.0,Fluid electric permittivity derivative with respect to temperature,1/K,0,,,-
+CONDDER,,0.0,Fluid electric conductivity derivative with respect to temperature,1/K,0,,,-
+FREQUEN,,0.0,Angular frequency of external electric field,1/s,0,,,-
+RHOMST,,...,Moisture fluid density,g/cm^3,1000,,,-
+CVMST,,...,Moisture specific heat,cm^2 s^-2 K^-1,4187,,,-
+TVMST,,...,Evaporation temperature,K,100,,,-
+CLHVMST,,...,Latent heat of vaporization,cm^2/s^2,2.27e6,,,-
+CANGLE,,+90°,Static contact angle (in degrees) for fluid #1 wall adhesion,DEGREES,90,,,-
+FRCOF,,-1.0,Coefficient of friction between fluid and solid walls for the partial slip model. A zero value corresponds to free slip and an infinite value to no-slip. A negative value turns off the partial slip model. Also see :envvar:`OFRCOF` in namelist :envvar:`OBS`.,g cm^-2 s^-1,-1.0,,,-
+FGRNMX,,0.63,Close packing volume fraction,NON-DIM,0.63,,,-
+FGRNLPK,,0.873 :math:`\cdot` :envvar:`FGRNMX`,Loose random packing volume fraction,NON-DIM,0.0,,,-
+DIAGRN,,0.0,Average grain diameter,cm,0,,,-
+RHOGRN,,0.0,Grain density,g/cm^3,0,,,-
+GASDEN,,0.0,"Density of the fluid surrounding granular material (gas for :envvar:`IFGRN` = 1, liquid for :envvar:`IFGRN` = 2)",g/cm^3,0,,,-
+GASVIS,,0.0,"Dynamic viscosity of the fluid surrounding granular material (gas for :envvar:`IFGRN` = 1, liquid for :envvar:`IFGRN` = 2)",g cm^-1 s^-1,0,,,-
+DRGGRN,,1.0,Multiplier in packing drag,NON-DIM,1.0,,,-
+CVELGRN,,1.0,"The absolute value of :envvar:`CVELGRN` is used as multiplier for threshold packing velocity. A larger value results in earlier packing. When :envvar:`CVELGRN` is negative, then full jamming is not produced - the granular mixture continues to move even at packing density.",NON-DIM,1.0,,,-
+ANGREP,,:math:`\text{34}^{\circ}`,Angle of repose,DEGREES,34,,,-
+GRNREST,,0.7,Grain restitution coefficient,NON-DIM     ,0.7,,,-
+PGASMP,,...,"Critical pressure below which pores can form during solidification. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2]    ,91170,,,-
+CIRON,,0.0,"Initial carbon content, % weight",NON-DIM,0.0,,,-
+SIIRON,,0.0,"Initial silicon content, % weight",NON-DIM,0.0,,,-
+RHOGAMMA,,...,Density of the |gamma|-iron phase (austenite),g/cm^3,7170,,,-
+RHOCARBIDE,,...,Density of the carbide formed during eutectic reaction,g/cm^3,7100,,,-
+RHOGRAPHITE,,...,Density of the graphite formed during the eutectic reaction,g/cm^3,2200,,,-
+RHOENDIRON,,...,Density of the solid phase formed after eutectic reaction,g/cm^3,6400,,,-
+FSEUTE,,0.95,Solid fraction at the end of eutectic reaction,NON-DIM,0.95,,,-
+FLUID1,,"""  """,Character string allowing user to identify fluid #1 (up to 50 characters),NONE,'Aluminum Silicon Alloy A356 Auburn Univ data',,'Bronze_(Ship propeller)',Non-numeric change
+MUC00,,0.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,0.0,,,-
+MUC0,,1.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,1.0,,,-
+MUC1,,0.0,Coefficient in strain rate-dependent viscosity model,s,0,,,-
+MUC4,,0.0,Coefficient in strain rate-dependent viscosity model,g cm^-1 s^-2,0,,,-
+MUC2,,0.0,Coefficient in strain rate-dependent viscosity model,NON-DIM,0.0,,,-
+MUC3,,0.0,Coefficient in strain rate-dependent viscosity model,g cm^-1 s^-1,0,,,-
+MUTMP1,,0.0,Coefficient in temperature-dependent viscosity model,NON-DIM,0.0,,,-
+MUTMP2,,0.0,Coefficient in temperature-dependent viscosity model,K,0,,,-
+MUTMP3,,1.0,Coefficient in temperature-dependent viscosity model,NON-DIM,1.0,,,-
+MUTHN0,,0.0,First coefficient in the strain rate-dependent rate of viscosity decrease (flow thinning) in the thixotropic model,1/s,0,,,-
+MUTHN1,,0.0,Second coefficient in the strain rate-dependent rate of viscosity decrease (flow thinning) in the thixotropic model,NON-DIM,0.0,,,-
+MUTHK,,0.0,Rate of viscosity increase (flow thickening) in the thixotropic model,1/s,0,,,-
+MUI,,0.0,Initial coefficient of dynamic viscosity for thixotropic flow model,g cm^-1 s^-1,0,,,-
+THEXF1,,0.0,Volumetric thermal expansion coefficient for fluid #1,1/K,5.75005e-05,,,-
+THEXF2,,0.0,Volumetric thermal expansion coefficient for fluid #2,1/K,0,,,-
+RF2,,0.0,Specific gas constant of fluid #2 (:envvar:`RF2` = (:envvar:`GAMMA`-1)•:envvar:`CV2` for a gamma-law gas),cm^2 s^-2 K^-1,287.058,,,-
+CV1,,0.0,Specific heat of fluid #1,cm^2 s^-2 K^-1,1074,,5.7e+6,Non-numeric change
+POFL1,,0.0,Uniform power source per unit mass for fluid #1,cm^2/s^2,0,,,-
+POFL2,,0.0,Uniform power source per unit mass for fluid #2,cm^2/s^2,0,,,-
+TSTAR,,0.0 degrees C or F,Reference temperature for temperature-dependent fluid properties,K,617.96,,273.15,Non-numeric change
+TL1,,0.0,Liquidus temperature of fluid #1,K,608,,1359.15,Non-numeric change
+TS1,,0.0,Solidus temperature of fluid #1,K,552.4,,1328.15,Non-numeric change
+CLHT1,,0.0,Latent heat of fusion in fluid #1,cm^2 s^-2,432200,,2.2e+9,Non-numeric change
+THEXS1,,0.0,Volumetric thermal expansion coefficient of solidified phase of fluid #1 (used in elastic stress model).,1/K,0,,,-
+TSDRG,,1.0,Coefficient of solidification drag,1/s,750,,1,Non-numeric change
+ADJSHR,,1.0,Multiplication coefficient for volume change during solidification. Values must not be negative. ,NON-DIM,1.0,,,-
+FSCR,,0.67,Critical solid fraction above which metal has no fluidity,NON-DIM,0.68,,1,Non-numeric change
+FSCO,,0.15,Fraction of solid at coherency point. ,NON-DIM,0.16,,0,Non-numeric change
+TEUT,,...,Eutectic temperature ,K,0,,,-
+PCOEF,,...,Partition coefficient,NON-DIM,0,,,-
+CSTAR,,0.0,Reference solute concentration for concentration-dependent density. :envvar:`CSTAR` also corresponds to :envvar:`TS1` and :envvar:`TL1` on the phase diagram.,g/cm^3,0,,,-
+PV1,,1.013 :math:`\times` 10\ :sup:`6`,Absolute pressure value on the saturation curve that corresponds to temperature :envvar:`TV1`. The saturation curve defines a relationship between saturation pressure and temperature.,g cm^-1 s^-2,101300,,1.013e+6,Non-numeric change
+TV1,,...,Temperature value on the saturation curve that corresponds to pressure :envvar:`PV1`. The saturation curve defines a relationship between saturation pressure and temperature. ,K,100,,2500,Non-numeric change
+CLHV1,,...,Latent heat of vaporization/condensation constant (\ :envvar:`ICLHV1` = 0) *or* value at temperature :envvar:`THV1` (when :envvar:`ICLHV1` = 2),cm^2/s^2,2.256e+06,,2.256e10,Non-numeric change
+CVVAP,,...,Vapor specific heat at constant volume of vaporized fluid 1 (\ :envvar:`IPHCHG` = 4) or fluid 2 (\ :envvar:`IPHCHG` = 5).,cm^2 s^-2 K^-1,1430,,1.43e7,Non-numeric change
+TVEXP,,0.0,Exponent in the relationship between saturation pressure and temperature. For perfect gas :envvar:`TVEXP` is equal to (\ :envvar:`GAMMA` -1.0)*\ :envvar:`CVVAP`/\ :envvar:`CLHV1`. The saturation curve is defined by the Clapeyron equation:,NON-DIM,0.0,,0.0002535461,Non-numeric change
+TV0,,0.0,Superheat temperature. Liquid in the bulk is allowed to heat to :envvar:`TV0` degrees before it starts evaporating (or boiling).,K,-273.15,,,-
+PV0,,0.0,Partial pressure of vapor in void regions.,g cm^-1 s^-2,0,,,-
+TC0,,0.0,Supercooling temperature. Gas in the bulk is allowed to cool to :envvar:`TC0` degrees before it starts condensing.,K,-273.15,,,-
+RHOF,,-1.0,"Density of fluid #1. For temperature-dependent density, fluid #1 density at T=\ :envvar:`TSTAR`.",g/cm :sup:3,2437,,6.6,Non-numeric change
+SIGMA,,0.0,Surface tension coefficient; same as used in :ref:`SurfaceTensionProperties`.,g/s^2,0.823,,0,Non-numeric change
+SIGMA_DF,,...,Surface tension coefficient at the interface between two phases,g s^-2,0,,,-
+CSIGMA,,0.0,Surface tension coefficient temperature sensitivity,g s^-2 K^-1,0,,,-
+ECOND1,,0.0,Fluid #1 electric conductivity,scoul^2 s g^-1 cm^-3,0,,,-
+EMOB1,,0.0,Fluid #1 electric charge mobility,scoul s g^-1,0,,,-
+ECOND2,,0.0,Fluid #2 electric conductivity,scoul^2 s g^-1 cm^-3,0,,,-
+EMOB2,,0.0,Fluid #2 electric charge mobility,scoul s g^-1,0,,,-
+EMODT1,,0.0,Fluid #1 shear elastic modulus temperature sensitivity,g cm^-1 s^-2 K^-1,0,,,-
+EMODT2,,0.0,Fluid #2 shear elastic modulus temperature sensitivity,g cm^-1 s^-2 K^-1,0,,,-
+MUS,,0.0,Additional viscosity coefficient for density- or solid-fraction-dependent viscosity model. Only used when :envvar:`MUS` :math:`>` 0.0.,g cm^-1 s^-1,1.9,,50,Non-numeric change
+THC1,,-1.0,Thermal conductivity of fluid #1,g cm s^-3 K^-1,86.9,,7e+6,Non-numeric change
+THC2,,-1.0,Thermal conductivity of fluid #2,g cm s^-3 K^-1,0,,,-
+EMOD1,,0.0,Shear elastic modulus for fluid #1,g cm^-1 s^-2,0,,,-
+EMOD2,,0.0,Shear elastic modulus for fluid #2,g cm^-1 s^-2,0,,,-
+ITHC1,,0,Flag for the definition of thermal conductivity of fluid #1,NONE,1,,,-
+MOBLTY1,,0.0 (no mobility),Mobility factor for fluid #1. Positive values only. Is needed to define a Giesekus fluid.,NON-DIM,0.0,,,-
+MOBLTY2,,0.0 (no mobility),Mobility factor for fluid #2. Positive values only. Is needed to define a Giesekus fluid.,NON-DIM,0.0,,,-
+RELAX2,,-1.0,"Relaxation time of fluid #2 for Oldroyd-B viscoelasticity model. Any value less than or equal to 0.0 means that the relaxation time is infinite, that is, no relaxation.",s,0,,,-
+RHOCAV,,...,"Cavitation gas density, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",g cm^-3,1.225,,,-
+CAVPROD,,0.02,"Empirical cavitation production coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM,0.02,,,-
+CAVDISS,,0.01,"Empirical cavitation dissipation coefficient, used with the empirical cavitation model, :envvar:`ICAV` = 1 and :envvar:`ICAVMODEL` = 1.",NON-DIM,0.01,,,-
+P_REFERENCE,,...,"Absolute reference pressure. Defaults to 1 atm. in SI, CGS, engineering or custom units appropriately, based on :envvar:`UNITS` specified.",g cm^-1 s^-2,101300,,,-
+T_REFERENCE,,0.0 C,Reference temperature.,g cm^-1 s^-2]    ,25,,,-
+cbase,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Al',,,-
+cwt_si,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,7,,,-
+cwt_cu,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.15,,,-
+cwt_mg,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.35,,,-
+cwt_mn,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.25,,,-
+cwt_fe,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.15,,,-
+cwt_zn,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.25,,,-
+uts_n,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+uts_k,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_elongation,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_yield,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_uts,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+uts_n_ac,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+uts_k_ac,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_elongation_ac,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_yield_ac,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+ws_uts_ac,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+FSTSE,,1.0,Solid fraction for Thermal Stress Evolution (TSE) elements activation. 0 :math:`<` FSTSE :math:`<=` 1.,NON-DIM,1.0,,,-
+BLKMOD_LIQ,,0.0,"Bulk modulus of liquid phase. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],4.1e+10,,6.7e+11,Non-numeric change
+BLKMOD_FSCR,,0.0,"Bulk modulus of solidifing fluid at critical solid fraction :envvar:`FSCR`. Used in the micro-porosity model, :envvar:`IMUPOR` = 1.",g cm^-1 s^-2],6.75e+10,,1.3e+12,Non-numeric change
+MUVOID,,0.0,"Dynamic viscosity of the void region. Used in the permeable mold model, :envvar:`IOBSVENT(n)` = 1.",g cm^-1 s^-1,1.71e-5,,,-
+DFESP_COEFF,,1.0,Escape rate coefficient for gas escape velocity at free surface,NON-DIM      ,1.0,,,-
+FLHTC,,-1.0,Heat-transfer coefficient between fluid #1 and #2,g K^-1 s^-3]    ,-1.0,,,-
+NSSPC,,0,Number of sediment species (\ :envvar:`NSSPC` :math:`\leq` 10),NONE,0,,,-
+NSC,,0,Number of user-defined scalar species,NONE,0,,16,Non-numeric change
+IDFAIR,,0,Flag to activate air entrainment model. A non-zero value activates the model.,NONE,0,,,-
+DFAIR,,Volume fraction of entrained air,,,0.05,,,-
+SCRFCR,,0.64,Critical solid fraction. Represents the total solid fraction beyond which the sediment is completely packed.,NON-DIM,0.64,,,-
+CROUGH,,2.5,"Roughness coefficient for surface of packed sediment bed (roughness :math:`k_s=c_{\rm{rough}} d_{50,\rm{packed}}`)",NON-DIM,2.5,,,-
+IDFCT,,0,Free surface defect tracking model flag,NONE,0,,,-
+DFTSRF,,1.0,Coefficient of proportionality for free-surface-generated defects (defects created per unit time per unit area).,s^-1 cm^-2,10,,,-
+DFTFOB,,1.0,Coefficient of proportionality for foam residue (amount of foam residue per unit volume of decomposed solid foam).,NON-DIM,1.0,,,-
+DFCTW,,Wicked foam residue concentration,,,0.5,,,-
+DISSSAT,,0.0,Solute concentration at saturation,g/cm^3,0,,,-
+DISSMTC,,0.0,Mass transfer coefficient for solid solute components,cm/s,0,,,-
+DISSALPHA,,1.0,Mixture density coefficient:,NON-DIM,1.0,,,-
+WEBCRIT,,1.6,Critical Weber number above which particles break up,NON-DIM,1.6,,,-
+CAPCRIT,,1.0,Critical capillary number above which particles break up,NON-DIM     ,1.0,,,-
+MAXECHRG,,20,Maximum iterations for coupled electric field-electric charge solver,NONE     ,20,,,-
+MAXPHIT,,1000,Maximum iterations for electric (external) potential solver,NONE,1000,,,-
+MAXPSIT,,1000,Maximum iterations for zeta-potential solver,NONE     ,1000,,,-
+EPSELE,,1.0E-06,Convergence criterion for electric (external) potential ,NON-DIM,0.000001,,,-
+EPSPSI,,1.0E-06,Convergence criterion for Zeta potential,NON-DIM,0.000001,,,-
+CONCEN,,0.0,Average ion concentration in bulk flow.,mol cm^-3,0,,,-
+MUSC_SLDG,,0.0,Dynamic viscosity of sludge,g cm^-1 s^-1,-0.1,,,-
+CMSC_SLDG,,0.0,Molecular diffusion coefficient of sludge,g cm^-1 s^-1,0,,,-
+RMSCS_SLDG,,0.0,Turbulent diffusion coefficient multiplier for sludge,NONE,0.0,,,-
+CMDFT,,0.0,Molecular diffusion coefficient of free surface defects,g cm^-1 s^-1,0,,,-
+CMDFT_LF,,0.0,Molecular diffusion coefficient of foam residue defects,g cm^-1 s^-1,0,,,-
+RMDFT,,0.0,Turbulent diffusion coefficient multiplier for free surface defects,NON-DIM,0.0,,,-
+RMDFT_LF,,0.0,Turbulent diffusion coefficient multiplier for foam residue defects,NON-DIM,0.0,,,-
+CMSEG,,0.0,Molecular diffusion coefficient of the solute mass concentration,g cm^-1 s^-1,0,,,-
+RMSEG,,0.0,Turbulent diffusion coefficient multiplier for the solute mass concentration,NON-DIM,0.0,,,-
+RMSC,,...,Turbulent diffusion coefficient multiplier,NON-DIM,0.0,,,-
+SSRZMLT,,1.0,Richardson-Zaki coefficient multiplier.,NON-DIM,1.0,,,-
+CMSCR,,0.0,Molecular diffusion coefficient of the suspended sediment,g cm^-1 s^-1,0,,,-
+RMSCR,,0.0,Turbulent diffusion coefficient multiplier for the suspended sediment,NON-DIM,0.0,,,-
+IFILL1,,0,Flag to activate the recording of the first and last time a cell fills with fluid #1,NONE,0,,,-
+IRESDT,,0,Flag used to compute fluid residence time (the amount of time fluid is present in the flow domain),NONE,0,,,-
+ICONTACT,,0,Flag used to activate fluid/wall contact time output,NONE     ,0,,,-
+IPATH,,0,Flag used to compute distance traveled by fluid from its initial location or from the inlet (mesh boundary or mass source),NONE,0,,,-
+TV2M,,...,Reference temperature for ideal gas equation of state.,K,683,,,-
+RWALL,1,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,1,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,-1,Non-numeric change
+HWALL2,1,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,1,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,1,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,1,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,1,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 1",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 1",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 1",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 1",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,1,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,1,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,1,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,1,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,1,0.0,z-component of background stream velocity,cm/s,0,,,-
+RWALL,2,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,2,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,-1,Non-numeric change
+HWALL2,2,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,2,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,2,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,2,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,2,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 2",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 2",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 2",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 2",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,2,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,2,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,2,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,2,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,2,0.0,z-component of background stream velocity,cm/s,0,,,-
+RWALL,3,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,3,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,-1,Non-numeric change
+HWALL2,3,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,3,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,3,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,3,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,3,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 3",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 3",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 3",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 3",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,3,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,3,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,3,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,3,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,3,0.0,z-component of background stream velocity,cm/s,0,,,-
+RWALL,4,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,4,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,-1,Non-numeric change
+HWALL2,4,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,4,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,4,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,4,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,4,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 4",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 4",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 4",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 4",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,4,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,4,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,4,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,4,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,4,0.0,z-component of background stream velocity,cm/s,0,,,-
+RWALL,5,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,5,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,-1,Non-numeric change
+HWALL2,5,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,5,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,5,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,5,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,5,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 5",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 5",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 5",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 5",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,5,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,5,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,5,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,5,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,5,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,6,...,Boundary condition type at mesh block boundaries,NONE,2,,5,Non-numeric change
+RWALL,6,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,6,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,6,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,6,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,6,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,6,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,6,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 6",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,0,Non-numeric change
+CNCBCT,"1, 6",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 6",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 6",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+C0SPNGBC,6,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,6,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,6,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,6,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,6,0.0,z-component of background stream velocity,cm/s,0,,,-
+TIMBCT,1,0.0,Time table for mesh boundary conditions,s,0,,,-
+SIZE,,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",cm,0.004,,0.00025,Non-numeric change
+PX,1,...,nth location in x-direction for a mesh plane,cm,-0.12,,0,Non-numeric change
+PX,2,...,nth location in x-direction for a mesh plane,cm,0.12,,0.03,Non-numeric change
+PY,1,...,nth location in y-direction for a mesh plane,cm,-0.076,,0,Non-numeric change
+PY,2,...,nth location in y-direction for a mesh plane,cm,0.076,,0.03,Non-numeric change
+PZ,1,...,nth location in z-direction for a mesh plane,cm,-0.056,,0,Non-numeric change
+PZ,2,...,nth location in z-direction for a mesh plane,cm,0.18,,0.023,Non-numeric change
+BCDATA,BLOCK,BLOCK,Boundary condition parameters,BLOCK,BLOCK,BLOCK,,-
+IBCT,1,...,Boundary condition type at mesh block boundaries,NONE,2,,,-
+RWALL,1,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,1,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,1,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,1,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,1,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,1,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,1,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 1",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 1",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 1",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 1",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 1",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,1,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,1,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,1,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,1,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,1,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,2,...,Boundary condition type at mesh block boundaries,NONE,2,,,-
+RWALL,2,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,2,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,2,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,2,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,2,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,2,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,2,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 2",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 2",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 2",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 2",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 2",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,2,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,2,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,2,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,2,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,2,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,3,...,Boundary condition type at mesh block boundaries,NONE,2,,,-
+RWALL,3,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,3,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,3,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,3,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,3,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,3,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,3,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 3",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 3",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 3",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 3",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 3",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,3,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,3,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,3,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,3,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,3,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,4,...,Boundary condition type at mesh block boundaries,NONE,2,,,-
+RWALL,4,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,4,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,4,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,4,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,4,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,4,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,4,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 4",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 4",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 4",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 4",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 4",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,4,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,4,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,4,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,4,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,4,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,5,...,Boundary condition type at mesh block boundaries,NONE,5,,,-
+RWALL,5,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,5,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,5,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,5,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,5,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,5,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,5,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+PBCT,"1, 5",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.001e+05,,,-
+PBCT,"2, 5",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.1125e+05,,,-
+PBCT,"3, 5",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.1125e+05,,,-
+FBCT,"1, 5",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 5",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 5",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 5",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 5",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],760,,,-
+TBCT,"4, 5",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],760,,,-
+TBCT,"5, 5",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+TBCT,"6, 5",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,5,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,5,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,5,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,5,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,5,0.0,z-component of background stream velocity,cm/s,0,,,-
+IBCT,6,...,Boundary condition type at mesh block boundaries,NONE,2,,,-
+RWALL,6,1.0,"Surface area multiplier to account for roughness of mesh boundary :envvar:`n`. :envvar:`RWALL(n)` multiplies the cell-face area to give the effective heat transfer area for each cell, both fluid and solid. No heat transfer at mesh boundary :envvar:`n` if :envvar:`RWALL(n)` = 0. ",NON-DIM,1.0,,,-
+HWALL1,6,-1.0,Fixed heat transfer coefficient to fluid #1 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWALL2,6,-1.0,Fixed heat transfer coefficient to fluid #2 from mesh boundary :envvar:`n`,g K^-1 s^-3,-1.0,,,-
+HWOBS,6,-1.0,Heat transfer coefficient between obstacles and wall mesh boundary,g K^-1 s^-3,-1.0,,,-
+IWAVEBC,6,0,Total number of linear wave components entering computational domain from mesh boundary :envvar:`n`.,NONE,0,,,-
+HNWAVE,6,0.0,Wave elevation of non-linear wave at mesh boundary :envvar:`n`,cm,0,,,-
+GAM,6,3.3,Peak enhancement factor in JONSWAP spectrum. ,NON-DIM,3.3,,,-
+FBCT,"1, 6",1.0,Fluid fraction at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used when :envvar:`IHPBCT(n)` = 0.,NON-DIM,1.0,,,-
+CNCBCT,"1, 6",0.0,Volume fraction of the non-condensable gas component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.995,,,-
+RSATBCT,"1, 6",0.0,Relative saturation of the vapor component in the gas phase at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,NON-DIM,0.01,,,-
+FLHTBCT,"1, 6",-1.e10,Free-surface elevation at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`.,cm,-1e+08,,,-
+TBCT,"1, 6",TBCD,,"Temperature at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Used at wall-type boundaries when :envvar:`IBCT(n)` = 2 and :envvar:`IHTBCT(n)` = 0, or for fluid #1 at boundaries of type :envvar:`IBCT(n)` = 5, 6, 10 or 11.",[T],25,,,-
+C0SPNGBC,6,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0,,,-
+C1SPNGBC,6,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1,,,-
+USPNGBC,6,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNGBC,6,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNGBC,6,0.0,z-component of background stream velocity,cm/s,0,,,-
+TIMBCT,1,0.0,Time table for mesh boundary conditions,s,0,,,-
+TIMBCT,2,0.0,Time table for mesh boundary conditions,s,10,,,-
+TIMBCT,3,0.0,Time table for mesh boundary conditions,s,12,,,-
+TIMBCT,4,0.0,Time table for mesh boundary conditions,s,150,,,-
+TIMBCT,5,0.0,Time table for mesh boundary conditions,s,151,,,-
+TIMBCT,6,0.0,Time table for mesh boundary conditions,s,200,,,-
+MESH,BLOCK,BLOCK,Mesh data for computational grid,BLOCK,BLOCK,BLOCK,,-
+MESHNAME,,mesh block no. ##,Mesh block name (up to 256 characters),NONE,'Mesh block 2',,,-
+SIZE,,0.0,"Cell size to be approximated for a uniform mesh. Used when :envvar:`IF_SIZE` = 1. :envvar:`SIZE` is used for directions for which a domain has been specified by :envvar:`PX`, :envvar:`PY`, and/or :envvar:`PZ`, but not the number of cells (:envvar:`NXCELT`, :envvar:`NYCELT`, or :envvar:`NZCELT`).",cm,0.002,,,-
+MESH_TYPE,,0,Mesh block shape type,NONE,1,,,-
+OVERLAP,,...,The extent of the overlap (in terms of length) of a conforming block into,cm,0.012,,,-
+PX,1,...,nth location in x-direction for a mesh plane,cm,-0.12,,,-
+PX,2,...,nth location in x-direction for a mesh plane,cm,0.12,,,-
+PY,1,...,nth location in y-direction for a mesh plane,cm,-0.076,,,-
+PY,2,...,nth location in y-direction for a mesh plane,cm,0.076,,,-
+PZ,1,...,nth location in z-direction for a mesh plane,cm,-0.056,,,-
+PZ,2,...,nth location in z-direction for a mesh plane,cm,0.18,,,-
+NOBS,,0,Number of components,NONE,7,,,-
+velrad,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+IFOB,1,0,"""Free"" (or phantom) component flag",NONE,-1,,,-
+OBSID,1,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Filter 1',,,-
+MATERIAL,1,""" """,Character string allowing user to identify the material of component :envvar:`m` (up to 256 characters).,,'20ppi_ceramic_foam',,,-
+IOB,1,0,Associates subcomponent :envvar:`n` with a particular component,NONE,1,,,-
+SUBCMPID,1,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Filter',,,-
+IGEN,1,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,1,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Filter.stl',,,-
+ROUGHSUB,1,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,1,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,1,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,1,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,1,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,1,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,1,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,1,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,1,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,1,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,1,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,1,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,1,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,1,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,1,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,1,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,1,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 1",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 1",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 1",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 1",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,1,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,1,-1.0,Major toroid radius,cm,-1,,,-
+IFSOFT,1,0,Flag to determine the stiffness of the component :envvar:`m` adjacent to solidified fluid region.,NONE,1,,,-
+ILTHOBS,1,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+HOBS1S,1,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,300,,,-
+ROUGH,1,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0,,,-
+RCMAN,1,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OECHRG,1,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,1,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,1,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,1,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+PERM,1,0.0 ,Porous component Darcian Permeability (used if :envvar:`IODRG(m)` = 2),cm^2,7.45E-08,,,-
+PERM2,1,0.0 ,Porous component non-Darcian Permeability (used if :envvar:`IODRG(m)` = 2),cm,0.000700261,,,-
+OPOR,1,...,Component porosity (open volume fraction),NON-DIM,0.894,,,-
+OSPIN,"1, 1",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+IODRG,1,0,"Drag function flag for porous component, :envvar:`IFOB(m)` =-1",NONE ,2,,,-
+NOBLDS,1,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,1,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,1,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,1,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,1,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,1,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,1,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,1,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,1,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,1,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,1,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,1,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,1,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,1,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,1,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,1.8e+006,,,-
+KOBS,1,0.0,Thermal conductivity of component :envvar:`m`,g cm s^-3 K^-1,1.09,,,-
+XKOBS,1,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,1,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,1,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+HOBS1,1,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,g K^-1 s^-3,600,,,-
+UAMP,1,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,1,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,1,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,1,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,1,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,1,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,1,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,1,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,1,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,1,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,1,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,1,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,1,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,1,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,1,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,1,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,1,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,1,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,1,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,1,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,1,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+TWOBS,"1, 1",TBCD,,Uniform temperature for component :envvar:`m`,[T],25,,,-
+HOBVT1,"1, 1",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,30,,,-
+QSRNCG,1,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,1,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,1,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 1",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 1",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,1,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,1,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,1,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,1,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,1,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,1,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,1,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,1,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,1,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,1,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,1,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,1,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,1,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,1,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,1,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,1,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,1,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,1,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,1,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,1,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,1,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,1,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,1,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,1,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 1",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,1,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,1,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,1,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,1,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,1,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,1,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,1,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,1,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,1,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,1,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,1,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,1,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,1,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,1,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+OBSID,2,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Chill 1',,,-
+IOB,2,0,Associates subcomponent :envvar:`n` with a particular component,NONE,2,,,-
+SUBCMPID,2,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Chill',,,-
+IGEN,2,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,2,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Chill .stl',,,-
+ROUGHSUB,2,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,2,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,2,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,2,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,2,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,2,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,2,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,2,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,2,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,2,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,2,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,2,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,2,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,2,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,2,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,2,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,2,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 2",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 2",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 2",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 2",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,2,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,2,-1.0,Major toroid radius,cm,-1,,,-
+ILTHOBS,2,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+HOBS1S,2,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,3000,,,-
+ROUGH,2,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0,,,-
+RCMAN,2,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OECHRG,2,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,2,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,2,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,2,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+OPOR,2,...,Component porosity (open volume fraction),NON-DIM,0.0,,,-
+OSPIN,"1, 2",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+NOBLDS,2,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,2,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,2,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,2,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,2,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,2,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,2,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,2,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,2,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,2,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,2,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,2,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,2,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,2,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,2,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,3.7e+06,,,-
+KOBS,2,0.0,Thermal conductivity of component :envvar:`m`,g cm s^-3 K^-1,50,,,-
+XKOBS,2,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,2,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,2,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+HOBS1,2,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,g K^-1 s^-3,6000,,,-
+UAMP,2,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,2,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,2,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,2,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,2,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,2,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,2,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,2,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,2,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,2,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,2,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,2,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,2,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,2,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,2,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,2,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,2,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,2,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,2,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,2,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,2,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+TWOBS,"1, 2",TBCD,,Uniform temperature for component :envvar:`m`,[T],200,,,-
+HOBVT1,"1, 2",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,40,,,-
+QSRNCG,2,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,2,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,2,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 2",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 2",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,2,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,2,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,2,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,2,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,2,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,2,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,2,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,2,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,2,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,2,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,2,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,2,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,2,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,2,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,2,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,2,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,2,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,2,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,2,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,2,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,2,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,2,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,2,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,2,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 2",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,2,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,2,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,2,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,2,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,2,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,2,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,2,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,2,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,2,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,2,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,2,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,2,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,2,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,2,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+OBSID,3,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Standard Insert 1',,,-
+IOB,3,0,Associates subcomponent :envvar:`n` with a particular component,NONE,3,,,-
+SUBCMPID,3,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Feed Tube',,,-
+IGEN,3,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,3,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'C:/flow3d/v5.1_37/gui/stl_lib/LPSC/Feed Tube .stl',,,-
+ROUGHSUB,3,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,3,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,3,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,3,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,3,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,3,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,3,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,3,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,3,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,3,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,3,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,3,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,3,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,3,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,3,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,3,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,3,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 3",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 3",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 3",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 3",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,3,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,3,-1.0,Major toroid radius,cm,-1,,,-
+ILTHOBS,3,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+HOBS1S,3,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,400,,,-
+ROUGH,3,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0,,,-
+RCMAN,3,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OECHRG,3,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,3,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,3,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,3,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+OPOR,3,...,Component porosity (open volume fraction),NON-DIM,0.0,,,-
+OSPIN,"1, 3",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+NOBLDS,3,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,3,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,3,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,3,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,3,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,3,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,3,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,3,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,3,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,3,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,3,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,3,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,3,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,3,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,3,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,2.01e+06,,,-
+KOBS,3,0.0,Thermal conductivity of component :envvar:`m`,g cm s^-3 K^-1,3.5,,,-
+XKOBS,3,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,3,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,3,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+HOBS1,3,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,g K^-1 s^-3,600,,,-
+UAMP,3,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,3,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,3,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,3,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,3,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,3,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,3,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,3,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,3,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,3,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,3,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,3,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,3,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,3,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,3,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,3,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,3,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,3,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,3,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,3,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,3,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+TWOBS,"1, 3",TBCD,,Uniform temperature for component :envvar:`m`,[T],25,,,-
+HOBVT1,"1, 3",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,20,,,-
+QSRNCG,3,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,3,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,3,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 3",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 3",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,3,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,3,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,3,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,3,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,3,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,3,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,3,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,3,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,3,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,3,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,3,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,3,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,3,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,3,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,3,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,3,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,3,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,3,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,3,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,3,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,3,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,3,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,3,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,3,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 3",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,3,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,3,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,3,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,3,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,3,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,3,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,3,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,3,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,3,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,3,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,3,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,3,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,3,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,3,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+OBSID,4,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Sand Core 1',,,-
+IOB,4,0,Associates subcomponent :envvar:`n` with a particular component,NONE,4,,,-
+SUBCMPID,4,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Sand core',,,-
+IGEN,4,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,4,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Sand core.stl',,,-
+ROUGHSUB,4,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,4,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,4,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,4,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,4,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,4,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,4,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,4,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,4,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,4,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,4,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,4,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,4,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,4,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,4,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,4,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,4,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 4",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 4",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 4",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 4",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,4,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,4,-1.0,Major toroid radius,cm,-1,,,-
+IFSOFT,4,0,Flag to determine the stiffness of the component :envvar:`m` adjacent to solidified fluid region.,NONE,1,,,-
+LTHOBS,4,-1 ,The thickness of the thermally active layer along the surface of geometry component :envvar:`m`,cm,0.009,,,-
+ILTHOBS,4,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+ROBS,4,1.0,Surface area multiplier due to roughness of component :envvar:`m`. This multiplies the cell-face area to give the effective heat transfer area for each cell. No heat transfer at component :envvar:`m` if :envvar:`ROBS(m)` = 0.0.,NON-DIM,1,,,-
+HOBS1S,4,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,500,,,-
+ROUGH,4,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0.0001,,,-
+RCMAN,4,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OCANG,4,CANGLE,,Static contact angle (in degrees) for fluid #1 wall adhesion for component :envvar:`m`. (:envvar:`CANGLE` is set in namelist :envvar:`PROPS`).,[DEGREES],120,,,-
+OECHRG,4,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,4,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,4,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,4,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+GRAINDIAM,4,0.0,Average sand grain diameter,cm,0.00022,,,-
+OPOR,4,...,Component porosity (open volume fraction),NON-DIM,0.0,,,-
+OSPIN,"1, 4",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+NOBLDS,4,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,4,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,4,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,4,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,4,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,4,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,4,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,4,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,4,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,4,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,4,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,4,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,4,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,4,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,4,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,1.54e+06,,,-
+KOBS,4,0.0,Thermal conductivity of component :envvar:`m`,g cm s^-3 K^-1,0.444,,,-
+XKOBS,4,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,4,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,4,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+UAMP,4,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,4,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,4,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,4,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,4,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,4,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,4,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,4,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,4,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,4,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,4,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,4,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,4,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,4,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,4,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,4,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,4,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,4,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,4,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,4,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,4,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+TWOBS,"1, 4",TBCD,,Uniform temperature for component :envvar:`m`,[T],25,,,-
+HOBVT1,"1, 4",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,20,,,-
+QSRNCG,4,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,4,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,4,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 4",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 4",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,4,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,4,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,4,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,4,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,4,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,4,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,4,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,4,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,4,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,4,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,4,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,4,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,4,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,4,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,4,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,4,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,4,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,4,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,4,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,4,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,4,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,4,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,4,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,4,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 4",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,4,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,4,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,4,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,4,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,4,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,4,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,4,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,4,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,4,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,4,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,4,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,4,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,4,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,4,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+OBSID,5,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Insulating Sleeve 1',,,-
+IOB,5,0,Associates subcomponent :envvar:`n` with a particular component,NONE,5,,,-
+SUBCMPID,5,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Insulating Feeder Sleeve',,,-
+IGEN,5,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,5,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Insulating Feeder Sleeve.stl',,,-
+ROUGHSUB,5,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,5,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,5,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,5,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,5,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,5,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,5,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,5,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,5,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,5,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,5,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,5,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,5,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,5,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,5,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,5,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,5,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 5",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 5",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 5",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 5",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,5,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,5,-1.0,Major toroid radius,cm,-1,,,-
+IFSOFT,5,0,Flag to determine the stiffness of the component :envvar:`m` adjacent to solidified fluid region.,NONE,1,,,-
+ILTHOBS,5,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+ROBS,5,1.0,Surface area multiplier due to roughness of component :envvar:`m`. This multiplies the cell-face area to give the effective heat transfer area for each cell. No heat transfer at component :envvar:`m` if :envvar:`ROBS(m)` = 0.0.,NON-DIM,1,,,-
+HOBS1S,5,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,400,,,-
+ROUGH,5,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0.0001,,,-
+RCMAN,5,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OECHRG,5,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,5,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,5,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,5,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+OPOR,5,...,Component porosity (open volume fraction),NON-DIM,0.0,,,-
+OSPIN,"1, 5",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+NOBLDS,5,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,5,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,5,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,5,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,5,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,5,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,5,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,5,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,5,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,5,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,5,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,5,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,5,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,5,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,5,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,2.25e+05,,,-
+XKOBS,5,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,5,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,5,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+HOBS1,5,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,g K^-1 s^-3,600,,,-
+UAMP,5,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,5,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,5,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,5,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,5,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,5,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,5,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,5,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,5,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,5,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,5,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,5,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,5,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,5,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,5,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,5,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,5,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,5,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,5,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,5,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,5,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+IKOBS,5,0,Flag for the definition of thermal conductivity of component :envvar:`m`,NONE,1,,,-
+TWOBS,"1, 5",TBCD,,Uniform temperature for component :envvar:`m`,[T],25,,,-
+HOBVT1,"1, 5",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,40,,,-
+QSRNCG,5,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,5,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,5,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 5",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 5",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,5,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,5,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,5,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,5,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,5,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,5,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,5,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,5,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,5,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,5,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,5,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,5,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,5,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,5,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,5,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,5,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,5,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,5,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,5,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,5,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,5,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,5,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,5,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,5,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 5",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,5,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,5,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,5,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,5,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,5,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,5,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,5,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,5,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,5,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,5,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,5,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,5,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,5,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,5,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+OBSID,6,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Sand Mold 1',,,-
+IOB,6,0,Associates subcomponent :envvar:`n` with a particular component,NONE,6,,,-
+SUBCMPID,6,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Remaining Space 1',,,-
+ROUGHSUB,6,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,6,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,6,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,1,,,-
+MAGNX,6,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,6,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,6,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,6,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,-1,,,-
+CX2,6,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,6,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,6,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,6,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,6,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,6,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,6,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,6,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,6,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,6,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 6",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 6",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 6",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 6",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,6,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,6,-1.0,Major toroid radius,cm,-1,,,-
+IOB,7,0,Associates subcomponent :envvar:`n` with a particular component,NONE,6,,,-
+SUBCMPID,7,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Casting Part 1',,,-
+IOH,7,1,Subcomponent type,NONE,0,,,-
+IGEN,7,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,7,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Casting Part 1.stl',,,-
+ROUGHSUB,7,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,7,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,7,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,7,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,7,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,7,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,7,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,7,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,7,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,7,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,7,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,7,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,7,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,7,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,7,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,7,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,7,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 7",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 7",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 7",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 7",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,7,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,7,-1.0,Major toroid radius,cm,-1,,,-
+IOB,8,0,Associates subcomponent :envvar:`n` with a particular component,NONE,6,,,-
+SUBCMPID,8,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Casting Part 2',,,-
+IOH,8,1,Subcomponent type,NONE,0,,,-
+IGEN,8,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,8,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Casting Part 2.stl',,,-
+ROUGHSUB,8,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,8,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,8,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,8,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,8,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,8,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,8,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,8,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,8,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,8,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,8,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,8,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,8,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,8,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,8,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,8,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,8,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 8",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 8",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 8",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 8",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,8,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,8,-1.0,Major toroid radius,cm,-1,,,-
+IOB,9,0,Associates subcomponent :envvar:`n` with a particular component,NONE,6,,,-
+SUBCMPID,9,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Riser',,,-
+IOH,9,1,Subcomponent type,NONE,0,,,-
+IGEN,9,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,9,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Riser.stl',,,-
+ROUGHSUB,9,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,9,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,9,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,9,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,9,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,9,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+CC,9,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,9,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,9,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,9,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,9,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,9,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,9,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,9,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,9,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,9,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,9,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 9",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 9",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 9",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 9",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,9,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,9,-1.0,Major toroid radius,cm,-1,,,-
+IFSOFT,6,0,Flag to determine the stiffness of the component :envvar:`m` adjacent to solidified fluid region.,NONE,1,,,-
+LTHOBS,6,-1 ,The thickness of the thermally active layer along the surface of geometry component :envvar:`m`,cm,0.01,,,-
+ILTHOBS,6,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+ROBS,6,1.0,Surface area multiplier due to roughness of component :envvar:`m`. This multiplies the cell-face area to give the effective heat transfer area for each cell. No heat transfer at component :envvar:`m` if :envvar:`ROBS(m)` = 0.0.,NON-DIM,1,,,-
+HOBS1S,6,...,Heat-transfer coefficient to solidified fluid #1 for component :envvar:`m`,g K^-1 s^-3,400,,,-
+ROUGH,6,...,Wall roughness for component :envvar:`m` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGH` < 0 ,cm,0.0001,,,-
+RCMAN,6,0.0,Manning roughness coefficient on component :envvar:`m`,s/cm^1/3,0.0,,,-
+OECHRG,6,0.0,Initial uniform electric charge density in component :envvar:`m`,scoul/cm^3,0,,,-
+OEPOTZT,6,0.0,Zeta potential of component :envvar:`m`,g cm^2 scoul^-1 s^-2,0,,,-
+OECOND,6,0.0,Electric conductivity for component :envvar:`m`,scoul^2 s g^-1 cm^-3,0,,,-
+ODIEL,6,1.0,Dielectric constant (relative permittivity) for component :envvar:`m`.,NON-DIM,0.0,,,-
+OPOR,6,...,Component porosity (open volume fraction),NON-DIM,0.0,,,-
+OSPIN,"1, 6",0.0,Spin rate for rotating component :envvar:`m` at time :envvar:`TOBS(t)`,radians/s,0,,,-
+NOBLDS,6,0,Number of blades for added bladed effects,NONE,0,,,-
+OBLTHK,6,0.0,Blade tip thickness in the azimuthal direction (in units of length),cm,0,,,-
+ALPHWOBS,6,0.0,Coefficient for Van Genuchten wetting (filling) capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNWOBS,6,1.0,Outer exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless),NON-DIM,1.0,,,-
+XMWOBS,6,1.0,Inner exponent for wetting (filling) capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+ALPHDOBS,6,0.0,Coefficient for Van Genuchten draining capillary pressure curve (units are in units of pressure),g cm^-1 s^-2,0,,,-
+XNDOBS,6,1.0,Outer exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XMDOBS,6,1.0,Inner exponent for draining capillary pressure curve used in Van Genuchten unsaturated porous media model (dimensionless).,NON-DIM,1.0,,,-
+XFRCO,6,0.0,x coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+YFRCO,6,0.0,y coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+ZFRCO,6,0.0,z coordinate of the reference point for torque evaluation for component :envvar:`m`,cm,0,,,-
+FAMP,6,0.0,Amplitude of sinusoidal actuator force,g cm s^2,0,,,-
+FREQ,6,0.0,Frequency of sinusoidal actuator force,1/s,0,,,-
+FPHS,6,0.0,Initial phase of sinusoidal actuator force,DEGREES,0,,,-
+RCOBS,6,0.0,"Density times specific heat product for component :envvar:`m`. If :envvar:`RCOBS(m)` :math:`>` 0.0, a dynamic equation is solved for the heat transfer surface temperature.",g cm^-1 K^-1 s^-2,7.2e+05,,,-
+KOBS,6,0.0,Thermal conductivity of component :envvar:`m`,g cm s^-3 K^-1,1.4,,,-
+XKOBS,6,1.0,Multiplier for x-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+YKOBS,6,1.0,Multiplier for y-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+ZKOBS,6,1.0,Multiplier for z-direction thermal conductivity of component :envvar:`m`,NON-DIM,1.0,,,-
+HOBS1,6,-1.0 ,Heat-transfer coefficient to fluid #1 for component :envvar:`m`,g K^-1 s^-3,600,,,-
+UAMP,6,0.0,Amplitude of sinusoidal translational x-velocity in space system,cm/s,0,,,-
+UFRE,6,0.0,"Frequency of sinusoidal translational x-velocity in space system, in Hz",1/s,0,,,-
+UPHS,6,0.0,"Initial phase of sinusoidal translational x-velocity in space system, in degrees",DEGREES,0,,,-
+VAMP,6,0.0,Amplitude of sinusoidal translational y-velocity in space system,cm/s,0,,,-
+VFRE,6,0.0,"Frequency of sinusoidal translational y-velocity in space system, in Hz",1/s,0,,,-
+VPHS,6,0.0,"Initial phase of sinusoidal translational y-velocity in space system, in degrees",DEGREES,0,,,-
+WAMP,6,0.0,Amplitude of sinusoidal translational z-velocity in space system,cm/s,0,,,-
+WFRE,6,0.0,"Frequency of sinusoidal translational z-velocity in space system, in Hz",1/s,0,,,-
+WPHS,6,0.0,"Initial phase of sinusoidal translational z-velocity in space system, in degrees",DEGREES,0,,,-
+OMXAMP,6,0.0,"Amplitude of sinusoidal x'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMXFRE,6,0.0,"Frequency of sinusoidal x'- angular velocity in body system, in Hz",1/s,0,,,-
+OMXPHS,6,0.0,"Initial phase of sinusoidal x'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMYAMP,6,0.0,"Amplitude of sinusoidal y'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMYFRE,6,0.0,"Frequency of sinusoidal y'- angular velocity in body system, in Hz",1/s,0,,,-
+OMYPHS,6,0.0,"Initial phase of sinusoidal y'- angular velocity in body system, in degrees",DEGREES,0,,,-
+OMZAMP,6,0.0,"Amplitude of sinusoidal z'- angular velocity in body system, in rad/s",radians/s,0,,,-
+OMZFRE,6,0.0,"Frequency of sinusoidal z'- angular velocity in body system, in Hz",1/s,0,,,-
+OMZPHS,6,0.0,"Initial phase of sinusoidal z'- angular velocity in body system, in degrees",DEGREES,0,,,-
+BURNIGNTEMP,6,0.0 degrees C or F,Threshold temperature below which combustible component :envvar:`m` does not burn.,K,0,,,-
+BURNA,6,1.0e-05,The combustion front velocity in the solid.,cm :sup:-1,1.0e-05,,,-
+BURNB,6,0.5,A dummy variable that can be used to customize the burn rate equation.   ,NONE    ,0.5,,,-
+TWOBS,"1, 6",TBCD,,Uniform temperature for component :envvar:`m`,[T],25,,,-
+HOBVT1,"1, 6",0.0,Time-dependent component :envvar:`m` heat transfer to void,g K^-1 s^-3,20,,,-
+QSRNCG,6,0.0,Volume fraction of the non-condensable gas component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+RSATQSR,6,0.0,Relative saturation of the vapor component in the gas phase at mass source :envvar:`m`,NON-DIM,0.0,,,-
+SAOBS_C,6,0.0,"Total surface area for heat transfer for component :envvar:`m` without cores/liners, including surface area at parting lines and roughness effects defined by the area multiplier :envvar:`ROBS(m)`.",NONE,0.0,,,-
+VTPRES,"1, 6",PVOID,External vent pressure at time :envvar:`TOBS(t)`,g cm^-1 s^-2,101300,,,-
+VTTEMP,"1, 6",TVOID,External vent temperature at time :envvar:`TOBS(t)`,K,25,,,-
+VTF_MIN,6,0.0,Fluid fraction at vent :envvar:`m` below which fluid #1 is allowed to escape through the vent. ,NON-DIM,0.0,,,-
+SQP_TIME,6,0.0,Squeeze pin activation time,s,0,,,-
+SQP_FORCE,6,0.0,Constant force applied to squeeze pin,g cm s^-2,0,,,-
+SQP_SOLID,6,1.0,Fraction of pin's surface covered by solid when its movement stops,NONE,1.0,,,-
+USPNG,6,0.0,x-component of background stream velocity,cm/s,0,,,-
+VSPNG,6,0.0,y-component of background stream velocity,cm/s,0,,,-
+WSPNG,6,0.0,z-component of background stream velocity,cm/s,0,,,-
+C0SPNG,6,0.0,damping coefficient at the starting side of the wave absorbing layer,1/s,0.0,,,-
+C1SPNG,6,1.0,damping coefficient at the end side of the wave absorbing layer,1/s,1.0,,,-
+OPMASS_RESTIT,6,1.0,Mass particle coefficient of restitution for component :envvar:`m`,NON-DIM ,1.0,,,-
+OPGAS_RESTIT,6,1.0,Gas particle coefficient of restitution for component :envvar:`m`,NON-DIM,1.0,,,-
+OPLIQUID_RESTIT,6,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in liquid state,NON-DIM,1.0,,,-
+OPLIQUIDSD_RESTIT,6,1.0,Fluid particle coefficient of restitution for component :envvar:`m` for particles in solid state. Used when :envvar:`IFSLD` = 1.,NON-DIM,1.0,,,-
+OPVOID_RESTIT,6,1.0,Void particle coefficient of restitution for component :envvar:`m`,NON-DIM               ,1.0,,,-
+pq2_gate_area,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SQP_X1,6,0,x coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y1,6,0,Y coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z1,6,0,Z coordinate of point #1 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_X2,6,0,x coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Y2,6,0,y coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+SQP_Z2,6,0,z coordinate of point #2 that defines the direction of the squeeze pin's motion.,cm,0,,,-
+exotime,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotemp,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-273.15,,,-
+exoq,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+exotau,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+NPROBES_SQP,6,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+CYC_TRANS_X,6,0.0,Component displacement in x direction during spray cooling,cm,0,,,-
+CYC_TRANS_Y,6,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+CYC_TRANS_Z,6,0.0,Component displacement in y direction during spray cooling,cm,0,,,-
+ITPOBS_TIME,"1, 6",1,on/off status table for power component :envvar:`m`,NONE,1,,,-
+SHELL_THOBS,6,0.0,Shell mold thickness for component :envvar:`m`,cm,0,,,-
+rad_cluster_angle,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,30,,,-
+hobem,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+GXTRFC,6,0.0,x-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GYTRFC,6,0.0,y-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GZTRFC,6,0.0,z-coordinate of transformation center for component :envvar:`m`,cm,0,,,-
+GMAGN,6,1.0,Magnification (scaling) factor for component :envvar:`m`,NONE,1.0,,,-
+GROTX,6,0.0,"Rotation of component :envvar:`m` about x-axis, positive in right hand",Degrees,0,,,-
+GROTY,6,0.0,"Rotation of component :envvar:`m` about y-axis, positive in right hand",Degrees,0,,,-
+GROTZ,6,0.0,"Rotation of component :envvar:`m` about z-axis, positive in right hand",Degrees,0,,,-
+GTRNX,6,0.0,Translation of component :envvar:`m` in x-direction,cm,0,,,-
+GTRNY,6,0.0,Translation of component :envvar:`m` in y-direction,cm,0,,,-
+GTRNZ,6,0.0,Translation of component :envvar:`m` in z-direction,cm,0,,,-
+XAXS0,6,0.0,X-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+YAXS0,6,0.0,Y-coordinate of fixed point or fixed axis in space system.,cm,0,,,-
+ZAXS0,6,0.0,Z-coordinate of fixed point or fixed axis in space system,cm,0,,,-
+delay_plunger,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+IFOB,7,0,"""Free"" (or phantom) component flag",NONE,8,,,-
+OBSID,7,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Sampling volume 1',,,-
+IOB,10,0,Associates subcomponent :envvar:`n` with a particular component,NONE,7,,,-
+SUBCMPID,10,""" """,Character string allowing user to identify subcomponent :envvar:`n` (up to 50 characters),NONE,'Subvolume 1',,,-
+IGEN,10,0,"Subcomponent generation flag, indicates source of geometric data for region :envvar:`n`",NONE,3,,,-
+FSTL,10,:file:`stlfnn.inp`,"File name for stereolithography (STL) CAD data file, where ""nn ""= n.",NONE,'../Filling/Casting Part 1.stl',,,-
+ROUGHSUB,10,ROUGH,m,Wall roughness for subcomponent :envvar:`n` for wall shear stress calculations. A roughness of 0.0 corresponds to a smooth surface. :envvar:`ROUGHSUB` < 0 ,[L]    ,0,,,-
+RCMANSUB,10,RCMAN(m),Manning roughness coefficient for subcomponent :envvar:`n` that belongs to component :envvar:`m`. Note only value in SI unit is used.,s/cm^1/3,0.0,,,-
+MAGN,10,1.0,Magnification (scaling) factor for subcomponent :envvar:`n`,NON-DIM,0.001,,,-
+MAGNX,10,1.0,Scaling factor in x-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNY,10,1.0,Scaling factor in y-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+MAGNZ,10,1.0,Scaling factor in z-direction for subcomponent :envvar:`n`,NON-DIM,1.0,,,-
+ROTX,10,0°,"Subcomponent :envvar:`n` rotation about x-axis in degrees, positive in right hand sense",DEGREES,0,,,-
+ROTY,10,0°,Subcomponent :envvar:`n` rotation about y-axis in degrees,DEGREES,0,,,-
+ROTZ,10,0°,Subcomponent :envvar:`n` rotation about z-axis in degrees,DEGREES,0,,,-
+TRNX,10,0.0,Subcomponent :envvar:`n` translation in x-direction,cm,0,,,-
+TRNY,10,0.0,Subcomponent :envvar:`n` translation in y-direction,cm,0,,,-
+TRNZ,10,0.0,Subcomponent :envvar:`n` translation in z-direction,cm,0,,,-
+CC,10,-0.1,Function constant coefficient for subcomponent :envvar:`n`,NON-DIM,0.0,,,-
+CX2,10,0.0,Function coefficient of :math:`x^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CX,10,0.0,Function coefficient of :math:`x` for subcomponent :envvar:`n`,1/cm,0,,,-
+CXY,10,0.0,Function coefficient of :math:`xy` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CXZ,10,0.0,Function coefficient of :math:`xz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY2,10,0.0,Function coefficient of :math:`y^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CY,10,0.0,Function coefficient of :math:`y` for subcomponent :envvar:`n`,1/cm,0,,,-
+CYZ,10,0.0,Function coefficient of :math:`yz` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ2,10,0.0,Function coefficient of :math:`z^2` for subcomponent :envvar:`n`,1/cm^2,0,,,-
+CZ,10,0.0,Function coefficient of :math:`z` for subcomponent :envvar:`n`,1/cm,0,,,-
+CDUM,10,0.0,Dummy function coefficient for subcomponent :envvar:`n` for customizing functions.,VARIES,0.0,,,-
+CCTIME,"1, 10",0.0,Time table for the time dependent properties of the cooling channel,s,0,,,-
+CCTEMP,"1, 10",...,"Temperature of the cooling channel between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",K,24.85,,,-
+HCCT,"1, 10",0.0,"Heat transfer coefficient between the cooling channel subcomponent :envvar:`n` and its component :envvar:`m` between time :envvar:`CCTIME(t,n)` and :envvar:`CCTIME(t+1,n)`",g s :sup:-3 K :sup:-1 ,0,,,-
+ICCTIME,"1, 10",1,On/off status for the cooling channel,NONE,1,,,-
+RTORIN,10,-1.0,Minor toroid radius,cm,-1,,,-
+RTOROUT,10,-1.0,Major toroid radius,cm,-1,,,-
+ILTHOBS,7,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+IFVSPNG,7,1,flag for background stream velocity,NONE,0,,,-
+NPROBES_SQP,7,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+TOBS,1,0.0,Times for time-dependent component arrays,s,0,,,-
+HTCOB,"6, 1",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,400,,,-
+HTCOB,"3, 1",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,400,,,-
+HTCOB,"4, 2",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,500,,,-
+HTCOB,"6, 3",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,400,,,-
+HTCOB,"6, 4",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,500,,,-
+HTCOB,"6, 5",-1.0,Heat transfer coefficient between component :envvar:`m1` and component :envvar:`m2`,g K^-1 s^-3,500,,,-
+bc_em,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.0,,,-
+rad_cluster_size_wall,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+vel_plunger_min,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0.01,,,-
+AVRCK,,3.1,Cell volume fractions are adjusted in so-called *sliver* cells so that the area/volume fraction ratios do not exceed this value. ,NON-DIM,3.1,,,-
+TOLERANCE_GAP,,0.0,Gap size tolerance. Gaps that are smaller than the tolerance will be closed.,cm,0,,,-
+TOLERANCE_SKIN,,0.0,Skin size tolerance. Skins that are smaller than the tolerance will be converted to the base component which they,cm,0,,,-
+NSPRP,,0,"Total number of elastic springs, elastic ropes and mooring lines.",NONE,0,,,-
+NFLS,,0,Number of fluid regions,NONE,0,,2,Non-numeric change
+UI,,0.0,Initial uniform fluid velocity in x-direction,cm/s,0,,,-
+VI,,0.0,Initial uniform fluid velocity in y-direction,cm/s,0,,,-
+WI,,0.0,Initial uniform fluid velocity in z-direction.,cm/s,0,,,-
+VLIN,,0.0,Initial volume of fluid #1 in mesh,cm^3,0,,,-
+SEGI,,0.0,Initial uniform segregation solute mass concentration,g/cm^3,0,,,-
+PVOID,,...,"Void initial vapor pressure. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,1.013e5,,1.0e+06,Non-numeric change
+PRESI,,PVOID,,Uniform initial fluid pressure,[M L\ :sup:`-1` t\ :sup:`-2`],101300,,,-
+RPSI,,0.0,Initial rotation rate of fluid around z-axis in radians per unit time,radians/s,0,,,-
+CNCI,,0.0,Initial volume fraction of the non-condensable gas component in the gas phase,NON-DIM,0.995,,,-
+RSATI,,0.0,Initial relative saturation of vapor in the gas phase when the non-condensable gas model is used.,NON-DIM,0.01,,,-
+CHRGI,,0.0,Initial uniform electric charge density in the fluid,scoul/cm^3,0,,,-
+VALCGX,,0.02,"Global vent coefficient multiplier: multiply VALCGX by the sum of all VALC to represent the global air flow through the granular material to the vents. The global valve coefficient accounts for the average flow losses through sand plus the reduction in the effective area of vents because of blockage by sand, and is experienced by all void regions regardless of whether they contain a vent.",NON-DIM,0.02,,,-
+TEMPI,,T_REFERENCE,,Uniform initial fluid temperature of fluid #1.,[T],683,,,-
+TEMPI2,,TEMPI,,Uniform initial fluid temperature of fluid #2.,[T]     ,25,,,-
+TVOID,,TEMPI,,Constant uniform void-region temperature,[T],25,,,-
+IGIVHT,,0,"Global heat transfer void identifier; indicates which heat transfer coefficients will be used for voids. (Heat transfer coefficients are in namelists :envvar:`XPUT`, :envvar:`BCDATA`, :envvar:`OBS` and :envvar:`BF`.)",NONE,1,,,-
+AIRI,,0.0,Initial uniform volume fraction of entrained air in the fluid,NON-DIM,0.0,,,-
+UDEEP,,0.0,Deep water velocity in x-direction.,cm/s,0,,,-
+VDEEP,,0.0,Deep water velocity in y-direction.,cm/s]    ,0,,,-
+WDEEP,,0.0,Deep water velocity in z-direction.,cm/s]   ,0,,,-
+NBAFS,,0,Number of baffles,NONE,2,,,-
+FPTITL,1,"""flux surfc m""",Flux surface title (up to 30 characters),NONE,'Baffle 1',,,-
+IFBAF,1,0,Flux surface flag,NONE,1,,,-
+IF_BAFFLE_ENABLED,1,1,Activation flag for baffle :envvar:`m`,NONE     ,0,,,-
+BAFFLEREGIONNAME,1,' ',Baffle region :envvar:`n` name (up to 256 characters),NONE,'Region 1',,,-
+IBAF,1,0,Associates region :envvar:`n` with  baffle :envvar:`IBAF(n)`.,NONE,1,,,-
+BZ,1,...,Z-coordinate for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 4.,cm,-0.01,,,-
+BXL,1,...,Lower x-coordinate limit for region :envvar:`n`,cm,-0.045,,,-
+BXH,1,...,Upper x-coordinate limit for region :envvar:`n`,cm,-0.01,,,-
+BYL,1,...,Lower y-coordinate limit for region :envvar:`n`,cm,-0.02,,,-
+BYH,1,...,Upper y-coordinate limit for region :envvar:`n`,cm,0.02,,,-
+BXTRFC,1,0.0,x-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BYTRFC,1,0.0,y-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BZTRFC,1,0.0,z-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BMAGN,1,1.0,Magnification (scaling) factor for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNX,1,1.0,Scaling factor in x-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNY,1,1.0,Scaling factor in y-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNZ,1,1.0,Scaling factor in z-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BROTX,1,0°,"Region :envvar:`n` rotation about x-axis in degrees, positive in right-hand sense.",DEGREES,0,,,-
+BROTY,1,0°,Region :envvar:`n` rotation about y-axis in degrees,DEGREES,0,,,-
+BROTZ,1,0°,Region :envvar:`n` rotation about z-axis in degrees,DEGREES,0,,,-
+BTRNX,1,0.0,Region :envvar:`n` translation in x-direction,cm,0,,,-
+BTRNY,1,0.0,Region :envvar:`n` translation in y-direction,cm,0,,,-
+BTRNZ,1,0.0,Region :envvar:`n` translation in z-direction,cm,0,,,-
+BTRNZ,1,0.0,Region :envvar:`n` translation in z-direction,cm,0,,,-
+ISTLBF,1,0,Flag for STL input for baffle region :envvar:`n`,NONE,4,,,-
+PBAF,1,...,Baffle porosity (open area fraction),NON-DIM,1,,,-
+KBAF1,1,0.0,Linear coefficient for baffle pressure drop,cm/s,0,,,-
+KBAF2,1,0.0,Quadratic coefficient for baffle pressure drop,NON-DIM,0.0,,,-
+HBAF1,1,0.0,Effective heat-transfer coefficient for fluid #1,g K^-1 s^-3,0,,,-
+HBAF2,1,0.0,Effective heat-transfer coefficient for fluid #2,g K^-1 s^-3,0,,,-
+HBFV1,1,0.0,Cross-baffle heat transfer coefficient to type 1 void,g K^-1 s^-3,0,,,-
+HBFV2,1,0.0,Cross-baffle heat transfer coefficient to type 2 void,g K^-1 s^-3,0,,,-
+HBFV3,1,0.0,Cross-baffle heat transfer coefficient to type 3 void,g K^-1 s^-3,0,,,-
+CMSC_TR,1,0.0,Molecular diffusion coefficient of tracer *m*,g cm^-1 s^-1,0,,,-
+RMSC_TR,1,0.0,Turbulent diffusion coefficient multiplier for tracer *m*,NON-DIM,0.0,,,-
+FPTITL,2,"""flux surfc m""",Flux surface title (up to 30 characters),NONE,'Baffle 2',,,-
+IFBAF,2,0,Flux surface flag,NONE,1,,,-
+IF_BAFFLE_ENABLED,2,1,Activation flag for baffle :envvar:`m`,NONE     ,0,,,-
+BAFFLEREGIONNAME,2,' ',Baffle region :envvar:`n` name (up to 256 characters),NONE,'Region 1',,,-
+IBAF,2,0,Associates region :envvar:`n` with  baffle :envvar:`IBAF(n)`.,NONE,2,,,-
+BZ,2,...,Z-coordinate for region :envvar:`n`. Used when :envvar:`ISTLBF(n)` = 4.,cm,-0.01,,,-
+BXL,2,...,Lower x-coordinate limit for region :envvar:`n`,cm,0.01,,,-
+BXH,2,...,Upper x-coordinate limit for region :envvar:`n`,cm,0.045,,,-
+BYL,2,...,Lower y-coordinate limit for region :envvar:`n`,cm,-0.02,,,-
+BYH,2,...,Upper y-coordinate limit for region :envvar:`n`,cm,0.02,,,-
+BXTRFC,2,0.0,x-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BYTRFC,2,0.0,y-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BZTRFC,2,0.0,z-coordinate of transformation center for baffle region :envvar:`n`,cm,0,,,-
+BMAGN,2,1.0,Magnification (scaling) factor for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNX,2,1.0,Scaling factor in x-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNY,2,1.0,Scaling factor in y-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BMAGNZ,2,1.0,Scaling factor in z-direction for region :envvar:`n`,NON-DIM,1.0,,,-
+BROTX,2,0°,"Region :envvar:`n` rotation about x-axis in degrees, positive in right-hand sense.",DEGREES,0,,,-
+BROTY,2,0°,Region :envvar:`n` rotation about y-axis in degrees,DEGREES,0,,,-
+BROTZ,2,0°,Region :envvar:`n` rotation about z-axis in degrees,DEGREES,0,,,-
+BTRNX,2,0.0,Region :envvar:`n` translation in x-direction,cm,0,,,-
+BTRNY,2,0.0,Region :envvar:`n` translation in y-direction,cm,0,,,-
+BTRNZ,2,0.0,Region :envvar:`n` translation in z-direction,cm,0,,,-
+BTRNZ,2,0.0,Region :envvar:`n` translation in z-direction,cm,0,,,-
+ISTLBF,2,0,Flag for STL input for baffle region :envvar:`n`,NONE,4,,,-
+PBAF,2,...,Baffle porosity (open area fraction),NON-DIM,1,,,-
+KBAF1,2,0.0,Linear coefficient for baffle pressure drop,cm/s,0,,,-
+KBAF2,2,0.0,Quadratic coefficient for baffle pressure drop,NON-DIM,0.0,,,-
+HBAF1,2,0.0,Effective heat-transfer coefficient for fluid #1,g K^-1 s^-3,0,,,-
+HBAF2,2,0.0,Effective heat-transfer coefficient for fluid #2,g K^-1 s^-3,0,,,-
+HBFV1,2,0.0,Cross-baffle heat transfer coefficient to type 1 void,g K^-1 s^-3,0,,,-
+HBFV2,2,0.0,Cross-baffle heat transfer coefficient to type 2 void,g K^-1 s^-3,0,,,-
+HBFV3,2,0.0,Cross-baffle heat transfer coefficient to type 3 void,g K^-1 s^-3,0,,,-
+CMSC_TR,2,0.0,Molecular diffusion coefficient of tracer *m*,g cm^-1 s^-1,0,,,-
+RMSC_TR,2,0.0,Turbulent diffusion coefficient multiplier for tracer *m*,NON-DIM,0.0,,,-
+ANMTYP,1,""" """,Quantity to be stored as selected data,NONE,'f',,'sclr1',Non-numeric change
+ANMTYP,2,""" """,Quantity to be stored as selected data,NONE,'mapor',,'sclr10',Non-numeric change
+ANMTYP,3,""" """,Quantity to be stored as selected data,NONE,'sldfrc',,'sclr11',Non-numeric change
+ANMTYP,4,""" """,Quantity to be stored as selected data,NONE,'tn',,'sclr12',Non-numeric change
+ANMTYP,5,""" """,Quantity to be stored as selected data,NONE,'tw',,'sclr13',Non-numeric change
+QVAL_FAVOR,,0.5,iso-surface value for displaying geometry and fluid,,0.500,,,-
+PROJECT,,...,Project name,,'Solidification',,'Base Layer Melt GE',Non-numeric change
+NPROCS,,...,Number of processors,,16,,0,Non-numeric change
+NVNTS,,0,Total number of mass/momentum sources,NONE,0,,,-
+TMS,1,0.0,Time table for time-dependent particle source parameters,s]    ,0,,,-
+NP_VOID,,0,Void particle model activation flag.,NONE,0,,,-
+IPVOID_NMAX,,"10,000",The maximum allowed number of void particles,NONE          ,10000,,,-
+PVOID_CV,,0.0,Specific heat of a void particle.,cm^2 s^-2 K^-1]                           ,718.81,,,-
+PVOID_THC,,0.0,Thermal conductivity of a void particle.,g cm s^-3 K^-1]       ,0.0261,,,-
+PVOID_HTC,,-1.0,Heat-transfer coefficient between void particles and fluid.,g K^-1 s^-3]                               ,40,,,-
+PVOID_DIFF,,0.0,Constant void particle diffusion coefficient (see :envvar:`PVOID_RM` below),cm^2/s] ,0,,,-
+PVOID_RM,,0.0,Inverse Schmidt number for void particle diffusion; multiplies kinematic viscosity and is added to :envvar:`PVOID_DIFF`.,NON-DIM                               ,0.0,,,-
+PVOID_RESTIT,,0.0,Void particle coefficient of restitution,NON-DIM  ,0.0,,,-
+PVOID_RF,,0.0,Specific gas constant for void particles (:envvar:`PVOID_RF` = (:envvar:`GAMMA`-1)•:envvar:`PVOID_CV` for a gamma-law gas),cm^2 s^-2 K^-1,287.058,,,-
+PVOID_DRAG,,1.0,"Multiplier for coefficient of drag for a void particle, which is a function of Reynolds number of the fluid flow around the particle.",NON-DIM   ,1.0,,,-
+NP_MARKER,,0,Marker particle model activation flag.,NONE,1,,,-
+PMARKER_TITLE,,'marker particles',Title for marker particle class. The maximum length of the title is 30 characters.,NONE         ,'Marker Particles',,,-
+IPMARKER_NMAX,,"10,000",The maximum allowed number of marker particles,NONE  ,10000,,,-
+NSC_PART,,0,Number of user-defined particle classes,NONE,0,,,-
+NPXYZ,,0,Total number of initial particle blocks,NONE,0,,,-
+IPPKT,,0,Number of particle sources,NONE,2,,,-
+PARTICLESOURCENAME,1,' ',Particle source :envvar:`n` name (up to 256 characters),NONE,'Source 1',,,-
+IF_PSOURCE_ENABLED,1,1,Activation flag for particle source :envvar:`n`,NONE ,0,,,-
+XPPL,1,...,Lower x-coordinate limit for volumetric particle source :envvar:`n`,cm,-0.045,,,-
+XPPR,1,...,Upper x-coordinate limit for volumetric particle :envvar:`n`,cm] or DEGREE,-0.01,,,-
+YPPF,1,...,"Lower y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPF` is in degrees.",cm] or DEGREE,-0.02,,,-
+YPPBK,1,...,"Upper y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPBK` is in degrees.",cm] or DEGREE,0.02,,,-
+ZPPB,1,...,Lower z-coordinate limit for volumetric particle source :envvar:`n`,cm,-0.04,,,-
+ZPPT,1,...,Upper z-coordinate limit for particle source :envvar:`n`,cm,-0.03,,,-
+UPP,1,0.0,Particle initial x-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+VPP,1,0.0,Particle initial y-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+WPP,1,0.0,Particle initial z-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+RATET,"1, 1",0.0,Time-dependent rate of particle creation at source :envvar:`n` at time :envvar:`TMS(t)`.,1/s,500,,,-
+ISRC_SET,1,0,Particle generation flag at particle source :envvar:`n`,NONE  ,1,,,-
+ISRC_CLASS,1,0,Particle class generated at particle source :envvar:`n`,NONE,11,,,-
+SRC_PRESSURE,1,0.0,"Initial pressure of particles at particle source :envvar:`n`. Used when :envvar:`ISRC_CLASS(n)` = 16, i.e., generates gas particles.",g cm^-1 s^-2,0,,,-
+SRC_TEMPERATURE,1,T_REFERENCE,,"Initial temperature of particles at particle source :envvar:`n`. Used when :envvar:`IF_SRC_TEMPERATURE(n)` = 0, :envvar:`IFENRG` = 2 or 3 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",[T] ,25,,,-
+SRC_CHARGE,1,0.0,"Electric charge of particles at particle source :envvar:`n`. Used when :envvar:`IECHRG` = 1 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",scoul],0.0,,,-
+PARTICLESOURCENAME,2,' ',Particle source :envvar:`n` name (up to 256 characters),NONE,'Source 2',,,-
+IF_PSOURCE_ENABLED,2,1,Activation flag for particle source :envvar:`n`,NONE ,0,,,-
+XPPL,2,...,Lower x-coordinate limit for volumetric particle source :envvar:`n`,cm,0.01,,,-
+XPPR,2,...,Upper x-coordinate limit for volumetric particle :envvar:`n`,cm] or DEGREE,0.045,,,-
+YPPF,2,...,"Lower y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPF` is in degrees.",cm] or DEGREE,-0.02,,,-
+YPPBK,2,...,"Upper y-coordinate limit for volumetric particle source :envvar:`n`. For a cylindrical mesh (:envvar:`ICYL` = 1 in MESH), :envvar:`YPPBK` is in degrees.",cm] or DEGREE,0.02,,,-
+ZPPB,2,...,Lower z-coordinate limit for volumetric particle source :envvar:`n`,cm,-0.04,,,-
+ZPPT,2,...,Upper z-coordinate limit for particle source :envvar:`n`,cm,-0.03,,,-
+UPP,2,0.0,Particle initial x-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+VPP,2,0.0,Particle initial y-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+WPP,2,0.0,Particle initial z-direction velocity at particle source :envvar:`n`,cm/s,0,,,-
+RATET,"1, 2",0.0,Time-dependent rate of particle creation at source :envvar:`n` at time :envvar:`TMS(t)`.,1/s,500,,,-
+ISRC_SET,2,0,Particle generation flag at particle source :envvar:`n`,NONE  ,1,,,-
+ISRC_CLASS,2,0,Particle class generated at particle source :envvar:`n`,NONE,11,,,-
+SRC_PRESSURE,2,0.0,"Initial pressure of particles at particle source :envvar:`n`. Used when :envvar:`ISRC_CLASS(n)` = 16, i.e., generates gas particles.",g cm^-1 s^-2,0,,,-
+SRC_TEMPERATURE,2,T_REFERENCE,,"Initial temperature of particles at particle source :envvar:`n`. Used when :envvar:`IF_SRC_TEMPERATURE(n)` = 0, :envvar:`IFENRG` = 2 or 3 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",[T] ,25,,,-
+SRC_CHARGE,2,0.0,"Electric charge of particles at particle source :envvar:`n`. Used when :envvar:`IECHRG` = 1 and :envvar:`ISRC_CLASS(n)` points to a material particle class, for example, the mass particles.",scoul],0.0,,,-
+CASTVAR,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK,,-
+Priority,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,,,-
+Interpretation,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Filter',,,-
+InterpretationType,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,809,,,-
+mirrorSubcomponent,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Priority,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,1,,,-
+Interpretation,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Chill',,,-
+InterpretationType,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,822,,,-
+mirrorSubcomponent,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Priority,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,,,-
+Interpretation,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Standard Insert',,,-
+InterpretationType,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,808,,,-
+mirrorSubcomponent,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Priority,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,2,,,-
+Interpretation,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Core',,,-
+InterpretationType,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,806,,,-
+mirrorSubcomponent,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Priority,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,3,,,-
+Interpretation,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Insulating Sleeve',,,-
+InterpretationType,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,810,,,-
+mirrorSubcomponent,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Priority,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+Interpretation,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Sand Mold',,,-
+InterpretationType,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,801,,,-
+mirrorSubcomponent,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+PrimitiveType,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Remaining Space',,,-
+mirrorSubcomponent,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+SubInterpretation,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part',,,-
+SubinterpretationType,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800,,,-
+mirrorSubcomponent,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+SubInterpretation,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part',,,-
+SubinterpretationType,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800,,,-
+mirrorSubcomponent,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,-1,,,-
+SubInterpretation,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Casting Part',,,-
+SubinterpretationType,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,800,,,-
+tpour,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,683,,,-
+tinitial,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25,,,-
+tambient,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,25,,,-
+pambient,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,101300,,,-
+UNUSEDCASTVAR,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK,,-
+Interpretation,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'Unused',,,-
+InterpretationType,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,0,,,-
+SPRAY,BLOCK,BLOCK,Spray cooling properties for thermal die cycling,BLOCK,BLOCK,BLOCK,,-
+NBANKS,,0,Number of spray banks,NONE,0,,,-
+CASTVAR,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK,,-
+f3d_product_name,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'FLOW-3D CAST',,'FLOW-3D',Non-numeric change
+f3d_version_number,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'5.1.0',,'12.0.2',Non-numeric change
+created,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2020 Jun 10 14:58',,'2023 Oct 02 22:17',Non-numeric change
+modified,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,'2020 Jun 10 15:00',,'2023 Oct 08 06:10',Non-numeric change
+OBSUNUSED,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,BLOCK,BLOCK,,-
+NOBS,,0,Number of components,NONE,1,,,-
+OBSID,1,""" """,Character string allowing user to identify component :envvar:`m` (up to 30 characters),NONE,'Component 1',,,-
+ILTHOBS,1,0,Activates the thermal penetration depth of the component.,NON-DIM,0,,,-
+NPROBES_SQP,1,0,Number of local probe conditions for the activation event (used if :envvar:`IF_GLOBAL_SQP(m)` = 1),NONE,0,,,-
+,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,,-
+IFVOF,,...,Flag for F advection options,NONE,,,6,+
+IFDYNCONV,,1,Pressure iteration convergence criterion flag,NONE,,,1,+
+IPHCHG,,0,Phase change and bubble model flag,NONE,,,1,+
+TEDIT,1,...,Ending time of edit interval :envvar:`n`. Not used if unspecified. ,s,,,0,+
+TAPLTD,1,TWFIN` /10,,Selected spatial data output interval from :envvar:`TEDIT(n-1)` to :envvar:`TEDIT(n)` ,,1.5e-05,,[t],+
+PCAV,,Cavitation potential,,,,,0,+
+MUCTST,,1/(1000 • :envvar:`TWFIN`),Minimum fluid strain rate applied in strain rate-dependent viscosity model.,1/s,,,0.001,+
+YIELDT1,,0.0,Fluid #1 yield stress temperature sensitivity,g cm^-1 s^-2 K^-1,,,0,+
+YIELD1,,-1.0,"Yield stress limit for fluid #1. A negative value means that the yield stress is infinite, that is, no yielding occurs.",g cm^-1 s^-2,,'yield stress limit',-10,+
+SCLTIT,1,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Cooling rate R',+
+ISCLR,1,...,Scalar advection options,NONE,,,0,+
+SCLTIT,2,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Evaporation Pressure',+
+ISCLR,2,...,Scalar advection options,NONE,,,0,+
+SCLTIT,3,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'G/R',+
+ISCLR,3,...,Scalar advection options,NONE,,,0,+
+SCLTIT,4,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Heat flux by heat source',+
+ISCLR,4,...,Scalar advection options,NONE,,,0,+
+SCLTIT,5,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Heat flux multiple reflection',+
+ISCLR,5,...,Scalar advection options,NONE,,,0,+
+SCLTIT,6,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Melt region',+
+ISCLR,6,...,Scalar advection options,NONE,,,3,+
+SCLTIT,7,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Melt region length X',+
+ISCLR,7,...,Scalar advection options,NONE,,,0,+
+SCLTIT,8,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Melt region length Y',+
+ISCLR,8,...,Scalar advection options,NONE,,,0,+
+SCLTIT,9,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Melt region length Z',+
+ISCLR,9,...,Scalar advection options,NONE,,,0,+
+SCLTIT,10,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Temperature gradient G',+
+ISCLR,10,...,Scalar advection options,NONE,,,0,+
+SCLTIT,11,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Temperature gradient dT/dx',+
+ISCLR,11,...,Scalar advection options,NONE,,,0,+
+SCLTIT,12,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Temperature gradient dT/dy',+
+ISCLR,12,...,Scalar advection options,NONE,,,0,+
+SCLTIT,13,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Temperature gradient dT/dz',+
+ISCLR,13,...,Scalar advection options,NONE,,,0,+
+SCLTIT,14,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'X reflection',+
+ISCLR,14,...,Scalar advection options,NONE,,,0,+
+SCLTIT,15,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Y reflection',+
+ISCLR,15,...,Scalar advection options,NONE,,,0,+
+SCLTIT,16,...,"Title for scalar variable :envvar:`ns`. For scalar variables used in standard models, the default title corresponds to the physical meaning of the variable in the model. For all other scalars, the title card is 'scalar ns concentration'. The maximum length of the title is 35 characters.",NONE,,,'Z reflection',+
+ISCLR,16,...,Scalar advection options,NONE,,,0,+
+IHTBCT,1,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+IHTBCT,2,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+IHTBCT,3,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+IHTBCT,4,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+IHTBCT,5,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+PBCT,"1, 6",...,"Pressure at mesh boundary :envvar:`n` at time :envvar:`TIMBCT(t)`. Defaults to zero if gauge pressure is used, :envvar:`IPGAUGE` = 1, and to :envvar:`P_REFERENCE` otherwise.",g cm^-1 s^-2,,,1.0e+06,+
+IHTBCT,6,0,Type of heat transfer boundary condition for wall-type mesh boundary :envvar:`n`.,NONE     ,,,0,+
+IF_MESH_ENABLED,,1,Activation flag for mesh block,NONE ,,,1,+
+FLUIDREGIONNAME,1,' ',Fluid region :envvar:`n` name (up to 256 characters),NONE,,'Fluid Region Name','powder bed',+
+IFDIS,1,0,Region type,NONE,,'Geometry',-1,+
+TREG,1,...,Region :envvar:`n` fluid #1 temperature,K,,'Fluid Tempearture',293,+
+FFSTL,1,:file:`fstlnn.inp`,"File name for stereolithography (STL) data file for defining initial conditions (:envvar:`IFDIS(n)` = -1), where ""nn"" = :envvar:`n`.",NONE,,'STL Geometry Filename','../Base_Layer_Settling_GE/particle0011.stl',+
+IF_FLREG_ENABLED,1,1,Activation flag for fluid region :envvar:`n`,NONE ,,,1,+
+FLUIDREGIONNAME,2,' ',Fluid region :envvar:`n` name (up to 256 characters),NONE,,'Fluid Region Name','bulk',+
+FZH,2,...,Upper z-coordinate limit for region :envvar:`n`,cm,,'Z High',0.015,+
+TREG,2,...,Region :envvar:`n` fluid #1 temperature,K,,'Fluid Tempearture',293,+
+IF_FLREG_ENABLED,2,1,Activation flag for fluid region :envvar:`n`,NONE ,,,1,+
+IFLINITTYP,,0,Fluid initialization flag,NONE,,'Fluid Initialization',0,+
+ANMTYP,6,""" """,Quantity to be stored as selected data,NONE,,,'sclr14',+
+ANMTYP,7,""" """,Quantity to be stored as selected data,NONE,,,'sclr15',+
+ANMTYP,8,""" """,Quantity to be stored as selected data,NONE,,,'sclr16',+
+ANMTYP,9,""" """,Quantity to be stored as selected data,NONE,,,'sclr2',+
+ANMTYP,10,""" """,Quantity to be stored as selected data,NONE,,,'sclr3',+
+ANMTYP,11,""" """,Quantity to be stored as selected data,NONE,,,'sclr4',+
+ANMTYP,12,""" """,Quantity to be stored as selected data,NONE,,,'sclr5',+
+ANMTYP,13,""" """,Quantity to be stored as selected data,NONE,,,'sclr6',+
+ANMTYP,14,""" """,Quantity to be stored as selected data,NONE,,,'sclr7',+
+ANMTYP,15,""" """,Quantity to be stored as selected data,NONE,,,'sclr8',+
+ANMTYP,16,""" """,Quantity to be stored as selected data,NONE,,,'sclr9',+
+ANMTYP,17,""" """,Quantity to be stored as selected data,NONE,,,'sldfrc',+
+ANMTYP,18,""" """,Quantity to be stored as selected data,NONE,,,'tn',+
+ANMTYP,19,""" """,Quantity to be stored as selected data,NONE,,,'vel',+
+weld,BLOCK,BLOCK,MISSING DESCRIPTION,BLOCK,,BLOCK,BLOCK,+
+nlbeam,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,3,+
+ilbeam,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'surface detection method',2,+
+timlbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+timlbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.407e-3,+
+timlbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.408e-3,+
+timlbm,4,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.999e-3,+
+timlbm,5,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1e-3,+
+timlbm,6,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.407e-3,+
+timlbm,7,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.408e-3,+
+timlbm,8,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.999e-3,+
+timlbm,9,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,2e-3,+
+timlbm,10,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,2.407e-3,+
+timlbm,11,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,2.408e-3,+
+timlbm,12,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,3e-3,+
+xb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'X position',-25e-4,+
+yb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Y position',75e-4,+
+zb0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z position',1,+
+r0lbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'lens radius',0.01,+
+rflbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'spot radius',25e-4,+
+dlflbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'focal distance',0.9825,+
+rblbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Gauss dist. (rb)',0.0035355339,+
+rzlbm,1,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z direction',-1,+
+powlbm,"1,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"2,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"3,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"12,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"1,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"2,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"3,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"12,1",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+xb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'X position',-25e-4,+
+yb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Y position',150e-4,+
+zb0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z position',1,+
+r0lbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'lens radius',0.01,+
+rflbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'spot radius',25e-4,+
+dlflbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'focal distance',0.9825,+
+rblbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Gauss dist. (rb)',0.0035355339,+
+rzlbm,2,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z direction',-1,+
+powlbm,"1,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"4,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"5,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"6,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"7,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"12,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"1,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"4,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"5,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"6,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"7,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"12,2",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+xb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'X position',-25e-4,+
+yb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Y position',225e-4,+
+zb0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z position',1,+
+r0lbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'lens radius',0.01,+
+rflbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'spot radius',25e-4,+
+dlflbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'focal distance',0.9825,+
+rblbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Gauss dist. (rb)',0.0035355339,+
+rzlbm,3,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z direction',-1,+
+powlbm,"1,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"8,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"9,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"10,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,1.95e9,+
+powlbm,"11,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+powlbm,"12,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"1,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"8,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"9,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"10,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,86.0,+
+utlbm,"11,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+utlbm,"12,3",MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,,0.0,+
+avprslbm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'evaporation pressure pscoefficient A',10000,+
+bvprslbm,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'evaporation pressure pscoefficient B',1.5776223732,+
+cbmengy,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'temperature dependent fluid-absorption rate',0.2,+
+irefopt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'multiple reflection option',2,+
+nrefmx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'maximum number of reflections',5,+
+ivpropt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'evaporation direction option',1,+
+icoolrat,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Cooling rate R',1,+
+ibmpress,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Evaporation Pressure',2,+
+igrdtr,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'G/R',3,+
+ilbplt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Heat flux by heat source',4,+
+irefflux,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Heat flux multiple reflection',5,+
+imeltopt,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Melt region',6,+
+imeltlenx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Melt region length X',7,+
+imeltleny,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Melt region length Y',8,+
+imeltlenz,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Melt region length Z',9,+
+igrdtmp,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Temperature gradient G',10,+
+igrdtmpx,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Temperature gradient dT/dx',11,+
+igrdtmpy,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Temperature gradient dT/dy',12,+
+igrdtmpz,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Temperature gradient dT/dz',13,+
+irefxvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'X reflection',14,+
+irefyvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Y reflection',15,+
+irefzvec,,MISSING DEFAULT VALUE,MISSING DESCRIPTION,MISSING UNITS,,'Z reflection',16,+

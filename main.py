@@ -19,8 +19,8 @@ if __name__ == '__main__':
     block_name_header = ["NAMELIST", "", "DESCRIPTION", "REQUIRED"]
     variable_name_header = ["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "DIMENSIONS"]
 
-    dictionary.write_dictionary(block_name_file, block_name_csv, 3, block_name_header)
-    dictionary.write_dictionary(variable_name_file, variable_name_csv, 4, variable_name_header)
+    dictionary.write_dictionary(block_name_file, block_name_csv, block_name_header)
+    dictionary.write_dictionary(variable_name_file, variable_name_csv, variable_name_header)
 
     prepin_file_name = "prepin.Solidification"
     prepin_2_fname = "prepin.ship_propeller_1"
