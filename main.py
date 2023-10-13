@@ -1,14 +1,9 @@
 import dictionary
 import prepin_to_csv
 import delta
-
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import prepin_file_tool
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     cgs_kelvin = {"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}
 
@@ -28,4 +23,5 @@ if __name__ == '__main__':
     prepin_to_csv.prepin_to_csv(prepin_file_name, block_name_csv, variable_name_csv, cgs_kelvin)
     delta.write_delta(prepin_file_name, prepin_2_fname)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    prepin_tool = prepin_file_tool.PrepinFileTool()
+    prepin_tool.start()

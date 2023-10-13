@@ -12,6 +12,7 @@ import csv
 def write_delta(prepin_csv_1, prepin_csv_2):
 
     delta_csv_fname = "delta_files\\delta_" + prepin_csv_1 + "_" + prepin_csv_2 + ".csv"
+    delta_txt_fname = "delta_files\\delta_" + prepin_csv_1 + "_" + prepin_csv_2 + ".txt"
 
     # Reading each csv file into 2 dimensional arrays.
     prepin_1 = []
@@ -75,3 +76,4 @@ def write_delta(prepin_csv_1, prepin_csv_2):
     with open(delta_csv_fname, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(delta)
+
