@@ -33,7 +33,7 @@ class PrepinFileTool:
         self.save_menu = Menu(self.menu, tearoff=0)
         self.menu.add_cascade(label="Save", menu=self.save_menu)
         self.save_menu.add_command(label="Save block dictionary as .csv", command=self.save_block_dictionary)
-        self.save_menu.add_command(label="Save variable dictionary as .csv", command=None)
+        self.save_menu.add_command(label="Save variable dictionary as .csv", command=self.save_variable_dictionary)
 
         self.label_message = Label(self.root, text="A tool for tracking and making changes to prepin.* files")
         self.label_block_names_loaded = Label(self.root, text="No block name dictionary loaded", foreground="red")
@@ -47,14 +47,6 @@ class PrepinFileTool:
 
     def start(self):
         self.root.mainloop()
-
-    def select_file(self, event):
-        self.file_address = filedialog.askopenfilename(initialdir="\\", title="Select a file",
-                                                       filetypes=(("text files (.txt)", "*.txt*"),
-                                                                  ("all files", "*.*")))
-        self.label_message.configure(text="Opened: " + self.file_address)
-        print(event.widget)
-        print(self.file_address)
 
     def select_block_name_file(self):
         self.file_address = filedialog.askopenfilename(title="Select a block name dictionary (.txt)",
@@ -83,15 +75,24 @@ class PrepinFileTool:
             self.label_message.configure(text="No block dictionary to save", foreground="red")
             return
         self.file_address = filedialog.asksaveasfilename(title="Save block dictionary as",
-                                                         filetypes=([("csv files (.csv)", "*.csv*")]))
-        print(self.file_address)
-        print(self.file_address[len(self.file_address)-4:])
-        if not(self.file_address[len(self.file_address)-4:] == ".csv"):
-            self.file_address = self.file_address + ".csv"
+                                                         filetypes=([("csv file (.csv)", "*.csv*")]))
+        self.add_csv_file_extension()
         with open(self.file_address, "w", newline="") as csvfile:
             csvwriter = csv.writer(csvfile)
             csvwriter.writerows(self.block_dictionary)
         self.label_message.configure(text="Saved block dictionary to "+self.file_address, foreground="black")
+
+    def save_variable_dictionary(self):
+        if not(len(self.variable_dictionary)):
+            self.label_message.configure(text="No variable dictionary to save", foreground="red")
+            return
+        self.file_address = filedialog.asksaveasfilename(title="Save variable dictionary as",
+                                                         filetypes=([("csv file (.csv)", "*.csv")]))
+        self.add_csv_file_extension()
+        with open(self.file_address, "w", newline="") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerows(self.variable_dictionary)
+        self.label_message.configure(text="Saved variable dictionary as "+self.file_address, foreground="black")
 
     def read_dictionary(self, header, file_name):
         fp = open(file_name, "r")
@@ -132,3 +133,7 @@ class PrepinFileTool:
 
         fp.close()
         return rows
+
+    def add_csv_file_extension(self):
+        if not(self.file_address[len(self.file_address)-4:] == ".csv"):
+            self.file_address = self.file_address + ".csv"
