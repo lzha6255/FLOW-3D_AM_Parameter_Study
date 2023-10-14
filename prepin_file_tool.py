@@ -1,5 +1,3 @@
-import dictionary
-
 from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
@@ -25,9 +23,15 @@ class PrepinFileTool:
         self.file_menu = Menu(self.menu, tearoff=0)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.file_menu.add_command(label="Load block dictionary", command=self.select_block_name_file)
-        self.file_menu.add_command(label="Load variable dictionary", command=None)
+        self.file_menu.add_command(label="Load variable dictionary", command=self.select_variable_name_file)
         self.file_menu.add_separator()
         self.file_menu.add_command(label="Exit", command=exit)
+
+        # Set up save menu
+        self.save_menu = Menu(self.menu, tearoff=0)
+        self.menu.add_cascade(label="Save", menu=self.save_menu)
+        self.save_menu.add_command(label="Save block dictionary as .csv", command=self.save_block_dictionary)
+        self.save_menu.add_command(label="Save variable dictionary as .csv", command=None)
 
         self.label_file_opened = Label(self.root, text="Last file opened: ")
         self.label_block_names_loaded = Label(self.root, text="No block name dictionary loaded", foreground="red")
@@ -51,13 +55,31 @@ class PrepinFileTool:
         print(self.file_address)
 
     def select_block_name_file(self):
-        self.file_address = filedialog.askopenfilename(initialdir="\\", title="Select a block name dictionary (.txt)",
+        self.file_address = filedialog.askopenfilename(title="Select a block name dictionary (.txt)",
                                                        filetypes=(("text files (.txt)", "*.txt*"),
                                                                   ("all files", "*.*")))
+        if not(len(self.file_address)):
+            return
         self.label_file_opened.configure(text="Last file opened: "+self.file_address)
         self.block_dictionary = self.read_dictionary(self.block_dictionary_header, self.file_address)
         print(self.block_dictionary)
         self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
+
+    def select_variable_name_file(self):
+        self.file_address = filedialog.askopenfilename(title="Select a variable name dictionary (.txt)",
+                                                       filetypes=(("text files (.txt)", "*.txt*"),
+                                                                  ("all files", "*.*")))
+        if not(len(self.file_address)):
+            return
+        self.label_file_opened.configure(text="Last file opened: "+self.file_address)
+        self.variable_dictionary = self.read_dictionary(self.variable_dictionary_header, self.file_address)
+        print(self.variable_dictionary)
+        self.label_variable_names_loaded.configure(text="Variable name dictionary loaded", foreground="green")
+
+    def save_block_dictionary(self):
+        self.file_address = filedialog.asksaveasfilename(title="Save block dictionary as",
+                                                         filetypes=([("csv files (.csv)", "*.csv*")]))
+        print(self.file_address)
 
     def read_dictionary(self, header, file_name):
         fp = open(file_name, "r")
