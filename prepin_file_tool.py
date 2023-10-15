@@ -38,10 +38,12 @@ class PrepinFileTool:
         # Save menu
         self.save_menu = Menu(self.menu, tearoff=0)
         self.menu.add_cascade(label="Save", menu=self.save_menu)
+        self.save_menu.add_command(label="Save session", command=self.save_session)
+        self.save_menu.add_separator()
         self.save_menu.add_command(label="Save block dictionary as .csv", command=self.save_block_dictionary)
         self.save_menu.add_command(label="Save variable dictionary as .csv", command=self.save_variable_dictionary)
         self.save_menu.add_separator()
-        self.save_prepin_submenu = Menu(self.root, tearoff=0)
+        self.save_prepin_submenu = Menu(self.menu, tearoff=0)
         self.save_menu.add_cascade(label="Save prepin file as .csv", menu=self.save_prepin_submenu)
 
         # Unit system selection
@@ -176,6 +178,23 @@ class PrepinFileTool:
             csvwriter.writerows(self.prepin_files[i])
         self.label_message.configure(text="Saved "+name+" as "+self.file_address, foreground="black")
 
+    def save_session(self):
+        self.file_address = filedialog.asksaveasfilename(title="Save session as",
+                                                         filetypes=([("csv file (.csv)", "*.csv*")]))
+        self.add_csv_file_extension()
+        with open(self.file_address, "w", newline="") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerow(["PREPIN FILE TOOL SESSION"])
+            if len(self.block_dictionary):
+                csvwriter.writerow(["BLOCK DICTIONARY"])
+                csvwriter.writerows(self.block_dictionary)
+            if len(self.variable_dictionary):
+                csvwriter.writerow(["VARIABLE DICTIONARY"])
+                csvwriter.writerows(self.variable_dictionary)
+            for prepin_file_name in list(self.prepin_file_name_index):
+                csvwriter.writerow(["PREPIN FILE", prepin_file_name])
+                csvwriter.writerows(self.prepin_files[self.prepin_file_name_index[prepin_file_name]])
+
     def read_dictionary(self, header, file_name):
         fp = open(file_name, "r")
 
@@ -282,7 +301,6 @@ class PrepinFileTool:
                                 self.variable_dictionary[i][4][0] == "["):
                             generic_units = self.variable_dictionary[i][4].replace("\ :sup:", "^")
                             units = ""
-                            # TODO switchable unit system
                             keys = list(self.unit_systems[self.unit_system_index[self.unit_system.get()]])
                             for j in range(1, len(generic_units) - 1):
                                 if generic_units[j] in keys:
