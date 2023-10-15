@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import filedialog
+from tkinter import messagebox
 from tkinter.ttk import *
 
 import csv
@@ -7,13 +8,14 @@ import csv
 
 class PrepinFileTool:
     def __init__(self):
-        self.prepin_variable_arrays = []
+        self.prepin_files = []
         self.variable_dictionary = []
         self.block_dictionary = []
         self.variable_dictionary_header = ["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "DIMENSIONS"]
         self.block_dictionary_header = ["NAMELIST", "", "DESCRIPTION", "REQUIRED"]
         self.file_address = ""
-        self.filenames = []
+        self.prepin_file_name_index = {}
+        self.unit_system_index = {"CGS": 0}
         self.unit_systems = [{"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}]
 
         self.root = Tk()
@@ -28,6 +30,8 @@ class PrepinFileTool:
         self.file_menu.add_command(label="Load block dictionary", command=self.select_block_name_file)
         self.file_menu.add_command(label="Load variable dictionary", command=self.select_variable_name_file)
         self.file_menu.add_separator()
+        self.file_menu.add_command(label="Load prepin.* file", command=self.select_prepin_file)
+        self.file_menu.add_separator()
         self.file_menu.add_command(label="Exit", command=exit)
 
         # Save menu
@@ -36,25 +40,40 @@ class PrepinFileTool:
         self.save_menu.add_command(label="Save block dictionary as .csv", command=self.save_block_dictionary)
         self.save_menu.add_command(label="Save variable dictionary as .csv", command=self.save_variable_dictionary)
 
-        # TODO Unit system menu
+        # Unit system menu
+        self.frame_unit_system = Frame(self.root, padding=5)
+        self.label_unit_system = Label(self.frame_unit_system, text="Unit System: ")
+        self.unit_system = StringVar()
+        self.combobox_unit_system = Combobox(self.frame_unit_system, values=["CGS"], textvariable=self.unit_system)
+        self.combobox_unit_system.set("Select a unit system")
+        self.label_unit_system.pack(side=LEFT)
+        self.combobox_unit_system.pack(side=LEFT)
 
+        # System message
         self.label_message = Label(self.root, text="A tool for tracking and making changes to prepin.* files")
+        # Dictionary state descriptors
         self.label_block_names_loaded = Label(self.root, text="No block name dictionary loaded", foreground="red")
         self.label_variable_names_loaded = Label(self.root, text="No variable name dictionary loaded", foreground="red")
-        self.label_prepin_file_selector = Label(self.root, text="Select active prepin.* files")
 
         # Combo boxes for selecting prepin files
-        self.combobox_prepin_1 = Combobox(self.root, values=[])
-        self.combobox_prepin_2 = Combobox(self.root, values=[])
+        self.frame_prepin_selector = Frame(self.root, padding=5)
+        self.label_prepin_selector = Label(self.frame_prepin_selector, text="prepin.* file selection: ")
+        self.combobox_prepin_1 = Combobox(self.frame_prepin_selector, values=[])
+        self.combobox_prepin_2 = Combobox(self.frame_prepin_selector, values=[])
         self.combobox_prepin_1.set("No prepin.* files loaded")
         self.combobox_prepin_2.set("No prepin.* files loaded")
+        self.label_prepin_selector.pack(anchor=NW, side=TOP)
+        self.combobox_prepin_1.pack(side=TOP)
+        self.combobox_prepin_2.pack(side=TOP)
 
-        self.label_block_names_loaded.grid(row=0, column=0)
-        self.label_variable_names_loaded.grid(row=1, column=0)
-        self.label_prepin_file_selector.grid(row=2, column=0)
-        self.combobox_prepin_1.grid(row=3, column=0)
-        self.combobox_prepin_2.grid(row=4, column=0)
-        self.label_message.grid(row=5, column=0)
+        # Placing top side widgets and frames
+        self.frame_unit_system.pack(anchor=NW, side=TOP)
+        self.frame_prepin_selector.pack(anchor=NW, side=TOP)
+
+        # Placing bottom side widgets and frames
+        self.label_message.pack(anchor=SW, side=BOTTOM)
+        self.label_variable_names_loaded.pack(anchor=SW, side=BOTTOM)
+        self.label_block_names_loaded.pack(anchor=SW, side=BOTTOM)
 
         self.root.config(menu=self.menu)
 
@@ -67,8 +86,8 @@ class PrepinFileTool:
                                                                   ("all files", "*.*")))
         if not(len(self.file_address)):
             return
-        self.label_message.configure(text="Opened: " + self.file_address)
         self.block_dictionary = self.read_dictionary(self.block_dictionary_header, self.file_address)
+        self.label_message.configure(text="Opened: "+self.file_address)
         print(self.block_dictionary)
         self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
 
@@ -78,15 +97,34 @@ class PrepinFileTool:
                                                                   ("all files", "*.*")))
         if not(len(self.file_address)):
             return
-        self.label_message.configure(text="Opened: " + self.file_address)
         self.variable_dictionary = self.read_dictionary(self.variable_dictionary_header, self.file_address)
+        self.label_message.configure(text="Opened: " + self.file_address)
         print(self.variable_dictionary)
         self.label_variable_names_loaded.configure(text="Variable name dictionary loaded", foreground="green")
 
+    def select_prepin_file(self):
+        if not(len(self.block_dictionary) and len(self.variable_dictionary)):
+            messagebox.showerror(title="Could not read prepin.* file",
+                                 message="A dictionary is missing. Please ensure both dictionaries are loaded.")
+            return
+        keys = list(self.unit_system_index)
+        if not(self.unit_system.get() in keys):
+            messagebox.showerror(title="Could not read prepin.* file",
+                                 message="Please select a valid unit system from the drop down menu.")
+            return
+        self.file_address = filedialog.askopenfilename(title="Select a prepin file (prepin.*)",
+                                                       filetypes=(("prepin files (prepin.*)", "*prepin.*"),
+                                                                  ("all files", "*.*")))
+        if not(len(self.file_address)):
+            return
+        self.prepin_files.append(self.read_prepin_file(self.file_address))
+        self.label_message.configure(text="Opened: "+self.file_address)
+        print(self.prepin_files)
+
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
-            # TODO change invalid action messages to be pop up windows
-            self.label_message.configure(text="No block dictionary to save", foreground="red")
+            messagebox.showerror(title="Dictionary not saved",
+                                 message="No data has been loaded. Please load a block dictionary.")
             return
         self.file_address = filedialog.asksaveasfilename(title="Save block dictionary as",
                                                          filetypes=([("csv file (.csv)", "*.csv*")]))
@@ -98,7 +136,8 @@ class PrepinFileTool:
 
     def save_variable_dictionary(self):
         if not(len(self.variable_dictionary)):
-            self.label_message.configure(text="No variable dictionary to save", foreground="red")
+            messagebox.showerror(title="Dictionary not saved",
+                                 message="No data has been loaded. Please load a variable dictionary.")
             return
         self.file_address = filedialog.asksaveasfilename(title="Save variable dictionary as",
                                                          filetypes=([("csv file (.csv)", "*.csv")]))
@@ -152,7 +191,6 @@ class PrepinFileTool:
         rows = [["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "UNITS", "SET_VALUE", "REMARK"]]
         row = []
 
-        prepin_file_name = "prepin_files\\" + prepin_file_name + ".txt"
         fp = open(prepin_file_name, "r")
 
         line = " "
@@ -216,10 +254,10 @@ class PrepinFileTool:
                             generic_units = self.variable_dictionary[i][4].replace("\ :sup:", "^")
                             units = ""
                             # TODO switchable unit system
-                            keys = list(self.unit_systems[0])
+                            keys = list(self.unit_systems[self.unit_system_index[self.unit_system.get()]])
                             for j in range(1, len(generic_units) - 1):
                                 if generic_units[j] in keys:
-                                    units = units + self.unit_systems[0][generic_units[j]]
+                                    units = units + self.unit_systems[self.unit_system_index[self.unit_system.get()]][generic_units[j]]
                                 # Remove backticks
                                 elif generic_units[j] == "`":
                                     continue
@@ -242,6 +280,7 @@ class PrepinFileTool:
                 row = []
 
         fp.close()
+        return rows
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):
