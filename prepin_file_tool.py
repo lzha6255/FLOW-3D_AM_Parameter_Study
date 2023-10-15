@@ -17,6 +17,7 @@ class PrepinFileTool:
         self.prepin_file_name_index = {}
         self.unit_system_index = {"CGS": 0}
         self.unit_systems = [{"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}]
+        self.n_prepin_file_selections = 2
 
         self.root = Tk()
         self.root.title("FLOW-3D prepin file tool")
@@ -58,13 +59,12 @@ class PrepinFileTool:
         # Combo boxes for selecting prepin files
         self.frame_prepin_selector = Frame(self.root, padding=5)
         self.label_prepin_selector = Label(self.frame_prepin_selector, text="prepin.* file selection: ")
-        self.combobox_prepin_1 = Combobox(self.frame_prepin_selector, values=[])
-        self.combobox_prepin_2 = Combobox(self.frame_prepin_selector, values=[])
-        self.combobox_prepin_1.set("No prepin.* files loaded")
-        self.combobox_prepin_2.set("No prepin.* files loaded")
-        self.label_prepin_selector.pack(anchor=NW, side=TOP)
-        self.combobox_prepin_1.pack(side=TOP)
-        self.combobox_prepin_2.pack(side=TOP)
+        self.label_prepin_selector.pack(anchor=W, side=TOP)
+        self.comboboxes_prepin_selection = []
+        for i in range(self.n_prepin_file_selections):
+            self.comboboxes_prepin_selection.append(Combobox(self.frame_prepin_selector, values=[]))
+            self.comboboxes_prepin_selection[i].set("No prepin.* files loaded")
+            self.comboboxes_prepin_selection[i].pack(side=TOP)
 
         # Placing top side widgets and frames
         self.frame_unit_system.pack(anchor=NW, side=TOP)
@@ -117,9 +117,25 @@ class PrepinFileTool:
                                                                   ("all files", "*.*")))
         if not(len(self.file_address)):
             return
+        # Extracting the name of the prepin file, that is the text after "prepin."
+        prepin_file_name = ""
+        for i in range(7, len(self.file_address)):
+            if self.file_address[i-7:i] == "prepin.":
+                prepin_file_name = self.file_address[i:]
+        if not(len(prepin_file_name)):
+            messagebox.showerror(title="Could not read prepin.* file",
+                                 message="It appears the file you selected is not a prepin file. Please select a prepin file or rename your file so that it begins with \"prepin.\"")
+            return
         self.prepin_files.append(self.read_prepin_file(self.file_address))
+        self.prepin_file_name_index[prepin_file_name] = len(self.prepin_file_name_index)
+        for combobox in self.comboboxes_prepin_selection:
+            combobox.configure(values=list(self.prepin_file_name_index))
+            # Change the combo box text if this is the first prepin file that has been loaded
+            if len(self.prepin_file_name_index) == 1:
+                combobox.set("Select a prepin file")
         self.label_message.configure(text="Opened: "+self.file_address)
         print(self.prepin_files)
+        self.save_menu.add_command(label="Save prepin", command=None)
 
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
