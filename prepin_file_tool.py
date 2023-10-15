@@ -40,8 +40,11 @@ class PrepinFileTool:
         self.menu.add_cascade(label="Save", menu=self.save_menu)
         self.save_menu.add_command(label="Save block dictionary as .csv", command=self.save_block_dictionary)
         self.save_menu.add_command(label="Save variable dictionary as .csv", command=self.save_variable_dictionary)
+        self.save_menu.add_separator()
+        self.save_prepin_submenu = Menu(self.root, tearoff=0)
+        self.save_menu.add_cascade(label="Save prepin file as .csv", menu=self.save_prepin_submenu)
 
-        # Unit system menu
+        # Unit system selection
         self.frame_unit_system = Frame(self.root, padding=5)
         self.label_unit_system = Label(self.frame_unit_system, text="Unit System: ")
         self.unit_system = StringVar()
@@ -134,8 +137,9 @@ class PrepinFileTool:
             if len(self.prepin_file_name_index) == 1:
                 combobox.set("Select a prepin file")
         self.label_message.configure(text="Opened: "+self.file_address)
-        print(self.prepin_files)
-        self.save_menu.add_command(label="Save prepin", command=None)
+        # Adding new save option to the save prepin submenu
+        self.save_prepin_submenu.add_command(label=prepin_file_name,
+                                             command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.save_prepin(j, file_name))
 
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
@@ -162,6 +166,15 @@ class PrepinFileTool:
             csvwriter = csv.writer(csvfile)
             csvwriter.writerows(self.variable_dictionary)
         self.label_message.configure(text="Saved variable dictionary as "+self.file_address, foreground="black")
+
+    def save_prepin(self, i, name):
+        self.file_address = filedialog.asksaveasfilename(title="Save "+name+" as",
+                                                         filetypes=([("csv file (.csv)", "*.csv*")]), initialfile=name)
+        self.add_csv_file_extension()
+        with open(self.file_address, "w", newline="") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerows(self.prepin_files[i])
+        self.label_message.configure(text="Saved "+name+" as "+self.file_address, foreground="black")
 
     def read_dictionary(self, header, file_name):
         fp = open(file_name, "r")
