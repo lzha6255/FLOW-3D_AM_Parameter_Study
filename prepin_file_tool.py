@@ -28,6 +28,8 @@ class PrepinFileTool:
         # File menu
         self.file_menu = Menu(self.menu, tearoff=0)
         self.menu.add_cascade(label="File", menu=self.file_menu)
+        self.file_menu.add_command(label="Load previous session", command=self.select_session)
+        self.file_menu.add_separator()
         self.file_menu.add_command(label="Load block dictionary", command=self.select_block_name_file)
         self.file_menu.add_command(label="Load variable dictionary", command=self.select_variable_name_file)
         self.file_menu.add_separator()
@@ -98,6 +100,7 @@ class PrepinFileTool:
         self.root.mainloop()
 
     def select_block_name_file(self):
+        self.file_address = ""
         self.file_address = filedialog.askopenfilename(title="Select a block name dictionary (.txt)",
                                                        filetypes=(("text files (.txt)", "*.txt*"),
                                                                   ("all files", "*.*")))
@@ -109,6 +112,7 @@ class PrepinFileTool:
         self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
 
     def select_variable_name_file(self):
+        self.file_address = ""
         self.file_address = filedialog.askopenfilename(title="Select a variable name dictionary (.txt)",
                                                        filetypes=(("text files (.txt)", "*.txt*"),
                                                                   ("all files", "*.*")))
@@ -129,6 +133,7 @@ class PrepinFileTool:
             messagebox.showerror(title="Could not read prepin.* file",
                                  message="Please select a valid unit system from the drop down menu.")
             return
+        self.file_address = ""
         self.file_address = filedialog.askopenfilename(title="Select a prepin file (prepin.*)",
                                                        filetypes=(("prepin files (prepin.*)", "*prepin.*"),
                                                                   ("all files", "*.*")))
@@ -156,16 +161,66 @@ class PrepinFileTool:
                                              command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.save_prepin(j, file_name))
 
     def select_session(self):
+        # Confirmation box only appears if a dictionary has been loaded
+        if (len(self.block_dictionary) or len(self.variable_dictionary)) and not(messagebox.askyesno(title="Confirm overwrite", message="Loading a session will overwrite all of the currently loaded data. Do you wish to proceed?")):
+            return
+        self.file_address = ""
         self.file_address = filedialog.askopenfilename(title="Select a previously saved session",
                                                        filetypes=([("csv file (.csv)", "*.csv*")]))
+        if not(len(self.file_address)):
+            return
+        self.clear_all()
+        with open(self.file_address, "r") as csvfile:
+            csvreader = csv.reader(csvfile)
+            # Mode 0 => unvalidated session file, 1 => block dictionary, 2 => variable dictionary, 3 => prepin data
+            # -1 => validated session file but not in write mode
+            mode = 0
+            for row in csvreader:
+                if mode == 1:
+                    self.block_dictionary.append(row)
+                elif mode == 2:
+                    self.variable_dictionary.append(row)
+                elif mode == 3:
+                    # Rows are always appended to the last prepin file
+                    self.prepin_files[len(self.prepin_files)-1].append(row)
+                # Switching to write modes only done after the session file has been validated
+                if mode:
+                    if row[0] == "BLOCK DICTIONARY":
+                        mode = 1
+                    elif row[0] == "VARIABLE DICTIONARY":
+                        mode = 2
+                    elif row[0] == "PREPIN FILE":
+                        mode = 3
+                        self.prepin_files.append([])
+                        self.prepin_file_name_index[row[1]] = len(self.prepin_file_name_index)
+                else:
+                    # File validation
+                    if row[0] == "PREPIN FILE TOOL SESSION":
+                        mode = -1
+        # Configure prepin combo boxes and save menu if prepin files have been loaded
+        if len(self.prepin_file_name_index):
+            prepin_file_names = list(self.prepin_file_name_index)
+            for combobox in self.comboboxes_prepin_selection:
+                combobox.configure(values=prepin_file_names)
+                combobox.set("Select a prepin file")
+            for name in prepin_file_names:
+                self.save_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.save_prepin(j, file_name))
+        self.label_message.configure(text="Session loaded from "+self.file_address)
+        if len(self.block_dictionary):
+            self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
+        if len(self.variable_dictionary):
+            self.label_variable_names_loaded.configure(text="Variable name dictionary loaded", foreground="green")
 
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
             messagebox.showerror(title="Dictionary not saved",
                                  message="No data has been loaded. Please load a block dictionary.")
             return
+        self.file_address = ""
         self.file_address = filedialog.asksaveasfilename(title="Save block dictionary as",
                                                          filetypes=([("csv file (.csv)", "*.csv*")]))
+        if not(len(self.file_address)):
+            return
         self.add_csv_file_extension()
         with open(self.file_address, "w", newline="") as csvfile:
             csvwriter = csv.writer(csvfile)
@@ -177,8 +232,11 @@ class PrepinFileTool:
             messagebox.showerror(title="Dictionary not saved",
                                  message="No data has been loaded. Please load a variable dictionary.")
             return
+        self.file_address = ""
         self.file_address = filedialog.asksaveasfilename(title="Save variable dictionary as",
                                                          filetypes=([("csv file (.csv)", "*.csv")]))
+        if not(len(self.file_address)):
+            return
         self.add_csv_file_extension()
         with open(self.file_address, "w", newline="") as csvfile:
             csvwriter = csv.writer(csvfile)
@@ -186,8 +244,11 @@ class PrepinFileTool:
         self.label_message.configure(text="Saved variable dictionary as "+self.file_address, foreground="black")
 
     def save_prepin(self, i, name):
+        self.file_address = ""
         self.file_address = filedialog.asksaveasfilename(title="Save "+name+" as",
                                                          filetypes=([("csv file (.csv)", "*.csv*")]), initialfile=name)
+        if not(len(self.file_address)):
+            return
         self.add_csv_file_extension()
         with open(self.file_address, "w", newline="") as csvfile:
             csvwriter = csv.writer(csvfile)
@@ -195,8 +256,11 @@ class PrepinFileTool:
         self.label_message.configure(text="Saved "+name+" as "+self.file_address, foreground="black")
 
     def save_session(self):
+        self.file_address = ""
         self.file_address = filedialog.asksaveasfilename(title="Save session as",
                                                          filetypes=([("csv file (.csv)", "*.csv*")]))
+        if not(len(self.file_address)):
+            return
         self.add_csv_file_extension()
         with open(self.file_address, "w", newline="") as csvfile:
             csvwriter = csv.writer(csvfile)
