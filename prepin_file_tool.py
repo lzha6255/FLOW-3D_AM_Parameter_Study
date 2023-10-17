@@ -71,6 +71,18 @@ class PrepinFileTool:
             self.comboboxes_prepin_selection[i].set("No prepin.* files loaded")
             self.comboboxes_prepin_selection[i].pack(side=TOP)
 
+        # Buttons to clear data
+        self.frame_clear_data = Frame(self.root, padding=5)
+        self.button_clear_prepin_data = Button(self.frame_clear_data, text="Clear prepin data",
+                                               command=self.callback_clear_prepin_data)
+        self.button_clear_all_data = Button(self.frame_clear_data, text="Clear all data",
+                                            command=self.callback_clear_all)
+        self.button_clear_all_data.pack(side=RIGHT)
+        self.button_clear_prepin_data.pack(side=RIGHT)
+
+        # Placing right side widgets and frames
+        self.frame_clear_data.pack(anchor=NE, side=RIGHT)
+
         # Placing top side widgets and frames
         self.frame_unit_system.pack(anchor=NW, side=TOP)
         self.frame_prepin_selector.pack(anchor=NW, side=TOP)
@@ -143,6 +155,10 @@ class PrepinFileTool:
         self.save_prepin_submenu.add_command(label=prepin_file_name,
                                              command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.save_prepin(j, file_name))
 
+    def select_session(self):
+        self.file_address = filedialog.askopenfilename(title="Select a previously saved session",
+                                                       filetypes=([("csv file (.csv)", "*.csv*")]))
+
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
             messagebox.showerror(title="Dictionary not saved",
@@ -194,6 +210,36 @@ class PrepinFileTool:
             for prepin_file_name in list(self.prepin_file_name_index):
                 csvwriter.writerow(["PREPIN FILE", prepin_file_name])
                 csvwriter.writerows(self.prepin_files[self.prepin_file_name_index[prepin_file_name]])
+
+    def clear_all(self):
+        self.clear_prepin_data()
+        self.label_block_names_loaded.configure(text="No block dictionary loaded", foreground="red")
+        self.label_variable_names_loaded.configure(text="No variable dictionary loaded", foreground="red")
+        self.block_dictionary = []
+        self.variable_dictionary = []
+
+    def clear_prepin_data(self):
+        # Removing menu options to save prepin files as csv
+        for i in range(len(self.prepin_file_name_index)):
+            self.save_prepin_submenu.delete(0)
+        # Resetting the prepin combo boxes
+        for combobox in self.comboboxes_prepin_selection:
+            combobox.configure(values=[])
+            combobox.set("No prepin.* files loaded")
+        self.prepin_file_name_index = {}
+        self.prepin_files = []
+
+    def callback_clear_all(self):
+        if messagebox.askyesno(title="Confirm data deletion", message="This operation will delete all loaded data, including dictionaries. Do you wish to proceed?"):
+            self.clear_all()
+        else:
+            return
+
+    def callback_clear_prepin_data(self):
+        if messagebox.askyesno(title="Confirm data deletion", message="This operation will delete all data loaded from prepin.* files. Do you wish to proceed?"):
+            self.clear_prepin_data()
+        else:
+            return
 
     def read_dictionary(self, header, file_name):
         fp = open(file_name, "r")
