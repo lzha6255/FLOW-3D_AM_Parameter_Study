@@ -5,6 +5,8 @@ from tkinter.ttk import *
 
 import csv
 
+import Table_Window
+
 
 class PrepinFileTool:
     def __init__(self):
@@ -87,7 +89,7 @@ class PrepinFileTool:
         self.frame_delta = Frame(self.root, padding=5)
         self.button_calculate_delta = Button(self.frame_delta, text="Calculate delta between selected prepin data",
                                              command=self.calculate_delta)
-        self.button_display_delta = Button(self.frame_delta, text="Display delta in table", command=None)
+        self.button_display_delta = Button(self.frame_delta, text="Display delta in table", command=self.display_delta)
         self.button_calculate_delta.pack(side=LEFT)
         self.button_display_delta.pack(side=LEFT)
 
@@ -299,6 +301,11 @@ class PrepinFileTool:
                 csvwriter.writerow(["PREPIN FILE", prepin_file_name])
                 csvwriter.writerows(self.prepin_files[self.prepin_file_name_index[prepin_file_name]])
 
+    def display_delta(self):
+        delta_table_window = Table_Window.TableWindow(self.root, "Delta")
+        delta_table_window.load_table(self.delta)
+        delta_table_window.grab_set()
+
     def clear_all(self):
         self.clear_prepin_data()
         self.label_block_names_loaded.configure(text="No block dictionary loaded", foreground="red")
@@ -316,6 +323,7 @@ class PrepinFileTool:
             combobox.set("No prepin.* files loaded")
         self.prepin_file_name_index = {}
         self.prepin_files = []
+        self.delta = []
 
     def callback_clear_all(self):
         if messagebox.askyesno(title="Confirm data deletion", message="This operation will delete all loaded data, including dictionaries. Do you wish to proceed?"):
