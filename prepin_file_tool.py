@@ -486,7 +486,7 @@ class PrepinFileTool:
         message = message[:len(message)-4]
         self.delta = [["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "UNITS", "VALUE_1", "VALUE_2", "DELTA"]]
         # Temporary copy of prepin data as rows may be removed
-        prepin_file = self.prepin_files[indices[1]]
+        prepin_file = self.prepin_files[indices[1]].copy()
 
         # Step through each variable in prepin 1 and search for the same variable in prepin 2.
         for i in range(len(self.prepin_files[indices[0]])):
@@ -498,6 +498,9 @@ class PrepinFileTool:
                     # Check if the values of the variable are not equal.
                     if not (self.prepin_files[indices[0]][i][5] == prepin_file[j][5]):
                         row = self.prepin_files[indices[0]][i].copy()
+                        # Removing the remark
+                        if len(row) > 6:
+                            row.pop()
                         row.append(prepin_file[j][5])
                         # Difference should be written for numeric variables, otherwise write "Non-numeric change".
                         try:
@@ -515,17 +518,23 @@ class PrepinFileTool:
             # If a match was not found, add the variable to delta as a deletion.
             if not match:
                 row = self.prepin_files[indices[0]][i].copy()
+                # Removing the remark
+                if len(row) > 6:
+                    row.pop()
                 row.append("")
-                row.append("-")
+                row.append("REMOVED")
                 self.delta.append(row)
 
         # After iterating through prepin 1 and deleting variable, subscript matches from prepin 2, the remaining prepin
         # 2 array only contains new variables added in prepin 2.
         for i in range(len(prepin_file)):
             row = prepin_file[i].copy()
+            # Removing the remark
+            if len(row) > 6:
+                row.pop()
             row.append(row[5])
             row[5] = ""
-            row.append("+")
+            row.append("ADDED")
             self.delta.append(row)
         self.label_message.configure(text=message, foreground="black")
 
