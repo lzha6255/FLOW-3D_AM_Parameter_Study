@@ -18,6 +18,7 @@ class PrepinFileTool:
         self.unit_system_index = {"CGS": 0}
         self.unit_systems = [{"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}]
         self.n_prepin_file_selections = 2
+        self.delta = []
 
         self.root = Tk()
         self.root.title("FLOW-3D prepin file tool")
@@ -82,12 +83,21 @@ class PrepinFileTool:
         self.button_clear_all_data.pack(side=RIGHT)
         self.button_clear_prepin_data.pack(side=RIGHT)
 
+        # Delta
+        self.frame_delta = Frame(self.root, padding=5)
+        self.button_calculate_delta = Button(self.frame_delta, text="Calculate delta between selected prepin data",
+                                             command=self.calculate_delta)
+        self.button_display_delta = Button(self.frame_delta, text="Display delta in table", command=None)
+        self.button_calculate_delta.pack(side=LEFT)
+        self.button_display_delta.pack(side=LEFT)
+
         # Placing right side widgets and frames
         self.frame_clear_data.pack(anchor=NE, side=RIGHT)
 
         # Placing top side widgets and frames
         self.frame_unit_system.pack(anchor=NW, side=TOP)
         self.frame_prepin_selector.pack(anchor=NW, side=TOP)
+        self.frame_delta.pack(anchor=NW, side=TOP)
 
         # Placing bottom side widgets and frames
         self.label_message.pack(anchor=SW, side=BOTTOM)
@@ -438,6 +448,64 @@ class PrepinFileTool:
 
         fp.close()
         return rows
+
+    def calculate_delta(self):
+        # Check if valid prepin files are currently selected in the prepin combo boxes
+        keys = list(self.prepin_file_name_index)
+        indices = []
+        message = "Delta calculated from "
+        for combobox in self.comboboxes_prepin_selection:
+            if not(combobox.get() in keys):
+                messagebox.showerror(title="Could not calculate delta", message="Invalid prepin file selection")
+                return
+            else:
+                indices.append(self.prepin_file_name_index[combobox.get()])
+                message = message + combobox.get() + " to "
+        message = message[:len(message)-4]
+        self.delta = [["NAME", "SUBSCRIPT", "DEFAULT_VALUE", "DESCRIPTION", "UNITS", "VALUE_1", "VALUE_2", "DELTA"]]
+        # Temporary copy of prepin data as rows may be removed
+        prepin_file = self.prepin_files[indices[1]]
+
+        # Step through each variable in prepin 1 and search for the same variable in prepin 2.
+        for i in range(len(self.prepin_files[indices[0]])):
+            match = False
+            for j in range(len(prepin_file)):
+                # Check for match in both name and subscript. Empty subscripts will satisfy the condition.
+                if self.prepin_files[indices[0]][i][0].lower() == prepin_file[j][0].lower() and self.prepin_files[indices[0]][i][1] == prepin_file[j][1]:
+                    match = True
+                    # Check if the values of the variable are not equal.
+                    if not (self.prepin_files[indices[0]][i][5] == prepin_file[j][5]):
+                        row = self.prepin_files[indices[0]][i].copy()
+                        row.append(prepin_file[j][5])
+                        # Difference should be written for numeric variables, otherwise write "Non-numeric change".
+                        try:
+                            value_delta = float(row[6]) - float(row[5])
+                            row.append(str(value_delta))
+                        except ValueError:
+                            row.append("Non-numeric change")
+                        else:
+                            row.append("Error")
+                        self.delta.append(row)
+                    # Remove the variable from prepin 2.
+                    prepin_file.pop(j)
+                    # Move on to the next variable in prepin 1.
+                    break
+            # If a match was not found, add the variable to delta as a deletion.
+            if not match:
+                row = self.prepin_files[indices[0]][i].copy()
+                row.append("")
+                row.append("-")
+                self.delta.append(row)
+
+        # After iterating through prepin 1 and deleting variable, subscript matches from prepin 2, the remaining prepin
+        # 2 array only contains new variables added in prepin 2.
+        for i in range(len(prepin_file)):
+            row = prepin_file[i].copy()
+            row.append(row[5])
+            row[5] = ""
+            row.append("+")
+            self.delta.append(row)
+        self.label_message.configure(text=message, foreground="black")
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):
