@@ -196,10 +196,13 @@ class PrepinFileTool:
                 # Switching to write modes only done after the session file has been validated
                 if mode:
                     if row[0] == "BLOCK DICTIONARY":
+                        self.modal_pop(mode)
                         mode = 1
                     elif row[0] == "VARIABLE DICTIONARY":
+                        self.modal_pop(mode)
                         mode = 2
                     elif row[0] == "PREPIN FILE":
+                        self.modal_pop(mode)
                         mode = 3
                         self.prepin_files.append([])
                         self.prepin_file_name_index[row[1]] = len(self.prepin_file_name_index)
@@ -220,6 +223,17 @@ class PrepinFileTool:
             self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
         if len(self.variable_dictionary):
             self.label_variable_names_loaded.configure(text="Variable name dictionary loaded", foreground="green")
+
+    # Pops last item of block dictionary, variable dictionary or prepin file list based off of the number (mode) passed
+    # in. 1 = block dictionary, 2 = variable dictionary, 3 = prepin file list. If mode = 3, the last item of the last
+    # item in prepin file list is popped.
+    def modal_pop(self, mode):
+        if mode == 1:
+            self.block_dictionary.pop()
+        elif mode == 2:
+            self.variable_dictionary.pop()
+        elif mode == 3:
+            self.prepin_files[len(self.prepin_files)-1].pop()
 
     def save_block_dictionary(self):
         if not(len(self.block_dictionary)):
