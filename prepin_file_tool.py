@@ -51,6 +51,14 @@ class PrepinFileTool:
         self.save_prepin_submenu = Menu(self.menu, tearoff=0)
         self.save_menu.add_cascade(label="Save prepin file as .csv", menu=self.save_prepin_submenu)
 
+        # Display menu
+        self.display_menu = Menu(self.menu, tearoff=0)
+        self.menu.add_cascade(label="Display", menu=self.display_menu)
+        self.display_menu.add_command(label="Block Dictionary", command=self.display_block_dictionary)
+        self.display_menu.add_command(label="Variable Dictionary", command=self.display_variable_dictionary)
+        self.display_menu.add_separator()
+        self.display_menu.add_command(label="Delta", command=self.display_delta)
+
         # Unit system selection
         self.frame_unit_system = Frame(self.root, padding=5)
         self.label_unit_system = Label(self.frame_unit_system, text="Unit System: ")
@@ -301,10 +309,26 @@ class PrepinFileTool:
                 csvwriter.writerow(["PREPIN FILE", prepin_file_name])
                 csvwriter.writerows(self.prepin_files[self.prepin_file_name_index[prepin_file_name]])
 
+    def display_block_dictionary(self):
+        block_dictionary_window = Table_Window.TableWindow(self.root, "Block Name Dictionary")
+        if block_dictionary_window.load_table(self.block_dictionary):
+            block_dictionary_window.grab_set()
+        else:
+            block_dictionary_window.destroy()
+
+    def display_variable_dictionary(self):
+        variable_dictionary_window = Table_Window.TableWindow(self.root, "Variable Name Dictionary")
+        if variable_dictionary_window.load_table(self.variable_dictionary):
+            variable_dictionary_window.grab_set()
+        else:
+            variable_dictionary_window.destroy()
+
     def display_delta(self):
         delta_table_window = Table_Window.TableWindow(self.root, "Delta")
-        delta_table_window.load_table(self.delta)
-        delta_table_window.grab_set()
+        if delta_table_window.load_table(self.delta):
+            delta_table_window.grab_set()
+        else:
+            delta_table_window.destroy()
 
     def clear_all(self):
         self.clear_prepin_data()
