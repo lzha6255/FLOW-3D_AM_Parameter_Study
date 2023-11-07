@@ -57,6 +57,9 @@ class PrepinFileTool:
         self.display_menu.add_command(label="Block Dictionary", command=self.display_block_dictionary)
         self.display_menu.add_command(label="Variable Dictionary", command=self.display_variable_dictionary)
         self.display_menu.add_separator()
+        self.display_prepin_submenu = Menu(self.menu, tearoff=0)
+        self.display_menu.add_cascade(label="prepin.* file", menu=self.display_prepin_submenu)
+        self.display_menu.add_separator()
         self.display_menu.add_command(label="Delta", command=self.display_delta)
 
         # Unit system selection
@@ -179,6 +182,9 @@ class PrepinFileTool:
         # Adding new save option to the save prepin submenu
         self.save_prepin_submenu.add_command(label=prepin_file_name,
                                              command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.save_prepin(j, file_name))
+        # Adding new display option to the display prepin submenu
+        self.display_prepin_submenu.add_command(label=prepin_file_name,
+                                                command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.display_prepin(j, file_name))
 
     def select_session(self):
         # Confirmation box only appears if a dictionary has been loaded
@@ -220,7 +226,7 @@ class PrepinFileTool:
                     # File validation
                     if row[0] == "PREPIN FILE TOOL SESSION":
                         mode = -1
-        # Configure prepin combo boxes and save menu if prepin files have been loaded
+        # Configure prepin combo boxes and save/display menu if prepin files have been loaded
         if len(self.prepin_file_name_index):
             prepin_file_names = list(self.prepin_file_name_index)
             for combobox in self.comboboxes_prepin_selection:
@@ -228,6 +234,7 @@ class PrepinFileTool:
                 combobox.set("Select a prepin file")
             for name in prepin_file_names:
                 self.save_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.save_prepin(j, file_name))
+                self.display_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.display_prepin(j, file_name))
         self.label_message.configure(text="Session loaded from "+self.file_address)
         if len(self.block_dictionary):
             self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
@@ -330,6 +337,13 @@ class PrepinFileTool:
         else:
             delta_table_window.destroy()
 
+    def display_prepin(self, i, name):
+        prepin_table_window = Table_Window.TableWindow(self.root, name)
+        if prepin_table_window.load_table(self.prepin_files[i]):
+            prepin_table_window.grab_set()
+        else:
+            prepin_table_window.destroy()
+
     def clear_all(self):
         self.clear_prepin_data()
         self.label_block_names_loaded.configure(text="No block dictionary loaded", foreground="red")
@@ -338,9 +352,10 @@ class PrepinFileTool:
         self.variable_dictionary = []
 
     def clear_prepin_data(self):
-        # Removing menu options to save prepin files as csv
+        # Removing menu options to save/display prepin files as csv
         for i in range(len(self.prepin_file_name_index)):
             self.save_prepin_submenu.delete(0)
+            self.display_prepin_submenu.delete(0)
         # Resetting the prepin combo boxes
         for combobox in self.comboboxes_prepin_selection:
             combobox.configure(values=[])
