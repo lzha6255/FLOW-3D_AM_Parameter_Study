@@ -6,6 +6,7 @@ from tkinter.ttk import *
 import csv
 
 import Table_Window
+import Prepin_Writer
 
 
 class PrepinFileTool:
@@ -21,6 +22,7 @@ class PrepinFileTool:
         self.unit_systems = [{"M": "g", "L": "cm", "T": "K", "t": "s", "Q": "scoul"}]
         self.n_prepin_file_selections = 2
         self.delta = []
+        self.prepin_writer = Prepin_Writer.PrepinWriter()
 
         self.root = Tk()
         self.root.title("FLOW-3D prepin file tool")
@@ -61,6 +63,12 @@ class PrepinFileTool:
         self.display_menu.add_cascade(label="prepin.* file", menu=self.display_prepin_submenu)
         self.display_menu.add_separator()
         self.display_menu.add_command(label="Delta", command=self.display_delta)
+
+        # Export menu
+        self.export_menu = Menu(self.menu, tearoff=0)
+        self.menu.add_cascade(label="Export", menu=self.export_menu)
+        self.export_prepin_submenu = Menu(self.menu, tearoff=0)
+        self.export_menu.add_cascade(label="prepin.* file", menu=self.export_prepin_submenu)
 
         # Unit system selection
         self.frame_unit_system = Frame(self.root, padding=5)
@@ -185,6 +193,9 @@ class PrepinFileTool:
         # Adding new display option to the display prepin submenu
         self.display_prepin_submenu.add_command(label=prepin_file_name,
                                                 command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.display_prepin(j, file_name))
+        # Adding new export option to the export prepin submenu
+        self.export_prepin_submenu.add_command(label=prepin_file_name,
+                                               command=lambda j=self.prepin_file_name_index[prepin_file_name], file_name=prepin_file_name: self.export_prepin(j, file_name))
 
     def select_session(self):
         # Confirmation box only appears if a dictionary has been loaded
@@ -226,7 +237,7 @@ class PrepinFileTool:
                     # File validation
                     if row[0] == "PREPIN FILE TOOL SESSION":
                         mode = -1
-        # Configure prepin combo boxes and save/display menu if prepin files have been loaded
+        # Configure prepin combo boxes and save/display/export menu if prepin files have been loaded
         if len(self.prepin_file_name_index):
             prepin_file_names = list(self.prepin_file_name_index)
             for combobox in self.comboboxes_prepin_selection:
@@ -235,6 +246,7 @@ class PrepinFileTool:
             for name in prepin_file_names:
                 self.save_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.save_prepin(j, file_name))
                 self.display_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.display_prepin(j, file_name))
+                self.export_prepin_submenu.add_command(label=name, command=lambda j=self.prepin_file_name_index[name], file_name=name: self.export_prepin(j, file_name))
         self.label_message.configure(text="Session loaded from "+self.file_address)
         if len(self.block_dictionary):
             self.label_block_names_loaded.configure(text="Block name dictionary loaded", foreground="green")
@@ -344,6 +356,15 @@ class PrepinFileTool:
         else:
             prepin_table_window.destroy()
 
+    def export_prepin(self, i, name):
+        self.file_address = ""
+        self.file_address = filedialog.asksaveasfilename(title="Export " + name + " to prepin.* file",
+                                                         filetypes=([("prepin file (prepin.*)", "*prepin.*")]))
+        if not(len(self.file_address)):
+            return
+        self.prepin_writer.set_dataset(data=self.prepin_files[i].copy())
+        self.prepin_writer.write(file_name=self.file_address)
+
     def clear_all(self):
         self.clear_prepin_data()
         self.label_block_names_loaded.configure(text="No block dictionary loaded", foreground="red")
@@ -352,10 +373,11 @@ class PrepinFileTool:
         self.variable_dictionary = []
 
     def clear_prepin_data(self):
-        # Removing menu options to save/display prepin files as csv
+        # Removing menu options to save/display/export prepin files as csv
         for i in range(len(self.prepin_file_name_index)):
             self.save_prepin_submenu.delete(0)
             self.display_prepin_submenu.delete(0)
+            self.export_prepin_submenu.delete(0)
         # Resetting the prepin combo boxes
         for combobox in self.comboboxes_prepin_selection:
             combobox.configure(values=[])
