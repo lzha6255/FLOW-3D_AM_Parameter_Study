@@ -421,7 +421,9 @@ class PrepinFileTool:
                 # Variable names are preceded by ":envvar:" and surrounded by backticks.
                 else:
                     # Sometimes the variable name may have a subscript in brackets
-                    if line[len(line) - 3] == ")":
+                    # If this is not the first line in this row, then this is not the variable name and so ignore
+                    # subscripting
+                    if len(row) == 0 and line[len(line) - 3] == ")":
                         for i in range(len(line)):
                             if line[i] == "(":
                                 row.append(line[16:i])
@@ -430,7 +432,8 @@ class PrepinFileTool:
                     # Non subscripted case
                     else:
                         row.append(line[16:len(line) - 2])
-                        row.append("")
+                        if len(row) == 1:
+                            row.append("")
 
             line = fp.readline()
             line_number = line_number + 1
