@@ -7,6 +7,7 @@ import csv
 
 import Table_Window
 import Prepin_Writer
+import Parameter_Sweeper
 
 
 class PrepinFileTool:
@@ -23,6 +24,7 @@ class PrepinFileTool:
         self.n_prepin_file_selections = 2
         self.delta = []
         self.prepin_writer = Prepin_Writer.PrepinWriter()
+        self.parameter_sweeper = Parameter_Sweeper.ParameterSweeper()
 
         self.root = Tk()
         self.root.title("FLOW-3D prepin file tool")
@@ -112,6 +114,21 @@ class PrepinFileTool:
         self.button_calculate_delta.pack(side=LEFT)
         self.button_display_delta.pack(side=LEFT)
 
+        # Parameter Sweep Entry Boxes
+        self.frame_sweep = Frame(self.root, padding=5)
+        self.parameter_var = StringVar()
+        self.step_var = StringVar()
+        self.label_parameter = Label(self.frame_sweep, text="Parameters to Sweep:")
+        self.label_step = Label(self.frame_sweep, text="Parameter Steps:")
+        self.entry_parameters = Entry(self.frame_sweep, textvariable=self.parameter_var)
+        self.entry_steps = Entry(self.frame_sweep, textvariable=self.step_var)
+        self.button_sweep = Button(self.frame_sweep, text="Sweep Parameters", command=self.parameter_sweep)
+        self.label_parameter.pack(side=TOP)
+        self.entry_parameters.pack(side=TOP)
+        self.label_step.pack(side=TOP)
+        self.entry_steps.pack(side=TOP)
+        self.button_sweep.pack(side=TOP)
+
         # Placing right side widgets and frames
         self.frame_clear_data.pack(anchor=NE, side=RIGHT)
 
@@ -119,6 +136,7 @@ class PrepinFileTool:
         self.frame_unit_system.pack(anchor=NW, side=TOP)
         self.frame_prepin_selector.pack(anchor=NW, side=TOP)
         self.frame_delta.pack(anchor=NW, side=TOP)
+        self.frame_sweep.pack(anchor=NW, side=TOP)
 
         # Placing bottom side widgets and frames
         self.label_message.pack(anchor=SW, side=BOTTOM)
@@ -601,6 +619,19 @@ class PrepinFileTool:
             row.append("ADDED")
             self.delta.append(row)
         self.label_message.configure(text=message, foreground="black")
+
+    def parameter_sweep(self):
+        parameter_str = self.parameter_var.get()
+        step_str = self.step_var.get()
+        if not(len(parameter_str) and len(step_str)):
+            messagebox.showerror(title="Missing Data",
+                                 message="No parameters and/or no step values have been specified")
+            return
+        # Loading parameter sweeper with prepin data from first combobox
+        combobox = self.comboboxes_prepin_selection[0]
+        self.parameter_sweeper.set_origin(self.prepin_files[self.prepin_file_name_index[combobox.get()]].copy())
+        self.parameter_sweeper.set_axes(parameter_str)
+        self.parameter_sweeper.set_steps(step_str)
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):
