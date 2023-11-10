@@ -71,6 +71,8 @@ class PrepinFileTool:
         self.menu.add_cascade(label="Export", menu=self.export_menu)
         self.export_prepin_submenu = Menu(self.menu, tearoff=0)
         self.export_menu.add_cascade(label="prepin.* file", menu=self.export_prepin_submenu)
+        self.export_menu.add_separator()
+        self.export_menu.add_command(label="Parameter sweep", command=self.export_parameter_sweep)
 
         # Unit system selection
         self.frame_unit_system = Frame(self.root, padding=5)
@@ -639,6 +641,11 @@ class PrepinFileTool:
         self.parameter_sweeper.set_axes(parameter_str)
         self.parameter_sweeper.set_steps(step_str, n_steps_str)
         self.parameter_sweeper.parameter_sweep()
+
+    def export_parameter_sweep(self):
+        self.file_address = ""
+        self.file_address = filedialog.asksaveasfilename(title="Save parameter sweep files with name")
+        self.parameter_sweeper.export_sweep(self.file_address)
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):
