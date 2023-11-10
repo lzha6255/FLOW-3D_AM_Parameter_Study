@@ -2,7 +2,8 @@ class ParameterSweeper:
     def __init__(self):
         self.origin = []        # The base model
         self.axes = []          # The parameters that are being swept. This is an array of indexes for the origin
-        self.steps = []         # The steps over which the sweep occurs
+        # 2 x n array. First row contains the step sizes, second row contains the number of steps
+        self.steps = [[], []]
         self.sweep = []         # Multidimensional array containing the parameter sweep
 
     def set_origin(self, dataset):
@@ -40,13 +41,19 @@ class ParameterSweeper:
         print(self.axes)
 
     # parameter_steps is expected to be a string of comma separated numerical values
-    def set_steps(self, parameter_steps):
+    def set_steps(self, parameter_steps, n_steps):
         previous_comma = 0
         for i in range(len(parameter_steps)):
             if parameter_steps[i] == ",":
-                self.steps.append(float(parameter_steps[previous_comma:i]))
+                self.steps[0].append(float(parameter_steps[previous_comma:i]))
                 previous_comma = i + 1
-        self.steps.append(float(parameter_steps[previous_comma:]))
+        self.steps[0].append(float(parameter_steps[previous_comma:]))
+        previous_comma = 0
+        for i in range(len(n_steps)):
+            if n_steps[i] == ",":
+                self.steps[1].append(int(n_steps[previous_comma:i]))
+                previous_comma = i + 1
+        self.steps[1].append(int(n_steps[previous_comma:]))
         print(self.steps)
 
     def sweep(self):
@@ -56,4 +63,6 @@ class ParameterSweeper:
         # There must be a step specified for each axis
         if not(len(self.axes) == len(self.steps)):
             return
-
+        # Sweeping
+        for i in range(len(self.axes)):
+            pass

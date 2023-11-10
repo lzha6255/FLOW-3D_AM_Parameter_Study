@@ -118,15 +118,20 @@ class PrepinFileTool:
         self.frame_sweep = Frame(self.root, padding=5)
         self.parameter_var = StringVar()
         self.step_var = StringVar()
+        self.n_steps_var = StringVar()
         self.label_parameter = Label(self.frame_sweep, text="Parameters to Sweep:")
         self.label_step = Label(self.frame_sweep, text="Parameter Steps:")
+        self.label_n_steps = Label(self.frame_sweep, text="Number of Steps:")
         self.entry_parameters = Entry(self.frame_sweep, textvariable=self.parameter_var)
         self.entry_steps = Entry(self.frame_sweep, textvariable=self.step_var)
+        self.entry_n_steps = Entry(self.frame_sweep, textvariable=self.n_steps_var)
         self.button_sweep = Button(self.frame_sweep, text="Sweep Parameters", command=self.parameter_sweep)
         self.label_parameter.pack(side=TOP)
         self.entry_parameters.pack(side=TOP)
         self.label_step.pack(side=TOP)
         self.entry_steps.pack(side=TOP)
+        self.label_n_steps.pack(side=TOP)
+        self.entry_n_steps.pack(side=TOP)
         self.button_sweep.pack(side=TOP)
 
         # Placing right side widgets and frames
@@ -623,6 +628,7 @@ class PrepinFileTool:
     def parameter_sweep(self):
         parameter_str = self.parameter_var.get()
         step_str = self.step_var.get()
+        n_steps_str = self.n_steps_var.get()
         if not(len(parameter_str) and len(step_str)):
             messagebox.showerror(title="Missing Data",
                                  message="No parameters and/or no step values have been specified")
@@ -631,7 +637,7 @@ class PrepinFileTool:
         combobox = self.comboboxes_prepin_selection[0]
         self.parameter_sweeper.set_origin(self.prepin_files[self.prepin_file_name_index[combobox.get()]].copy())
         self.parameter_sweeper.set_axes(parameter_str)
-        self.parameter_sweeper.set_steps(step_str)
+        self.parameter_sweeper.set_steps(step_str, n_steps_str)
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):

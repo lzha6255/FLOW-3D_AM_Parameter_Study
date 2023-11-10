@@ -45,7 +45,7 @@ class PrepinWriter:
                 first_block = False
             # Writing Parameters
             else:
-                line = "\t" + self.prepin_data[i][0].lower()
+                line = "    " + self.prepin_data[i][0].lower()
                 # Adding subscript if it exists
                 if len(self.prepin_data[i][1]):
                     line = line + "(" + self.prepin_data[i][1] + ")"
