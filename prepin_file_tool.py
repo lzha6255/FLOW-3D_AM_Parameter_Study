@@ -638,6 +638,7 @@ class PrepinFileTool:
         self.parameter_sweeper.set_origin(self.prepin_files[self.prepin_file_name_index[combobox.get()]].copy())
         self.parameter_sweeper.set_axes(parameter_str)
         self.parameter_sweeper.set_steps(step_str, n_steps_str)
+        self.parameter_sweeper.parameter_sweep()
 
     def add_csv_file_extension(self):
         if not(self.file_address[len(self.file_address)-4:] == ".csv"):

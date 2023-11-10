@@ -2,9 +2,9 @@ class ParameterSweeper:
     def __init__(self):
         self.origin = []        # The base model
         self.axes = []          # The parameters that are being swept. This is an array of indexes for the origin
-        # 2 x n array. First row contains the step sizes, second row contains the number of steps
-        self.steps = [[], []]
-        self.sweep = []         # Multidimensional array containing the parameter sweep
+        self.n_steps = []       # The number of steps to take in the respective axis
+        self.steps = []         # The step value
+        self.sweep = []         # Multidimensional array containing the parameter sweep in row-major order
 
     def set_origin(self, dataset):
         self.origin = dataset
@@ -45,24 +45,37 @@ class ParameterSweeper:
         previous_comma = 0
         for i in range(len(parameter_steps)):
             if parameter_steps[i] == ",":
-                self.steps[0].append(float(parameter_steps[previous_comma:i]))
+                self.steps.append(float(parameter_steps[previous_comma:i]))
                 previous_comma = i + 1
-        self.steps[0].append(float(parameter_steps[previous_comma:]))
+        self.steps.append(float(parameter_steps[previous_comma:]))
         previous_comma = 0
         for i in range(len(n_steps)):
             if n_steps[i] == ",":
-                self.steps[1].append(int(n_steps[previous_comma:i]))
+                self.n_steps.append(int(n_steps[previous_comma:i]))
                 previous_comma = i + 1
-        self.steps[1].append(int(n_steps[previous_comma:]))
+        self.n_steps.append(int(n_steps[previous_comma:]))
         print(self.steps)
+        print(self.n_steps)
 
-    def sweep(self):
-        # All required data must be set
-        if not(len(self.origin) and len(self.axes) and len(self.steps)):
-            return
-        # There must be a step specified for each axis
-        if not(len(self.axes) == len(self.steps)):
-            return
+    def parameter_sweep(self):
+        print("Sweeping Parameters")
+        # The sweep may be multidimensional, this array stores the strides in each dimension
+        stride = [1]
+        # Array to store the index where each dimension starts
+        dimension_index = [0]
+        for n in self.n_steps:
+            stride.append(n * stride[len(stride)-1])
+            dimension_index.append(dimension_index[len(dimension_index)-1] + stride[len(stride)-1])
+        print(stride)
         # Sweeping
-        for i in range(len(self.axes)):
-            pass
+        self.sweep = [self.origin.copy()]
+        for axis in range(len(self.axes)):
+            # Make each step
+            for step in range(1, self.n_steps[axis]+1):
+                for i in range(stride[axis]):
+                    # Copy, edit and append the prepin dataset
+                    dataset = self.sweep[dimension_index[axis]+i].copy()
+                    value = float(dataset[self.axes[axis]][5]) + step * self.steps[axis]
+                    dataset[self.axes[axis]][5] = str(value)
+                    self.sweep.append(dataset)
+        print(self.sweep)
