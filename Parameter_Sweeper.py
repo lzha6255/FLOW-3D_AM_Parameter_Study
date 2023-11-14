@@ -1,6 +1,13 @@
 import Prepin_Writer
 
 
+def deep_copy_2d(dataset):
+    new_copy = []
+    for i in range(len(dataset)):
+        new_copy.append(dataset[i].copy())
+    return new_copy
+
+
 class ParameterSweeper:
     def __init__(self):
         self.origin = []        # The base model
@@ -79,14 +86,14 @@ class ParameterSweeper:
             dimension_index.append(dimension_index[len(dimension_index)-1] + stride[len(stride)-1])
         print(stride)
         # Sweeping
-        self.sweep = [self.origin.copy()]
+        self.sweep = [deep_copy_2d(self.origin)]
         for axis in range(len(self.axes)):
             # Make each step
             for step in range(1, self.n_steps[axis]+1):
                 for i in range(stride[axis]):
                     print("Axis: " + str(axis) + "\nStep: " + str(step) + "\nStride: " + str(i) + "\nFrom: " + str(i) + "\n")
                     # Copy, edit and append the prepin dataset
-                    dataset = self.sweep[i].copy()
+                    dataset = deep_copy_2d(self.sweep[i])
                     value = float(dataset[self.axes[axis]][5]) + step * self.steps[axis]
                     dataset[self.axes[axis]][5] = str(value)
                     self.sweep.append(dataset)
